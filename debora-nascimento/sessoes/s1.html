@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>S1 · Diagnóstico · Mentoria IA Executiva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../_shared/assets/style.css">
+  <style>
+    .ficha { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 22px 26px; margin: 18px 0; }
+    .ficha-row { display: grid; grid-template-columns: 140px 1fr; gap: 12px; padding: 10px 0; border-top: 1px solid var(--border); font-size: 14.5px; }
+    .ficha-row:first-of-type { border-top: none; padding-top: 0; }
+    .ficha-row-lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--ink-muted); padding-top: 3px; }
+    .ficha-row-val { color: var(--ink); line-height: 1.55; }
+
+    .frentes-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 18px 0; }
+    .frente-card { background: var(--bg-card); border: 1px solid var(--border); border-top: 4px solid var(--accent); border-radius: 8px; padding: 18px 20px; }
+    .frente-card .frente-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--accent-warm-dark); margin-bottom: 6px; }
+    .frente-card h4 { font-family: var(--serif); font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+    .frente-card p { font-size: 13.5px; color: var(--ink-soft); margin: 0; line-height: 1.55; }
+
+    .marcos { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 18px 0; }
+    .marco-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px 22px; display: grid; grid-template-columns: 80px 1fr; gap: 18px; align-items: start; }
+    .marco-card-num { font-family: var(--serif); font-size: 32px; font-weight: 700; color: var(--accent); line-height: 1; }
+    .marco-card h4 { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-bottom: 4px; color: var(--ink); }
+    .marco-card-data { font-size: 12.5px; color: var(--ink-muted); margin-bottom: 8px; }
+    .marco-card p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.55; }
+
+    .casa-card { background: var(--bg-warm); border-left: 4px solid var(--accent-warm); border-radius: 0 8px 8px 0; padding: 22px 26px; margin: 20px 0; }
+    .casa-card h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+    .casa-card .casa-prazo { font-size: 13px; color: var(--ink-muted); font-style: italic; margin-bottom: 14px; }
+    .casa-item { display: grid; grid-template-columns: 36px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--border-strong); align-items: start; }
+    .casa-item:first-of-type { border-top: none; padding-top: 4px; }
+    .casa-item-num { background: var(--accent); color: #fff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 700; font-size: 14px; flex-shrink: 0; }
+    .casa-item-texto { font-size: 14.5px; color: var(--ink); line-height: 1.55; }
+    .casa-item-texto strong { display: block; margin-bottom: 3px; font-family: var(--serif); }
+    .casa-item-texto p { font-size: 13.5px; color: var(--ink-soft); margin: 4px 0 0; }
+
+    .citacao { background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 14px 20px; border-radius: 0 6px 6px 0; margin: 18px 0; font-style: italic; font-size: 15px; color: var(--ink); line-height: 1.55; }
+    .citacao::before { content: "“"; font-family: var(--serif); font-size: 32px; color: var(--accent); line-height: 0.5; vertical-align: -10px; margin-right: 4px; }
+
+    .callout-mentoria { background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 20px 0; font-size: 14.5px; color: var(--ink-soft); line-height: 1.6; }
+    .callout-mentoria strong { color: var(--ink); }
+
+    @media (max-width: 720px) {
+      .frentes-grid { grid-template-columns: 1fr; }
+      .marco-card { grid-template-columns: 60px 1fr; }
+      .marco-card-num { font-size: 26px; }
+      .ficha-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="../" class="topbar-logo">Mentoria IA Executiva · Débora</a>
+      <nav class="topbar-nav">
+        <a href="../">Início</a>
+        <a href="../m1-fundamentos/">M1 Fundamentos</a>
+        <a href="../banco-de-prompts/">Banco</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="module-header site-container">
+    <p class="eyebrow">Sessão 1 · Diagnóstico</p>
+    <h1>O que rolou na primeira<br>sessão e o que vem agora.</h1>
+    <div class="module-header-meta">
+      <span>16 de junho de 2026</span>
+      <span>·</span>
+      <span>Presencial · 2h</span>
+    </div>
+  </div>
+
+  <section class="section content-section reveal" id="conversa">
+    <div class="site-container">
+      <p class="eyebrow">A conversa</p>
+      <h2>Do que a gente falou</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        A primeira sessão foi de <strong>conhecer você</strong> e mostrar a IA funcionando ao vivo. A gente passou pelo seu dia a dia na Câmara, falou da banda, dos casos onde IA poderia entrar, e principalmente: <em>pra onde você quer ir</em>.
+      </p>
+      <p>
+        Eu mostrei o Claude criando planilha do zero (a partir de descrição falada), expliquei o que é prompt, e a gente comparou pergunta vaga vs pergunta com contexto. Você viu a diferença na prática.
+      </p>
+
+      <div class="citacao">
+        Eu nem tenho dores agora, porque eu tenho todas as pessoas que me fornecem o que eu preciso. Eu já tô prevendo uma dor futura.
+      </div>
+
+      <p style="font-size:15px; color:var(--ink-soft);">
+        Essa frase resume o que ficou claro: <strong>você não está aqui pra resolver problema de hoje na Câmara</strong> — está aqui pra ganhar competência transferível pra <em>quando</em> e <em>se</em> sair. Isso muda o que a gente vai fazer nas próximas sessões: foco em construir vocabulário, repertório e prática real em IA, ancorando em casos que <em>você escolhe</em>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="ficou-claro" style="background:var(--bg-warm);">
+    <div class="site-container">
+      <p class="eyebrow">O que ficou claro</p>
+      <h2>Suas 5 frentes de interesse</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:18px;">
+        Você trouxe pré-sessão uma lista clara de 5 áreas onde quer competência em IA. A gente vai trabalhar todas, mas com pesos diferentes — as 3 primeiras puxam a maior parte do tempo:
+      </p>
+
+      <div class="frentes-grid">
+        <div class="frente-card">
+          <div class="frente-tag">Frente principal</div>
+          <h4>Gestão Empresarial</h4>
+          <p>Procedimentos, rotinas, relatórios, treinamentos. A espinha do papel de gestora administrativa.</p>
+        </div>
+        <div class="frente-card">
+          <div class="frente-tag">Frente principal</div>
+          <h4>Gestão Financeira</h4>
+          <p>Fluxo de caixa, margem, controle. Caso âncora possível: as finanças da banda.</p>
+        </div>
+        <div class="frente-card">
+          <div class="frente-tag">Frente principal</div>
+          <h4>RH &amp; Gestão de Pessoas</h4>
+          <p>Triagem, entrevista, avaliação, plano de desenvolvimento. Onde você quer construir diferencial pro mercado privado.</p>
+        </div>
+        <div class="frente-card" style="border-top-color:var(--accent-warm);">
+          <div class="frente-tag" style="color:var(--accent-warm-dark);">Frente secundária</div>
+          <h4>Marketing</h4>
+          <p>Campanhas, público-alvo, copy. Entra conforme abertura/projeto.</p>
+        </div>
+        <div class="frente-card" style="border-top-color:var(--accent-warm);">
+          <div class="frente-tag" style="color:var(--accent-warm-dark);">Frente secundária</div>
+          <h4>Atendimento ao Cliente</h4>
+          <p>Padrões, mensagens, scripts. Entra conforme abertura/projeto.</p>
+        </div>
+      </div>
+
+      <div class="callout-mentoria"><strong>O banco de prompts da sua página</strong> já tem 17 prompts mapeados nessas 5 áreas — <a href="../banco-de-prompts/">você pode explorar agora</a>. Os prompts vão evoluir e crescer conforme a gente vai trabalhando casos reais nas sessões.</div>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="trilha">
+    <div class="site-container">
+      <p class="eyebrow">Sua trilha</p>
+      <h2>De onde você sai e onde quer chegar</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        A mentoria usa uma régua de 7 níveis pra falar sobre evolução (explicada no <a href="../m1-fundamentos/#onde-voce-esta">M1 Fundamentos</a>). Pela conversa de hoje, dá pra desenhar com clareza:
+      </p>
+
+      <div class="ficha">
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">Hoje</div>
+          <div class="ficha-row-val"><strong>Pré-Explorador</strong> — você nunca usou IA generativa antes desta semana. Não é "atrasada" — é o começo do caminho. A maioria das pessoas começa aqui.</div>
+        </div>
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">Alvo S8</div>
+          <div class="ficha-row-val"><strong>Aprendiz</strong> — você vai usar IA com regularidade, refraseando até ficar bom, com uma biblioteca pessoal de prompts viva.</div>
+        </div>
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">Stretch</div>
+          <div class="ficha-row-val"><strong>Construtora</strong> — você vai criar espaços com contexto pré-carregado (Projects), comparar modelos, automatizar partes da rotina. Possível se você cumprir as casas com consistência.</div>
+        </div>
+      </div>
+
+      <h3 style="font-family:var(--serif); font-size:20px; font-weight:600; margin: 28px 0 10px;">Os 3 marcos até dezembro</h3>
+
+      <div class="marcos">
+        <div class="marco-card">
+          <div class="marco-card-num">S2</div>
+          <div>
+            <h4>Refinamento das frentes</h4>
+            <div class="marco-card-data">Próxima sessão · 2h</div>
+            <p>A gente fecha o caso-âncora prático (você escolhe entre os 5 desejos), preenche o Mapa Pessoal 5D ao vivo, e começa a executar. <strong>O que destrava S2: você trazer 3-5 vagas que te interessam</strong> — isso direciona tudo daqui pra frente.</p>
+          </div>
+        </div>
+        <div class="marco-card">
+          <div class="marco-card-num">S5</div>
+          <div>
+            <h4>Pilotos rodando</h4>
+            <div class="marco-card-data">Meio da jornada</div>
+            <p>Você tem 2 casos reais usando IA <em>com frequência</em> (≥3×/semana). Sua biblioteca de prompts tem ≥15 itens ativos. Você já se pega abrindo Claude por reflexo.</p>
+          </div>
+        </div>
+        <div class="marco-card">
+          <div class="marco-card-num">S8</div>
+          <div>
+            <h4>Autonomia</h4>
+            <div class="marco-card-data">Encerramento</div>
+            <p>Nível Aprendiz confirmado. Plano de 30 dias autônomos pronto. Diretrizes pessoais escritas com base em situações reais. Você sabe o que faz e o que não faz com IA.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="casa" style="background:var(--bg-warm);">
+    <div class="site-container">
+      <p class="eyebrow">Casa pra próxima sessão</p>
+      <h2>4 coisas pra fazer antes da S2</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Nada complicado. Mas a S2 só destrava se você fizer pelo menos a primeira — sem ela, a gente fica de novo em diagnóstico.
+      </p>
+
+      <div class="casa-card">
+        <div class="casa-item">
+          <div class="casa-item-num">1</div>
+          <div class="casa-item-texto"><strong>Pesquisar 3-5 vagas no LinkedIn que te interessam</strong>
+            <p>Gerente de RH, gerente comercial, gerente administrativa, ou o que mais aparecer. Salva o link ou tira print. Vai ser nosso ponto de partida pra direcionar o que aprender — sem isso, a gente tá adivinhando o que prepara.</p>
+          </div>
+        </div>
+        <div class="casa-item">
+          <div class="casa-item-num">2</div>
+          <div class="casa-item-texto"><strong>Tirar prints do extrato bancário da banda</strong>
+            <p>Pode ser do mês inteiro de junho (ou só da última semana, pra testar). A gente vai usar pra ver o Claude lendo imagem e atualizando uma planilha sozinho. É o teste prático de IA "trabalhando" pra você.</p>
+          </div>
+        </div>
+        <div class="casa-item">
+          <div class="casa-item-num">3</div>
+          <div class="casa-item-texto"><strong>Trazer seu notebook pessoal</strong>
+            <p>O notebook que tem o seu dia a dia "de casa" — não o da Câmara. A gente vai instalar e configurar Claude no seu próprio ambiente. Importante que seja o seu, pra ficar com você depois.</p>
+          </div>
+        </div>
+        <div class="casa-item">
+          <div class="casa-item-num">4</div>
+          <div class="casa-item-texto"><strong>Ler M1 desta página</strong>
+            <p>São 12 minutos. <a href="../m1-fundamentos/">Está aqui</a>. Conceitos centrais (os 7 níveis, WYSIATI, riscos) — se você chegar com o vocabulário, a gente avança bem mais rápido na S2.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout-mentoria"><strong>Se ficar apertado:</strong> manda WhatsApp avisando, a gente reagenda. Mas tenta pelo menos a (1) — é o que destrava o roteiro inteiro.</div>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="materiais">
+    <div class="site-container">
+      <p class="eyebrow">Materiais</p>
+      <h2>Pra acessar quando quiser</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Sua página vai crescer a cada sessão. Por enquanto, o que já está disponível:
+      </p>
+
+      <div class="ficha">
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">Pronto</div>
+          <div class="ficha-row-val"><a href="../m1-fundamentos/">M1 — Fundamentos de IA</a> (~12 min) · <a href="../m4-prompts/">M4 — Engenharia de Prompts PCTFL</a> (~15 min) · <a href="../banco-de-prompts/">Banco de prompts</a> (17 prompts nas suas 5 áreas)</div>
+        </div>
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">Em construção</div>
+          <div class="ficha-row-val">M2 (Inteligência Estratégica — 3 modos de uso) · M3 (Framework IPO — estruturar antes de pedir). Disponíveis em breve.</div>
+        </div>
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">Vou enviar</div>
+          <div class="ficha-row-val">Mapa Pessoal 5D (planilha pra preencher na S2 comigo) · Manual de Onboarding (1 página com "como acessar tua página + 3 passos antes da S2") · Confirmação de data e local da S2.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="proxima" style="background:var(--bg-warm);">
+    <div class="site-container" style="text-align:center;">
+      <p class="eyebrow">Próxima sessão</p>
+      <h2 style="font-family:var(--serif); font-size:24px; font-weight:600; margin-bottom: 8px;">S2 — Entrevista de profundidade</h2>
+      <p style="font-size:15px; color:var(--ink-soft); max-width:560px; margin: 0 auto 14px;">A gente vai sentar com as vagas que você trouxe, preencher o Mapa Pessoal 5D, fechar o caso-âncora prático, e começar a executar. 2h. Data a confirmar via WhatsApp.</p>
+      <p style="font-size:14px; color:var(--ink-muted); max-width:560px; margin: 0 auto;">Qualquer dúvida no caminho — manda mensagem.</p>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid var(--border); padding: 28px 24px; text-align:center; color:var(--ink-muted); font-size:13px; margin-top:40px;">
+    <p>Mentoria IA Executiva · Rafael Lima · 2026</p>
+    <p style="font-size:12px; margin-top:6px;">Sessão 1 · 16/jun/2026 · Diagnóstico</p>
+  </footer>
+
+</body>
+</html>

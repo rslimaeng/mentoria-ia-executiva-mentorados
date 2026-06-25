@@ -9,6 +9,52 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../_shared/assets/style.css">
+  <style>
+    .modos-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 22px 0; }
+    .modo-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 24px 28px; position: relative; }
+    .modo-card.auto { border-top: 4px solid #6e9ad1; }
+    .modo-card.colab { border-top: 4px solid var(--accent-warm); }
+    .modo-card.manual { border-top: 4px solid var(--accent); }
+    .modo-card-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; }
+    .modo-card-tag { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; }
+    .modo-card.auto .modo-card-tag { background: #e8f0f7; color: #3d6b8e; }
+    .modo-card.colab .modo-card-tag { background: rgba(194,145,107,0.15); color: var(--accent-warm-dark); }
+    .modo-card.manual .modo-card-tag { background: rgba(44,95,112,0.12); color: var(--accent-dark); }
+    .modo-card h3 { font-family: var(--serif); font-size: 22px; font-weight: 600; margin: 0; color: var(--ink); }
+    .modo-card-when { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 14px; line-height: 1.55; }
+    .modo-card-when strong { color: var(--ink); }
+    .modo-card-blocos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+    .modo-bloco-mini { background: var(--bg-warm); padding: 12px 14px; border-radius: 6px; }
+    .modo-bloco-mini-lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 5px; }
+    .modo-bloco-mini-list { font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
+    .modo-bloco-mini-list li { margin-bottom: 4px; padding-left: 16px; position: relative; list-style: none; }
+    .modo-bloco-mini-list li::before { content: "•"; position: absolute; left: 4px; color: var(--accent); }
+    .modo-card-ex { background: #1f1d1a; color: #e8e3d5; padding: 14px 18px; border-radius: 6px; margin-top: 16px; font-family: var(--mono); font-size: 13px; line-height: 1.6; }
+    .modo-card-ex-lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #c2916b; margin-bottom: 6px; }
+
+    .matriz-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 20px 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .matriz-table th { background: var(--bg-warm); padding: 12px 14px; text-align: left; font-size: 12px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: var(--ink-soft); border-bottom: 1px solid var(--border); }
+    .matriz-table td { padding: 12px 14px; font-size: 14.5px; color: var(--ink); border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+    .matriz-table tr:last-child td { border-bottom: none; }
+    .matriz-tag { display: inline-block; padding: 3px 9px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+    .matriz-tag.auto { background: #e8f0f7; color: #3d6b8e; }
+    .matriz-tag.colab { background: rgba(194,145,107,0.15); color: var(--accent-warm-dark); }
+    .matriz-tag.manual { background: rgba(44,95,112,0.12); color: var(--accent-dark); }
+
+    .nao-usar { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 18px 0; }
+    .nao-usar-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid #c45e5e; border-radius: 0 6px 6px 0; padding: 16px 20px; }
+    .nao-usar-card h4 { font-family: var(--serif); font-size: 16px; font-weight: 600; margin-bottom: 4px; color: var(--ink); }
+    .nao-usar-card p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.55; }
+
+    .callout-mentoria { background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 20px 0; font-size: 14.5px; color: var(--ink-soft); line-height: 1.6; }
+    .callout-mentoria strong { color: var(--ink); }
+
+    @media (max-width: 640px) {
+      .modo-card-blocos { grid-template-columns: 1fr; }
+      .matriz-table { font-size: 13px; }
+      .matriz-table th, .matriz-table td { padding: 10px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -25,27 +71,258 @@
 
   <div class="module-header site-container">
     <p class="eyebrow">M2 · Inteligência Estratégica</p>
-    <h1>Quando confiar, quando revisar.</h1>
+    <h1>Quando confiar,<br>quando revisar.</h1>
     <div class="module-header-meta">
       <span>~10 min de leitura</span>
       <span>·</span>
-      <span>3 modos de uso da IA</span>
+      <span>3 modos de uso da IA + matriz de decisão</span>
     </div>
   </div>
 
-  <section class="section content-section reveal">
+  <section class="section content-section reveal" id="dilema">
     <div class="site-container">
-      <p class="eyebrow">Em construção</p>
-      <h2>Conteúdo a popular</h2>
-      <p style="font-size:15.5px; color:var(--ink-soft);">
-        Este módulo vai cobrir os 3 modos de uso da IA — <strong>autopiloto</strong>, <strong>colaboração</strong> e <strong>manual</strong> — e como decidir entre eles em função do risco da decisão, da especialização da tarefa e do tempo disponível.
+      <p class="eyebrow">2.1 · O dilema</p>
+      <h2>"Faço eu, ou deixo a IA fazer?"</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Toda vez que você abre o Claude, tem essa decisão silenciosa: <strong>quanto confiar agora?</strong> A resposta certa não é "sempre" nem "nunca" — é <em>"depende"</em>. O que define o "depende" são 3 variáveis:
       </p>
-      <p style="font-size:15.5px; color:var(--ink-soft);">
-        A populá-lo na próxima onda do trabalho — adaptado do workshop GPS, com exemplos administrativos genéricos pra ser fácil de transpor pras suas 5 áreas (Gestão Empresarial · Marketing · Financeiro · Atendimento · RH).
+      <ul style="font-size:15px; color:var(--ink-soft); line-height:1.7;">
+        <li><strong>Risco da decisão:</strong> se sair errado, qual o impacto?</li>
+        <li><strong>Especialização da tarefa:</strong> é genérico (o mercado já fez milhões) ou específico (precisa do teu contexto)?</li>
+        <li><strong>Tempo disponível:</strong> é "agora" ou "essa semana"?</li>
+      </ul>
+      <p>Cada combinação dessas variáveis sugere um dos <strong>3 modos de uso</strong> da IA.</p>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="modos" style="background:var(--bg-warm);">
+    <div class="site-container">
+      <p class="eyebrow">2.2 · Os 3 modos</p>
+      <h2>Autopiloto · Colaboração · Manual</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Não é "qual é melhor" — é <em>qual cabe agora</em>. Cada modo tem seu lugar.
       </p>
-      <div style="background:var(--bg-warm); border-left:3px solid var(--accent); padding:14px 18px; border-radius:0 6px 6px 0; margin:20px 0; font-size:14.5px; color:var(--ink-soft);">
-        <strong>Por enquanto:</strong> volte ao <a href="../m1-fundamentos/">M1</a> ou pule pro <a href="../m4-prompts/">M4 (PCTFL)</a> — esse já está pronto.
+
+      <div class="modos-grid">
+
+        <div class="modo-card auto">
+          <div class="modo-card-head">
+            <span class="modo-card-tag">Modo 1 · Autopiloto</span>
+          </div>
+          <h3>"Faz e me entrega — eu só conferi."</h3>
+          <p class="modo-card-when">Você delega a execução inteira pra IA e recebe o resultado quase pronto. Usa quando a tarefa é <strong>baixo risco</strong>, <strong>repetível</strong> e o tempo é curto.</p>
+          <div class="modo-card-blocos">
+            <div class="modo-bloco-mini">
+              <div class="modo-bloco-mini-lbl">✅ Quando usar</div>
+              <ul class="modo-bloco-mini-list">
+                <li>Resumir reunião transcrita</li>
+                <li>Categorizar lista de gastos</li>
+                <li>Gerar 10 ideias pra um título</li>
+                <li>Traduzir comunicado interno</li>
+              </ul>
+            </div>
+            <div class="modo-bloco-mini">
+              <div class="modo-bloco-mini-lbl">❌ Quando NÃO usar</div>
+              <ul class="modo-bloco-mini-list">
+                <li>Decisão com impacto em pessoa</li>
+                <li>Dado financeiro pra publicar</li>
+                <li>Comunicado público importante</li>
+                <li>Qualquer coisa que vai sair com seu nome sem revisão</li>
+              </ul>
+            </div>
+          </div>
+          <div class="modo-card-ex">
+            <div class="modo-card-ex-lbl">📋 Exemplo de prompt em autopiloto</div>"Resuma essa transcrição em 5 bullets do que foi decidido + 3 próximos passos. Linguagem direta. Máximo 200 palavras."
+          </div>
+        </div>
+
+        <div class="modo-card colab">
+          <div class="modo-card-head">
+            <span class="modo-card-tag">Modo 2 · Colaboração</span>
+          </div>
+          <h3>"Vamos pensar juntas."</h3>
+          <p class="modo-card-when">Você usa a IA como uma <strong>parceira de raciocínio</strong>: ela gera, você critica, refraseia, refina. Várias trocas até chegar ao resultado. Usa quando a tarefa importa, tem <strong>nuance</strong> ou exige <strong>seu julgamento</strong>.</p>
+          <div class="modo-card-blocos">
+            <div class="modo-bloco-mini">
+              <div class="modo-bloco-mini-lbl">✅ Quando usar</div>
+              <ul class="modo-bloco-mini-list">
+                <li>Preparar reunião difícil</li>
+                <li>Estruturar plano de 30/60/90 dias</li>
+                <li>Revisar feedback pra liderado</li>
+                <li>Decidir como abordar conflito</li>
+              </ul>
+            </div>
+            <div class="modo-bloco-mini">
+              <div class="modo-bloco-mini-lbl">❌ Quando NÃO usar</div>
+              <ul class="modo-bloco-mini-list">
+                <li>Tarefa de 2 minutos (overkill)</li>
+                <li>Decisão que só depende de você</li>
+                <li>Quando você quer só descarregar — não pensar</li>
+              </ul>
+            </div>
+          </div>
+          <div class="modo-card-ex">
+            <div class="modo-card-ex-lbl">📋 Exemplo de prompt em colaboração</div>"Vou te explicar uma situação. Não responda ainda — me faça 3 perguntas pra entender melhor antes. [contexto]"
+          </div>
+        </div>
+
+        <div class="modo-card manual">
+          <div class="modo-card-head">
+            <span class="modo-card-tag">Modo 3 · Manual</span>
+          </div>
+          <h3>"Faço eu mesma. IA fica de fora."</h3>
+          <p class="modo-card-when">Nem toda tarefa precisa de IA. Em alguns contextos, ela <strong>atrapalha mais que ajuda</strong>: dilui sua voz, vaza dado sensível, ou simplesmente é mais lento usar IA do que escrever direto.</p>
+          <div class="modo-card-blocos">
+            <div class="modo-bloco-mini">
+              <div class="modo-bloco-mini-lbl">✅ Quando faz mais sentido</div>
+              <ul class="modo-bloco-mini-list">
+                <li>Mensagem pessoal sensível</li>
+                <li>Comunicação com dado de saúde/jurídico</li>
+                <li>Resposta de 1 frase</li>
+                <li>Quando você precisa pensar — não terceirizar</li>
+              </ul>
+            </div>
+            <div class="modo-bloco-mini">
+              <div class="modo-bloco-mini-lbl">⚠️ Cuidado</div>
+              <ul class="modo-bloco-mini-list">
+                <li>Não é "manual = melhor por princípio"</li>
+                <li>Modo manual é decisão consciente, não preguiça de aprender IA</li>
+                <li>Tem gente que fica em manual por medo — perde produtividade</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
       </div>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="matriz">
+    <div class="site-container">
+      <p class="eyebrow">2.3 · Matriz de decisão</p>
+      <h2>Qual modo pra qual tarefa</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Exemplos genéricos de tarefas administrativas/gestão e o modo que costuma encaixar melhor. Não é regra rígida — é ponto de partida.
+      </p>
+
+      <table class="matriz-table">
+        <thead>
+          <tr>
+            <th>Tarefa</th>
+            <th>Modo sugerido</th>
+            <th>Por quê</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Resumir ata de reunião que durou 1h</td>
+            <td><span class="matriz-tag auto">Autopiloto</span></td>
+            <td>Baixo risco; pode revisar em 30s</td>
+          </tr>
+          <tr>
+            <td>Redigir comunicado interno padrão (aviso, lembrete)</td>
+            <td><span class="matriz-tag auto">Autopiloto</span></td>
+            <td>Repetível; padrão estabelecido</td>
+          </tr>
+          <tr>
+            <td>Montar pauta de reunião com 3 stakeholders</td>
+            <td><span class="matriz-tag colab">Colaboração</span></td>
+            <td>Depende do contexto político; ela ajuda a estruturar, você decide o que entra</td>
+          </tr>
+          <tr>
+            <td>Plano de transição de carreira</td>
+            <td><span class="matriz-tag colab">Colaboração</span></td>
+            <td>Nuance pessoal forte; ela faz perguntas, você responde</td>
+          </tr>
+          <tr>
+            <td>Análise de planilha de KPIs do mês</td>
+            <td><span class="matriz-tag colab">Colaboração</span></td>
+            <td>Ela traz hipóteses; você confirma com o que sabe do contexto</td>
+          </tr>
+          <tr>
+            <td>Feedback sensível pra um liderado</td>
+            <td><span class="matriz-tag manual">Manual</span> ou <span class="matriz-tag colab">Colaboração</span></td>
+            <td>Voz autoral importa; pode usar pra rascunhar ideias, mas redige você</td>
+          </tr>
+          <tr>
+            <td>Resposta curta a um colega no Slack</td>
+            <td><span class="matriz-tag manual">Manual</span></td>
+            <td>Mais rápido você mesma</td>
+          </tr>
+          <tr>
+            <td>Análise de currículo pra triagem</td>
+            <td><span class="matriz-tag auto">Autopiloto</span></td>
+            <td>Pode usar como filtro inicial (você decide o final)</td>
+          </tr>
+          <tr>
+            <td>Decisão sobre demitir alguém</td>
+            <td><span class="matriz-tag manual">Manual</span></td>
+            <td>Impacto humano alto; sua responsabilidade integral</td>
+          </tr>
+          <tr>
+            <td>10 ideias pra título de uma campanha</td>
+            <td><span class="matriz-tag auto">Autopiloto</span></td>
+            <td>Brainstorm = caso ideal de autopiloto</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout-mentoria"><strong>Regra de bolso:</strong> quanto maior o impacto em pessoa específica ou o quanto a voz é sua, mais vai pra <em>colaboração</em> ou <em>manual</em>. Quanto mais genérico/repetível, mais cabe <em>autopiloto</em>.</div>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="anti" style="background:var(--bg-warm);">
+    <div class="site-container">
+      <p class="eyebrow">2.4 · Anti-padrão central</p>
+      <h2>Confiança cega + retrabalho</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        O erro mais comum em quem está começando: usar <em>autopiloto</em> em tarefas que pediam <em>colaboração</em>, descobrir depois que o resultado não serve, e fazer tudo de novo. Isso vira o famoso <strong>"a IA não funciona pra mim"</strong> — quando, na verdade, foi escolha errada de modo.
+      </p>
+      <p style="font-size:15.5px; color:var(--ink-soft);">
+        Sinal de alerta: você se pega <strong>limpando o resultado da IA</strong> mais tempo do que teria feito você mesma. É hora de mudar de modo (ou nem usar IA).
+      </p>
+
+      <div class="callout-mentoria"><strong>Truque que funciona:</strong> antes de pedir, pergunta a si mesma — <em>"se a IA entregar a primeira versão errada, eu vou conseguir corrigir em 2 minutos ou vou ter que refazer?"</em> Se for refazer, não é autopiloto — é colaboração.</div>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="nao-usar">
+    <div class="site-container">
+      <p class="eyebrow">2.5 · Quando NÃO usar IA</p>
+      <h2>4 contextos onde ela não cabe</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Profissional madura sabe quando ficar em modo manual. Não é antiquada — é inteligente. Os 4 contextos clássicos:
+      </p>
+
+      <div class="nao-usar">
+        <div class="nao-usar-card">
+          <h4>1. Dado sensível em IA pública</h4>
+          <p>CPF, salário individualizado, saúde, conflito interpessoal nominal. Use placeholders ou conta paga com retenção desligada — ou nem use.</p>
+        </div>
+        <div class="nao-usar-card">
+          <h4>2. Decisão que só depende de você</h4>
+          <p>"Vou aceitar a vaga ou não?" — terceirizar pra IA é fugir da decisão. Use pra organizar pensamento (modo colaboração), nunca pra decidir.</p>
+        </div>
+        <div class="nao-usar-card">
+          <h4>3. Mensagem onde a voz importa</h4>
+          <p>Pêsames, agradecimento sincero, feedback delicado. Texto gerado por IA <em>soa</em> gerado por IA — mesmo o melhor. Em mensagens onde autenticidade é a moeda, ela queima a confiança.</p>
+        </div>
+        <div class="nao-usar-card">
+          <h4>4. Tarefa de 2 minutos</h4>
+          <p>Você escreve a frase no WhatsApp mais rápido que escreve o prompt. Não vire engenheira de prompts em tarefa trivial — é tempo perdido (e cansa).</p>
+        </div>
+      </div>
+
+      <div class="callout-mentoria"><strong>Você vai voltar nesses 4 contextos</strong> na <strong>S7 — Diretrizes Pessoais</strong>, onde redige suas próprias regras com base em situações reais que viveu durante as 8 semanas. Aqui é só pra você ter o radar ligado.</div>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="proximo" style="background:var(--bg-warm);">
+    <div class="site-container" style="text-align:center;">
+      <p class="eyebrow">Próximo módulo</p>
+      <h2>M3 — Framework IPO</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); max-width:640px; margin: 0 auto 18px;">Agora que você sabe <em>quando</em> usar, vai aprender <em>como estruturar mentalmente</em> qualquer tarefa antes de pedir. É o que destrava prompts de qualidade no M4.</p>
+      <a href="../m3-ipo/" style="display:inline-block; padding:11px 22px; background:var(--accent); color:#fff; border-radius:6px; font-size:14px; font-weight:600; text-decoration:none;">Ir pro M3 →</a>
     </div>
   </section>
 

@@ -9,6 +9,58 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../_shared/assets/style.css">
+  <style>
+    .ipo-flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 12px; align-items: stretch; margin: 24px 0; }
+    .ipo-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; }
+    .ipo-box.input { border-top: 4px solid #6e9ad1; }
+    .ipo-box.process { border-top: 4px solid var(--accent-warm); }
+    .ipo-box.output { border-top: 4px solid var(--accent); }
+    .ipo-box-letter { font-family: var(--serif); font-size: 38px; font-weight: 700; line-height: 1; margin-bottom: 6px; }
+    .ipo-box.input .ipo-box-letter { color: #4a7baa; }
+    .ipo-box.process .ipo-box-letter { color: var(--accent-warm-dark); }
+    .ipo-box.output .ipo-box-letter { color: var(--accent); }
+    .ipo-box-name { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+    .ipo-box-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+    .ipo-arrow { display: flex; align-items: center; font-family: var(--serif); font-size: 28px; color: var(--ink-muted); font-weight: 400; }
+
+    .ipo-exemplo { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 26px 28px; margin: 18px 0; }
+    .ipo-exemplo-titulo { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .ipo-exemplo-tarefa { font-size: 14px; color: var(--ink-muted); font-style: italic; margin-bottom: 20px; }
+    .ipo-exemplo-tabela { width: 100%; border-collapse: collapse; margin: 0; }
+    .ipo-exemplo-tabela td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .ipo-exemplo-tabela tr:last-child td { border-bottom: none; }
+    .ipo-exemplo-tabela td.eixo { width: 130px; font-family: var(--serif); font-weight: 700; font-size: 14.5px; padding-top: 14px; }
+    .ipo-exemplo-tabela td.eixo.input { color: #4a7baa; }
+    .ipo-exemplo-tabela td.eixo.process { color: var(--accent-warm-dark); }
+    .ipo-exemplo-tabela td.eixo.output { color: var(--accent); }
+    .ipo-exemplo-tabela td.conteudo { font-size: 14.5px; line-height: 1.6; color: var(--ink); }
+    .ipo-exemplo-tabela td.conteudo ul { padding-left: 18px; margin: 4px 0; }
+    .ipo-exemplo-tabela td.conteudo li { margin-bottom: 4px; }
+
+    .ipo-prompt-pronto { background: #1f1d1a; color: #e8e3d5; padding: 18px 22px; border-radius: 6px; margin-top: 16px; font-family: var(--mono); font-size: 13px; line-height: 1.65; white-space: pre-wrap; }
+    .ipo-prompt-pronto-label { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #c2916b; margin-bottom: 6px; margin-top: 14px; }
+
+    .anti-card-ipo { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid #c45e5e; border-radius: 0 6px 6px 0; padding: 16px 20px; margin: 14px 0; }
+    .anti-card-ipo h4 { font-family: var(--serif); font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+    .anti-card-ipo p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.55; }
+    .anti-card-ipo code { background: var(--bg-warm); padding: 1px 5px; border-radius: 3px; font-family: var(--mono); font-size: 12.5px; color: var(--ink); }
+
+    .combo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 20px 0; }
+    .combo-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 22px; }
+    .combo-card.ipo { border-top: 3px solid var(--accent-warm); }
+    .combo-card.pctfl { border-top: 3px solid var(--accent); }
+    .combo-card h4 { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 8px; color: var(--ink); }
+    .combo-card p { font-size: 14px; color: var(--ink-soft); margin-bottom: 0; line-height: 1.55; }
+
+    .callout-mentoria { background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 20px 0; font-size: 14.5px; color: var(--ink-soft); line-height: 1.6; }
+    .callout-mentoria strong { color: var(--ink); }
+
+    @media (max-width: 720px) {
+      .ipo-flow { grid-template-columns: 1fr; }
+      .ipo-arrow { transform: rotate(90deg); justify-content: center; padding: 4px 0; }
+      .combo-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -29,23 +81,242 @@
     <div class="module-header-meta">
       <span>~10 min de leitura</span>
       <span>·</span>
-      <span>Estruturar antes de pedir</span>
+      <span>A clareza do prompt nasce da clareza do raciocínio</span>
     </div>
   </div>
 
-  <section class="section content-section reveal">
+  <section class="section content-section reveal" id="ideia">
     <div class="site-container">
-      <p class="eyebrow">Em construção</p>
-      <h2>Conteúdo a popular</h2>
-      <p style="font-size:15.5px; color:var(--ink-soft);">
-        Este módulo vai cobrir o framework <strong>IPO</strong> — todo trabalho é uma máquina simples de <strong>Input</strong> (o que entra), <strong>Process</strong> (o que acontece) e <strong>Output</strong> (o que sai). Declarar os três antes de pedir à IA é o que faz a clareza do prompt nascer da clareza do raciocínio.
+      <p class="eyebrow">3.1 · A ideia</p>
+      <h2>Toda tarefa é uma máquina simples</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Pode ser uma planilha, um relatório, uma decisão, uma conversa difícil. Toda atividade pode ser desenhada como <strong>3 caixas</strong>:
       </p>
-      <p style="font-size:15.5px; color:var(--ink-soft);">
-        Vai trazer casos administrativos genéricos (organizar pauta de reunião, redigir comunicado, montar planilha de controle) com IPO declarado explicitamente — pra você adaptar para qualquer tarefa.
-      </p>
-      <div style="background:var(--bg-warm); border-left:3px solid var(--accent); padding:14px 18px; border-radius:0 6px 6px 0; margin:20px 0; font-size:14.5px; color:var(--ink-soft);">
-        <strong>Por enquanto:</strong> volte ao <a href="../m1-fundamentos/">M1</a> ou pule pro <a href="../m4-prompts/">M4 (PCTFL)</a> — esse já está pronto.
+
+      <div class="ipo-flow">
+        <div class="ipo-box input">
+          <div class="ipo-box-letter">I</div>
+          <div class="ipo-box-name">Input</div>
+          <div class="ipo-box-desc">O que entra. Dados, ferramentas, pessoas, restrições.</div>
+        </div>
+        <div class="ipo-arrow">→</div>
+        <div class="ipo-box process">
+          <div class="ipo-box-letter">P</div>
+          <div class="ipo-box-name">Process</div>
+          <div class="ipo-box-desc">O que acontece. Regras, fórmulas, validações, decisões.</div>
+        </div>
+        <div class="ipo-arrow">→</div>
+        <div class="ipo-box output">
+          <div class="ipo-box-letter">O</div>
+          <div class="ipo-box-name">Output</div>
+          <div class="ipo-box-desc">O que sai. Resultado pronto, decisão tomada, ação concluída.</div>
+        </div>
       </div>
+
+      <p style="font-size:15.5px; color:var(--ink-soft);">
+        Antes de pedir pra IA fazer algo, você <strong>declara os 3 explicitamente</strong>. Se conseguir desenhar IPO numa frase, o prompt sai bom. Se não conseguir desenhar, é porque <em>você ainda não sabe direito o que quer</em> — e a IA também não vai saber.
+      </p>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="por-que" style="background:var(--bg-warm);">
+    <div class="site-container">
+      <p class="eyebrow">3.2 · Por que importa</p>
+      <h2>A clareza do prompt nasce da clareza do IPO</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        A maioria dos prompts ruins não tem problema de "engenharia" — tem problema de <em>raciocínio</em>. A pessoa pede algo vago porque ela mesma não pensou direito o que tá pedindo.
+      </p>
+      <p>3 sintomas clássicos:</p>
+      <ul style="font-size:15px; color:var(--ink-soft); line-height:1.7;">
+        <li>Pede "<em>uma planilha de RH</em>" sem dizer o que vai dentro (Input mal definido)</li>
+        <li>Pede "<em>resumir isso</em>" sem dizer pra que vai usar o resumo (Output mal definido)</li>
+        <li>Pede "<em>fazer um plano</em>" sem dizer as regras de decisão (Process mal definido)</li>
+      </ul>
+
+      <div class="callout-mentoria"><strong>O exercício do M3:</strong> antes de qualquer prompt importante, você escreve 3 linhas curtas (uma por caixa). Vira reflexo em 1-2 semanas. Quando ficar reflexo, você pula a etapa explícita — mas a clareza permanece.</div>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="exemplos">
+    <div class="site-container">
+      <p class="eyebrow">3.3 · Aplicação</p>
+      <h2>3 exemplos com IPO declarado</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Mesma estrutura aplicada a 3 tarefas administrativas comuns. Veja como o prompt fica natural quando o IPO está claro.
+      </p>
+
+      <div class="ipo-exemplo">
+        <div class="ipo-exemplo-titulo">Exemplo 1 · Resumo de reunião pra próximos passos</div>
+        <div class="ipo-exemplo-tarefa">Tarefa: você gravou uma reunião de 1h, tem a transcrição, e precisa enviar pra equipe um resumo do que foi decidido.</div>
+
+        <table class="ipo-exemplo-tabela">
+          <tr>
+            <td class="eixo input">Input</td>
+            <td class="conteudo">Transcrição completa da reunião (1h, ~7000 palavras), com falas dos participantes identificadas.</td>
+          </tr>
+          <tr>
+            <td class="eixo process">Process</td>
+            <td class="conteudo">
+              <ul>
+                <li>Identificar decisões tomadas (não discussões abertas)</li>
+                <li>Atribuir cada decisão a um responsável</li>
+                <li>Marcar prazos quando mencionados</li>
+                <li>Separar "pendências discutidas" de "próximos passos confirmados"</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="eixo output">Output</td>
+            <td class="conteudo">E-mail curto pra equipe: 5 bullets de decisões + 3 bullets de próximos passos com responsável e prazo. Máximo 200 palavras. Linguagem direta.</td>
+          </tr>
+        </table>
+
+        <div class="ipo-prompt-pronto-label">📋 Prompt pronto pra colar</div>
+        <pre class="ipo-prompt-pronto">Atue como assessora executiva especializada em síntese de reuniões.
+
+Vou colar a transcrição de uma reunião de 1h com a equipe administrativa. Quero enviar um resumo pra todos por e-mail.
+
+Identifique apenas as DECISÕES tomadas (não discussões abertas). Pra cada decisão: responsável (quando atribuído) + prazo (quando mencionado). Separe "próximos passos confirmados" das "pendências em aberto".
+
+Formato: e-mail curto. 5 bullets de decisões + 3 bullets de próximos passos. Máximo 200 palavras. Linguagem direta, sem floreio.
+
+Não invente responsáveis nem prazos que não estiverem na transcrição. Se faltou definir, marque como "⚠️ a definir".
+
+TRANSCRIÇÃO:
+[cole aqui]</pre>
+      </div>
+
+      <div class="ipo-exemplo">
+        <div class="ipo-exemplo-titulo">Exemplo 2 · Análise de planilha de indicadores</div>
+        <div class="ipo-exemplo-tarefa">Tarefa: você recebe uma planilha de KPIs mensais e precisa apresentar pra liderança em 1 slide.</div>
+
+        <table class="ipo-exemplo-tabela">
+          <tr>
+            <td class="eixo input">Input</td>
+            <td class="conteudo">Planilha com 8 indicadores em 12 colunas (jan-dez). Histórico de 6 meses.</td>
+          </tr>
+          <tr>
+            <td class="eixo process">Process</td>
+            <td class="conteudo">
+              <ul>
+                <li>Identificar os 3 indicadores com maior variação (positiva ou negativa)</li>
+                <li>Comparar com mês anterior + média trimestral</li>
+                <li>Sugerir 1 hipótese plausível pra cada variação relevante</li>
+                <li>Marcar indicadores estáveis como "sem alteração relevante"</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="eixo output">Output</td>
+            <td class="conteudo">Texto pra 1 slide: 3 destaques + 1 frase de contexto pra cada + 1 pergunta pra discussão. Pra liderança não-técnica.</td>
+          </tr>
+        </table>
+
+        <div class="ipo-prompt-pronto-label">📋 Prompt pronto pra colar</div>
+        <pre class="ipo-prompt-pronto">Atue como analista sênior de indicadores de gestão.
+
+Sou gestora e vou apresentar a planilha de KPIs mensais para a liderança em 1 slide. A planilha tem 8 indicadores em colunas mensais (6 meses de histórico).
+
+Identifique os 3 indicadores com maior variação no último mês (positiva ou negativa). Pra cada um, compare com: (1) mês anterior; (2) média do trimestre. Sugira 1 hipótese plausível pra cada variação. Indicadores estáveis: ignore.
+
+Formato: texto curto pra 1 slide. Pra cada destaque: 1 frase de contexto + 1 pergunta pra discussão. Tom executivo, sem jargão técnico.
+
+Não invente causas que não tenham base nos números. Se faltar contexto pra interpretar, peça antes de responder.
+
+PLANILHA:
+[cole o conteúdo aqui]</pre>
+      </div>
+
+      <div class="ipo-exemplo">
+        <div class="ipo-exemplo-titulo">Exemplo 3 · Pauta de reunião com 3 stakeholders</div>
+        <div class="ipo-exemplo-tarefa">Tarefa: você precisa montar a pauta de uma reunião sensível com 3 áreas que têm interesses diferentes.</div>
+
+        <table class="ipo-exemplo-tabela">
+          <tr>
+            <td class="eixo input">Input</td>
+            <td class="conteudo">Lista de 3 áreas envolvidas + interesse/preocupação principal de cada uma + decisão a ser tomada na reunião.</td>
+          </tr>
+          <tr>
+            <td class="eixo process">Process</td>
+            <td class="conteudo">
+              <ul>
+                <li>Garantir que cada área tenha 1 momento de fala dedicado</li>
+                <li>Ordem dos temas: do menos polêmico ao mais polêmico (constrói consenso primeiro)</li>
+                <li>Incluir 1 momento de síntese antes da decisão final</li>
+                <li>Tempo total: 45 min</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="eixo output">Output</td>
+            <td class="conteudo">Pauta em formato de tabela: tópico · responsável · tempo · objetivo. Pronta pra enviar.</td>
+          </tr>
+        </table>
+
+        <div class="ipo-prompt-pronto-label">📋 Prompt pronto pra colar</div>
+        <pre class="ipo-prompt-pronto">Atue como facilitadora experiente de reuniões com múltiplas áreas.
+
+Vou conduzir uma reunião de 45 minutos com 3 áreas: [Área 1, interesse principal X], [Área 2, preocupação Y], [Área 3, prioridade Z]. A decisão final a ser tomada é: [decisão].
+
+Monte uma pauta que: (1) garanta que cada área tenha 1 momento de fala dedicado; (2) ordene os tópicos do menos pro mais polêmico (constrói consenso antes); (3) inclua 1 momento de síntese antes da decisão final; (4) caiba em 45 min.
+
+Formato: tabela com colunas: Tópico · Responsável · Tempo · Objetivo. Tom profissional, neutra entre as áreas.
+
+Não tome partido entre as áreas. Se houver conflito claro, sugira como facilitar — não como decidir.</pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="anti" style="background:var(--bg-warm);">
+    <div class="site-container">
+      <p class="eyebrow">3.4 · Anti-padrão</p>
+      <h2>Misturar Process com Output</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        O erro de IPO mais comum: descrever <em>como você vai entregar</em> achando que tá descrevendo <em>o que a IA vai fazer</em>. Resultado: a IA executa errado porque achou que era pra fazer outra coisa.
+      </p>
+
+      <div class="anti-card-ipo">
+        <h4>❌ Process e Output embolados</h4>
+        <p><code>"Resuma essa reunião num e-mail bonito pra equipe."</code> — "resuma" é process, "e-mail bonito pra equipe" é output. Mas "bonito" é vago e "pra equipe" não diz quanto a equipe sabe. A IA chuta.</p>
+      </div>
+      <div class="anti-card-ipo">
+        <h4>✅ Process e Output separados</h4>
+        <p><code>"Identifique decisões + responsáveis + prazos [process]. Devolva como e-mail curto, máx 200 palavras, tom executivo, pra equipe administrativa que participou da reunião [output]."</code> — Agora ela sabe o que extrair e como apresentar.</p>
+      </div>
+
+      <div class="callout-mentoria"><strong>Truque:</strong> escreva o IPO em 3 linhas separadas no rascunho. Se ficar tudo confuso em uma linha só, ainda não tá claro na sua cabeça.</div>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="combo">
+    <div class="site-container">
+      <p class="eyebrow">3.5 · Combinação</p>
+      <h2>IPO + PCTFL: a dupla que funciona</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        IPO e PCTFL não competem — se complementam. IPO é como você <strong>estrutura o raciocínio</strong> antes de escrever. PCTFL é como você <strong>traduz</strong> esse raciocínio em prompt.
+      </p>
+
+      <div class="combo-grid">
+        <div class="combo-card ipo">
+          <h4>IPO — na cabeça</h4>
+          <p>Você pensa primeiro: <strong>o que entra</strong> (Input), <strong>o que tem que acontecer</strong> (Process), <strong>o que precisa sair</strong> (Output). Isso esclarece pra <em>você</em> o que está pedindo.</p>
+        </div>
+        <div class="combo-card pctfl">
+          <h4>PCTFL — no prompt</h4>
+          <p>Depois você traduz: o Process pede um <strong>Papel</strong> (P) e tem <strong>Tarefa</strong> (T). O Input vira <strong>Contexto</strong> (C). O Output define <strong>Formato</strong> (F) e <strong>Limitações</strong> (L).</p>
+        </div>
+      </div>
+
+      <div class="callout-mentoria"><strong>Resumo da mecânica:</strong> M3 (IPO) é treino de pensamento. M4 (PCTFL) é treino de comunicação. Junto, os dois fazem você pedir bem porque você <em>pensou bem</em>.</div>
+    </div>
+  </section>
+
+  <section class="section content-section reveal" id="proximo" style="background:var(--bg-warm);">
+    <div class="site-container" style="text-align:center;">
+      <p class="eyebrow">Próximo módulo</p>
+      <h2>M4 — Engenharia de Prompts (PCTFL)</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); max-width:640px; margin: 0 auto 18px;">A fórmula completa. Vai pegar o IPO que você acabou de aprender e mostrar como traduzir pra Papel · Contexto · Tarefa · Formato · Limitações.</p>
+      <a href="../m4-prompts/" style="display:inline-block; padding:11px 22px; background:var(--accent); color:#fff; border-radius:6px; font-size:14px; font-weight:600; text-decoration:none;">Ir pro M4 →</a>
     </div>
   </section>
 

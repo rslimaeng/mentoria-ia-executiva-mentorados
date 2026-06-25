@@ -9,6 +9,54 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../_shared/assets/style.css">
+  <style>
+    .banco-toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 22px 26px; margin: 24px 0; }
+    .banco-toc-title { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent-warm-dark); margin-bottom: 12px; }
+    .banco-toc-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .banco-toc-link { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; background: var(--bg-warm); border: 1px solid var(--border); border-radius: 999px; font-size: 13.5px; font-weight: 500; color: var(--ink); text-decoration: none; transition: all .2s; }
+    .banco-toc-link:hover { background: #fff; border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .banco-toc-link-num { font-family: var(--mono); font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 3px; }
+    .banco-toc-link.gestao .banco-toc-link-num { background: rgba(44,95,112,0.15); color: var(--accent-dark); }
+    .banco-toc-link.marketing .banco-toc-link-num { background: rgba(163,106,142,0.15); color: #7a4a68; }
+    .banco-toc-link.financeiro .banco-toc-link-num { background: rgba(106,141,63,0.15); color: #4a6428; }
+    .banco-toc-link.atendimento .banco-toc-link-num { background: rgba(194,145,107,0.15); color: var(--accent-warm-dark); }
+    .banco-toc-link.rh .banco-toc-link-num { background: rgba(110,154,209,0.15); color: #3d6b8e; }
+
+    .area-header { padding: 32px 0 14px; scroll-margin-top: 72px; }
+    .area-header .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+    .area-header h2 { font-family: var(--serif); font-size: 26px; font-weight: 600; margin-bottom: 8px; }
+    .area-header p { font-size: 14.5px; color: var(--ink-soft); margin: 0; line-height: 1.55; }
+    .area-header.gestao .eyebrow { color: var(--accent-dark); }
+    .area-header.marketing .eyebrow { color: #7a4a68; }
+    .area-header.financeiro .eyebrow { color: #4a6428; }
+    .area-header.atendimento .eyebrow { color: var(--accent-warm-dark); }
+    .area-header.rh .eyebrow { color: #3d6b8e; }
+
+    .prompt-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 24px 26px; margin: 14px 0; }
+    .prompt-card.gestao { border-left: 4px solid var(--accent); }
+    .prompt-card.marketing { border-left: 4px solid #a36a8e; }
+    .prompt-card.financeiro { border-left: 4px solid #6a8d3f; }
+    .prompt-card.atendimento { border-left: 4px solid var(--accent-warm); }
+    .prompt-card.rh { border-left: 4px solid #6e9ad1; }
+    .prompt-card-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; flex-wrap: wrap; }
+    .prompt-card-num { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--ink-muted); }
+    .prompt-card-titulo { font-family: var(--serif); font-size: 19px; font-weight: 600; flex: 1; min-width: 180px; color: var(--ink); }
+    .prompt-card-quando { font-size: 13.5px; color: var(--ink-muted); font-style: italic; margin-bottom: 16px; line-height: 1.5; }
+    .prompt-card-pctfl { display: grid; grid-template-columns: 100px 1fr; gap: 10px 14px; padding: 14px 0; border-top: 1px dashed var(--border); border-bottom: 1px dashed var(--border); margin-bottom: 14px; }
+    .prompt-card-pctfl-letra { font-family: var(--serif); font-weight: 700; font-size: 13px; color: var(--accent-warm-dark); padding-top: 1px; }
+    .prompt-card-pctfl-texto { font-size: 13.5px; line-height: 1.55; color: var(--ink); }
+    .prompt-pronto { background: #1f1d1a; color: #e8e3d5; padding: 16px 20px; border-radius: 6px; font-family: var(--mono); font-size: 12.5px; line-height: 1.65; white-space: pre-wrap; margin: 0; overflow-x: auto; }
+    .prompt-pronto-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #c2916b; margin-bottom: 6px; }
+    .prompt-card-variacao { background: var(--bg-warm); border-left: 2px solid var(--accent-warm); padding: 10px 14px; border-radius: 0 4px 4px 0; margin-top: 14px; font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+    .prompt-card-variacao strong { color: var(--ink); font-size: 11px; letter-spacing: 0.4px; text-transform: uppercase; display: block; margin-bottom: 3px; }
+
+    .callout-mentoria { background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 20px 0; font-size: 14.5px; color: var(--ink-soft); line-height: 1.6; }
+    .callout-mentoria strong { color: var(--ink); }
+
+    @media (max-width: 640px) {
+      .prompt-card-pctfl { grid-template-columns: 80px 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -24,31 +72,639 @@
 
   <div class="module-header site-container">
     <p class="eyebrow">Banco de prompts pessoal</p>
-    <h1>15–20 prompts mapeados<br>às suas 5 áreas.</h1>
+    <h1>17 prompts em 5 áreas.</h1>
     <div class="module-header-meta">
-      <span>Gestão Empresarial · Marketing · Financeiro · Atendimento · RH</span>
+      <span>Todos em formato PCTFL</span>
+      <span>·</span>
+      <span>Prontos pra colar, ajustar 2-3 detalhes e usar</span>
     </div>
   </div>
 
   <section class="section content-section reveal">
     <div class="site-container">
-      <p class="eyebrow">Em construção</p>
-      <h2>Conteúdo a popular</h2>
-      <p style="font-size:15.5px; color:var(--ink-soft);">
-        Cada prompt vem em formato PCTFL (Papel · Contexto · Tarefa · Formato · Limitações), com: <strong>quando usar</strong>, <strong>exemplo preenchido</strong>, <strong>variação</strong> e <strong>checklist do que ajustar</strong>. Vão estar organizados pelas suas 5 áreas de interesse, com 3-5 prompts em cada.
-      </p>
-      <p style="font-size:15.5px; color:var(--ink-soft);">
-        Os prompts são prontos pra colar e usar — ajusta 2-3 detalhes (nome da empresa, sua função, requisitos específicos) e funciona.
-      </p>
-      <div style="background:var(--bg-warm); border-left:3px solid var(--accent); padding:14px 18px; border-radius:0 6px 6px 0; margin:20px 0; font-size:14.5px; color:var(--ink-soft);">
-        <strong>Por enquanto:</strong> volte ao <a href="../m4-prompts/">M4 (PCTFL)</a> — lá tem 2 exemplos completos prontos pra colar.
+
+      <div class="callout-mentoria"><strong>Como usar:</strong> escolha a área, leia o "quando usar", confira o PCTFL preenchido pra entender a estrutura, copie o "prompt pronto pra colar" no Claude/ChatGPT e ajuste 2-3 detalhes (sua função, sua empresa, dados específicos). Funciona na 1ª tentativa em 80% dos casos — se não, refina com a IA mesmo: <em>"essa resposta ficou genérica, agora foca em [X]"</em>.</div>
+
+      <div class="banco-toc">
+        <div class="banco-toc-title">17 prompts · 5 áreas</div>
+        <div class="banco-toc-list">
+          <a href="#gestao" class="banco-toc-link gestao"><span class="banco-toc-link-num">G · 4</span>Gestão Empresarial</a>
+          <a href="#marketing" class="banco-toc-link marketing"><span class="banco-toc-link-num">M · 3</span>Marketing</a>
+          <a href="#financeiro" class="banco-toc-link financeiro"><span class="banco-toc-link-num">F · 3</span>Gestão Financeira</a>
+          <a href="#atendimento" class="banco-toc-link atendimento"><span class="banco-toc-link-num">A · 2</span>Atendimento</a>
+          <a href="#rh" class="banco-toc-link rh"><span class="banco-toc-link-num">R · 5</span>RH &amp; Gestão de Pessoas</a>
+        </div>
       </div>
+
+      <!-- ====== GESTÃO EMPRESARIAL ====== -->
+      <div class="area-header gestao" id="gestao">
+        <p class="eyebrow">Gestão Empresarial · 4 prompts</p>
+        <h2>Procedimentos, rotinas, relatórios</h2>
+        <p>Estruturar o que tá na sua cabeça e ainda não tá no papel. Documentar processos, sintetizar reuniões, analisar indicadores, redigir briefings.</p>
+      </div>
+
+      <div class="prompt-card gestao">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">G01</span>
+          <span class="prompt-card-titulo">Procedimento operacional pra rotina recorrente</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você tem uma tarefa que faz toda semana/mês e quer documentar pra outra pessoa conseguir executar — ou só pra deixar de carregar na cabeça.</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Consultora de gestão administrativa especializada em desenho de processos.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Sou gestora administrativa. Tenho uma tarefa recorrente que executo de cabeça. Quero documentar pra equipe ou pra eu mesma reduzir esforço cognitivo.</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Transforme minha descrição abaixo em um procedimento operacional em passos numerados.</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">Lista numerada. Cada passo: ação + critério "feito" + ferramenta usada. Máximo 1 página.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Não invente ferramentas. Se faltar info, me pergunte antes de redigir.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como consultora de gestão administrativa especializada em desenho de processos.
+
+Sou gestora administrativa. Tenho uma tarefa recorrente que executo de cabeça. Quero documentar pra equipe (ou pra mim mesma) reduzir esforço cognitivo.
+
+Transforme minha descrição abaixo em um procedimento operacional em passos numerados. Cada passo deve ter: ação concreta + critério de "feito" + ferramenta usada.
+
+Formato: lista numerada. Máximo 1 página. Linguagem direta.
+
+Não invente ferramentas que não mencionei. Se faltar info crítica em algum passo, me pergunte antes de redigir o procedimento.
+
+TAREFA QUE QUERO DOCUMENTAR:
+[descreva aqui como você faz hoje]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Trocar "procedimento operacional" por "checklist" se for tarefa de 5-7 passos curtos. Ou por "fluxograma em texto" se houver decisões condicionais.</div>
+      </div>
+
+      <div class="prompt-card gestao">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">G02</span>
+          <span class="prompt-card-titulo">Resumo de reunião → próximos passos</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você tem transcrição de uma reunião e quer extrair decisões + responsáveis + prazos pra enviar pra equipe.</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Assessora executiva especializada em síntese de reuniões.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Tenho a transcrição da reunião abaixo. Vou enviar resumo pra equipe que participou (já conhece o contexto).</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Identifique DECISÕES (não discussões). Atribua responsável + prazo quando mencionados.</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">E-mail curto. 5 bullets de decisões + 3 bullets de próximos passos. Máximo 200 palavras.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Nada que não esteja na transcrição. Pendências sem prazo: marque "⚠️ a definir".</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como assessora executiva especializada em síntese de reuniões.
+
+Vou colar a transcrição abaixo. O resumo vai pra equipe que participou da reunião — já conhece o contexto.
+
+Identifique apenas as DECISÕES tomadas (não discussões abertas). Pra cada decisão: responsável (quando atribuído) + prazo (quando mencionado). Separe "próximos passos confirmados" de "pendências em aberto".
+
+Formato: e-mail curto. 5 bullets de decisões + 3 bullets de próximos passos. Máximo 200 palavras. Linguagem direta.
+
+Não invente responsáveis nem prazos que não estiverem na transcrição. Se faltou definir, marque como "⚠️ a definir".
+
+TRANSCRIÇÃO:
+[cole aqui]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Se for reunião com terceiros que não participaram, peça também 2 linhas de contexto introdutório no e-mail.</div>
+      </div>
+
+      <div class="prompt-card gestao">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">G03</span>
+          <span class="prompt-card-titulo">Análise de planilha de indicadores</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você recebe uma planilha de KPIs/indicadores e precisa traduzir em narrativa pra apresentar.</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Analista sênior de indicadores de gestão.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Vou apresentar pra liderança não-técnica. Tenho histórico de 6 meses.</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Identifique 3 indicadores com maior variação. Compare com mês anterior + média trimestral. 1 hipótese por variação.</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">Texto pra 1 slide. 3 destaques + 1 frase de contexto cada + 1 pergunta de discussão.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Não invente causas sem base nos números. Tom executivo, sem jargão.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como analista sênior de indicadores de gestão.
+
+Sou gestora e vou apresentar a planilha de indicadores pra liderança em 1 slide. Tenho histórico de 6 meses (jan a jun).
+
+Identifique os 3 indicadores com maior variação no último mês (positiva ou negativa). Pra cada um, compare com: (1) mês anterior; (2) média do trimestre. Sugira 1 hipótese plausível pra cada variação. Indicadores estáveis: ignore.
+
+Formato: texto pra 1 slide. Pra cada destaque: 1 frase de contexto + 1 pergunta pra discussão. Tom executivo, sem jargão técnico.
+
+Não invente causas que não tenham base nos números. Se faltar contexto pra interpretar, peça antes de responder.
+
+PLANILHA:
+[cole o conteúdo aqui — pode colar texto bruto separado por tab/quebra de linha]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Se quiser comparação ano contra ano, trocar "média do trimestre" por "mesmo mês do ano anterior".</div>
+      </div>
+
+      <div class="prompt-card gestao">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">G04</span>
+          <span class="prompt-card-titulo">Briefing de projeto pra equipe</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você tem um projeto novo aprovado e precisa comunicar pra equipe começar (objetivo, escopo, prazos, responsabilidades).</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Gerente de projetos especializada em briefings concisos.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Equipe administrativa de 5 pessoas vai executar. Decisão estratégica já foi tomada — equipe precisa do "como", não do "porquê".</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Transforme minha descrição informal em briefing estruturado com: objetivo, escopo, prazos, responsabilidades, critérios de sucesso.</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">Documento de 1 página. Cabeçalho + 5 seções nomeadas. Linguagem operacional.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Não invente prazos. Se eu não definir critérios de sucesso, me pergunte 2-3 opções antes.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como gerente de projetos especializada em briefings concisos pra equipe.
+
+Tenho um projeto novo aprovado. Equipe administrativa de 5 pessoas vai executar. Decisão estratégica já foi tomada — equipe precisa do "como", não do "porquê".
+
+Transforme minha descrição informal abaixo em briefing estruturado: (1) Objetivo em 1 frase; (2) Escopo — o que entra e o que NÃO entra; (3) Prazos — marcos principais com data; (4) Responsabilidades por pessoa/função; (5) Critérios de sucesso mensuráveis.
+
+Formato: documento de 1 página. Cabeçalho com nome do projeto + data + responsável geral. 5 seções nomeadas. Linguagem operacional, sem jargão de gestão de projetos.
+
+Não invente prazos nem nomes. Se eu não definir critérios de sucesso claros, me pergunte 2-3 opções antes de redigir o briefing.
+
+DESCRIÇÃO INFORMAL:
+[fale como falaria pra um colega no café]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Pra projetos rápidos (1-2 semanas), troca "1 página" por "1 mensagem de WhatsApp longo".</div>
+      </div>
+
+      <!-- ====== MARKETING ====== -->
+      <div class="area-header marketing" id="marketing">
+        <p class="eyebrow">Marketing · 3 prompts</p>
+        <h2>Campanhas, público, copy</h2>
+        <p>Estruturar campanhas antes de gastar dinheiro com elas. Definir pra quem você está falando, com que voz, e por qual ângulo.</p>
+      </div>
+
+      <div class="prompt-card marketing">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">M01</span>
+          <span class="prompt-card-titulo">10 ideias de campanha (brainstorm dirigido)</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você precisa apresentar opções de campanha pra liderança ou cliente e quer começar com volume.</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Diretora criativa com 15 anos de experiência em campanhas pra médias empresas.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Vou descrever o produto/serviço, público e objetivo. Quero opções pra escolher.</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Gere 10 ideias DIFERENTES entre si (não 10 variações da mesma ideia). Cada uma com ângulo distinto.</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">Lista numerada. Pra cada ideia: nome + 1 linha de pitch + canal sugerido + risco principal.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Sem clichês ("revolucione seu negócio"). Diversidade obrigatória de ângulo emocional/racional.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como diretora criativa com 15 anos de experiência em campanhas pra médias empresas.
+
+Vou descrever um produto/serviço, público-alvo e objetivo. Quero várias opções pra escolher (não a "melhor" — opções diversas).
+
+Gere 10 ideias DIFERENTES entre si — não 10 variações da mesma ideia. Cada uma com ângulo distinto (emocional, racional, social, prático, irreverente, etc).
+
+Formato: lista numerada. Pra cada ideia: (1) nome curto da campanha; (2) pitch em 1 frase; (3) canal sugerido; (4) risco principal de execução.
+
+Sem clichês de marketing ("revolucione seu negócio", "transforme sua vida"). Garanta diversidade de ângulo — pelo menos 4 emocionais, 4 racionais, 2 disruptivas.
+
+PRODUTO/SERVIÇO:
+[descreva]
+
+PÚBLICO:
+[descreva]
+
+OBJETIVO:
+[ex: gerar 50 leads, aumentar reconhecimento, lançar nova linha]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Se quiser foco em digital, trocar "diretora criativa" por "estrategista de mídias sociais B2C".</div>
+      </div>
+
+      <div class="prompt-card marketing">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">M02</span>
+          <span class="prompt-card-titulo">Definir público-alvo (persona)</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você tem um produto/serviço mas não sabe descrever bem pra quem é. Persona ajuda a focar copy, canal e oferta.</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Estrategista de marketing especializada em definição de persona.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Tenho ideia de produto/serviço mas público é difuso. Quero recortar antes de gastar com mídia.</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Construa 3 personas distintas. Cada uma com: perfil demográfico, situação atual, dor central, gatilho de compra, objeção comum.</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">3 fichas. Cada ficha: nome fictício + idade + 5 atributos chave.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Personas distintas o suficiente pra exigir copy diferente. Não use estereótipos batidos.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como estrategista de marketing especializada em definição de persona.
+
+Tenho ideia de produto/serviço, mas o público ainda é difuso. Quero recortar em personas concretas antes de gastar com mídia.
+
+Construa 3 personas DISTINTAS (não variações do mesmo perfil). Cada persona: (1) nome fictício + idade + ocupação; (2) situação atual (1 frase); (3) dor central que meu produto resolve; (4) gatilho de compra (o momento em que ela busca); (5) objeção comum à oferta.
+
+Formato: 3 fichas separadas, claras. Cada ficha cabe em 6-8 linhas.
+
+As 3 personas precisam ser distintas o suficiente pra exigir copy diferente. Evite estereótipos batidos ("Maria, 35, mãe de 2 filhos, busca equilíbrio"). Quero personas concretas com fricção real.
+
+PRODUTO/SERVIÇO:
+[descreva — pode ser informal]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Pra B2B, trocar persona por "buyer persona corporativa" — incluir cargo, tamanho da empresa, decisor vs influenciador.</div>
+      </div>
+
+      <div class="prompt-card marketing">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">M03</span>
+          <span class="prompt-card-titulo">Copy de post/e-mail com gancho</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você sabe o que quer comunicar mas não acerta o "como começar". O início é o ponto mais difícil.</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Copywriter direta, sem floreios, especializada em B2C admin/serviços.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Vou descrever a mensagem central. A copy é pra [canal]. Persona-alvo: [persona].</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Crie 3 versões com ganchos diferentes (pergunta, contraste, história curta) pra mesma mensagem.</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">3 versões etiquetadas. Cada uma: gancho + corpo + CTA. Máximo 100 palavras cada.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Sem clichês de copy ("descubra como"). Voz humana, próxima.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como copywriter direta, sem floreios, especializada em B2C/serviços administrativos.
+
+Vou descrever a mensagem central que preciso comunicar. A copy é pra [canal: post Instagram / e-mail / WhatsApp / outdoor]. Persona-alvo: [descrição curta].
+
+Crie 3 VERSÕES da mesma mensagem com ganchos diferentes:
+- Versão A: gancho de pergunta
+- Versão B: gancho de contraste/oposição
+- Versão C: gancho de história curta (1-2 frases)
+
+Cada versão: gancho + corpo + CTA. Máximo 100 palavras cada.
+
+Sem clichês de copy ("descubra como", "você não vai acreditar"). Voz humana, próxima, sem exageros. Não invente benefícios que não estejam na minha descrição.
+
+MENSAGEM CENTRAL:
+[o que você quer comunicar — pode ser texto longo]
+
+CANAL E PERSONA:
+[ex: post Instagram pra dona de pequena empresa, 35-45 anos, sente que perde tempo demais com burocracia]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Pra LinkedIn, trocar "voz próxima" por "voz profissional, sem corporativês".</div>
+      </div>
+
+      <!-- ====== FINANCEIRO ====== -->
+      <div class="area-header financeiro" id="financeiro">
+        <p class="eyebrow">Gestão Financeira · 3 prompts</p>
+        <h2>Margem, fluxo, classificação</h2>
+        <p>O básico da saúde financeira de um negócio (ou de um projeto). Calcular margem real, categorizar gastos, projetar fluxo.</p>
+      </div>
+
+      <div class="prompt-card financeiro">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">F01</span>
+          <span class="prompt-card-titulo">Análise de margem de produto</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você desconfia que um produto/serviço tá dando menos lucro do que parece e quer fazer a conta direito.</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Analista financeira especializada em pequenas empresas e prestação de serviços.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Vou descrever preço de venda + custos. Quero entender margem real (não só "preço menos custo direto").</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Calcule: margem bruta, margem líquida, e ponto de equilíbrio. Identifique 2-3 custos esquecidos comuns.</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">Tabela com cálculos passo a passo + 1 parágrafo de interpretação.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Use só números que eu fornecer. Custos "esquecidos" você sugere mas eu valido.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como analista financeira especializada em pequenas empresas e prestação de serviços.
+
+Vou descrever um produto/serviço com preço de venda e custos que tenho mapeados. Quero entender a margem REAL — não só "preço menos custo direto".
+
+Calcule: (1) margem bruta; (2) margem líquida (depois de custos indiretos); (3) ponto de equilíbrio (quantos preciso vender pra cobrir custos fixos). Identifique 2-3 custos comuns que costumam ser esquecidos nesse tipo de negócio — apresente como sugestão pra eu validar.
+
+Formato: tabela com cada cálculo passo a passo + 1 parágrafo de interpretação no final.
+
+Use SÓ números que eu fornecer no input. Custos "esquecidos" você sugere baseado no tipo de negócio — mas EU valido se aplica.
+
+PRODUTO/SERVIÇO:
+[descreva]
+
+PREÇO DE VENDA:
+[valor]
+
+CUSTOS DIRETOS:
+[liste cada um]
+
+CUSTOS FIXOS MENSAIS:
+[liste cada um]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Pra análise comparativa entre produtos, trocar "um produto" por "lista de produtos" e pedir ranking de margem.</div>
+      </div>
+
+      <div class="prompt-card financeiro">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">F02</span>
+          <span class="prompt-card-titulo">Categorizar entradas e saídas a partir de extrato</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você tem extrato bancário (ou print) e quer categorizar gastos sem digitar manualmente.</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Contadora especializada em fluxo de caixa de pequenos negócios.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Vou colar/anexar extrato bancário do mês. Negócio é [tipo].</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Categorize cada linha em: entrada / saída fixa / saída variável / saída pontual. Some por categoria.</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">Tabela: data · descrição · valor · categoria · tipo. Resumo no final por categoria.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Se descrição for ambígua, marque "⚠️ confirmar" — não chute. Não invente categorias.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como contadora especializada em fluxo de caixa de pequenos negócios e empreendimentos pessoais.
+
+Vou colar (ou anexar imagem de) extrato bancário do mês. O negócio/contexto é: [descreva — ex: banda de forró, escritório de gestão, freelance].
+
+Categorize cada linha do extrato em: ENTRADA / SAÍDA FIXA (mensal recorrente) / SAÍDA VARIÁVEL (proporcional à atividade) / SAÍDA PONTUAL (não-recorrente). Crie subcategorias quando fizer sentido (ex: saída variável — equipamentos, transporte, alimentação).
+
+Formato: tabela com colunas: Data · Descrição · Valor · Categoria · Tipo. No final, resumo somando por categoria + 2-3 observações sobre o fluxo do mês.
+
+Se a descrição de uma linha for AMBÍGUA, marque "⚠️ confirmar" — NÃO chute categoria. Não invente categorias que não façam sentido pro tipo de negócio.
+
+EXTRATO:
+[cole texto ou descreva print]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Pra comparação ao longo do tempo, peça também variação % vs mês anterior.</div>
+      </div>
+
+      <div class="prompt-card financeiro">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">F03</span>
+          <span class="prompt-card-titulo">Projeção de fluxo de caixa (3 meses)</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você precisa olhar pra frente — vai sobrar ou faltar dinheiro nos próximos 3 meses?</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Consultora de planejamento financeiro pra micro e pequena empresa.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Tenho histórico médio de entradas/saídas + saldo atual + eventos previstos.</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Projete fluxo dos próximos 3 meses. Marque meses com saldo crítico (&lt;1 mês de custo fixo).</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">Tabela mês-a-mês com entradas, saídas, saldo final. 3 alertas/recomendações.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Cenário base, não otimista. Não invente eventos. Marque incertezas como ⚠️.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como consultora de planejamento financeiro pra micro e pequena empresa.
+
+Tenho histórico médio dos últimos 3 meses + saldo atual + eventos previstos pros próximos 3 meses (ex: contrato grande fechando, viagem, compra de equipamento). Quero projeção realista do que vai acontecer.
+
+Projete fluxo de caixa mensal pros próximos 3 meses, baseado em: (1) entradas históricas médias + entradas previstas confirmadas; (2) saídas fixas + saídas variáveis (estimadas) + saídas pontuais previstas. Calcule saldo final por mês.
+
+Marque meses com saldo CRÍTICO (menor que 1 mês de custo fixo). Dê 3 alertas/recomendações no final.
+
+Formato: tabela mês a mês com entradas, saídas, saldo. Bloco final com alertas.
+
+Cenário BASE, não otimista. Não invente eventos que eu não mencionei. Se eu não der dado de algo, marque "⚠️ estimativa" e me peça pra confirmar.
+
+DADOS:
+- Saldo atual: [valor]
+- Entradas médias mensais: [valor]
+- Entradas confirmadas próximos 3 meses: [descreva]
+- Saídas fixas mensais: [valor]
+- Saídas variáveis médias: [valor]
+- Eventos pontuais previstos: [descreva]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Pra horizonte maior (6 meses), peça também análise de sazonalidade se houver histórico de 1 ano.</div>
+      </div>
+
+      <!-- ====== ATENDIMENTO ====== -->
+      <div class="area-header atendimento" id="atendimento">
+        <p class="eyebrow">Atendimento ao Cliente · 2 prompts</p>
+        <h2>Padrões e scripts</h2>
+        <p>Mensagens recorrentes que ganham consistência quando padronizadas. Atender com voz própria, escalável.</p>
+      </div>
+
+      <div class="prompt-card atendimento">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">A01</span>
+          <span class="prompt-card-titulo">3 variações de resposta WhatsApp</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você atende cliente pelo WhatsApp e quer 3 versões da mesma resposta pra escolher conforme o tom da conversa.</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Profissional de atendimento ao cliente experiente em PMEs/serviços.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Vou descrever a situação e o que quero comunicar. Cliente é [perfil].</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Crie 3 versões: (a) formal, (b) cordial-padrão, (c) próxima/informal.</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">3 mensagens etiquetadas. Cada uma até 3 frases. Estilo WhatsApp.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Sem emojis em (a). Máximo 1 emoji em (b). Sem promessas que eu não pedi.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como profissional de atendimento ao cliente experiente em PMEs/prestação de serviços.
+
+Vou descrever uma situação e o que quero comunicar pro cliente via WhatsApp. Perfil do cliente: [ex: empresário 50+, formal] OU [ex: jovem cliente, conversa solta].
+
+Crie 3 VERSÕES da mesma resposta:
+- (a) Formal — sem emoji, "senhor/senhora", linguagem corporativa contida
+- (b) Cordial-padrão — voz profissional próxima, 1 emoji no máximo, "você"
+- (c) Próxima/informal — estilo conversa, emojis OK, voz humana
+
+Formato: 3 mensagens etiquetadas. Cada uma até 3 frases. Tom WhatsApp (curto, direto).
+
+Não invente promessas, prazos ou desculpas que eu não tenha mencionado. Se eu não definir tom esperado, sugira (b) como default seguro.
+
+SITUAÇÃO:
+[contexto da conversa]
+
+O QUE QUERO COMUNICAR:
+[mensagem central]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Pra situações sensíveis (atraso, erro), peça também 1 frase de "abertura empática" antes da mensagem central.</div>
+      </div>
+
+      <div class="prompt-card atendimento">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">A02</span>
+          <span class="prompt-card-titulo">Script de cobrança amigável</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você precisa cobrar pagamento atrasado sem queimar relacionamento. Script com escalada gradual ao longo de 3 contatos.</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Consultora de relacionamento com cliente especializada em cobrança não-agressiva.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Cliente está atrasado [N] dias. Relacionamento [novo / antigo]. Valor: [X].</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Crie sequência de 3 mensagens com escalada gradual (lembrete suave → mais firme → última chance).</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">3 mensagens com intervalo sugerido entre cada. Estilo WhatsApp.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Sem ameaças (Serasa, jurídico) na (1) e (2). Sem chantagem emocional.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como consultora de relacionamento com cliente especializada em cobrança não-agressiva.
+
+Tenho um cliente atrasado [N] dias no pagamento de [valor]. Relacionamento é [novo de poucas semanas / antigo de anos]. Preciso de uma sequência de mensagens pra recuperar o pagamento SEM queimar o relacionamento.
+
+Crie 3 mensagens com escalada gradual:
+- Mensagem 1: lembrete suave (assumindo esquecimento, não má-fé)
+- Mensagem 2: cobrança mais firme (situação clara, prazo proposto)
+- Mensagem 3: última tentativa antes de outras providências (firme mas sem agressão)
+
+Formato: 3 mensagens etiquetadas + intervalo sugerido entre cada (em dias). Estilo WhatsApp, máximo 4 frases por mensagem.
+
+Sem ameaças (Serasa, jurídico, "vou tomar providências") nas mensagens (1) e (2) — só na (3) e ainda de forma profissional. Sem chantagem emocional ("estou contando com você", "estou em apuros"). Tom: profissional, claro, respeitoso.
+
+CONTEXTO ESPECÍFICO:
+- Atraso: [dias]
+- Valor: [R$]
+- Tipo de relação: [serviço pontual / contrato recorrente / outro]
+- Histórico do cliente: [costuma pagar em dia / já atrasou antes / primeira vez]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Pra cobrança B2B com gestor formal, trocar WhatsApp por e-mail e estilo "estilo WhatsApp" por "formal corporativo".</div>
+      </div>
+
+      <!-- ====== RH ====== -->
+      <div class="area-header rh" id="rh">
+        <p class="eyebrow">RH &amp; Gestão de Pessoas · 5 prompts</p>
+        <h2>Triagem, entrevista, avaliação</h2>
+        <p>Onde você quer construir competência transferível pra o mercado privado. Os 5 prompts mais úteis pra rotina de gestão de pessoas.</p>
+      </div>
+
+      <div class="prompt-card rh">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">R01</span>
+          <span class="prompt-card-titulo">Triagem rápida de currículo</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você recebeu vários currículos pra uma vaga e quer pré-classificar antes de ler a fundo.</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Recrutadora sênior especializada em triagem rápida pra cargos administrativos/gestão.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">3 requisitos não-negociáveis pra vaga. Vou colar 1 currículo por vez.</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Avalie o currículo contra os 3 requisitos. ✅ / ⚠️ / ❌ + justificativa com citação literal.</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">3 linhas (uma por requisito) + 1 veredicto final.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">⚠️ quando o currículo não menciona — não chute. Trate nome como anônimo no veredicto.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como recrutadora sênior especializada em triagem rápida de currículos pra cargos administrativos/gestão.
+
+Sou gestora contratando [cargo]. Os 3 requisitos NÃO-NEGOCIÁVEIS são:
+1. [requisito 1]
+2. [requisito 2]
+3. [requisito 3]
+
+Vou colar 1 currículo abaixo. Avalie contra os 3 requisitos. Pra cada um, marque: ✅ atende / ⚠️ atende parcial / ❌ não atende — com 1 frase de justificativa baseada em CITAÇÃO LITERAL do currículo.
+
+Formato: 3 linhas (uma por requisito) + 1 veredicto final em 1 frase: "Recomendo entrevistar" / "Indeciso, ver outra rodada" / "Não avançar".
+
+Se o currículo NÃO menciona um requisito, marque como ⚠️ — não assuma que tem nem que não tem. Trate qualquer nome próprio (candidato, empresas anteriores) como anônimo no veredicto.
+
+CURRÍCULO:
+[cole texto bruto aqui]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Pra ranking de N currículos, troca "1 currículo" por "lista de currículos" e peça também ordem de prioridade.</div>
+      </div>
+
+      <div class="prompt-card rh">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">R02</span>
+          <span class="prompt-card-titulo">Roteiro de entrevista por competências</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você vai entrevistar candidato e quer perguntas que revelem competências reais — não papo decorado.</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Recrutadora especializada em entrevista por competências (método STAR).</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Cargo é [cargo]. As 3-4 competências-chave são [lista].</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Crie 2 perguntas por competência usando STAR (Situação-Tarefa-Ação-Resultado).</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">Por competência: pergunta + sinal de alerta (resposta evasiva) + sinal positivo (resposta concreta).</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Sem perguntas batidas ("qual seu maior defeito?"). Foco em situação real específica.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como recrutadora especializada em entrevista por competências usando método STAR (Situação-Tarefa-Ação-Resultado).
+
+Vou entrevistar candidato pra [cargo]. As 3-4 competências-chave são:
+1. [competência 1, ex: gestão de equipe pequena]
+2. [competência 2, ex: organização e priorização]
+3. [competência 3, ex: comunicação escrita formal]
+4. [competência 4 opcional]
+
+Crie 2 perguntas por competência usando STAR. As perguntas devem forçar o candidato a contar uma SITUAÇÃO REAL, não opinião genérica.
+
+Formato: por competência, apresente:
+- Pergunta 1 e Pergunta 2 (alternativas — eu escolho qual usar)
+- Sinal de ALERTA: tipo de resposta vaga/decorada que indica problema
+- Sinal POSITIVO: tipo de resposta concreta que indica que a competência é real
+
+Sem perguntas batidas ("qual seu maior defeito", "onde se vê em 5 anos"). Foco em situação específica e ação tomada.</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Pra cargo de liderança, peça também 1 pergunta de "situação ética desafiadora" por competência.</div>
+      </div>
+
+      <div class="prompt-card rh">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">R03</span>
+          <span class="prompt-card-titulo">Estrutura de avaliação de desempenho</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você precisa fazer ciclo de avaliação semestral/anual e não quer reinventar a roda (nem usar modelo americano que não cabe na sua realidade).</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Especialista em gestão de pessoas em médias empresas brasileiras.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Equipe administrativa de [N] pessoas. Vai ser autoavaliação + avaliação do gestor + conversa.</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Crie estrutura com: dimensões avaliadas, escala, formato da conversa, plano de desenvolvimento.</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">Documento de 1-2 páginas com cada etapa nomeada.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Linguagem realista pra PME brasileira, sem jargão de consultoria. Cabível em 2 horas por pessoa.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como especialista em gestão de pessoas em médias empresas brasileiras.
+
+Vou conduzir ciclo de avaliação de desempenho [semestral/anual] da minha equipe administrativa de [N] pessoas. O processo terá 3 etapas: autoavaliação → avaliação do gestor → conversa estruturada de feedback.
+
+Crie a ESTRUTURA do processo contendo:
+1. Dimensões avaliadas (entregas, comportamento, competências) — máximo 5 dimensões
+2. Escala (eu prefiro qualitativa com 3-4 níveis a numérica de 1-10)
+3. Roteiro da conversa de feedback (passo a passo, com tempo estimado)
+4. Estrutura do plano de desenvolvimento (saída concreta da conversa)
+
+Formato: documento de 1-2 páginas com cada etapa nomeada e instruções práticas.
+
+Linguagem REALISTA pra PME brasileira — sem jargão de consultoria internacional, sem complexidade desnecessária. Todo o processo cabível em 2h por pessoa avaliada. Sem rubricas com 20 critérios.</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Pra avaliação 360º, pedir também roteiro de feedback entre pares + síntese pra reduzir viés.</div>
+      </div>
+
+      <div class="prompt-card rh">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">R04</span>
+          <span class="prompt-card-titulo">Análise de descrição de vaga (você como candidata)</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você está estudando o mercado e quer entender se uma vaga combina com seu perfil — e o que precisa preparar.</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Coach de carreira especializada em transição público → privado.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Sou gestora pública estudando transição. Vou colar a descrição da vaga + meu perfil resumido.</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Analise gap entre meu perfil e a vaga: o que já tenho, o que falta, o que dá pra desenvolver em 6 meses.</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">3 blocos: ✅ Tenho · ⚠️ Tenho parcialmente · ❌ Falta. + 3 ações pra próximos 6 meses.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Honesta. Não me elogia desnecessariamente. Foco em gaps reais.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como coach de carreira especializada em transição do setor público pro setor privado.
+
+Sou gestora pública estudando transição. Vou colar abaixo: (1) a descrição da vaga que me interessa; (2) meu perfil profissional resumido. Quero análise honesta do gap.
+
+Analise:
+- ✅ O QUE EU JÁ TENHO que a vaga pede (evidência clara)
+- ⚠️ O QUE EU TENHO PARCIALMENTE (experiência adjacente, precisa rebranding)
+- ❌ O QUE EU NÃO TENHO (gap real)
+- 🎯 3 AÇÕES concretas pra fechar gaps nos próximos 6 meses
+
+Formato: 4 blocos com bullets em cada. Tom direto.
+
+Seja HONESTA. Não me elogie desnecessariamente. Se o gap é grande, fala. Se a transição não é viável agora, fala. Foco em gaps reais.
+
+DESCRIÇÃO DA VAGA:
+[cole completa]
+
+MEU PERFIL:
+[cargo atual + tempo de experiência + competências principais + 1-2 marcos relevantes]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Pra estratégia de candidatura, peça também 5 perguntas pra fazer pra recrutadora numa entrevista.</div>
+      </div>
+
+      <div class="prompt-card rh">
+        <div class="prompt-card-head">
+          <span class="prompt-card-num">R05</span>
+          <span class="prompt-card-titulo">Plano de treinamento pra novo cargo</span>
+        </div>
+        <div class="prompt-card-quando">Quando usar: você assumiu (ou alguém da equipe assumiu) um cargo novo e precisa de plano de aprendizagem dos primeiros 90 dias.</div>
+        <div class="prompt-card-pctfl">
+          <div class="prompt-card-pctfl-letra">P · Papel</div><div class="prompt-card-pctfl-texto">Consultora de desenvolvimento profissional pra cargos de gestão administrativa.</div>
+          <div class="prompt-card-pctfl-letra">C · Contexto</div><div class="prompt-card-pctfl-texto">Cargo é [cargo]. Pessoa vem de [contexto]. Tem [tempo] pra ficar autônoma.</div>
+          <div class="prompt-card-pctfl-letra">T · Tarefa</div><div class="prompt-card-pctfl-texto">Plano de 90 dias em 3 fases (30+30+30). Cada fase: o que aprender, como, marco mensurável.</div>
+          <div class="prompt-card-pctfl-letra">F · Formato</div><div class="prompt-card-pctfl-texto">Tabela: fase · objetivo · atividades (3) · marco · pessoa-suporte sugerida.</div>
+          <div class="prompt-card-pctfl-letra">L · Limitações</div><div class="prompt-card-pctfl-texto">Realista pra trabalho real (não cabe parar 8h/dia estudando). Recursos gratuitos.</div>
+        </div>
+        <div class="prompt-pronto-label">📋 Prompt pronto</div>
+<pre class="prompt-pronto">Atue como consultora de desenvolvimento profissional pra cargos de gestão administrativa.
+
+Vou descrever: (1) o cargo novo; (2) o background da pessoa que assume; (3) prazo pra ficar autônoma. Crie plano de 90 dias.
+
+Estrutura:
+- Fase 1 (dias 1-30): imersão + contexto
+- Fase 2 (dias 31-60): execução supervisionada
+- Fase 3 (dias 61-90): autonomia + reflexão
+
+Pra cada fase: objetivo central + 3 atividades concretas + marco mensurável pra dar a fase como concluída + sugestão de pessoa-suporte (mentor, par, gestor).
+
+Formato: tabela com 5 colunas: Fase · Objetivo · Atividades · Marco · Pessoa-suporte.
+
+REALISTA pra trabalho real — a pessoa NÃO vai parar de trabalhar pra estudar 8h/dia. Recursos sugeridos devem ser gratuitos ou de baixo custo. Não invente cursos específicos — sugere TIPOS de recurso ("curso online de Excel intermediário", "livro de gestão de pessoas pra iniciantes").
+
+CARGO:
+[descreva]
+
+BACKGROUND DA PESSOA:
+[experiência relevante + gaps conhecidos]
+
+PRAZO ESPERADO:
+[ex: 90 dias pra autonomia operacional + 180 dias pra autonomia estratégica]</pre>
+        <div class="prompt-card-variacao"><strong>Variação</strong>Pra você mesma se preparando pra cargo novo (não pessoa contratada), troca "pessoa que assume" por "candidata se preparando antes da entrevista".</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section content-section reveal" style="background:var(--bg-warm); padding: 36px 0;">
+    <div class="site-container" style="text-align:center;">
+      <p class="eyebrow">Próximo</p>
+      <h2 style="font-family:var(--serif); font-size:24px; font-weight:600; margin-bottom: 8px;">Volte às sessões pra ver o histórico</h2>
+      <p style="font-size:14.5px; color:var(--ink-soft); max-width:560px; margin: 0 auto 18px;">Cada sessão tem um resumo das decisões e dos casos rodados ao vivo. Banco cresce conforme novas situações aparecem nas sessões.</p>
+      <a href="../" style="display:inline-block; padding:11px 22px; background:var(--accent); color:#fff; border-radius:6px; font-size:14px; font-weight:600; text-decoration:none;">Voltar ao início</a>
     </div>
   </section>
 
   <footer style="border-top:1px solid var(--border); padding: 28px 24px; text-align:center; color:var(--ink-muted); font-size:13px; margin-top:40px;">
     <p>Mentoria IA Executiva · Rafael Lima · 2026</p>
-    <p style="font-size:12px; margin-top:6px;">Acesso privado · Banco de prompts pessoal</p>
+    <p style="font-size:12px; margin-top:6px;">Acesso privado · Banco de prompts pessoal · 17 prompts</p>
   </footer>
 
 </body>
