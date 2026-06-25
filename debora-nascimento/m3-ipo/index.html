@@ -10,71 +10,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../_shared/assets/style.css">
   <style>
-    .ipo-flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 12px; align-items: stretch; margin: 24px 0; }
-    .ipo-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; }
-    .ipo-box.input { border-top: 4px solid #6e9ad1; }
-    .ipo-box.process { border-top: 4px solid var(--accent-warm); }
-    .ipo-box.output { border-top: 4px solid var(--accent); }
-    .ipo-box-letter { font-family: var(--serif); font-size: 38px; font-weight: 700; line-height: 1; margin-bottom: 6px; }
-    .ipo-box.input .ipo-box-letter { color: #4a7baa; }
-    .ipo-box.process .ipo-box-letter { color: var(--accent-warm-dark); }
-    .ipo-box.output .ipo-box-letter { color: var(--accent); }
-    .ipo-box-name { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
-    .ipo-box-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
-    .ipo-arrow { display: flex; align-items: center; font-family: var(--serif); font-size: 28px; color: var(--ink-muted); font-weight: 400; }
-
-    .ipo-exemplo { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 26px 28px; margin: 18px 0; }
-    .ipo-exemplo-titulo { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
-    .ipo-exemplo-tarefa { font-size: 14px; color: var(--ink-muted); font-style: italic; margin-bottom: 20px; }
-    .ipo-exemplo-tabela { width: 100%; border-collapse: collapse; margin: 0; }
-    .ipo-exemplo-tabela td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
-    .ipo-exemplo-tabela tr:last-child td { border-bottom: none; }
-    .ipo-exemplo-tabela td.eixo { width: 130px; font-family: var(--serif); font-weight: 700; font-size: 14.5px; padding-top: 14px; }
-    .ipo-exemplo-tabela td.eixo.input { color: #4a7baa; }
-    .ipo-exemplo-tabela td.eixo.process { color: var(--accent-warm-dark); }
-    .ipo-exemplo-tabela td.eixo.output { color: var(--accent); }
-    .ipo-exemplo-tabela td.conteudo { font-size: 14.5px; line-height: 1.6; color: var(--ink); }
-    .ipo-exemplo-tabela td.conteudo ul { padding-left: 18px; margin: 4px 0; }
-    .ipo-exemplo-tabela td.conteudo li { margin-bottom: 4px; }
-
-    .ipo-prompt-pronto { background: #1f1d1a; color: #e8e3d5; padding: 18px 22px; border-radius: 6px; margin-top: 16px; font-family: var(--mono); font-size: 13px; line-height: 1.65; white-space: pre-wrap; }
-    .ipo-prompt-pronto-label { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #c2916b; margin-bottom: 6px; margin-top: 14px; }
-
-    .anti-card-ipo { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid #c45e5e; border-radius: 0 6px 6px 0; padding: 16px 20px; margin: 14px 0; }
-    .anti-card-ipo h4 { font-family: var(--serif); font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
-    .anti-card-ipo p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.55; }
-    .anti-card-ipo code { background: var(--bg-warm); padding: 1px 5px; border-radius: 3px; font-family: var(--mono); font-size: 12.5px; color: var(--ink); }
-
-    .combo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 20px 0; }
-    .combo-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 22px; }
-    .combo-card.ipo { border-top: 3px solid var(--accent-warm); }
-    .combo-card.pctfl { border-top: 3px solid var(--accent); }
-    .combo-card h4 { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 8px; color: var(--ink); }
-    .combo-card p { font-size: 14px; color: var(--ink-soft); margin-bottom: 0; line-height: 1.55; }
-
-    .callout-mentoria { background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 20px 0; font-size: 14.5px; color: var(--ink-soft); line-height: 1.6; }
-    .callout-mentoria strong { color: var(--ink); }
-
-    @media (max-width: 720px) {
-      .ipo-flow { grid-template-columns: 1fr; }
-      .ipo-arrow { transform: rotate(90deg); justify-content: center; padding: 4px 0; }
-      .combo-grid { grid-template-columns: 1fr; }
+    /* IPO diagram */
+    .ipo-flow {
+      display: flex;
+      align-items: stretch;
+      margin: 24px 0;
+    }
+    .ipo-box {
+      flex: 1;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border: 1px solid var(--border);
+    }
+    .ipo-input  { background: var(--bg-warm); border-radius: 8px 0 0 8px; }
+    .ipo-output { background: var(--bg-warm); border-radius: 0 8px 8px 0; }
+    .ipo-process { background: var(--bg); border-left: none; border-right: none; }
+    .ipo-box-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--accent);
+    }
+    .ipo-box-desc { font-size: 13px; font-weight: 500; color: var(--ink); line-height: 1.4; }
+    .ipo-box-list {
+      font-size: 12.5px; color: var(--ink-soft);
+      padding-left: 16px; margin: 4px 0 0; line-height: 1.75;
+    }
+    .ipo-sep {
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; color: var(--ink-muted); padding: 0 10px; flex-shrink: 0;
+      background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    @media (max-width: 600px) {
+      .ipo-flow { flex-direction: column; }
+      .ipo-box  { border: 1px solid var(--border); border-radius: 0 !important; border-bottom: none; }
+      .ipo-input  { border-radius: 8px 8px 0 0 !important; }
+      .ipo-output { border-radius: 0 0 8px 8px !important; border-bottom: 1px solid var(--border); }
+      .ipo-sep { border: none; border-left: 1px solid var(--border); border-right: 1px solid var(--border); padding: 6px 0; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Topbar -->
   <header class="topbar">
     <div class="topbar-inner">
       <a href="../" class="topbar-logo">Mentoria IA Executiva · Débora</a>
       <nav class="topbar-nav">
         <a href="../m2-delegacao/">← M2</a>
         <a href="../">Início</a>
+        <a href="../banco-de-prompts/">Banco</a>
         <a href="../m4-prompts/">M4 →</a>
       </nav>
     </div>
   </header>
 
+  <!-- Header do módulo -->
   <div class="module-header site-container">
     <p class="eyebrow">M3 · Framework IPO</p>
     <h1>Input → Process → Output.</h1>
@@ -85,245 +76,673 @@
     </div>
   </div>
 
-  <section class="section content-section" id="ideia">
+  <!-- Frase de abertura -->
+  <section class="reveal" style="padding: 28px 0 0">
     <div class="site-container">
-      <p class="eyebrow">3.1 · A ideia</p>
-      <h2>Toda tarefa é uma máquina simples</h2>
-      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
-        Pode ser uma planilha, um relatório, uma decisão, uma conversa difícil. Toda atividade pode ser desenhada como <strong>3 caixas</strong>:
-      </p>
-
-      <div class="ipo-flow">
-        <div class="ipo-box input">
-          <div class="ipo-box-letter">I</div>
-          <div class="ipo-box-name">Input</div>
-          <div class="ipo-box-desc">O que entra. Dados, ferramentas, pessoas, restrições.</div>
-        </div>
-        <div class="ipo-arrow">→</div>
-        <div class="ipo-box process">
-          <div class="ipo-box-letter">P</div>
-          <div class="ipo-box-name">Process</div>
-          <div class="ipo-box-desc">O que acontece. Regras, fórmulas, validações, decisões.</div>
-        </div>
-        <div class="ipo-arrow">→</div>
-        <div class="ipo-box output">
-          <div class="ipo-box-letter">O</div>
-          <div class="ipo-box-name">Output</div>
-          <div class="ipo-box-desc">O que sai. Resultado pronto, decisão tomada, ação concluída.</div>
-        </div>
-      </div>
-
-      <p style="font-size:15.5px; color:var(--ink-soft);">
-        Antes de pedir pra IA fazer algo, você <strong>declara os 3 explicitamente</strong>. Se conseguir desenhar IPO numa frase, o prompt sai bom. Se não conseguir desenhar, é porque <em>você ainda não sabe direito o que quer</em> — e a IA também não vai saber.
-      </p>
+      <blockquote style="margin: 0; padding: 22px 28px; background: var(--bg-warm); border-left: 4px solid var(--accent-warm); border-radius: 0 8px 8px 0; font-size: 17px; font-style: italic; line-height: 1.65; color: var(--ink)">
+        "Antes de pedir pra IA fazer algo, declare os 3: o que entra (Input), o que precisa acontecer (Process), e o que sai (Output). Se você consegue desenhar isso em 3 linhas, o prompt sai bom. Se não consegue, é porque ainda não sabe direito o que quer."
+      </blockquote>
     </div>
   </section>
 
-  <section class="section content-section" id="por-que" style="background:var(--bg-warm);">
+  <!-- Seção 1 — A ideia base do IPO -->
+  <section class="section content-section reveal">
     <div class="site-container">
-      <p class="eyebrow">3.2 · Por que importa</p>
-      <h2>A clareza do prompt nasce da clareza do IPO</h2>
-      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
-        A maioria dos prompts ruins não tem problema de "engenharia" — tem problema de <em>raciocínio</em>. A pessoa pede algo vago porque ela mesma não pensou direito o que tá pedindo.
+      <p class="eyebrow">A ideia</p>
+      <h2>Toda Tarefa é Uma Máquina Simples</h2>
+      <p>
+        Pode ser uma planilha, um relatório, uma decisão difícil, uma conversa complicada. Toda atividade pode ser desenhada como 3 caixas: <strong>o que entra</strong> (Input), <strong>o que acontece</strong> (Process) e <strong>o que sai</strong> (Output).
       </p>
-      <p>3 sintomas clássicos:</p>
-      <ul style="font-size:15px; color:var(--ink-soft); line-height:1.7;">
-        <li>Pede "<em>uma planilha de RH</em>" sem dizer o que vai dentro (Input mal definido)</li>
-        <li>Pede "<em>resumir isso</em>" sem dizer pra que vai usar o resumo (Output mal definido)</li>
-        <li>Pede "<em>fazer um plano</em>" sem dizer as regras de decisão (Process mal definido)</li>
+
+      <div class="callout">
+        <strong>Por que isso importa:</strong> a maioria dos prompts ruins não tem problema de "engenharia" — tem problema de <em>raciocínio</em>. A pessoa pede algo vago porque ela mesma não pensou direito no que está pedindo. O IPO é o exercício de pensar antes.
+      </div>
+
+      <h3 style="margin-top:32px">3 sintomas clássicos de IPO mal definido</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Sintoma</th>
+            <th>O que falta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pede "uma planilha de RH" sem dizer o que vai dentro</td>
+            <td><strong>Input mal definido</strong> — quais dados entram?</td>
+          </tr>
+          <tr>
+            <td>Pede "resumir isso" sem dizer pra que vai usar</td>
+            <td><strong>Output mal definido</strong> — quem é o leitor?</td>
+          </tr>
+          <tr>
+            <td>Pede "fazer um plano" sem dizer as regras de decisão</td>
+            <td><strong>Process mal definido</strong> — como priorizar?</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout" style="margin-top:24px">
+        <strong>O exercício do M3:</strong> antes de qualquer prompt importante, escreva 3 linhas curtas — uma por caixa. Vira reflexo em 1-2 semanas. Quando ficar reflexo, você pula a etapa explícita — mas a clareza permanece.
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção — Validação de Premissas -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Uso valioso · pouco explorado</p>
+      <h2>Validação de Premissas — IA como Advogada do Diabo</h2>
+      <p>
+        Um dos usos mais poderosos da IA — e o menos usado: pedir que ela <strong>questione suas premissas</strong> antes de você tomar uma decisão. Toda decisão importante tem premissas que parecem óbvias internamente mas são exatamente onde o erro mora.
+      </p>
+
+      <p style="font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-muted); margin:28px 0 8px">
+        Prompt base — Validação de Premissas
+      </p>
+      <pre style="background:var(--bg-warm); border:1px solid var(--border); border-radius:8px; padding:20px; font-family:'Menlo','Monaco',monospace; font-size:13px; line-height:1.7; color:var(--ink); overflow-x:auto; white-space:pre-wrap; margin:0">
+Papel: Você é uma coach de carreira sênior com experiência em transição
+público → privado, conhecida por fazer perguntas que ninguém quer ouvir.
+
+Contexto: Estou finalizando uma decisão sobre [tema da decisão — ex: aceitar
+uma vaga de gerente de RH em empresa privada vs continuar onde estou]. As
+premissas que estou usando pra tomar essa decisão são as abaixo. Quero
+validar antes de fechar.
+
+Tarefa: Analise as premissas e:
+1. Identifique as que tipicamente são erradas em situações como essa
+2. Aponte o que pode estar faltando na minha análise
+3. Sinalize premissas baseadas em medo, conforto ou suposição não-testada
+
+Premissas:
+[cole suas premissas aqui — 5 a 8 frases]
+
+Formato: lista numerada com classificação:
+✓ Sólida / ⚠️ Verificar / ✗ Frágil + 1 frase explicando cada uma.</pre>
+
+      <div class="callout" style="margin-top:24px">
+        <strong>Quando usar:</strong> antes de aceitar/recusar uma vaga, antes de cancelar/manter um cliente, antes de promover/demitir alguém. 10 minutos de validação aqui podem economizar meses de "ter feito errado".
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 3 — Como explicar uso de IA pra liderança/colegas -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Comunicação executiva</p>
+      <h2>Quando Perguntam: "A IA Fez Isso?"</h2>
+
+      <p>
+        Usar IA acelera a produção — mas pode gerar desconfiança se não for comunicado bem. A solução não é esconder; é normalizar. Posicionamento profissional importa mais que ferramenta usada.
+      </p>
+
+      <div class="callout">
+        <strong>A postura certa:</strong> "Usei IA pra estruturar e redigir o rascunho. A revisão, a curadoria de conteúdo e a validação dos fatos foi feita por mim."
+        <br><br>
+        Honesto, profissional, e mostra que você domina a ferramenta — não que depende dela.
+      </div>
+
+      <h3>Roteiro de comunicação por situação</h3>
+      <table style="margin-top:16px">
+        <thead>
+          <tr>
+            <th>Situação</th>
+            <th>O que dizer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Entregou documento muito rápido</td>
+            <td>"Usei IA pro rascunho e revisei o conteúdo. Posso explicar cada decisão."</td>
+          </tr>
+          <tr>
+            <td>Colega desconfia da qualidade</td>
+            <td>"Aqui está o que a IA gerou. Aqui o que eu validei e corrigi."</td>
+          </tr>
+          <tr>
+            <td>Líder pergunta sobre dado citado</td>
+            <td>"Me dá 1 minuto pra confirmar a fonte" — e confirma.</td>
+          </tr>
+          <tr>
+            <td>Apresentação de plano de gestão</td>
+            <td>"Usei IA pra estruturar. A leitura do contexto da equipe é minha."</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Seção — Da Análise à Decisão: OIA + Regra do Headline -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Comunicação executiva</p>
+      <h2>Da Análise à Decisão: OIA + Regra do Headline</h2>
+      <p>
+        Você analisou os dados com IA. Tem números, gráficos, planilhas. Agora vem a parte mais difícil: <strong>a liderança lê os títulos em 30 segundos e decide se confia em você</strong>. Dado sem narrativa não decide nada — e narrativa sem framework cansa quem está lendo.
+      </p>
+
+      <h3 style="margin-top:24px">OIA — Observação → Insight → Ação</h3>
+      <p>Todo dado tem 3 camadas. A maioria dos relatórios para no primeiro:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width:22%">Nível</th>
+            <th style="width:30%">❌ Exemplo ruim</th>
+            <th>✅ Exemplo OIA (análise da banda)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>O — Observação</strong><br><span style="font-size:13px; color:var(--ink-muted)">O que os dados mostram?</span></td>
+            <td>"Faturamento da banda: R$ 8.200 em junho"</td>
+            <td>"Faturamento R$ 8.200 — 22% acima de maio, puxado por shows em festas juninas"</td>
+          </tr>
+          <tr>
+            <td><strong>I — Insight</strong><br><span style="font-size:13px; color:var(--ink-muted)">O que isso significa?</span></td>
+            <td>—</td>
+            <td>"Junho é o pico do ano. Margem cai porque equipamento alugado custa 30% mais alto em junho"</td>
+          </tr>
+          <tr>
+            <td><strong>A — Ação</strong><br><span style="font-size:13px; color:var(--ink-muted)">O que fazer?</span></td>
+            <td>—</td>
+            <td>"Avaliar comprar equipamento próprio até maio/2027 — retorno em 14 meses"</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout" style="margin-top:24px">
+        <strong>Regra de ouro:</strong> entregar só a Observação é deixar o leitor sozinho com a parte mais difícil — ele tem o dado, mas não sabe o que significa nem o que fazer. OIA garante que você entrega as três camadas no lugar que importa.
+      </div>
+
+      <h3 style="margin-top:32px">A Regra do Headline de Insight</h3>
+      <p>
+        Liderança escaneia os títulos antes de ouvir você falar. Se o título já é o insight, você ganha atenção antes da primeira palavra. Se é só um rótulo ("Análise do mês"), eles esperam explicação — e podem perder o fio.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>❌ Título de dado (rótulo)</th>
+            <th>✅ Título de insight</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Resultados do trimestre</td>
+            <td>Aumento de 22% veio de junho — sazonal, não estrutural</td>
+          </tr>
+          <tr>
+            <td>Análise por categoria</td>
+            <td>Equipamento alugado pesa 41% do custo — única alavanca real de redução</td>
+          </tr>
+          <tr>
+            <td>Comparativo com 2025</td>
+            <td>Cachês em linha; aluguel de equipamento subiu R$ 3,8k</td>
+          </tr>
+          <tr>
+            <td>Próximos passos</td>
+            <td>Cotar compra de equipamento próprio antes de dezembro — economia potencial R$ 15k/ano</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout" style="margin-top:24px">
+        <strong>Teste prático:</strong> leia só os títulos do seu doc em sequência, sem abrir nenhum slide. Se problema, causa e o que fazer ficam claros só pelos títulos, você acertou. Se você precisa abrir o slide pra entender, ainda é rótulo.
+      </div>
+
+      <p style="font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-muted); margin:28px 0 8px">
+        Prompt base — Narrativa OIA para Apresentação Executiva
+      </p>
+      <pre style="background:var(--bg-warm); border:1px solid var(--border); border-radius:8px; padding:20px; font-family:'Menlo','Monaco',monospace; font-size:13px; line-height:1.7; color:var(--ink); overflow-x:auto; white-space:pre-wrap; margin:0">
+Papel: Você é uma especialista em comunicação executiva pra liderança
+não-técnica.
+
+Contexto: Estou preparando a apresentação de [tema — ex: análise mensal
+de gastos, plano de transição, resultado de campanha] para [liderança
+/ cliente / equipe]. Os dados estão abaixo:
+[cole o resumo dos dados — itens principais, valores, comparativos]
+
+Tarefa: Estruture uma narrativa executiva seguindo o framework OIA
+(Observação → Insight → Ação) para 5 a 7 pontos. Cada ponto deve ter
+um título que já é um insight — não um rótulo.
+
+Formato: tabela com 3 colunas — Título do slide | Observação (dado) |
+Ação recomendada (decisão). Máximo 7 pontos.
+
+Limitações: Não use linguagem corporativa vazia ("alavancar",
+"sinergias"). Não invente dados que não estão no resumo. Se faltar
+contexto pra concluir um insight, sinalize.
+
+Critério de Sucesso: a leitora lê só os títulos em sequência e entende
+onde estão os destaques, por que estão lá e o que fazer.
+
+Negativo: NÃO use títulos genéricos como "Resultados" ou
+"Próximos Passos" sem conteúdo no próprio título.</pre>
+    </div>
+  </section>
+
+  <!-- Seção — Framework IPO: processo adaptado com IA -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Processos · A raiz do output genérico</p>
+      <h2>Quando o Processo Não Muda, o Output Parece IA</h2>
+      <p>
+        No M2 vimos que IA roda sobre trilhos — e trilhos vagos produzem respostas genéricas. Há um nível mais profundo: <strong>se o processo que você executa todo dia não foi redesenhado pra trabalhar com IA, o output vai carregar a marca da ferramenta, não a sua.</strong> A revisão OIA resolve a narrativa. O IPO resolve a raiz.
+      </p>
+      <p style="margin-top:12px; color:var(--ink-soft)">
+        O Framework IPO (Input → Processo → Output) abre a caixa preta de um processo recorrente e o reconstrói com critérios claros — o que a IA precisa pra executar com consistência e entregar no seu jeito, não no jeito genérico da internet.
+      </p>
+
+      <div class="ipo-flow" style="margin-top:28px">
+        <div class="ipo-box ipo-input">
+          <span class="ipo-box-label">Input</span>
+          <span class="ipo-box-desc">O que aciona o processo</span>
+          <span style="font-size:12.5px; color:var(--ink-soft)">dado, documento ou solicitação que chega</span>
+        </div>
+        <div class="ipo-sep">→</div>
+        <div class="ipo-box ipo-process">
+          <span class="ipo-box-label">Processo</span>
+          <span class="ipo-box-desc">4–7 passos com verbo + critério</span>
+          <span style="font-size:12.5px; color:var(--ink-soft)">a caixa preta aberta — cada passo é uma instrução</span>
+        </div>
+        <div class="ipo-sep">→</div>
+        <div class="ipo-box ipo-output">
+          <span class="ipo-box-label">Output</span>
+          <span class="ipo-box-desc">Formato e destino exatos</span>
+          <span style="font-size:12.5px; color:var(--ink-soft)">o resultado pronto — para quem e em qual formato</span>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:20px">
+        <button class="btn" onclick="openIpoModal()" style="font-size:13px; padding:8px 16px">
+          Ver diagrama completo →
+        </button>
+        <span style="font-size:13px; color:var(--ink-muted)">
+          6 campos · erros comuns · conexão com M2 e M5
+        </span>
+      </div>
+
+      <div class="callout" style="margin-top:24px">
+        <strong>Próximo passo prático:</strong> mapeie um processo recorrente seu em IPO usando o <button class="btn-inline-link" onclick="openM3Preview('prompt','P30')">Prompt — Mapeamento IPO de Processo</button>. O resultado vira a base pra você criar um Claude Project depois (sessão 5).
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 3.5 — Onde a IA já entregou (dado Anthropic) -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Validação externa</p>
+      <h2>Onde a IA já entregou — no mundo</h2>
+      <p>
+        A pesquisa Anthropic com 81 mil pessoas perguntou: <strong>"em quais áreas a IA já fez
+        algo concreto na direção do que você esperava?"</strong>. Produtividade lidera com folga
+        — é exatamente o que você vai colher ao aplicar o método deste módulo no seu orçamento.
+      </p>
+
+      <div class="hbar-graph" style="margin-top:24px">
+        <p class="hbar-graph-title">Onde a IA cumpriu o que prometeu</p>
+        <p class="hbar-graph-source">Top 6 categorias · Anthropic 81k Entrevistas · 2025</p>
+        <div class="hbar-row">
+          <span class="hbar-label">Produtividade</span>
+          <div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div>
+          <span class="hbar-pct">32,0%</span>
+        </div>
+        <div class="hbar-row">
+          <span class="hbar-label">IA ainda não entregou</span>
+          <div class="hbar-track"><div class="hbar-fill muted" style="width:59%"></div></div>
+          <span class="hbar-pct">18,9%</span>
+        </div>
+        <div class="hbar-row">
+          <span class="hbar-label">Parceria cognitiva</span>
+          <div class="hbar-track"><div class="hbar-fill" style="width:54%"></div></div>
+          <span class="hbar-pct">17,2%</span>
+        </div>
+        <div class="hbar-row">
+          <span class="hbar-label">Aprendizado</span>
+          <div class="hbar-track"><div class="hbar-fill" style="width:31%"></div></div>
+          <span class="hbar-pct">9,9%</span>
+        </div>
+        <div class="hbar-row">
+          <span class="hbar-label">Acessibilidade técnica</span>
+          <div class="hbar-track"><div class="hbar-fill" style="width:27%"></div></div>
+          <span class="hbar-pct">8,7%</span>
+        </div>
+        <div class="hbar-row">
+          <span class="hbar-label">Síntese de pesquisa</span>
+          <div class="hbar-track"><div class="hbar-fill" style="width:22%"></div></div>
+          <span class="hbar-pct">7,2%</span>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:24px">
+        <strong>Conexão com o exercício a seguir:</strong> 32% das pessoas no mundo dizem que a IA já entregou em produtividade. Mas isso só acontece quando você dá contexto, dado e formato — que é o que vamos praticar agora.
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 4 — Exercício: Categorizar Gastos -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <div class="exercise-box">
+        <div class="exercise-box-header">
+          <span class="exercise-box-badge">EXERCÍCIO</span>
+          <h3>Categorizar Extrato Bancário com IA</h3>
+        </div>
+
+        <p style="font-size:14px; color:var(--ink-soft); margin-bottom:20px">
+          Você vai praticar o IPO em uma tarefa concreta: categorizar entradas e saídas do extrato de um mês — algo que toda gestora administrativa, dona de pequeno negócio ou pessoa com finanças paralelas precisa fazer.
+        </p>
+
+        <h3 style="margin-top:0">Antes de abrir a IA — declare o IPO em 3 linhas:</h3>
+
+        <div class="ipo-flow" style="margin:18px 0 24px">
+          <div class="ipo-box ipo-input">
+            <span class="ipo-box-label">Input</span>
+            <span class="ipo-box-desc">Extrato em texto</span>
+            <span style="font-size:12.5px; color:var(--ink-soft)">tabela copiada do app do banco (Itaú, Bradesco etc) com data, descrição, valor</span>
+          </div>
+          <div class="ipo-sep">→</div>
+          <div class="ipo-box ipo-process">
+            <span class="ipo-box-label">Process</span>
+            <span class="ipo-box-desc">Categorizar por tipo</span>
+            <span style="font-size:12.5px; color:var(--ink-soft)">para cada linha: classificar em ENTRADA / SAÍDA FIXA / SAÍDA VARIÁVEL / SAÍDA PONTUAL</span>
+          </div>
+          <div class="ipo-sep">→</div>
+          <div class="ipo-box ipo-output">
+            <span class="ipo-box-label">Output</span>
+            <span class="ipo-box-desc">Tabela + resumo</span>
+            <span style="font-size:12.5px; color:var(--ink-soft)">tabela categorizada + 1 parágrafo de resumo + 2-3 observações</span>
+          </div>
+        </div>
+
+        <ol style="font-size:14px; line-height:2; color:var(--ink-soft); padding-left:20px; margin-bottom:20px">
+          <li>Abra seu app de banco (ou da banda) e copie o extrato dos últimos 30 dias como texto</li>
+          <li>Anonimize antes de colar: troque valores reais por aproximados, esconda CPF se houver</li>
+          <li>Abra o Claude (claude.ai) — vai funcionar melhor que ChatGPT pra isso</li>
+          <li>Cole o prompt F02 do <a href="../banco-de-prompts/#financeiro" class="btn-inline-link">banco de prompts</a> (Categorizar extrato)</li>
+          <li>Cole o extrato no campo indicado</li>
+          <li>Avalie: a IA categorizou bem? Marcou ⚠️ pra ambíguos? Inventou alguma categoria?</li>
+        </ol>
+
+        <div class="callout" style="margin:0">
+          <strong>O que observar:</strong> as categorias fazem sentido pro seu tipo de uso (banda, casa, trabalho)? Ela marcou "⚠️ confirmar" pras linhas ambíguas (que é o certo)? Inventou alguma categoria que não fazia sentido?
+        </div>
+
+        <div style="margin-top:20px; padding:16px 20px; background:var(--bg); border:1px dashed var(--accent); border-radius:8px">
+          <p style="margin:0 0 8px; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; color:var(--accent)">
+            Tarefa bônus (encadeamento)
+          </p>
+          <p style="margin:0; font-size:14px; color:var(--ink-soft); line-height:1.7">
+            Depois de categorizar, peça: <em>"Com base nessa categorização, faça uma análise OIA de 3 destaques do mês — onde gastei mais que deveria, onde tem oportunidade, e 1 ação concreta pro próximo mês."</em> Você sai do exercício com extrato categorizado <strong>+ análise estratégica</strong> da sua própria gestão financeira.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção — Entregável do módulo -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Antes de seguir pro M4</p>
+      <h2>Checklist deste módulo</h2>
+      <p>Marque conforme se sentir confortável:</p>
+
+      <ul class="entregavel-list">
+        <li data-entregavel="1"><span class="entregavel-checkbox"></span><span class="entregavel-text">Sei nomear as 3 caixas do IPO: Input, Process, Output</span></li>
+        <li data-entregavel="2"><span class="entregavel-checkbox"></span><span class="entregavel-text">Consigo escrever IPO em 3 linhas pra uma tarefa minha antes de pedir à IA</span></li>
+        <li data-entregavel="3"><span class="entregavel-checkbox"></span><span class="entregavel-text">Entendi o framework OIA (Observação → Insight → Ação) pra apresentações</span></li>
+        <li data-entregavel="4"><span class="entregavel-checkbox"></span><span class="entregavel-text">Rodei o exercício de categorizar extrato — mesmo que com dados inventados</span></li>
+        <li data-entregavel="5"><span class="entregavel-checkbox"></span><span class="entregavel-text">Sei como posicionar uso de IA quando colega/líder perguntar</span></li>
       </ul>
-
-      <div class="callout-mentoria"><strong>O exercício do M3:</strong> antes de qualquer prompt importante, você escreve 3 linhas curtas (uma por caixa). Vira reflexo em 1-2 semanas. Quando ficar reflexo, você pula a etapa explícita — mas a clareza permanece.</div>
+      <p class="entregavel-progress">Marque conforme conclui — seu progresso fica salvo neste navegador.</p>
     </div>
   </section>
 
-  <section class="section content-section" id="exemplos">
-    <div class="site-container">
-      <p class="eyebrow">3.3 · Aplicação</p>
-      <h2>3 exemplos com IPO declarado</h2>
-      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
-        Mesma estrutura aplicada a 3 tarefas administrativas comuns. Veja como o prompt fica natural quando o IPO está claro.
-      </p>
+  <!-- Navegação entre módulos -->
+  <nav class="module-nav site-container">
+    <a href="../m2-delegacao/">
+      <span class="module-nav-label">Módulo anterior</span>
+      ← M2 · Inteligência Estratégica
+    </a>
+    <a href="../m4-prompts/" class="next">
+      <span class="module-nav-label">Próximo módulo</span>
+      M4 · Engenharia de Prompts (PCTFL) →
+    </a>
+  </nav>
 
-      <div class="ipo-exemplo">
-        <div class="ipo-exemplo-titulo">Exemplo 1 · Resumo de reunião pra próximos passos</div>
-        <div class="ipo-exemplo-tarefa">Tarefa: você gravou uma reunião de 1h, tem a transcrição, e precisa enviar pra equipe um resumo do que foi decidido.</div>
-
-        <table class="ipo-exemplo-tabela">
-          <tr>
-            <td class="eixo input">Input</td>
-            <td class="conteudo">Transcrição completa da reunião (1h, ~7000 palavras), com falas dos participantes identificadas.</td>
-          </tr>
-          <tr>
-            <td class="eixo process">Process</td>
-            <td class="conteudo">
-              <ul>
-                <li>Identificar decisões tomadas (não discussões abertas)</li>
-                <li>Atribuir cada decisão a um responsável</li>
-                <li>Marcar prazos quando mencionados</li>
-                <li>Separar "pendências discutidas" de "próximos passos confirmados"</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td class="eixo output">Output</td>
-            <td class="conteudo">E-mail curto pra equipe: 5 bullets de decisões + 3 bullets de próximos passos com responsável e prazo. Máximo 200 palavras. Linguagem direta.</td>
-          </tr>
-        </table>
-
-        <div class="ipo-prompt-pronto-label">📋 Prompt pronto pra colar</div>
-        <pre class="ipo-prompt-pronto">Atue como assessora executiva especializada em síntese de reuniões.
-
-Vou colar a transcrição de uma reunião de 1h com a equipe administrativa. Quero enviar um resumo pra todos por e-mail.
-
-Identifique apenas as DECISÕES tomadas (não discussões abertas). Pra cada decisão: responsável (quando atribuído) + prazo (quando mencionado). Separe "próximos passos confirmados" das "pendências em aberto".
-
-Formato: e-mail curto. 5 bullets de decisões + 3 bullets de próximos passos. Máximo 200 palavras. Linguagem direta, sem floreio.
-
-Não invente responsáveis nem prazos que não estiverem na transcrição. Se faltou definir, marque como "⚠️ a definir".
-
-TRANSCRIÇÃO:
-[cole aqui]</pre>
-      </div>
-
-      <div class="ipo-exemplo">
-        <div class="ipo-exemplo-titulo">Exemplo 2 · Análise de planilha de indicadores</div>
-        <div class="ipo-exemplo-tarefa">Tarefa: você recebe uma planilha de KPIs mensais e precisa apresentar pra liderança em 1 slide.</div>
-
-        <table class="ipo-exemplo-tabela">
-          <tr>
-            <td class="eixo input">Input</td>
-            <td class="conteudo">Planilha com 8 indicadores em 12 colunas (jan-dez). Histórico de 6 meses.</td>
-          </tr>
-          <tr>
-            <td class="eixo process">Process</td>
-            <td class="conteudo">
-              <ul>
-                <li>Identificar os 3 indicadores com maior variação (positiva ou negativa)</li>
-                <li>Comparar com mês anterior + média trimestral</li>
-                <li>Sugerir 1 hipótese plausível pra cada variação relevante</li>
-                <li>Marcar indicadores estáveis como "sem alteração relevante"</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td class="eixo output">Output</td>
-            <td class="conteudo">Texto pra 1 slide: 3 destaques + 1 frase de contexto pra cada + 1 pergunta pra discussão. Pra liderança não-técnica.</td>
-          </tr>
-        </table>
-
-        <div class="ipo-prompt-pronto-label">📋 Prompt pronto pra colar</div>
-        <pre class="ipo-prompt-pronto">Atue como analista sênior de indicadores de gestão.
-
-Sou gestora e vou apresentar a planilha de KPIs mensais para a liderança em 1 slide. A planilha tem 8 indicadores em colunas mensais (6 meses de histórico).
-
-Identifique os 3 indicadores com maior variação no último mês (positiva ou negativa). Pra cada um, compare com: (1) mês anterior; (2) média do trimestre. Sugira 1 hipótese plausível pra cada variação. Indicadores estáveis: ignore.
-
-Formato: texto curto pra 1 slide. Pra cada destaque: 1 frase de contexto + 1 pergunta pra discussão. Tom executivo, sem jargão técnico.
-
-Não invente causas que não tenham base nos números. Se faltar contexto pra interpretar, peça antes de responder.
-
-PLANILHA:
-[cole o conteúdo aqui]</pre>
-      </div>
-
-      <div class="ipo-exemplo">
-        <div class="ipo-exemplo-titulo">Exemplo 3 · Pauta de reunião com 3 stakeholders</div>
-        <div class="ipo-exemplo-tarefa">Tarefa: você precisa montar a pauta de uma reunião sensível com 3 áreas que têm interesses diferentes.</div>
-
-        <table class="ipo-exemplo-tabela">
-          <tr>
-            <td class="eixo input">Input</td>
-            <td class="conteudo">Lista de 3 áreas envolvidas + interesse/preocupação principal de cada uma + decisão a ser tomada na reunião.</td>
-          </tr>
-          <tr>
-            <td class="eixo process">Process</td>
-            <td class="conteudo">
-              <ul>
-                <li>Garantir que cada área tenha 1 momento de fala dedicado</li>
-                <li>Ordem dos temas: do menos polêmico ao mais polêmico (constrói consenso primeiro)</li>
-                <li>Incluir 1 momento de síntese antes da decisão final</li>
-                <li>Tempo total: 45 min</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td class="eixo output">Output</td>
-            <td class="conteudo">Pauta em formato de tabela: tópico · responsável · tempo · objetivo. Pronta pra enviar.</td>
-          </tr>
-        </table>
-
-        <div class="ipo-prompt-pronto-label">📋 Prompt pronto pra colar</div>
-        <pre class="ipo-prompt-pronto">Atue como facilitadora experiente de reuniões com múltiplas áreas.
-
-Vou conduzir uma reunião de 45 minutos com 3 áreas: [Área 1, interesse principal X], [Área 2, preocupação Y], [Área 3, prioridade Z]. A decisão final a ser tomada é: [decisão].
-
-Monte uma pauta que: (1) garanta que cada área tenha 1 momento de fala dedicado; (2) ordene os tópicos do menos pro mais polêmico (constrói consenso antes); (3) inclua 1 momento de síntese antes da decisão final; (4) caiba em 45 min.
-
-Formato: tabela com colunas: Tópico · Responsável · Tempo · Objetivo. Tom profissional, neutra entre as áreas.
-
-Não tome partido entre as áreas. Se houver conflito claro, sugira como facilitar — não como decidir.</pre>
-      </div>
-    </div>
-  </section>
-
-  <section class="section content-section" id="anti" style="background:var(--bg-warm);">
-    <div class="site-container">
-      <p class="eyebrow">3.4 · Anti-padrão</p>
-      <h2>Misturar Process com Output</h2>
-      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
-        O erro de IPO mais comum: descrever <em>como você vai entregar</em> achando que tá descrevendo <em>o que a IA vai fazer</em>. Resultado: a IA executa errado porque achou que era pra fazer outra coisa.
-      </p>
-
-      <div class="anti-card-ipo">
-        <h4>❌ Process e Output embolados</h4>
-        <p><code>"Resuma essa reunião num e-mail bonito pra equipe."</code> — "resuma" é process, "e-mail bonito pra equipe" é output. Mas "bonito" é vago e "pra equipe" não diz quanto a equipe sabe. A IA chuta.</p>
-      </div>
-      <div class="anti-card-ipo">
-        <h4>✅ Process e Output separados</h4>
-        <p><code>"Identifique decisões + responsáveis + prazos [process]. Devolva como e-mail curto, máx 200 palavras, tom executivo, pra equipe administrativa que participou da reunião [output]."</code> — Agora ela sabe o que extrair e como apresentar.</p>
-      </div>
-
-      <div class="callout-mentoria"><strong>Truque:</strong> escreva o IPO em 3 linhas separadas no rascunho. Se ficar tudo confuso em uma linha só, ainda não tá claro na sua cabeça.</div>
-    </div>
-  </section>
-
-  <section class="section content-section" id="combo">
-    <div class="site-container">
-      <p class="eyebrow">3.5 · Combinação</p>
-      <h2>IPO + PCTFL: a dupla que funciona</h2>
-      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
-        IPO e PCTFL não competem — se complementam. IPO é como você <strong>estrutura o raciocínio</strong> antes de escrever. PCTFL é como você <strong>traduz</strong> esse raciocínio em prompt.
-      </p>
-
-      <div class="combo-grid">
-        <div class="combo-card ipo">
-          <h4>IPO — na cabeça</h4>
-          <p>Você pensa primeiro: <strong>o que entra</strong> (Input), <strong>o que tem que acontecer</strong> (Process), <strong>o que precisa sair</strong> (Output). Isso esclarece pra <em>você</em> o que está pedindo.</p>
-        </div>
-        <div class="combo-card pctfl">
-          <h4>PCTFL — no prompt</h4>
-          <p>Depois você traduz: o Process pede um <strong>Papel</strong> (P) e tem <strong>Tarefa</strong> (T). O Input vira <strong>Contexto</strong> (C). O Output define <strong>Formato</strong> (F) e <strong>Limitações</strong> (L).</p>
-        </div>
-      </div>
-
-      <div class="callout-mentoria"><strong>Resumo da mecânica:</strong> M3 (IPO) é treino de pensamento. M4 (PCTFL) é treino de comunicação. Junto, os dois fazem você pedir bem porque você <em>pensou bem</em>.</div>
-    </div>
-  </section>
-
-  <section class="section content-section" id="proximo" style="background:var(--bg-warm);">
-    <div class="site-container" style="text-align:center;">
-      <p class="eyebrow">Próximo módulo</p>
-      <h2>M4 — Engenharia de Prompts (PCTFL)</h2>
-      <p style="font-size:15.5px; color:var(--ink-soft); max-width:640px; margin: 0 auto 18px;">A fórmula completa. Vai pegar o IPO que você acabou de aprender e mostrar como traduzir pra Papel · Contexto · Tarefa · Formato · Limitações.</p>
-      <a href="../m4-prompts/" style="display:inline-block; padding:11px 22px; background:var(--accent); color:#fff; border-radius:6px; font-size:14px; font-weight:600; text-decoration:none;">Ir pro M4 →</a>
-    </div>
-  </section>
-
-  <footer style="border-top:1px solid var(--border); padding: 28px 24px; text-align:center; color:var(--ink-muted); font-size:13px; margin-top:40px;">
+  <!-- Footer -->
+  <footer>
     <p>Mentoria IA Executiva · Rafael Lima · 2026</p>
-    <p style="font-size:12px; margin-top:6px;">Acesso privado · M3 · Framework IPO</p>
   </footer>
 
+  <!-- Modal IPO — diagrama visual -->
+  <div class="modal-backdrop" id="ipoModalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-labelledby="ipoModalTitle" aria-modal="true">
+      <button class="modal-close" aria-label="Fechar" onclick="closeIpoModal()">×</button>
+      <div class="modal-head">
+        <span class="modal-badge">M3 · Processos</span>
+        <h3 class="modal-title" id="ipoModalTitle">Framework IPO — Input · Processo · Output</h3>
+      </div>
+      <div class="modal-body" style="padding-bottom:16px">
+
+        <p style="font-size:14px; color:var(--ink-soft); line-height:1.65; margin:16px 0 22px">
+          Abre a caixa preta de um processo recorrente e o reconstrói com instruções que
+          a IA executa com consistência. Conecta com os trilhos do M2 — e prepara o terreno
+          para o Assistente Persistente do M5.
+        </p>
+
+        <!-- Fluxo visual -->
+        <div class="ipo-flow" style="margin:0 0 10px">
+          <div class="ipo-box ipo-input">
+            <span class="ipo-box-label">Input</span>
+            <span class="ipo-box-desc">O que aciona o processo</span>
+            <ul class="ipo-box-list">
+              <li>Dado que chega (formulário, e-mail, planilha)</li>
+              <li>Formato exato dos dados de entrada</li>
+              <li>Quem aciona e com qual frequência</li>
+            </ul>
+          </div>
+          <div class="ipo-sep">→</div>
+          <div class="ipo-box ipo-process">
+            <span class="ipo-box-label">Processo</span>
+            <span class="ipo-box-desc">4–7 passos com verbo + critério</span>
+            <ul class="ipo-box-list">
+              <li>Cada passo: <em>verbo de ação + critério de decisão</em></li>
+              <li>Ex: "Se candidato atende ≥2 dos 3 requisitos → entrevistar; se não → arquivar"</li>
+              <li>Passo vago = instrução que a IA vai inventar</li>
+            </ul>
+          </div>
+          <div class="ipo-sep">→</div>
+          <div class="ipo-box ipo-output">
+            <span class="ipo-box-label">Output</span>
+            <span class="ipo-box-desc">Formato e destino exatos</span>
+            <ul class="ipo-box-list">
+              <li>Formato final entregue (e-mail, planilha, doc)</li>
+              <li>Destinatário definido</li>
+              <li>Critério de qualidade do resultado</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Exceção -->
+        <div style="background:var(--bg-warm); border:1px solid var(--border); border-radius:6px; padding:12px 16px; margin-bottom:22px; font-size:13px; color:var(--ink-soft); line-height:1.6">
+          <strong style="color:var(--ink)">+ Exceção / Erro</strong> — O que fazer quando algo faltar ou sair do fluxo normal.
+          Um processo sem regra de fallback vai travar ou inventar na primeira situação inesperada.
+          <span style="color:var(--ink)">Ex: "se campo vazio → solicitar reenvio", "se sem resposta em 24h → escalar".</span>
+        </div>
+
+        <!-- Vago vs Concreto -->
+        <p style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-muted); margin:0 0 10px">O princípio crítico</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:22px">
+          <div style="background:var(--bg-warm); border:1px solid var(--border); border-radius:6px; padding:14px">
+            <p style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-muted); margin:0 0 6px">❌ Intenção vaga</p>
+            <p style="font-size:14px; font-style:italic; color:var(--ink); margin:0 0 6px">"Verificar currículo"</p>
+            <p style="font-size:12.5px; color:var(--ink-soft); margin:0">A IA não sabe o critério — vai inventar um razoável e o output vai parecer genérico.</p>
+          </div>
+          <div style="background:#eef6f0; border:1px solid #b8dfc5; border-radius:6px; padding:14px">
+            <p style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:#2d6a4f; margin:0 0 6px">✓ Instrução com critério</p>
+            <p style="font-size:14px; color:var(--ink); margin:0 0 6px">"Se candidato atende os 3 requisitos não-negociáveis → entrevistar; se atende parcial → outra rodada; se não → arquivar"</p>
+            <p style="font-size:12.5px; color:var(--ink-soft); margin:0">A IA executa sem ambiguidade — o output carrega o seu critério, não um genérico.</p>
+          </div>
+        </div>
+
+        <!-- Os 6 campos -->
+        <p style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-muted); margin:0 0 10px">Os 6 campos da tabela IPO</p>
+        <table style="font-size:13px; margin-bottom:22px">
+          <thead>
+            <tr>
+              <th style="width:20%">Campo</th>
+              <th>O que colocar</th>
+              <th>Erro comum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Área</strong></td>
+              <td>Nome específico do processo (não só "RH" ou "Financeiro")</td>
+              <td>Só o setor sem nomear o processo</td>
+            </tr>
+            <tr>
+              <td><strong>Input</strong></td>
+              <td>O que aciona e o formato exato dos dados</td>
+              <td>"Uma solicitação" sem detalhar o formato</td>
+            </tr>
+            <tr>
+              <td><strong>Processo</strong></td>
+              <td>4–7 passos com verbo + critério de decisão</td>
+              <td>Passos vagos como "aprovar" sem o critério</td>
+            </tr>
+            <tr>
+              <td><strong>Output</strong></td>
+              <td>Formato final e destinatário exatos</td>
+              <td>"Resposta" sem definir formato ou destino</td>
+            </tr>
+            <tr>
+              <td><strong>Exceção</strong></td>
+              <td>Regra de fallback para situações fora do padrão</td>
+              <td>Deixar vazio — o resultado vai inventar ou travar</td>
+            </tr>
+            <tr>
+              <td><strong>Recursos</strong></td>
+              <td>Dados, arquivos ou acessos necessários</td>
+              <td>Listar sistemas sem API ou acesso disponível</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Conexões com módulos -->
+        <p style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-muted); margin:0 0 10px">Conexão com os módulos</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+          <div class="callout" style="margin:0; font-size:13px">
+            <strong>↩ M2 — Trilhos:</strong> o IPO é o método pra redesenhar os trilhos processo a processo. Trilho genérico = output genérico, independente do prompt.
+          </div>
+          <div class="callout" style="margin:0; font-size:13px">
+            <strong>↪ M4 — PCTFL:</strong> o IPO preenchido vira o briefing do prompt PCTFL. Quanto mais preciso o IPO, menos cara-de-IA no output final.
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-foot">
+        <button class="modal-copy-btn" data-copy="ipo-p30-text">Copiar P30 — Mapeamento IPO</button>
+      </div>
+    </div>
+  </div>
+  <pre id="ipo-p30-text" style="display:none">Papel: Você é uma consultora de processos especializada em sistematização de tarefas repetitivas para automação ou criação de assistentes especializados.
+
+Contexto: Eu (gestora administrativa) tenho um processo que executo recorrentemente: [descreva — ex: pagamento mensal da banda, ciclo de avaliação da equipe, triagem semanal de currículos]. Quero mapear no formato IPO para depois transformar em Claude Project ou Custom GPT.
+
+Descrição do processo:
+[passos que executo hoje, ferramentas que uso, quanto tempo gasto, frequência]
+
+Tarefa: Mapeie o processo em IPO completo:
+- INPUTS: o que precisa estar disponível antes de começar (dados, arquivos, contexto)
+- PROCESS: passos sequenciais (com critério de "pronto" em cada um)
+- OUTPUTS: o que sai pronto para usar (formato, destinatário, critério de qualidade)
+
+Termine com 3 perguntas para definir qual parte vale automatizar com Assistente (Autopiloto), qual vale Colaboração e qual deve continuar Manual.
+
+Formato: 3 seções (Inputs / Process / Outputs) seguidas das 3 perguntas. Cada passo do Process em 1 linha clara.
+
+Limitações: Use apenas a descrição. Não invente passos que não foram mencionados. Se um passo estiver vago, peça detalhe antes de mapear.
+
+Critério de Sucesso: posso pegar o output e usar diretamente como Instrução de Sistema para um Claude Project ou Custom GPT na semana seguinte.
+
+Negativo: NÃO listar "etapa 1: planejar" sem conteúdo. NÃO confundir Input com Output. NÃO recomendar automatizar tudo — manter Manual o que exige julgamento.</pre>
+
+  <!-- Modal de preview — prompts (inline, sem navegação) -->
+  <div class="modal-backdrop" id="m3PreviewBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-labelledby="m3PreviewTitle" aria-modal="true">
+      <button class="modal-close" aria-label="Fechar" onclick="closeM3Preview()">×</button>
+      <div class="modal-head">
+        <span class="modal-badge" id="m3PreviewBadge"></span>
+        <h3 class="modal-title" id="m3PreviewTitle"></h3>
+      </div>
+      <div class="modal-body">
+        <pre id="m3PreviewContent"></pre>
+      </div>
+      <div class="modal-foot">
+        <button class="modal-copy-btn" data-copy="m3PreviewContent">Copiar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../_shared/assets/script.js"></script>
+  <script>
+  (function () {
+    var promptsMeta = {
+      P30: {
+        titulo: 'Mapeamento IPO de Processo',
+        badge: 'Banco de Prompts · Gestão',
+        texto: 'Papel: Você é uma consultora de processos especializada em sistematização de tarefas repetitivas para automação ou criação de assistentes especializados.\n\nContexto: Eu (gestora administrativa) tenho um processo que executo recorrentemente: [descreva — ex: pagamento mensal da banda, ciclo de avaliação da equipe, triagem semanal de currículos]. Quero mapear no formato IPO para depois transformar em Claude Project ou Custom GPT.\n\nDescrição do processo:\n[passos que executo hoje, ferramentas que uso, quanto tempo gasto, frequência]\n\nTarefa: Mapeie o processo em IPO completo:\n- INPUTS: o que precisa estar disponível antes de começar (dados, arquivos, contexto)\n- PROCESS: passos sequenciais (com critério de "pronto" em cada um)\n- OUTPUTS: o que sai pronto para usar (formato, destinatário, critério de qualidade)\n\nTermine com 3 perguntas para definir qual parte vale automatizar (Autopiloto), qual vale Colaboração e qual deve continuar Manual.\n\nFormato: 3 seções (Inputs / Process / Outputs) seguidas das 3 perguntas. Cada passo do Process em 1 linha clara.\n\nLimitações: Use apenas a descrição. Não invente passos que não foram mencionados. Se um passo estiver vago, peça detalhe antes de mapear.\n\nCritério de Sucesso: posso pegar o output e usar diretamente como Instrução de Sistema para um Claude Project na semana seguinte.\n\nNegativo: NÃO listar "etapa 1: planejar" sem conteúdo. NÃO confundir Input com Output. NÃO recomendar automatizar tudo — manter Manual o que exige julgamento.'
+      }
+    };
+
+    window.openM3Preview = function (type, id) {
+      var m = promptsMeta[id];
+      if (!m) return;
+      var backdrop = document.getElementById('m3PreviewBackdrop');
+      document.getElementById('m3PreviewTitle').textContent   = m.titulo;
+      document.getElementById('m3PreviewBadge').textContent   = m.badge;
+      document.getElementById('m3PreviewContent').textContent = m.texto;
+      backdrop.classList.add('open');
+      backdrop.removeAttribute('aria-hidden');
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.closeM3Preview = function () {
+      var backdrop = document.getElementById('m3PreviewBackdrop');
+      backdrop.classList.remove('open');
+      backdrop.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    window.openIpoModal = function () {
+      var b = document.getElementById('ipoModalBackdrop');
+      b.classList.add('open');
+      b.removeAttribute('aria-hidden');
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.closeIpoModal = function () {
+      var b = document.getElementById('ipoModalBackdrop');
+      b.classList.remove('open');
+      b.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    document.getElementById('m3PreviewBackdrop').addEventListener('click', function (e) {
+      if (e.target === this) window.closeM3Preview();
+    });
+    document.getElementById('ipoModalBackdrop').addEventListener('click', function (e) {
+      if (e.target === this) window.closeIpoModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      if (document.getElementById('m3PreviewBackdrop').classList.contains('open')) window.closeM3Preview();
+      if (document.getElementById('ipoModalBackdrop').classList.contains('open')) window.closeIpoModal();
+    });
+  }());
+  </script>
 </body>
 </html>

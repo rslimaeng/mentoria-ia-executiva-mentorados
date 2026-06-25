@@ -10,244 +10,860 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../_shared/assets/style.css">
   <style>
-    .niveis-grid-deb { display: grid; grid-template-columns: 1fr; gap: 10px; margin: 18px 0 8px; }
-    .nivel-row { display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 14px 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; }
-    .nivel-row.atual { border-left: 4px solid var(--accent-warm); background: rgba(194,145,107,0.06); }
-    .nivel-row.meta { border-left: 4px solid var(--accent); background: rgba(44,95,112,0.05); }
-    .nivel-row a, .nivel-row { color: inherit; text-decoration: none; }
-    .nivel-num { font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--accent); line-height: 1; }
-    .nivel-row.atual .nivel-num { color: var(--accent-warm-dark); }
-    .nivel-nome { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 4px; }
-    .nivel-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
-    .nivel-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--accent-warm-dark); margin-left: 8px; background: var(--bg-warm); padding: 2px 7px; border-radius: 3px; }
-    .nivel-tag.meta { color: var(--accent); }
-    .comparativo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0; }
-    .comparativo-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 22px; }
-    .comparativo-card.amador { border-top: 3px solid #c2916b; }
-    .comparativo-card.pro { border-top: 3px solid var(--accent); }
-    .comparativo-card h4 { font-family: var(--serif); font-size: 17px; margin-bottom: 12px; font-weight: 600; }
-    .comparativo-card ul { padding-left: 18px; }
-    .comparativo-card li { margin-bottom: 7px; font-size: 14.5px; line-height: 1.5; color: var(--ink-soft); }
-    .wysiati-exemplos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
-    .wysiati-ex { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
-    .wysiati-ex.ruim { border-left: 3px solid #c45e5e; }
-    .wysiati-ex.bom { border-left: 3px solid #6a8d3f; }
-    .wysiati-ex-label { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; margin-bottom: 10px; }
-    .wysiati-ex.ruim .wysiati-ex-label { color: #c45e5e; }
-    .wysiati-ex.bom .wysiati-ex-label { color: #4a6428; }
-    .wysiati-ex code { display: block; background: var(--bg-warm); padding: 10px 14px; border-radius: 4px; font-size: 13px; line-height: 1.5; margin-bottom: 10px; color: var(--ink); font-family: var(--mono); }
-    .wysiati-ex p { font-size: 13.5px; color: var(--ink-soft); margin: 0; line-height: 1.55; }
-    .risco-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 14px; }
-    .risco-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px 22px; }
-    .risco-card h4 { font-family: var(--serif); font-size: 17px; margin-bottom: 6px; color: var(--accent-dark); font-weight: 600; }
-    .risco-card p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.6; }
-    .callout-mentoria { background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 20px 0; font-size: 14.5px; color: var(--ink-soft); line-height: 1.6; }
-    .callout-mentoria strong { color: var(--ink); }
-    .modules-nav-bottom { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
-    @media (max-width: 640px) {
-      .comparativo-grid, .wysiati-exemplos { grid-template-columns: 1fr; }
+    /* === Componente 7 Níveis === */
+    .niveis-component { margin-top: 24px; }
+    .niveis-nav {
+      display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap;
     }
+    .niveis-nav button {
+      flex: 1; min-width: 44px; height: 44px;
+      border-radius: 8px; border: 1px solid var(--border);
+      background: transparent; color: var(--ink-muted);
+      font-size: 12px; font-weight: 700; letter-spacing: .04em;
+      cursor: pointer; font-family: inherit; transition: all .12s;
+    }
+    .niveis-nav button:hover { background: var(--bg-warm); color: var(--ink-soft); }
+    /* Fases — ativo */
+    .niveis-nav button.ph-d { background:#f3f4f6; color:#6b7280; border-color:#d1d5db; }
+    .niveis-nav button.ph-t { background:#fdf3ec; color:#c2916b; border-color:#e8c4a8; }
+    .niveis-nav button.ph-m { background:#eef4f6; color:#2c5f70; border-color:#b0cfd8; }
+    .niveis-nav button.ph-a { background:#ecf0f1; color:#1a3a4a; border-color:#8fb5c0; }
+    /* Card */
+    .niveis-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px;
+    }
+    .niveis-card-head {
+      display: flex; align-items: flex-start; gap: 16px; margin-bottom: 18px;
+    }
+    .niveis-badge {
+      width: 52px; height: 52px; flex-shrink: 0; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; font-weight: 700; font-family: 'Playfair Display', serif;
+    }
+    .niveis-badge.ph-d { background:#f3f4f6; color:#6b7280; border:1px solid #d1d5db; }
+    .niveis-badge.ph-t { background:#fdf3ec; color:#c2916b; border:1px solid #e8c4a8; }
+    .niveis-badge.ph-m { background:#eef4f6; color:#2c5f70; border:1px solid #b0cfd8; }
+    .niveis-badge.ph-a { background:#ecf0f1; color:#1a3a4a; border:1px solid #8fb5c0; }
+    /* Tags de fase */
+    .niveis-phase-tag {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .08em;
+      padding: 2px 8px; border-radius: 4px; margin-bottom: 6px;
+    }
+    .niveis-phase-tag.ph-d { background:#f3f4f6; color:#6b7280; border:1px solid #d1d5db; }
+    .niveis-phase-tag.ph-t { background:#fdf3ec; color:#c2916b; border:1px solid #e8c4a8; }
+    .niveis-phase-tag.ph-m { background:#eef4f6; color:#2c5f70; border:1px solid #b0cfd8; }
+    .niveis-phase-tag.ph-a { background:#ecf0f1; color:#1a3a4a; border:1px solid #8fb5c0; }
+    /* Textos */
+    .niveis-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; color: var(--ink); margin: 0 0 3px;
+    }
+    .niveis-ol { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+    .niveis-sep { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+    .niveis-lbl {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--accent-warm); margin: 0 0 6px;
+    }
+    .niveis-txt { font-size: 14px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+    .niveis-txt.em { color: var(--ink); }
+    /* Ferramentas */
+    .niveis-tools { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .niveis-tool {
+      font-size: 12px; padding: 3px 10px; border-radius: 4px;
+      background: var(--bg-warm); border: 1px solid var(--border); color: var(--ink-soft);
+    }
+    /* Próximo passo */
+    .niveis-next {
+      background: var(--bg-warm); border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0; padding: 14px 16px; margin-bottom: 16px;
+    }
+    .niveis-next-lbl {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .08em; margin-bottom: 6px;
+    }
+    .niveis-next-lbl.ph-d { color: #6b7280; }
+    .niveis-next-lbl.ph-t { color: #c2916b; }
+    .niveis-next-lbl.ph-m { color: #2c5f70; }
+    .niveis-next-lbl.ph-a { color: #1a3a4a; }
+    /* Rodapé do card */
+    .niveis-foot {
+      display: flex; justify-content: flex-end; gap: 8px;
+      padding-top: 14px; border-top: 1px solid var(--border);
+    }
+    .niveis-foot-btn {
+      padding: 7px 16px; font-size: 13px; cursor: pointer;
+      font-family: inherit; background: transparent;
+      border: 1px solid var(--border); border-radius: 6px;
+      color: var(--ink-soft); transition: all .12s;
+    }
+    .niveis-foot-btn:hover { background: var(--bg-warm); color: var(--ink); }
   </style>
 </head>
 <body>
 
+  <!-- Topbar -->
   <header class="topbar">
     <div class="topbar-inner">
       <a href="../" class="topbar-logo">Mentoria IA Executiva · Débora</a>
       <nav class="topbar-nav">
         <a href="../">Início</a>
-        <a href="../banco-de-prompts/">Banco</a>
+        <a href="../banco-de-prompts/">Banco de Prompts</a>
         <a href="../m2-delegacao/">M2 →</a>
       </nav>
     </div>
   </header>
 
+  <!-- Header do módulo -->
   <div class="module-header site-container">
     <p class="eyebrow">M1 · Fundamentos</p>
     <h1>Antes de pedir,<br>entender o que é IA.</h1>
     <div class="module-header-meta">
       <span>~12 min de leitura</span>
       <span>·</span>
-      <span>Pré-requisito pra M2, M3 e M4</span>
+      <span>Ponto de partida pra M2, M3 e M4</span>
     </div>
   </div>
 
-  <section class="section content-section" id="onde-voce-esta">
+  <!-- Seção 0 — Antes de começar (Frente A do enriquecimento didático) -->
+  <section class="section content-section reveal">
     <div class="site-container">
-      <p class="eyebrow">1.1 · Diagnóstico</p>
-      <h2>Onde você está hoje</h2>
-      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
-        A mentoria usa uma régua de 7 níveis pra falar sobre evolução. Saber em que nível você está <em>não é julgamento</em> — é só o ponto de partida. Você pode subir 1, 2 ou 3 níveis ao longo das 8 sessões dependendo do seu ponto de partida e do que você praticar.
+      <p class="eyebrow">Antes de começar</p>
+      <h2>O que é IA generativa em 1 minuto</h2>
+      <p style="font-size:15px; color:var(--ink-soft); margin:0 0 18px">
+        Você usa IA todo dia. Mas o que ela é, no fundo?
       </p>
 
-      <div class="niveis-grid-deb">
-        <div class="nivel-row atual">
-          <div class="nivel-num">0</div>
-          <div>
-            <div class="nivel-nome">Pré-Explorador <span class="nivel-tag">você está aqui</span></div>
-            <div class="nivel-desc">Nunca usou IA generativa. É o começo do caminho — quando você descobre que "perguntar" é uma habilidade. Sessões 1 e 2 cobrem este ponto.</div>
+      <div class="ia-aninhada-block">
+        <div class="ia-layers" role="group" aria-label="Hierarquia da IA">
+          <div id="layer-r1" class="ia-layer l1" data-ring="r1">
+            <span class="ia-layer-name">Inteligência Artificial</span>
+            <div id="layer-r2" class="ia-layer l2" data-ring="r2">
+              <span class="ia-layer-name">Machine Learning</span>
+              <div id="layer-r3" class="ia-layer l3" data-ring="r3">
+                <span class="ia-layer-name">Deep Learning</span>
+                <div id="layer-r4" class="ia-layer l4" data-ring="r4">
+                  <span class="ia-layer-name">IA Generativa</span>
+                  <span class="ia-layer-sub">você está aqui</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="nivel-row">
-          <div class="nivel-num">1</div>
-          <div>
-            <div class="nivel-nome">Explorador</div>
-            <div class="nivel-desc">Usa IA como "Google melhor". Pergunta, copia resposta, fecha. Aceita a primeira saída. Ainda não percebeu que <em>como</em> pergunta muda o resultado.</div>
-          </div>
-        </div>
-        <div class="nivel-row meta">
-          <div class="nivel-num">2</div>
-          <div>
-            <div class="nivel-nome">Aprendiz <span class="nivel-tag meta">alvo das 8 sessões</span></div>
-            <div class="nivel-desc">Entendeu que <em>como pergunta importa</em>. Refraseia, itera, guarda prompts que funcionam. Tem uma biblioteca pessoal viva.</div>
-          </div>
-        </div>
-        <div class="nivel-row">
-          <div class="nivel-num">3</div>
-          <div>
-            <div class="nivel-nome">Construtora <span class="nivel-tag meta">stretch</span></div>
-            <div class="nivel-desc">Cria espaços com contexto pré-carregado (Projects). A IA "lembra" das decisões. Compara modelos para a mesma tarefa.</div>
-          </div>
-        </div>
-        <div class="nivel-row">
-          <div class="nivel-num">4–7</div>
-          <div>
-            <div class="nivel-nome">Construtora avançada · Sistemas · Arquiteta · Orquestradora</div>
-            <div class="nivel-desc">Horizonte — não meta do programa. Cada nível resolve um problema do anterior (ferramentas múltiplas, automação, código, agentes 24/7).</div>
-          </div>
+
+        <div id="ia-aninhada-text" class="ia-aninhada-text">
+          <p id="ia-aninhada-frase" class="ia-aninhada-frase">
+            <strong>IA generativa é um auto-completar treinado em quase tudo que a humanidade já escreveu.</strong> Ela não pensa — ela prevê qual palavra vem em seguida.
+          </p>
+          <ol id="ia-aninhada-list" class="ia-aninhada-implicacoes">
+            <li><strong>Por que ela inventa norma técnica com confiança total</strong> — continuar o texto de forma plausível é o que ela foi treinada pra fazer. Inventar não é bug; é como ela funciona.</li>
+            <li><strong>Por que prompts vagos geram respostas vagas</strong> — sem contexto, ela auto-completa pra média estatística da internet.</li>
+            <li><strong>Por que ela melhora com papel + contexto + tarefa</strong> — você restringe o universo de "próximas palavras prováveis" pro espaço certo.</li>
+          </ol>
+          <p id="ia-aninhada-hint" class="ia-aninhada-hint">↑ Passe o mouse sobre cada camada para explorar</p>
         </div>
       </div>
-
-      <div class="callout-mentoria"><strong>Por que isso importa:</strong> ninguém sobe de nível "estudando". Sobe quando bate num <em>problema</em> que o nível atual não resolve. A mentoria provoca esses problemas de propósito — não pra te jogar no fundo do poço, mas pra fazer a próxima ferramenta aparecer no momento certo.</div>
     </div>
   </section>
 
-  <section class="section content-section" id="wysiati" style="background:var(--bg-warm);">
+  <!-- Seção 0.2 — O que você não sabe que não sabe -->
+  <section class="section content-section reveal">
     <div class="site-container">
-      <p class="eyebrow">1.2 · O viés que sabota a IA</p>
-      <h2>WYSIATI — só vejo o que mostro</h2>
-      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;"><strong>WYSIATI</strong> = "What You See Is All There Is" (o que você vê é tudo que existe). É um viés descrito pelo psicólogo Daniel Kahneman: a gente decide com base no que tá visível, ignorando tudo que não foi mencionado.</p>
+      <p class="eyebrow">Por que este workshop existe</p>
+      <h2>O que você não sabe que não sabe</h2>
+      <p style="font-size:15px; color:var(--ink-soft); margin:0 0 18px">
+        Por que mesmo quem usa IA todo dia sente que "não está indo fundo"?
+      </p>
 
-      <p>A IA tem esse viés <em>multiplicado por 10</em>. Ela responde com base em <strong>tudo que você escreveu no prompt</strong> — e <strong>só</strong> com base nisso. Se você não disser quem você é, qual o contexto, ou pra quem é o resultado, ela vai assumir o padrão "média da internet". Quase sempre genérico, quase sempre errado.</p>
+      <div class="matriz-consciencia-block">
+        <svg class="matriz-consciencia-svg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-label="Matriz de consciência: três zonas concêntricas — sei que sei, sei que não sei, não sei que não sei">
+          <circle class="matriz-consciencia-ring z1" cx="160" cy="160" r="150"/>
+          <circle class="matriz-consciencia-ring z2" cx="160" cy="160" r="100"/>
+          <circle class="matriz-consciencia-ring z3" cx="160" cy="160" r="50"/>
+          <!-- Labels dentro dos anéis -->
+          <text class="matriz-consciencia-label muted" x="160" y="42">NÃO SEI QUE NÃO SEI</text>
+          <text class="matriz-consciencia-label" x="160" y="78">SEI QUE NÃO SEI</text>
+          <text class="matriz-consciencia-label" x="160" y="165">SEI QUE SEI</text>
+        </svg>
 
-      <h3 style="margin-top:24px;">Mesmo pedido, dois resultados</h3>
+        <div class="matriz-text">
+          <p class="matriz-wysiati-title">WYSIATI</p>
+          <p class="matriz-wysiati-en">What You See Is All There Is — Daniel Kahneman</p>
+          <p class="matriz-wysiati-frase">
+            A gente decide com base só no que está visível na cabeça. Em IA isso vira armadilha: <strong>muita coisa boa está invisível pra você</strong> — não porque é difícil, mas porque ninguém te mostrou que existia.
+          </p>
 
-      <div class="wysiati-exemplos">
-        <div class="wysiati-ex ruim">
-          <div class="wysiati-ex-label">❌ Sem contexto</div>
-          <code>Me diga os principais pontos de atenção num projeto.</code>
-          <p>Resposta: 8 bullets genéricos copiados de qualquer livro de gestão — escopo, prazo, custo, qualidade, riscos, comunicação… Você já sabia tudo. Tempo perdido.</p>
-        </div>
-        <div class="wysiati-ex bom">
-          <div class="wysiati-ex-label">✅ Com contexto</div>
-          <code>Me diga os principais pontos de atenção num projeto. Sou chefe de gabinete num órgão público; o "projeto" é a reorganização da equipe administrativa, 14 pessoas, prazo 90 dias.</code>
-          <p>Resposta: ataca turnover, resistência política, comunicação interna, métricas de adoção. Útil. Acionável. Você não tinha pensado em 3 desses.</p>
+          <table class="matriz-zonas-tabela">
+            <thead>
+              <tr>
+                <th>Zona</th>
+                <th>O que IA faz por você</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sei que sei</td>
+                <td><strong>Padroniza</strong> o que você já faz bem (banco de prompts, automação)</td>
+              </tr>
+              <tr>
+                <td>Sei que não sei</td>
+                <td><strong>Acelera</strong> o aprendizado (explica conceito, traz exemplos)</td>
+              </tr>
+              <tr>
+                <td>Não sei que não sei</td>
+                <td><strong>Expande</strong> seu campo de visão (sugere perguntas, contraexemplos, ângulos novos)</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
-      <div class="callout-mentoria"><strong>A regra:</strong> antes de perguntar, declare <em>quem você é</em>, <em>onde está</em> e <em>pra quem é a resposta</em>. Isso vai virar reflexo. No <a href="../m4-prompts/">M4</a> você aprende a fórmula completa (<strong>PCTFL</strong>) — aqui é só pra você sentir o salto.</div>
+      <div class="callout cool" style="margin-top:28px">
+        <strong>Por isso a mentoria existe.</strong> Você está chegando agora — talvez não saiba ainda o que IA pode fazer pela sua gestão, sua carreira, seu projeto paralelo. As próximas seções — 5 Sinais, 7 Níveis, depois PCTFL no M4 e o banco de prompts — são ferramentas pra você enxergar a terceira zona. E começar a fazer perguntas que hoje você nem sabe que pode fazer.
+      </div>
     </div>
   </section>
 
-  <section class="section content-section" id="amador-vs-pro">
+  <!-- Seção 1.5 — Bloco Anthropic 81k -->
+  <section class="section content-section reveal">
     <div class="site-container">
-      <p class="eyebrow">1.3 · A virada de chave</p>
-      <h2>Amador vs profissional</h2>
-      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">A diferença não é cobrar mais caro. É <em>como pensa</em>. Três movimentos resumem a virada.</p>
+      <div class="anthropic-block">
+        <p class="eyebrow">Contexto global</p>
+        <h2>Você não está só</h2>
+        <p>
+          A Anthropic entrevistou <strong>81 mil pessoas no mundo</strong> sobre o que querem da IA.
+          A maior categoria — <strong>18,8%</strong> — é "professional excellence": pessoas
+          que querem IA cuidar do mundano pra elas focarem no estratégico.
+          <strong>É exatamente o motivo de você estar aqui.</strong>
+        </p>
 
-      <div class="comparativo-grid">
-        <div class="comparativo-card amador">
-          <h4>Quem está chegando agora</h4>
-          <ul>
-            <li>Pergunta, copia, fecha — sem revisar</li>
-            <li>Aceita a primeira resposta como verdade</li>
-            <li>Não guarda prompts que funcionaram</li>
-            <li>Re-explica tudo a cada nova conversa</li>
-            <li>"A IA não funciona pra mim"</li>
-            <li>Usa só ChatGPT (não testou Claude, Gemini, NotebookLM)</li>
-          </ul>
+        <div class="bignum-grid">
+          <div class="bignum">
+            <p class="bignum-value">81 mil</p>
+            <p class="bignum-label">Entrevistas globais</p>
+            <p class="bignum-desc">Estudo Anthropic com pessoas em mais de 80 países</p>
+          </div>
+          <div class="bignum">
+            <p class="bignum-value">18,8%</p>
+            <p class="bignum-label">Querem o que GPS quer</p>
+            <p class="bignum-desc">"Que a IA cuide do trabalho mundano pra eu focar no estratégico"</p>
+          </div>
+          <div class="bignum">
+            <p class="bignum-value">81%</p>
+            <p class="bignum-label">Já viram a IA realizar</p>
+            <p class="bignum-desc">Disseram que a IA já fez algo na direção do que sonhavam</p>
+          </div>
         </div>
-        <div class="comparativo-card pro">
-          <h4>Quem já internalizou</h4>
-          <ul>
-            <li>Pergunta, lê crítico, refina — até ficar útil</li>
-            <li>Pede pra IA <em>fazer perguntas</em> antes de responder</li>
-            <li>Tem biblioteca pessoal de prompts (no banco da página)</li>
-            <li>Usa espaços com contexto pré-carregado (Projects)</li>
-            <li>"Quando a IA erra, é o meu prompt que falhou"</li>
-            <li>Escolhe a ferramenta certa pra cada tarefa</li>
-          </ul>
+
+        <div class="hbar-graph" style="margin-top:24px">
+          <p class="hbar-graph-title">O que o mundo espera da IA</p>
+          <p class="hbar-graph-source">Top 6 categorias · Anthropic 81k Interviews · 2025</p>
+          <div class="hbar-row">
+            <span class="hbar-label">Excelência profissional</span>
+            <div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div>
+            <span class="hbar-pct">18,8%</span>
+          </div>
+          <div class="hbar-row">
+            <span class="hbar-label">Transformação pessoal</span>
+            <div class="hbar-track"><div class="hbar-fill" style="width:73%"></div></div>
+            <span class="hbar-pct">13,7%</span>
+          </div>
+          <div class="hbar-row">
+            <span class="hbar-label">Gestão da vida</span>
+            <div class="hbar-track"><div class="hbar-fill" style="width:72%"></div></div>
+            <span class="hbar-pct">13,5%</span>
+          </div>
+          <div class="hbar-row">
+            <span class="hbar-label">Liberdade de tempo</span>
+            <div class="hbar-track"><div class="hbar-fill" style="width:59%"></div></div>
+            <span class="hbar-pct">11,1%</span>
+          </div>
+          <div class="hbar-row">
+            <span class="hbar-label">Independência financeira</span>
+            <div class="hbar-track"><div class="hbar-fill" style="width:51%"></div></div>
+            <span class="hbar-pct">9,7%</span>
+          </div>
+          <div class="hbar-row">
+            <span class="hbar-label">Transformação social</span>
+            <div class="hbar-track"><div class="hbar-fill" style="width:50%"></div></div>
+            <span class="hbar-pct">9,4%</span>
+          </div>
         </div>
+
+        <div class="anthropic-quote">
+          <p class="anthropic-quote-pt">"Melhorar a efetividade e dedicar-me a trabalho mais significativo — com a IA cuidando das tarefas rotineiras pra eu focar no que é estratégico, complexo e exige domínio profissional."</p>
+          <p class="anthropic-quote-en">"Improve effectiveness and lean into more meaningful work by having AI handle routine tasks so they can focus on higher-value strategic work, complex problem-solving, and professional mastery."</p>
+          <p class="anthropic-quote-attr">— Profissional de saúde, Estados Unidos · Anthropic 81k Interviews</p>
+        </div>
+
+        <p style="margin-top:24px; font-size:15px; color:var(--ink-soft); line-height:1.7">
+          Mas ter o desejo não basta. O salto entre <strong>uso amador frequente</strong> e
+          <strong>uso profissional</strong> é o que separa quem só usa IA de quem extrai valor real.
+          É disso que o resto deste módulo trata.
+        </p>
       </div>
-
-      <div class="callout-mentoria"><strong>A boa notícia:</strong> dá pra fazer a virada em 8 sessões. O que separa amador de profissional não é talento — é hábito de iterar e o costume de declarar contexto. As duas coisas são treináveis.</div>
     </div>
   </section>
 
-  <section class="section content-section" id="riscos" style="background:var(--bg-warm);">
+  <!-- Seção 2 — Os 5 sinais de quem está começando -->
+  <section class="section content-section reveal">
     <div class="site-container">
-      <p class="eyebrow">1.4 · O que respeitar</p>
-      <h2>4 riscos e como navegar</h2>
-      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">A IA é poderosa, mas tem 4 limites que profissionais respeitam. Conhecer cada um te poupa de problemas reais (vazamento de dados, decisão errada, ressaca ética).</p>
+      <p class="eyebrow">Autodiagnóstico</p>
+      <h2>Os 5 Sinais de Quem Está Começando</h2>
+      <p>Marque os que se aplicam a você hoje. Sem julgamento — é só ponto de partida.</p>
 
-      <div class="risco-grid">
-        <div class="risco-card">
-          <h4>🔐 LGPD e dados sensíveis</h4>
-          <p>Não cole CPF, salário individualizado, dado de saúde ou conversa privada em IA pública (ChatGPT/Claude/Gemini grátis). Use placeholders ([NOME], [CPF], [VALOR]) ou versões pagas/empresariais com retenção configurada. <strong>Regra de bolso:</strong> se vazasse num jornal amanhã, daria problema? Não envia.</p>
+      <div class="sinais-quiz" id="sinaisQuiz" role="group" aria-label="Autodiagnóstico dos 5 sinais">
+        <div class="sinais-quiz-row" data-sinal="1" role="button" tabindex="0">
+          <span class="sinais-quiz-num">1</span>
+          <span class="sinais-quiz-sinal">Nunca usou ChatGPT, Claude ou Gemini pra resolver algo do trabalho</span>
+          <span class="sinais-quiz-revela">Ainda sem primeiro caso real</span>
         </div>
-        <div class="risco-card">
-          <h4>🧠 Alucinação</h4>
-          <p>A IA pode inventar leis, datas, citações, "fatos" que parecem reais. Ela é otimizada pra ser <em>convincente</em>, não pra ser <em>correta</em>. <strong>Regra de bolso:</strong> qualquer fato/número/citação que vai sair com seu nome — você confere a fonte. Nada de "copiar e enviar".</p>
+        <div class="sinais-quiz-row" data-sinal="2" role="button" tabindex="0">
+          <span class="sinais-quiz-num">2</span>
+          <span class="sinais-quiz-sinal">Acha que IA é "coisa de programador" ou de "área técnica"</span>
+          <span class="sinais-quiz-revela">Mito que trava 80% das gestoras</span>
         </div>
-        <div class="risco-card">
-          <h4>✋ Validação humana</h4>
-          <p>Decisões com impacto em pessoa (contratação, demissão, avaliação, comunicação sensível) precisam passar pela sua leitura crítica antes de saírem. A IA escreve a base; você decide o que fica.</p>
+        <div class="sinais-quiz-row" data-sinal="3" role="button" tabindex="0">
+          <span class="sinais-quiz-num">3</span>
+          <span class="sinais-quiz-sinal">Quando ouve falar em IA, sente que é hype/modinha</span>
+          <span class="sinais-quiz-revela">Filtra demais e perde oportunidade real</span>
         </div>
-        <div class="risco-card">
-          <h4>🎙️ Voz autoral</h4>
-          <p>O que sai com seu nome é seu, mesmo que tenha começado em IA. Não publique texto cru de IA — leia, ajuste, ponha sua mão. Quando o conteúdo for largamente gerado por IA e isso importar (artigo, posicionamento público), considere mencionar.</p>
+        <div class="sinais-quiz-row" data-sinal="4" role="button" tabindex="0">
+          <span class="sinais-quiz-num">4</span>
+          <span class="sinais-quiz-sinal">Não sabe a diferença prática entre ChatGPT e o Google</span>
+          <span class="sinais-quiz-revela">Vai descobrir agora — muda tudo</span>
+        </div>
+        <div class="sinais-quiz-row" data-sinal="5" role="button" tabindex="0">
+          <span class="sinais-quiz-num">5</span>
+          <span class="sinais-quiz-sinal">Já viu vídeo/post sobre IA mas nunca abriu a ferramenta pra tentar</span>
+          <span class="sinais-quiz-revela">Distância entre saber e fazer</span>
+        </div>
+        <div class="sinais-quiz-result" id="sinaisQuizResult">
+          Clique nos sinais que se aplicam a você.
         </div>
       </div>
-
-      <div class="callout-mentoria"><strong>Você vai voltar nesses 4 riscos</strong> na <strong>sessão 7 — Diretrizes Pessoais</strong>. Lá você escreve <em>suas próprias</em> regras com base em situações reais que viveu durante as 8 semanas. Por enquanto, basta saber que existem.</div>
     </div>
   </section>
 
-  <section class="section content-section" id="proximos">
+  <!-- Seção — Aquecimento: Banco de Desafios -->
+  <section class="section content-section reveal">
     <div class="site-container">
-      <p class="eyebrow">Próximos módulos</p>
-      <h2>O que vem agora</h2>
-      <p>Os outros 3 módulos constroem em cima desse:</p>
-      <div class="modules-nav-bottom">
-        <a href="../m2-delegacao/" class="nivel-row">
-          <div class="nivel-num">M2</div>
-          <div>
-            <div class="nivel-nome">Inteligência Estratégica</div>
-            <div class="nivel-desc">3 modos de uso da IA (autopiloto, colaboração, manual). Quando confiar, quando revisar, quando refazer do zero.</div>
-          </div>
-        </a>
-        <a href="../m3-ipo/" class="nivel-row">
-          <div class="nivel-num">M3</div>
-          <div>
-            <div class="nivel-nome">Framework IPO</div>
-            <div class="nivel-desc">Input → Process → Output. Estruturar qualquer trabalho na sua cabeça antes de pedir à IA.</div>
-          </div>
-        </a>
-        <a href="../m4-prompts/" class="nivel-row">
-          <div class="nivel-num">M4</div>
-          <div>
-            <div class="nivel-nome">Engenharia de Prompts (PCTFL)</div>
-            <div class="nivel-desc">A fórmula completa do que o WYSIATI introduziu: Papel · Contexto · Tarefa · Formato · Limitações.</div>
-          </div>
-        </a>
+      <p class="eyebrow">Aquecimento · 5 min</p>
+      <h2>Seus 3 Desafios</h2>
+      <p>
+        Antes de ver onde você está nos 7 Níveis, faça este exercício rápido.
+        Pense nas <strong>3 tarefas ou documentos</strong> que toma mais tempo da sua semana — seja na rotina administrativa, no projeto paralelo (banda) ou no que você quer aprender pra uma futura transição de carreira.
+      </p>
+
+      <div class="callout">
+        <strong>Anote em uma folha (ou no celular):</strong>
+        <table style="margin-top:14px">
+          <thead>
+            <tr>
+              <th style="width:40px">#</th>
+              <th>Tarefa ou documento</th>
+              <th style="width:120px">Tempo hoje</th>
+              <th style="width:140px">Dá pra IA ajudar?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td style="color:var(--ink-muted)">Ex: resumir reunião transcrita pra equipe</td>
+              <td style="color:var(--ink-muted)">—</td>
+              <td style="color:var(--ink-muted)">—</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td style="color:var(--ink-muted)">Ex: organizar pagamentos da banda no Excel</td>
+              <td style="color:var(--ink-muted)">—</td>
+              <td style="color:var(--ink-muted)">—</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td style="color:var(--ink-muted)">Ex: analisar descrição de uma vaga de gerente RH</td>
+              <td style="color:var(--ink-muted)">—</td>
+              <td style="color:var(--ink-muted)">—</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:14px; font-size:14px; color:var(--ink-soft); margin-bottom:0">
+          Guarde essa lista — vai ser o ponto de partida da <strong>sessão 2</strong>.
+        </p>
       </div>
     </div>
   </section>
 
-  <footer style="border-top:1px solid var(--border); padding: 28px 24px; text-align:center; color:var(--ink-muted); font-size:13px; margin-top:40px;">
+  <!-- Seção 3 — Os 7 Níveis de Uso de IA -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Framework</p>
+      <h2>Os 7 Níveis de Uso de IA</h2>
+      <p>
+        Onde você está hoje? Onde quer chegar? Navegue pelos níveis para se identificar
+        e ver o próximo passo concreto.
+      </p>
+
+      <div class="niveis-component">
+        <nav class="niveis-nav" id="niveisNav" aria-label="Selecione um nível"></nav>
+        <div class="niveis-card" id="niveisCard"></div>
+      </div>
+
+      <div class="callout" style="margin-top:24px">
+        <strong>Meta realista da mentoria:</strong> sair do <strong>pré-1 (Pré-Explorador)</strong> e chegar ao <strong>N2 (Aprendiz)</strong> ao longo das 8 sessões. Stretch é <strong>N3 (Construtora)</strong> se você cumprir as casas com consistência. N4-N7 são horizonte — não meta deste primeiro ciclo.
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 4 — O que muda quando você tem método -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">A virada</p>
+      <h2>Amador × Profissional — lado a lado</h2>
+      <p>
+        A diferença não é cobrar mais caro — é como pensa. 5 situações administrativas comuns, dois jeitos de operar:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Situação</th>
+            <th>Quem está chegando agora</th>
+            <th>Quem já internalizou (alvo)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Precisa resumir reunião transcrita pra equipe</td>
+            <td>"Resume isso aí"</td>
+            <td>Prompt PCTFL com papel + contexto da equipe + formato e-mail curto</td>
+          </tr>
+          <tr>
+            <td>Resultado ruim</td>
+            <td>Desiste — "a IA não funciona pra mim"</td>
+            <td>Refraseia: "isso ficou genérico, agora foca em X" e itera</td>
+          </tr>
+          <tr>
+            <td>Resultado bom</td>
+            <td>Esquece o prompt — usa de novo, dá outro resultado</td>
+            <td>Salva no banco pessoal pra replicar — com 1 ajuste mínimo</td>
+          </tr>
+          <tr>
+            <td>Dúvida sobre legislação (LGPD, CLT)</td>
+            <td>Pergunta e acredita na primeira resposta</td>
+            <td>Pede com âncora "cite o artigo exato e me deixe verificar"</td>
+          </tr>
+          <tr>
+            <td>Tarefa nova (ex: triagem de currículo)</td>
+            <td>Começa do zero, tenta a sorte</td>
+            <td>Adapta prompt R01 do banco — 2 ajustes e funciona</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Seção — 4 Riscos e Como Navegar -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Protocolo crítico</p>
+      <h2>4 Riscos e Como Navegar</h2>
+      <p>
+        A IA é poderosa, mas tem 4 limites que profissionais respeitam. Conhecer cada um te poupa de problemas reais — vazamento, decisão errada, ressaca ética.
+      </p>
+
+      <h3 style="margin-top:32px">🔐 Risco 1 — LGPD e Dados Sensíveis</h3>
+      <p>
+        O que você digita no ChatGPT/Claude/Gemini gratuitos <strong>pode ser usado pra treinar modelos</strong>. Antes de colar qualquer coisa, pense: essa informação pode aparecer em resposta pra outro usuário no futuro?
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>O que NÃO colar em IA pública</th>
+            <th>Por quê</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CPF, RG ou dado bancário individualizado</td>
+            <td>Dado pessoal protegido por LGPD</td>
+          </tr>
+          <tr>
+            <td>Salário nominal de funcionário/colaborador</td>
+            <td>Informação confidencial sensível</td>
+          </tr>
+          <tr>
+            <td>Dado de saúde, sexualidade, religião, política</td>
+            <td>Dados especiais protegidos por LGPD</td>
+          </tr>
+          <tr>
+            <td>Conversa privada de WhatsApp/e-mail de terceiro</td>
+            <td>Sem consentimento da pessoa envolvida</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout" style="margin-top:24px">
+        <strong>Como adaptar:</strong> use placeholders antes de colar. "João Silva, 47 anos, salário R$ 5.800" vira "[FUNCIONÁRIO], [IDADE], [SALÁRIO]". Ou use versão paga (Claude Pro, ChatGPT Team) com retenção de dados desligada. <strong>Regra de bolso:</strong> se vazasse num jornal amanhã, daria problema? Não envia.
+      </div>
+
+      <h3 style="margin-top:40px">🧠 Risco 2 — Alucinação</h3>
+      <p>
+        A IA pode inventar leis, datas, citações, "fatos" que parecem reais — com total confiança. Ela é otimizada pra ser <em>convincente</em>, não pra ser <em>correta</em>. Esse é o risco que mais queima credibilidade quando algo sai com seu nome.
+      </p>
+
+      <div class="callout danger">
+        <strong>Regra inegociável:</strong> qualquer fato/número/citação/lei que vai sair com seu nome — você confere na fonte antes. Nada de "copiar e enviar". A IA não tem responsabilidade — você tem.
+      </div>
+
+      <table style="margin-top:24px">
+        <thead>
+          <tr>
+            <th>Tipo de informação</th>
+            <th>Verificar onde</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lei trabalhista (CLT, LGPD)</td>
+            <td>Planalto.gov.br / Lei nº 13.709 (LGPD)</td>
+          </tr>
+          <tr>
+            <td>Procedimento administrativo público</td>
+            <td>Site oficial do órgão</td>
+          </tr>
+          <tr>
+            <td>Dado de mercado (salários, vagas)</td>
+            <td>Salario.com.br, Glassdoor, Catho</td>
+          </tr>
+          <tr>
+            <td>Citação de livro/autor</td>
+            <td>Google Scholar ou a obra original</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top:40px">✋ Risco 3 — Validação Humana</h3>
+      <p>
+        Decisões com impacto em pessoa (contratação, demissão, avaliação, comunicação sensível) precisam passar pela sua leitura crítica antes de saírem. A IA escreve a base; <strong>você decide o que fica</strong>. Não terceirize julgamento.
+      </p>
+
+      <div class="callout">
+        <strong>Caso prático:</strong> usar IA pra escrever rascunho de feedback pra um liderado é OK. Enviar o rascunho cru sem ler e ajustar não é. A diferença é 5 minutos seus de revisão — e isso muda completamente o que sai.
+      </div>
+
+      <h3 style="margin-top:40px">🎙️ Risco 4 — Voz Autoral</h3>
+      <p>
+        O que sai com seu nome é seu, mesmo que tenha começado em IA. Não publique texto cru de IA em mensagem sensível, comunicado público ou posicionamento profissional — leia, ajuste, ponha sua mão. Texto cru de IA <em>soa</em> texto cru de IA, mesmo o melhor.
+      </p>
+
+      <div class="callout">
+        <strong>Você vai voltar nesses 4 riscos</strong> na <strong>sessão 7 — Diretrizes Pessoais</strong>. Lá você redige suas próprias regras com base em situações reais que viveu durante as 8 semanas. Por enquanto, basta saber que existem.
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção — Boas Práticas de Uso Seguro -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Checklist</p>
+      <h2>Boas Práticas pra Usar com Tranquilidade</h2>
+      <p>5 hábitos simples que evitam dor de cabeça:</p>
+
+      <ul style="font-size:15px; line-height:2; color:var(--ink-soft); padding-left:20px; margin-top:16px">
+        <li>Nenhum CPF, salário nominal ou dado de saúde no prompt — usa placeholder antes</li>
+        <li>Toda lei, número ou dado de mercado citado pela IA é verificado na fonte antes do envio</li>
+        <li>Mensagens sensíveis (feedback, comunicação a familiar, posicionamento público) passam pela sua leitura crítica</li>
+        <li>Preferir versão paga (Claude Pro, ChatGPT Plus) quando estiver tratando informação confidencial — tem opção de não treinar com seus dados</li>
+        <li>Em dúvida se cabe usar IA: pergunta "essa decisão tem impacto em pessoa específica?" — se sim, modo colaboração com sua revisão sempre</li>
+      </ul>
+
+      <div class="callout" style="margin-top:24px">
+        <strong>A regra de ouro:</strong> use a IA pra estrutura, rascunho e revisão. Você mantém o julgamento e a responsabilidade. A IA não responde se algo der errado — você responde. Isso muda como você usa.
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção — Entregável do módulo -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Antes de seguir pro M2</p>
+      <h2>Checklist deste módulo</h2>
+      <p>Marque os pontos conforme se sentir confortável. Sem pressa:</p>
+
+      <ul class="entregavel-list">
+        <li data-entregavel="1"><span class="entregavel-checkbox"></span><span class="entregavel-text">Identifiquei em qual nível dos 7 estou hoje (provavelmente pré-1, e tá tudo bem)</span></li>
+        <li data-entregavel="2"><span class="entregavel-checkbox"></span><span class="entregavel-text">Reconheci pelo menos 1 dos 5 sinais como "sim, sou eu"</span></li>
+        <li data-entregavel="3"><span class="entregavel-checkbox"></span><span class="entregavel-text">Anotei 3 tarefas/desafios meus pra trazer pra S2 (banco de desafios)</span></li>
+        <li data-entregavel="4"><span class="entregavel-checkbox"></span><span class="entregavel-text">Entendi o que é WYSIATI e por que IA precisa de contexto</span></li>
+        <li data-entregavel="5"><span class="entregavel-checkbox"></span><span class="entregavel-text">Sei quais são os 4 riscos a respeitar (LGPD, alucinação, validação humana, voz autoral)</span></li>
+      </ul>
+      <p class="entregavel-progress">Marque conforme conclui — seu progresso fica salvo neste navegador.</p>
+    </div>
+  </section>
+
+  <!-- Navegação entre módulos -->
+  <nav class="module-nav site-container">
+    <div></div><!-- placeholder para alinhar o próximo à direita -->
+    <a href="../m2-delegacao/" class="next">
+      <span class="module-nav-label">Próximo módulo</span>
+      M2 · Inteligência Estratégica →
+    </a>
+  </nav>
+
+  <!-- Footer -->
+  <footer>
     <p>Mentoria IA Executiva · Rafael Lima · 2026</p>
-    <p style="font-size:12px; margin-top:6px;">Acesso privado · M1 · Fundamentos</p>
   </footer>
 
+  <script src="../../_shared/assets/script.js"></script>
+  <script>
+    // ── Auto-quiz 5 Sinais ──
+    (function sinaisQuiz() {
+      var quiz = document.getElementById('sinaisQuiz');
+      if (!quiz) return;
+      var result = document.getElementById('sinaisQuizResult');
+      var rows = quiz.querySelectorAll('.sinais-quiz-row');
+
+      function diagnostico(n) {
+        if (n === 0) {
+          return 'Clique nos sinais que se aplicam a você.';
+        }
+        var bloco = '<span class="sinais-quiz-result-num">' + n + '</span> de 5 sinais marcados. ';
+        if (n <= 1) {
+          return bloco + '<strong>Você já tem alguma intimidade com IA.</strong> Ótimo. A mentoria vai te tirar de uso experimental pra uso estruturado — banco pessoal, contexto persistente, integração com seu fluxo. Pula direto pro M4 (PCTFL) se quiser densidade.';
+        }
+        if (n === 2) {
+          return bloco + '<strong>Você está numa zona de transição.</strong> Já sabe que IA existe, talvez tenha testado uma vez, mas ainda não virou hábito. A próxima sessão (S2) vai escolher um caso prático seu e fazer a primeira "vitória rápida" pra criar tração.';
+        }
+        if (n <= 4) {
+          return bloco + '<strong>Perfil pré-1 — Pré-Explorador.</strong> Você está no começo do caminho. Sem julgamento: é o ponto de partida de quem ainda não foi exposto. A boa notícia é que pra você, o ganho de aprender IA é o maior — porque cada coisa que descobre é nova. As 8 sessões foram desenhadas pra esse perfil.';
+        }
+        return bloco + '<strong>Pré-1 confirmado, sem dúvida.</strong> Você nunca tocou em IA generativa de verdade. Tudo bem — a mentoria foi calibrada pra começar do zero. Não precisa de pré-requisito. Os próximos minutos no M4 (PCTFL) vão mudar como você pensa em "pedir as coisas".';
+      }
+
+      function atualizar() {
+        var marcados = quiz.querySelectorAll('.sinais-quiz-row.checked').length;
+        result.innerHTML = diagnostico(marcados);
+      }
+
+      rows.forEach(function(row) {
+        row.addEventListener('click', function() {
+          row.classList.toggle('checked');
+          atualizar();
+        });
+        row.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            row.click();
+          }
+        });
+      });
+    })();
+  </script>
+  <script>
+    var niveisGPS = [
+      {
+        n:'pré-1', p:'d', fase:'Antes do começo', t:'A Pré-Exploradora',
+        ol:'Nunca usou IA generativa — é onde você está hoje',
+        sig:'Você nunca abriu o ChatGPT, Claude ou Gemini pra resolver algo de verdade do seu dia a dia. Talvez tenha ouvido falar, visto vídeo, mas não foi pra ferramenta. É o ponto de partida da maioria das gestoras que ainda não tiveram contato com IA generativa.',
+        desc:'Pré-1 não é "atrasada" — é anterior. A primeira sessão da mentoria foi exatamente pra esse ponto: mostrar Claude funcionando ao vivo, explicar o que é prompt, e te colocar de frente com a ferramenta. A boa notícia é que pra você, o ganho de aprender é o maior — cada coisa que descobre é nova.',
+        tools:['Ainda nenhuma — pra estrear a partir da S2'],
+        next:'Antes da S2: abra Claude.ai (ou ChatGPT.com), digite UMA pergunta sobre algo do seu trabalho, leia a resposta e fecha. Sem pressão de fazer certo — só pra atravessar a primeira fronteira.'
+      },
+      {
+        n:'N1', p:'d', fase:'Início', t:'A Exploradora',
+        ol:'Usa IA como Google melhor — perguntas isoladas, uma de cada vez',
+        sig:'Você abriu o ChatGPT/Claude algumas vezes, fez perguntas, copiou respostas. Sente que funciona em algumas coisas, decepciona em outras — sem saber por quê. Aceita a primeira saída quase sempre.',
+        desc:'N1 é o nível "Google melhor". A ferramenta entrega resposta a cada pergunta isolada, mas você ainda não percebeu que *como* pergunta muda o resultado. O salto pra N2 vem do incômodo de "por que tão inconsistente?".',
+        tools:['ChatGPT free','Claude free','Gemini'],
+        next:'Salve UM prompt que funcionou bem. Nota no celular já basta. Esse é o embrião do seu banco pessoal — em 3 sessões você terá 15 prompts ativos.'
+      },
+      {
+        n:'N2', p:'t', fase:'Método', t:'A Aprendiz',
+        ol:'Entendeu que como pergunta importa — itera, reaproveita, guarda',
+        sig:'Você refraseia quando o resultado vem ruim. Pede pra IA fazer perguntas antes de responder. Guarda prompts que funcionam. Tem a sensação de que IA não é "mágica" — é vocabulário.',
+        desc:'N2 é o alvo realista das 8 sessões da mentoria. Aqui você sai do uso experimental pra uso estruturado: aplica PCTFL, mantém biblioteca pessoal viva e consegue replicar resultados. O salto pra N3 vem do problema "preciso reexplicar tudo a cada conversa".',
+        tools:['Claude (mais empático)','ChatGPT Plus','Banco pessoal de prompts'],
+        next:'A meta das 8 sessões. Vai chegar aqui usando o PCTFL do M4 + o banco de prompts personalizado da sua página + os casos rodados ao vivo nas sessões 3 a 7.'
+      },
+      {
+        n:'N3', p:'t', fase:'Método', t:'A Construtora',
+        ol:'Cria espaços com contexto pré-carregado — Projects, instruções customizadas',
+        sig:'Você cria Claude Projects ou ChatGPT Projects com instruções e arquivos de referência. A IA "lembra" das decisões passadas. Compara modelos pra mesma tarefa — não fica presa numa só.',
+        desc:'N3 é stretch realista pra você nas 8 sessões. Significa não recomeçar do zero a cada conversa: você tem 1-2 Projects ativos com contexto persistente (ex: "Minha banda", "Vagas de RH que estou estudando"). É o nível de quem usa IA como assistente, não como buscador.',
+        tools:['Claude Projects','ChatGPT Projects','Memória ativa'],
+        next:'Após S5: crie 1 Claude Project pra banda de forró (ou outro caso seu) com instruções fixas + arquivos. A IA passa a "saber" do contexto sem você re-explicar.'
+      },
+      {
+        n:'N4', p:'m', fase:'Avançada', t:'A Exploradora de Ferramentas',
+        ol:'Combina ferramentas — NotebookLM, Artifacts, geração de imagem',
+        sig:'Você não pergunta "a IA consegue?" — pergunta "qual ferramenta é melhor pra isso?". Usa NotebookLM pra estudar documentos, Artifacts pra prototipar visual, geração de imagem pra campanha de marketing. Sabe escolher.',
+        desc:'N4 é horizonte pra você — possível em 12-18 meses de uso consistente após a mentoria. O salto vem de "cansei de clicar em tudo manualmente" → automação.',
+        tools:['NotebookLM','Artifacts','Canvas','Geração imagem/vídeo'],
+        next:'Não é alvo das 8 sessões. Mas vai vir naturalmente se você criar hábito de testar 1 ferramenta nova por mês após o ciclo.'
+      },
+      {
+        n:'N5', p:'m', fase:'Avançada', t:'A Construtora de Sistemas',
+        ol:'Constrói coisas que rodam sem ela — automações ativas',
+        sig:'Você tem ao menos uma automação rodando sozinha. Descreve um fluxo e a ferramenta executa. Enxerga oportunidades de automação em quase todo processo manual.',
+        desc:'N5 é "IA que trabalha enquanto você dorme". Geralmente vem com no-code (n8n, Zapier, Make). Não é meta da mentoria, mas é o lugar natural pra onde você pode evoluir se quiser ir além.',
+        tools:['n8n','Zapier','Make','Google AI Studio'],
+        next:'Não é alvo dessa mentoria. Se aparecer interesse na S7, podemos conversar sobre próximos passos.'
+      },
+      {
+        n:'N6', p:'a', fase:'Aspiracional', t:'A Arquiteta',
+        ol:'Usa agentes/código (Claude Code) pra construir software real',
+        sig:'Você descreve em poucas frases e o Claude Code constrói um app. Entende git, testes, revisão. Roda múltiplas sessões em paralelo.',
+        desc:'N6 é horizonte. Pra você, esse é o nível em que está o Rafael — pode ser inspiração de longo prazo, mas não meta operacional do ciclo.',
+        tools:['Claude Code','n8n avançado','Agentes especializados'],
+        next:'Inspiração de longo prazo, não meta deste ciclo.'
+      },
+      {
+        n:'N7', p:'a', fase:'Aspiracional', t:'A Orquestradora',
+        ol:'Uma força de trabalho de agentes operando 24/7',
+        sig:'Você define estratégia. Agentes na nuvem respondem a eventos, se auto-otimizam, notificam quando terminam. IA virou membro permanente do time.',
+        desc:'N7 é horizonte conceitual. Casos de gestoras de PMEs chegando ali ainda são raros no Brasil — mas existe rota.',
+        tools:['Cloud Routines','Times de agentes','APIs múltiplas'],
+        next:'Aspiracional. Conversa pra anos à frente, não pra essas 8 semanas.'
+      }
+    ];
+
+    var curN = 0; /* abre no pré-1 por padrão — onde Débora está */
+
+    function buildNiveisNav() {
+      var nav = document.getElementById('niveisNav');
+      nav.innerHTML = '';
+      niveisGPS.forEach(function(l, i) {
+        var btn = document.createElement('button');
+        btn.textContent = l.n;
+        btn.title = l.t;
+        btn.setAttribute('aria-selected', i === curN ? 'true' : 'false');
+        if (i === curN) btn.className = 'ph-' + l.p;
+        btn.addEventListener('click', function() { curN = i; buildNiveisNav(); buildNiveisCard(); });
+        nav.appendChild(btn);
+      });
+    }
+
+    function buildNiveisCard() {
+      var l = niveisGPS[curN], p = l.p;
+      var el = document.getElementById('niveisCard');
+      var tools = l.tools.map(function(t) {
+        return '<span class="niveis-tool">' + t + '</span>';
+      }).join('');
+      var prev = curN > 0
+        ? '<button class="niveis-foot-btn" onclick="goNivel(-1)">← anterior</button>' : '';
+      var nxt = curN < 7
+        ? '<button class="niveis-foot-btn" onclick="goNivel(1)">próximo →</button>' : '';
+      el.innerHTML =
+        '<div class="niveis-card-head">'
+          + '<div class="niveis-badge ph-' + p + '">' + l.n + '</div>'
+          + '<div>'
+            + '<span class="niveis-phase-tag ph-' + p + '">' + l.fase + '</span>'
+            + '<p class="niveis-title">' + l.t + '</p>'
+            + '<p class="niveis-ol">' + l.ol + '</p>'
+          + '</div>'
+        + '</div>'
+        + '<hr class="niveis-sep">'
+        + '<p class="niveis-lbl">Você está aqui se…</p>'
+        + '<p class="niveis-txt">' + l.sig + '</p>'
+        + '<p class="niveis-lbl">O que define este nível</p>'
+        + '<p class="niveis-txt em">' + l.desc + '</p>'
+        + '<p class="niveis-lbl">Ferramentas típicas</p>'
+        + '<div class="niveis-tools">' + tools + '</div>'
+        + '<div class="niveis-next">'
+          + '<p class="niveis-next-lbl ph-' + p + '">Próximo passo concreto</p>'
+          + '<p class="niveis-txt em" style="margin-bottom:0">' + l.next + '</p>'
+        + '</div>'
+        + '<div class="niveis-foot">' + prev + nxt + '</div>';
+    }
+
+    function goNivel(d) {
+      curN = Math.max(0, Math.min(7, curN + d));
+      buildNiveisNav();
+      buildNiveisCard();
+    }
+
+    buildNiveisNav();
+    buildNiveisCard();
+  </script>
+
+  <script>
+    /* ── IA Aninhada — hover/click interativo ── */
+    (function () {
+      var layers = {
+        r1: {
+          frase: '<strong>Inteligência Artificial</strong> — capacidade de máquinas realizarem tarefas que antes exigiam inteligência humana.',
+          items: [
+            '<strong>IA não é novidade</strong> — existe desde os anos 1950. O que mudou foi a escala: petabytes de dados + poder computacional acessível.',
+            '<strong>GPS inteligente, recomendações do Spotify, filtro de spam</strong> — tudo é IA. A generativa é a camada mais recente dessa história de 70 anos.',
+            '<strong>Saber que IA é ampla</strong> ajuda a não confundir a ferramenta (ChatGPT) com a tecnologia (IA). A ferramenta muda todo ano; a lógica, não.'
+          ]
+        },
+        r2: {
+          frase: '<strong>Machine Learning</strong> — a máquina aprende com dados, sem precisar de regras escritas à mão.',
+          items: [
+            '<strong>Em vez de programar regras</strong>, você mostra exemplos. A máquina descobre padrões sozinha — é daí que vem a capacidade de generalizar para casos novos.',
+            '<strong>Quanto mais dados, melhor aprende</strong> — por isso o ChatGPT foi treinado em bilhões de páginas de texto. Volume de dados é vantagem competitiva.',
+            '<strong>Só sabe o que estava no treinamento</strong> — se o dado era enviesado ou incompleto, o modelo reflete isso. Daí vêm os limites e as alucinações.'
+          ]
+        },
+        r3: {
+          frase: '<strong>Deep Learning</strong> — redes neurais profundas que aprendem padrões complexos em camadas, inspiradas no funcionamento do cérebro humano.',
+          items: [
+            '<strong>Camadas de abstração</strong>: a 1ª camada reconhece palavras, a 2ª frases, a 3ª conceitos. É o que permite ao modelo "entender" contexto e intenção.',
+            '<strong>Por que a IA parece coerente</strong> — as camadas capturam relações de longo alcance entre palavras. Sem deep learning, era só previsão palavra por palavra.',
+            '<strong>O custo é treinamento pesado</strong> — treinar um modelo como o GPT-4 levou semanas e centenas de milhões de dólares. O que você usa hoje é o resultado desse investimento.'
+          ]
+        },
+        r4: {
+          frase: '<strong>IA Generativa</strong> — um auto-completar treinado em quase tudo que a humanidade já escreveu. Ela não pensa — ela prevê qual palavra vem em seguida.',
+          items: [
+            '<strong>Por que ela inventa lei e citação com confiança total</strong> — continuar o texto de forma plausível é o que ela foi treinada pra fazer. Inventar não é bug; é como ela funciona. Por isso a regra "verifica na fonte".',
+            '<strong>Por que prompts vagos geram respostas vagas</strong> — sem contexto, ela auto-completa pra média estatística da internet. Sem "quem você é", "onde está", "pra quem é" — vira resposta genérica.',
+            '<strong>Por que ela melhora com papel + contexto + tarefa</strong> — você restringe o universo de "próximas palavras prováveis" pro espaço certo. É o que o M4 (PCTFL) vai te ensinar.'
+          ]
+        }
+      };
+
+      var rings = ['r1', 'r2', 'r3', 'r4'];
+      var active = null;
+
+      function activate(ring) {
+        if (ring === active) return;
+        active = ring;
+
+        var textEl = document.getElementById('ia-aninhada-text');
+        textEl.classList.add('fading');
+
+        setTimeout(function () {
+          document.getElementById('ia-aninhada-frase').innerHTML = layers[ring].frase;
+          var list = document.getElementById('ia-aninhada-list');
+          list.innerHTML = layers[ring].items
+            .map(function (item) { return '<li>' + item + '</li>'; })
+            .join('');
+          textEl.classList.remove('fading');
+        }, 200);
+
+        rings.forEach(function (r) {
+          var el = document.getElementById('layer-' + r);
+          if (!el) return;
+          el.classList.toggle('active', r === ring);
+        });
+
+        var hint = document.getElementById('ia-aninhada-hint');
+        if (hint) hint.style.display = 'none';
+      }
+
+      rings.forEach(function (r) {
+        var el = document.getElementById('layer-' + r);
+        if (!el) return;
+        el.addEventListener('mouseenter', function (e) { e.stopPropagation(); activate(r); });
+        el.addEventListener('click', function (e) { e.stopPropagation(); activate(r); });
+      });
+    })();
+  </script>
 </body>
 </html>
