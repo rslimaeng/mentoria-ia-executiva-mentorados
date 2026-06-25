@@ -4,11 +4,66 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>M4 · Engenharia de Prompts · Mentoria IA Executiva</title>
+<title>M4 · Engenharia de Prompts (PCTFL) · Mentoria IA Executiva</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../_shared/assets/style.css">
+<style>
+  .ceu-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 20px 0 8px; }
+  .ceu-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; }
+  .ceu-card.azul { border-top: 4px solid #6e9ad1; }
+  .ceu-card.cinza { border-top: 4px solid #8f8678; }
+  .ceu-card .frase { font-family: var(--serif); font-size: 19px; font-weight: 600; margin-bottom: 12px; color: var(--ink); line-height: 1.4; }
+  .ceu-card .resposta { font-size: 14.5px; color: var(--ink-soft); margin: 0; line-height: 1.55; }
+  .ceu-card .resposta strong { font-size: 26px; font-family: var(--serif); display: block; margin-bottom: 6px; }
+  .ceu-card.azul .resposta strong { color: #4a7baa; }
+  .ceu-card.cinza .resposta strong { color: #5a5247; }
+  .pctfl-letras { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 20px 0; }
+  .pctfl-letra { display: grid; grid-template-columns: 80px 1fr; gap: 18px; padding: 18px 22px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; align-items: start; }
+  .pctfl-letra-big { font-family: var(--serif); font-size: 56px; font-weight: 700; line-height: 1; color: var(--accent); }
+  .pctfl-letra-nome { font-family: var(--serif); font-size: 22px; font-weight: 600; margin-bottom: 2px; }
+  .pctfl-letra-defin { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 12px; line-height: 1.55; }
+  .pctfl-letra-ex { background: var(--bg-warm); padding: 10px 14px; border-radius: 4px; font-family: var(--mono); font-size: 13px; color: var(--ink); line-height: 1.6; }
+  .pctfl-letra-ex em { color: var(--accent-warm-dark); font-style: normal; font-weight: 600; }
+
+  .prompt-exemplo { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 24px 26px; margin: 18px 0; }
+  .prompt-exemplo-title { font-family: var(--serif); font-size: 19px; font-weight: 600; margin-bottom: 6px; }
+  .prompt-exemplo-quando { font-size: 13px; color: var(--ink-muted); margin-bottom: 18px; font-style: italic; }
+  .prompt-bloco { display: grid; grid-template-columns: 110px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--border); }
+  .prompt-bloco:first-of-type { border-top: none; padding-top: 4px; }
+  .prompt-bloco-letra { font-family: var(--serif); font-weight: 700; font-size: 14px; color: var(--accent-warm-dark); padding-top: 2px; }
+  .prompt-bloco-texto { font-size: 14.5px; line-height: 1.6; color: var(--ink); }
+  .prompt-bloco-texto code { background: var(--bg-warm); padding: 1px 5px; border-radius: 3px; font-family: var(--mono); font-size: 13px; }
+
+  .prompt-pronto { background: #1f1d1a; color: #e8e3d5; padding: 18px 22px; border-radius: 8px; margin-top: 16px; font-family: var(--mono); font-size: 13.5px; line-height: 1.7; white-space: pre-wrap; }
+  .prompt-pronto-label { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #c2916b; margin-bottom: 8px; }
+
+  .checklist { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 22px 26px; margin: 18px 0; }
+  .checklist h4 { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 14px; color: var(--ink); }
+  .checklist-item { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; font-size: 14.5px; line-height: 1.5; color: var(--ink-soft); }
+  .checklist-item::before { content: "□"; font-family: var(--mono); font-size: 18px; color: var(--accent); line-height: 1.2; flex-shrink: 0; }
+
+  .anti-padroes { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 18px 0; }
+  .anti-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid #c45e5e; border-radius: 0 6px 6px 0; padding: 14px 18px; }
+  .anti-card h4 { font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .anti-card p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.5; }
+
+  .callout-info { background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 18px 0; font-size: 14.5px; color: var(--ink-soft); }
+  .callout-info strong { color: var(--ink); }
+  .module-section { margin-bottom: 56px; padding-top: 12px; scroll-margin-top: 80px; }
+  .module-section h2 { font-family: var(--serif); font-size: 28px; font-weight: 600; margin-bottom: 8px; line-height: 1.25; }
+  .module-section .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent-warm-dark); margin-bottom: 8px; }
+  .module-section p.lead { font-size: 17px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 14px; }
+  .module-section p { margin-bottom: 12px; }
+
+  @media (max-width: 640px) {
+    .ceu-comparison { grid-template-columns: 1fr; }
+    .pctfl-letra { grid-template-columns: 60px 1fr; }
+    .pctfl-letra-big { font-size: 44px; }
+    .prompt-bloco { grid-template-columns: 80px 1fr; }
+  }
+</style>
 </head>
 <body>
 <header class="topbar">
@@ -18,22 +73,203 @@
       <span class="brand-mentor">Débora</span>
     </div>
     <nav class="topbar-nav">
-      <a href="../">← Início</a>
+      <a href="../m3-ipo/">← M3</a>
+      <a href="../">Início</a>
+      <a href="../banco-de-prompts/">Banco →</a>
     </nav>
   </div>
 </header>
+
 <main class="container">
+
   <section class="hero">
-    <div class="eyebrow">M4 · Engenharia de Prompts</div>
-    <h1>Framework PCTFL</h1>
-    <p class="lead">Papel, Contexto, Tarefa, Formato, Limitações. Gerador interativo e exemplos completos.</p>
-    <p><em>Conteúdo a ser populado na 2ª onda da Frente B (adaptação do workshop GPS M4, ~95% estrutura + 50% exemplos).</em></p>
+    <div class="eyebrow">Módulo 4 · Engenharia de Prompts</div>
+    <h1>PCTFL — os 5 eixos da clareza.</h1>
+    <p class="lead">Esse módulo é a <strong>fórmula</strong> que o M1 introduziu via WYSIATI. Toda vez que você for pedir algo à IA, passa por 5 eixos: <strong>Papel · Contexto · Tarefa · Formato · Limitações</strong>. No começo é checklist consciente; em 2 semanas vira reflexo.</p>
   </section>
+
+  <section class="module-section" id="ceu">
+    <div class="eyebrow">4.1 · Antes da fórmula</div>
+    <h2>O que muda quando você dá contexto</h2>
+    <p class="lead">Antes da fórmula completa, uma intuição: a IA monta a resposta por <strong>probabilidade</strong> sobre o que tá no prompt. Mude o contexto, muda o pedaço da memória que ela usa.</p>
+
+    <p>Pense numa frase incompleta:</p>
+
+    <div class="ceu-comparison">
+      <div class="ceu-card azul">
+        <div class="frase">"O céu é…"</div>
+        <p class="resposta"><strong>azul</strong>A IA puxa o caso mais comum.</p>
+      </div>
+      <div class="ceu-card cinza">
+        <div class="frase">"Está um dia muito chuvoso em Fortaleza. O céu é…"</div>
+        <p class="resposta"><strong>cinza</strong>Com 1 frase de contexto, ela vai pra outro lugar.</p>
+      </div>
+    </div>
+
+    <div class="callout-info"><strong>A regra do M4:</strong> a IA não adivinha quem você é, nem onde está, nem pra quem é o resultado. <em>Tudo o que ela sabe está no que você escreveu.</em> O PCTFL é o checklist pra você não esquecer de dizer.</div>
+  </section>
+
+  <section class="module-section" id="pctfl">
+    <div class="eyebrow">4.2 · A fórmula</div>
+    <h2>PCTFL — as 5 letras</h2>
+    <p class="lead">5 eixos. Você não precisa preencher todos em prompts curtos do dia a dia — mas quando o resultado importa, vale o checklist completo.</p>
+
+    <div class="pctfl-letras">
+      <div class="pctfl-letra">
+        <div class="pctfl-letra-big">P</div>
+        <div>
+          <div class="pctfl-letra-nome">Papel</div>
+          <div class="pctfl-letra-defin">Quem a IA está sendo agora. Define vocabulário, profundidade e tom da resposta. Você "veste" ela com uma profissão ou perfil.</div>
+          <div class="pctfl-letra-ex"><em>Exemplo:</em> "Atue como uma <em>gerente de RH com 10 anos de experiência</em> em médias empresas."</div>
+        </div>
+      </div>
+
+      <div class="pctfl-letra">
+        <div class="pctfl-letra-big">C</div>
+        <div>
+          <div class="pctfl-letra-nome">Contexto</div>
+          <div class="pctfl-letra-defin">O cenário. Quem é você, qual a situação, qual a restrição, pra quem é o resultado. <strong>É o eixo mais sub-utilizado por iniciantes</strong> — e o que mais muda a qualidade da resposta.</div>
+          <div class="pctfl-letra-ex"><em>Exemplo:</em> "Sou chefe de gabinete em transição para o setor privado. Estou estudando vagas de gerente de RH. O texto é pra preparar uma entrevista."</div>
+        </div>
+      </div>
+
+      <div class="pctfl-letra">
+        <div class="pctfl-letra-big">T</div>
+        <div>
+          <div class="pctfl-letra-nome">Tarefa</div>
+          <div class="pctfl-letra-defin">O que exatamente fazer. Verbo de ação no começo. Específico, não genérico.</div>
+          <div class="pctfl-letra-ex"><em>Exemplo:</em> "Liste os 5 pontos mais comuns de avaliação numa entrevista de gerente de RH em empresa de médio porte."</div>
+        </div>
+      </div>
+
+      <div class="pctfl-letra">
+        <div class="pctfl-letra-big">F</div>
+        <div>
+          <div class="pctfl-letra-nome">Formato</div>
+          <div class="pctfl-letra-defin">Como apresentar. Bullets? Tabela? Parágrafo? Quantas palavras? Pode ser muito específico (linhas, colunas, ordem).</div>
+          <div class="pctfl-letra-ex"><em>Exemplo:</em> "Formato: bullets curtos. Cada ponto com nome, descrição em 1 frase e 1 pergunta-tipo que o entrevistador pode fazer."</div>
+        </div>
+      </div>
+
+      <div class="pctfl-letra">
+        <div class="pctfl-letra-big">L</div>
+        <div>
+          <div class="pctfl-letra-nome">Limitações</div>
+          <div class="pctfl-letra-defin">O que evitar. Quanto não passar. O que não inventar. Importante pra controlar tamanho e impedir alucinação.</div>
+          <div class="pctfl-letra-ex"><em>Exemplo:</em> "Não invente nomes de empresas. Não passe de 300 palavras. Linguagem profissional, sem jargão de RH muito técnico."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-info"><strong>Heurística da Débora:</strong> se você só preencher <strong>C + T</strong> (contexto + tarefa) já está 80% à frente de quem só joga uma pergunta solta. Os outros 3 eixos são refino.</div>
+  </section>
+
+  <section class="module-section" id="exemplos">
+    <div class="eyebrow">4.3 · Aplicação</div>
+    <h2>Dois exemplos completos</h2>
+    <p class="lead">Mesma estrutura PCTFL em dois cenários diferentes. Reúse a estrutura, troque o conteúdo dos eixos.</p>
+
+    <div class="prompt-exemplo">
+      <div class="prompt-exemplo-title">Exemplo 1 · Procedimento operacional de onboarding</div>
+      <div class="prompt-exemplo-quando">Quando usar: você precisa documentar um processo que hoje vive na sua cabeça pra outra pessoa conseguir executar.</div>
+
+      <div class="prompt-bloco"><div class="prompt-bloco-letra">P · Papel</div><div class="prompt-bloco-texto">Atue como uma consultora de gestão de pessoas especializada em onboarding em equipes administrativas.</div></div>
+      <div class="prompt-bloco"><div class="prompt-bloco-letra">C · Contexto</div><div class="prompt-bloco-texto">Sou gestora de uma equipe administrativa de 14 pessoas. Acabo de contratar uma assistente nova que começa em 2 semanas. Quero que ela esteja produtiva em 30 dias, sabendo executar as 5 tarefas centrais do cargo sem precisar me perguntar a cada passo.</div></div>
+      <div class="prompt-bloco"><div class="prompt-bloco-letra">T · Tarefa</div><div class="prompt-bloco-texto">Estruture um procedimento de onboarding de 30 dias dividido em 3 fases (semana 1 = imersão; semanas 2-3 = sombra; semana 4 = autonomia supervisionada). Em cada fase, liste: o objetivo central, 3 atividades concretas, e o critério mensurável pra dar a fase como concluída.</div></div>
+      <div class="prompt-bloco"><div class="prompt-bloco-letra">F · Formato</div><div class="prompt-bloco-texto">Tabela com colunas: Fase · Objetivo · Atividades · Critério de conclusão. Máximo 1 página. Linguagem direta, sem academicismo.</div></div>
+      <div class="prompt-bloco"><div class="prompt-bloco-letra">L · Limitações</div><div class="prompt-bloco-texto">Não invente processos específicos da minha empresa (eu preencho depois). Não use termos de RH em inglês sem traduzir. Não passe de 500 palavras totais.</div></div>
+
+      <div class="prompt-pronto-label">📋 Prompt pronto pra colar</div>
+      <pre class="prompt-pronto">Atue como uma consultora de gestão de pessoas especializada em onboarding em equipes administrativas.
+
+Sou gestora de uma equipe administrativa de 14 pessoas. Acabo de contratar uma assistente nova que começa em 2 semanas. Quero que ela esteja produtiva em 30 dias, sabendo executar as 5 tarefas centrais do cargo sem precisar me perguntar a cada passo.
+
+Estruture um procedimento de onboarding de 30 dias dividido em 3 fases (semana 1 = imersão; semanas 2-3 = sombra; semana 4 = autonomia supervisionada). Em cada fase, liste: o objetivo central, 3 atividades concretas, e o critério mensurável pra dar a fase como concluída.
+
+Formato: tabela com colunas: Fase · Objetivo · Atividades · Critério de conclusão. Máximo 1 página. Linguagem direta, sem academicismo.
+
+Não invente processos específicos da minha empresa (eu preencho depois). Não use termos de RH em inglês sem traduzir. Não passe de 500 palavras totais.</pre>
+    </div>
+
+    <div class="prompt-exemplo">
+      <div class="prompt-exemplo-title">Exemplo 2 · Triagem rápida de currículos</div>
+      <div class="prompt-exemplo-quando">Quando usar: você recebeu 20 currículos pra uma vaga e quer pré-classificar antes de ler a fundo.</div>
+
+      <div class="prompt-bloco"><div class="prompt-bloco-letra">P · Papel</div><div class="prompt-bloco-texto">Atue como recrutadora sênior especializada em triagem rápida de currículos para cargos de gestão.</div></div>
+      <div class="prompt-bloco"><div class="prompt-bloco-letra">C · Contexto</div><div class="prompt-bloco-texto">Sou gestora contratando uma analista administrativa pleno. Os 3 requisitos não-negociáveis são: (1) experiência mínima de 3 anos em rotina administrativa; (2) domínio de Excel intermediário; (3) inglês ao menos leitura. Vou colar o texto de um currículo abaixo.</div></div>
+      <div class="prompt-bloco"><div class="prompt-bloco-letra">T · Tarefa</div><div class="prompt-bloco-texto">Avalie o currículo contra os 3 requisitos. Para cada requisito, dê: ✅ atende / ⚠️ atende parcial / ❌ não atende — com 1 frase de justificativa baseada em <em>citação literal</em> do currículo.</div></div>
+      <div class="prompt-bloco"><div class="prompt-bloco-letra">F · Formato</div><div class="prompt-bloco-texto">3 linhas (uma por requisito) + 1 veredicto final em 1 frase: "Recomendo entrevistar" / "Indeciso, ver outra rodada" / "Não avançar".</div></div>
+      <div class="prompt-bloco"><div class="prompt-bloco-letra">L · Limitações</div><div class="prompt-bloco-texto">Se o currículo não menciona um requisito, marque como ⚠️ — não assuma que tem nem que não tem. Se eu mencionei um nome próprio (candidato, empresa), trate como anônimo no veredicto.</div></div>
+
+      <div class="prompt-pronto-label">📋 Prompt pronto pra colar</div>
+      <pre class="prompt-pronto">Atue como recrutadora sênior especializada em triagem rápida de currículos para cargos de gestão.
+
+Sou gestora contratando uma analista administrativa pleno. Os 3 requisitos não-negociáveis são: (1) experiência mínima de 3 anos em rotina administrativa; (2) domínio de Excel intermediário; (3) inglês ao menos leitura. Vou colar o texto de um currículo abaixo.
+
+Avalie o currículo contra os 3 requisitos. Para cada requisito, dê: ✅ atende / ⚠️ atende parcial / ❌ não atende — com 1 frase de justificativa baseada em citação literal do currículo.
+
+Formato: 3 linhas (uma por requisito) + 1 veredicto final em 1 frase: "Recomendo entrevistar" / "Indeciso, ver outra rodada" / "Não avançar".
+
+Se o currículo não menciona um requisito, marque como ⚠️ — não assuma que tem nem que não tem. Se eu mencionei um nome próprio (candidato, empresa), trate como anônimo no veredicto.
+
+CURRÍCULO:
+[cole aqui]</pre>
+    </div>
+  </section>
+
+  <section class="module-section" id="checklist">
+    <div class="eyebrow">4.4 · Antes de enviar</div>
+    <h2>Checklist de 30 segundos</h2>
+    <p class="lead">Não precisa virar engenheira de prompt. Mas antes de enviar prompt que importa, passa por essas 5 perguntas:</p>
+
+    <div class="checklist">
+      <h4>Antes de apertar enter</h4>
+      <div class="checklist-item">Disse <strong>quem você é</strong> ou pediu pra IA assumir um <strong>papel</strong>? (P)</div>
+      <div class="checklist-item">Deu o <strong>contexto</strong> — situação, restrição, pra quem é o resultado? (C)</div>
+      <div class="checklist-item">A <strong>tarefa</strong> começa com verbo de ação? É específica, não genérica? (T)</div>
+      <div class="checklist-item">Disse <strong>como</strong> você quer o resultado (formato, tamanho, estrutura)? (F)</div>
+      <div class="checklist-item">Marcou <strong>o que evitar</strong>? (alucinação, jargão, tamanho excessivo) (L)</div>
+    </div>
+
+    <div class="callout-info"><strong>Quando ela errar:</strong> a primeira hipótese não é "a IA é ruim". É <em>"meu prompt esqueceu de algo"</em>. Volta o checklist. Em 90% dos casos vai estar faltando contexto ou limitação.</div>
+  </section>
+
+  <section class="module-section" id="anti">
+    <div class="eyebrow">4.5 · Erros comuns</div>
+    <h2>Anti-padrões a evitar</h2>
+    <p class="lead">3 hábitos que sabotam a qualidade — comuns em quem está começando:</p>
+
+    <div class="anti-padroes">
+      <div class="anti-card">
+        <h4>❌ Pergunta solta sem contexto</h4>
+        <p>"Como faço uma planilha de RH?" — resposta genérica. Sempre encaixe pelo menos C+T.</p>
+      </div>
+      <div class="anti-card">
+        <h4>❌ Querer tudo no 1º prompt</h4>
+        <p>Misturar 5 perguntas numa só vira respostas rasas pra todas. Faz uma por vez. Aprofunda. Avança.</p>
+      </div>
+      <div class="anti-card">
+        <h4>❌ Aceitar a 1ª resposta</h4>
+        <p>"Tá ok" é o pior elogio. Refraseia: "isso ficou genérico, agora faz mais específico pra X" — ou pede pra ela <em>te fazer perguntas antes</em> de responder.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="module-section" id="proximo">
+    <div class="eyebrow">Próximo</div>
+    <h2>O banco de prompts</h2>
+    <p>Agora que o PCTFL é fórmula clara, o <a href="../banco-de-prompts/">banco de prompts pessoal</a> traz 15-20 prompts prontos no formato PCTFL, organizados nas suas 5 áreas (Gestão Empresarial · Marketing · Financeiro · Atendimento · RH). Cada um você pode colar, ajustar 2-3 detalhes e usar imediatamente.</p>
+    <p><a href="../banco-de-prompts/" class="cta">Ir pro banco de prompts →</a></p>
+  </section>
+
 </main>
+
 <footer>
   <div class="container">
     <p>Mentoria IA Executiva · Rafael Lima · 2026</p>
+    <p class="footer-meta">Acesso privado · M4 · Engenharia de Prompts (PCTFL)</p>
   </div>
 </footer>
+
 </body>
 </html>

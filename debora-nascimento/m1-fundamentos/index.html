@@ -9,6 +9,48 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../_shared/assets/style.css">
+<style>
+  .niveis-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin: 18px 0 8px; }
+  .nivel-row { display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 14px 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; }
+  .nivel-row.atual { border-left: 4px solid var(--accent-warm); background: rgba(194,145,107,0.06); }
+  .nivel-row.meta { border-left: 4px solid var(--accent); background: rgba(44,95,112,0.05); }
+  .nivel-num { font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .nivel-row.atual .nivel-num { color: var(--accent-warm-dark); }
+  .nivel-nome { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .nivel-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+  .nivel-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--accent-warm-dark); margin-left: 8px; background: var(--bg-warm); padding: 2px 7px; border-radius: 3px; }
+  .nivel-tag.meta { color: var(--accent); }
+  .comparativo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0; }
+  .comparativo-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+  .comparativo-card.amador { border-top: 3px solid #c2916b; }
+  .comparativo-card.pro { border-top: 3px solid var(--accent); }
+  .comparativo-card h4 { font-family: var(--serif); font-size: 17px; margin-bottom: 12px; }
+  .comparativo-card ul { padding-left: 18px; }
+  .comparativo-card li { margin-bottom: 7px; font-size: 14.5px; line-height: 1.5; color: var(--ink-soft); }
+  .wysiati-exemplos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .wysiati-ex { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px; }
+  .wysiati-ex.ruim { border-left: 3px solid #c45e5e; }
+  .wysiati-ex.bom { border-left: 3px solid #6a8d3f; }
+  .wysiati-ex-label { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; margin-bottom: 8px; }
+  .wysiati-ex.ruim .wysiati-ex-label { color: #c45e5e; }
+  .wysiati-ex.bom .wysiati-ex-label { color: #4a6428; }
+  .wysiati-ex code { display: block; background: var(--bg-warm); padding: 10px 14px; border-radius: 4px; font-size: 13.5px; line-height: 1.5; margin-bottom: 10px; color: var(--ink); font-family: var(--mono); }
+  .wysiati-ex p { font-size: 13.5px; color: var(--ink-soft); margin: 0; }
+  .risco-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 14px; }
+  .risco-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; }
+  .risco-card h4 { font-family: var(--serif); font-size: 16px; margin-bottom: 6px; color: var(--accent-dark); }
+  .risco-card p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.55; }
+  .callout-info { background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 18px 0; font-size: 14.5px; color: var(--ink-soft); }
+  .callout-info strong { color: var(--ink); }
+  .module-section { margin-bottom: 56px; padding-top: 12px; scroll-margin-top: 80px; }
+  .module-section h2 { font-family: var(--serif); font-size: 28px; font-weight: 600; margin-bottom: 8px; line-height: 1.25; }
+  .module-section .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent-warm-dark); margin-bottom: 8px; }
+  .module-section p.lead { font-size: 17px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 14px; }
+  .module-section p { margin-bottom: 12px; }
+  @media (max-width: 640px) {
+    .comparativo-grid, .wysiati-exemplos { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 <header class="topbar">
@@ -19,21 +61,186 @@
     </div>
     <nav class="topbar-nav">
       <a href="../">← Início</a>
+      <a href="../m2-delegacao/">M2 →</a>
     </nav>
   </div>
 </header>
+
 <main class="container">
+
   <section class="hero">
-    <div class="eyebrow">M1 · Fundamentos</div>
-    <h1>Fundamentos de IA aplicada</h1>
-    <p class="lead">Mentalidade dos 7 níveis, WYSIATI, diferenças entre amador e profissional, riscos e boas práticas.</p>
-    <p><em>Conteúdo a ser populado na 2ª onda da Frente B (adaptação do workshop GPS M1, ~95% reuso).</em></p>
+    <div class="eyebrow">Módulo 1 · Fundamentos</div>
+    <h1>Antes de pedir,<br>entender o que é IA.</h1>
+    <p class="lead">Esse módulo é o ponto de partida. Quatro ideias simples que mudam tudo daqui pra frente: <strong>os 7 níveis de uso</strong>, <strong>por que a IA precisa de contexto</strong> (WYSIATI), <strong>amador vs profissional</strong> e <strong>os 4 riscos a respeitar</strong>. Nenhuma fórmula técnica. É só sobre como pensar.</p>
   </section>
+
+  <section class="module-section" id="onde-voce-esta">
+    <div class="eyebrow">1.1 · Diagnóstico</div>
+    <h2>Onde você está hoje</h2>
+    <p class="lead">A mentoria usa uma régua de 7 níveis pra falar sobre evolução. Saber em que nível você está <em>não é julgamento</em> — é só o ponto de partida. Você pode subir 1, 2 ou 3 níveis ao longo das 8 sessões dependendo do seu ponto de partida e do que você praticar.</p>
+
+    <div class="niveis-grid">
+      <div class="nivel-row atual">
+        <div class="nivel-num">0</div>
+        <div>
+          <div class="nivel-nome">Pré-Explorador <span class="nivel-tag">você está aqui</span></div>
+          <div class="nivel-desc">Nunca usou IA generativa. É o começo do caminho — quando você descobre que "perguntar" é uma habilidade. Sessões 1 e 2 cobrem este ponto.</div>
+        </div>
+      </div>
+      <div class="nivel-row">
+        <div class="nivel-num">1</div>
+        <div>
+          <div class="nivel-nome">Explorador</div>
+          <div class="nivel-desc">Usa IA como "Google melhor". Pergunta, copia resposta, fecha. Aceita a primeira saída. Ainda não percebeu que <em>como</em> pergunta muda o resultado.</div>
+        </div>
+      </div>
+      <div class="nivel-row meta">
+        <div class="nivel-num">2</div>
+        <div>
+          <div class="nivel-nome">Aprendiz <span class="nivel-tag meta">alvo das 8 sessões</span></div>
+          <div class="nivel-desc">Entendeu que <em>como pergunta importa</em>. Refraseia, itera, guarda prompts que funcionam. Tem uma biblioteca pessoal viva.</div>
+        </div>
+      </div>
+      <div class="nivel-row">
+        <div class="nivel-num">3</div>
+        <div>
+          <div class="nivel-nome">Construtora <span class="nivel-tag meta">stretch</span></div>
+          <div class="nivel-desc">Cria espaços com contexto pré-carregado (Projects). A IA "lembra" das decisões. Compara modelos para a mesma tarefa.</div>
+        </div>
+      </div>
+      <div class="nivel-row">
+        <div class="nivel-num">4–7</div>
+        <div>
+          <div class="nivel-nome">Construtora avançada · Sistemas · Arquiteta · Orquestradora</div>
+          <div class="nivel-desc">Horizonte — não meta do programa. Cada nível resolve um problema do anterior (ferramentas múltiplas, automação, código, agentes 24/7).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-info"><strong>Por que isso importa:</strong> ninguém sobe de nível "estudando". Sobe quando bate num <em>problema</em> que o nível atual não resolve. A mentoria provoca esses problemas de propósito — não pra te jogar no fundo do poço, mas pra fazer a próxima ferramenta aparecer no momento certo.</div>
+  </section>
+
+  <section class="module-section" id="wysiati">
+    <div class="eyebrow">1.2 · O viés que sabota a IA</div>
+    <h2>WYSIATI — só vejo o que mostro</h2>
+    <p class="lead"><strong>WYSIATI</strong> = "What You See Is All There Is" (o que você vê é tudo que existe). É um viés descrito pelo psicólogo Daniel Kahneman: a gente decide com base no que tá visível, ignorando tudo que não foi mencionado.</p>
+    <p>A IA tem esse viés <em>multiplicado por 10</em>. Ela responde com base em <strong>tudo que você escreveu no prompt</strong> — e <strong>só</strong> com base nisso. Se você não disser quem você é, qual o contexto, ou pra quem é o resultado, ela vai assumir o padrão "média da internet". Quase sempre genérico, quase sempre errado.</p>
+
+    <h3 style="font-family:var(--serif);font-size:18px;font-weight:600;margin:24px 0 10px;color:var(--ink);">Mesmo pedido, dois resultados</h3>
+
+    <div class="wysiati-exemplos">
+      <div class="wysiati-ex ruim">
+        <div class="wysiati-ex-label">❌ Sem contexto</div>
+        <code>Me diga os principais pontos de atenção num projeto.</code>
+        <p>Resposta: 8 bullets genéricos copiados de qualquer livro de gestão — escopo, prazo, custo, qualidade, riscos, comunicação… Você já sabia tudo. Tempo perdido.</p>
+      </div>
+      <div class="wysiati-ex bom">
+        <div class="wysiati-ex-label">✅ Com contexto</div>
+        <code>Me diga os principais pontos de atenção num projeto. Sou chefe de gabinete num órgão público; o "projeto" é a reorganização da equipe administrativa, 14 pessoas, prazo 90 dias.</code>
+        <p>Resposta: ataca turnover, resistência política, comunicação interna, métricas de adoção. Útil. Acionável. Você não tinha pensado em 3 desses.</p>
+      </div>
+    </div>
+
+    <div class="callout-info"><strong>A regra:</strong> antes de perguntar, declare <em>quem você é</em>, <em>onde está</em> e <em>pra quem é a resposta</em>. Isso vai virar reflexo. No M4 você aprende a fórmula completa (<strong>PCTFL</strong>) — aqui é só pra você sentir o salto.</div>
+  </section>
+
+  <section class="module-section" id="amador-vs-pro">
+    <div class="eyebrow">1.3 · A virada de chave</div>
+    <h2>Amador vs profissional</h2>
+    <p class="lead">A diferença não é cobrar mais caro. É <em>como pensa</em>. Três movimentos resumem a virada.</p>
+
+    <div class="comparativo-grid">
+      <div class="comparativo-card amador">
+        <h4>Quem está chegando agora</h4>
+        <ul>
+          <li>Pergunta, copia, fecha — sem revisar</li>
+          <li>Aceita a primeira resposta como verdade</li>
+          <li>Não guarda prompts que funcionaram</li>
+          <li>Re-explica tudo a cada nova conversa</li>
+          <li>"A IA não funciona pra mim"</li>
+          <li>Usa só ChatGPT (não testou Claude, Gemini, NotebookLM)</li>
+        </ul>
+      </div>
+      <div class="comparativo-card pro">
+        <h4>Quem já internalizou</h4>
+        <ul>
+          <li>Pergunta, lê crítico, refina — até ficar útil</li>
+          <li>Pede pra IA <em>fazer perguntas</em> antes de responder</li>
+          <li>Tem biblioteca pessoal de prompts (no banco da página)</li>
+          <li>Usa espaços com contexto pré-carregado (Projects)</li>
+          <li>"Quando a IA erra, é o meu prompt que falhou"</li>
+          <li>Escolhe a ferramenta certa pra cada tarefa</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout-info"><strong>A boa notícia:</strong> dá pra fazer a virada em 8 sessões. O que separa amador de profissional não é talento — é hábito de iterar e o costume de declarar contexto. As duas coisas são treináveis.</div>
+  </section>
+
+  <section class="module-section" id="riscos">
+    <div class="eyebrow">1.4 · O que respeitar</div>
+    <h2>4 riscos e como navegar</h2>
+    <p class="lead">A IA é poderosa, mas tem 4 limites que profissionais respeitam. Conhecer cada um te poupa de problemas reais (vazamento de dados, decisão errada, ressaca ética).</p>
+
+    <div class="risco-grid">
+      <div class="risco-card">
+        <h4>🔐 LGPD e dados sensíveis</h4>
+        <p>Não cole CPF, salário individualizado, dado de saúde ou conversa privada em IA pública (ChatGPT/Claude/Gemini grátis). Use placeholders ([NOME], [CPF], [VALOR]) ou versões pagas/empresariais com retenção configurada. <strong>Regra de bolso:</strong> se vazasse num jornal amanhã, daria problema? Não envia.</p>
+      </div>
+      <div class="risco-card">
+        <h4>🧠 Alucinação</h4>
+        <p>A IA pode inventar leis, datas, citações, "fatos" que parecem reais. Ela é otimizada pra ser <em>convincente</em>, não pra ser <em>correta</em>. <strong>Regra de bolso:</strong> qualquer fato/número/citação que vai sair com seu nome — você confere a fonte. Nada de "copiar e enviar".</p>
+      </div>
+      <div class="risco-card">
+        <h4>✋ Validação humana</h4>
+        <p>Decisões com impacto em pessoa (contratação, demissão, avaliação, comunicação sensível) precisam passar pela sua leitura crítica antes de saírem. A IA escreve a base; você decide o que fica.</p>
+      </div>
+      <div class="risco-card">
+        <h4>🎙️ Voz autoral</h4>
+        <p>O que sai com seu nome é seu, mesmo que tenha começado em IA. Não publique texto cru de IA — leia, ajuste, ponha sua mão. Quando o conteúdo for largamente gerado por IA e isso importar (artigo, posicionamento público), considere mencionar.</p>
+      </div>
+    </div>
+
+    <div class="callout-info"><strong>Você vai voltar nesses 4 riscos</strong> na <strong>sessão 7 — Diretrizes Pessoais</strong>. Lá você escreve <em>suas próprias</em> regras com base em situações reais que viveu durante as 8 semanas. Por enquanto, basta saber que existem.</div>
+  </section>
+
+  <section class="module-section" id="proximos">
+    <div class="eyebrow">Próximos módulos</div>
+    <h2>O que vem agora</h2>
+    <p>Os outros 3 módulos constroem em cima desse:</p>
+    <div class="niveis-grid">
+      <a href="../m2-delegacao/" class="nivel-row" style="text-decoration:none;color:inherit;">
+        <div class="nivel-num">M2</div>
+        <div>
+          <div class="nivel-nome">Inteligência Estratégica</div>
+          <div class="nivel-desc">3 modos de uso da IA (autopiloto, colaboração, manual). Quando confiar, quando revisar, quando refazer do zero.</div>
+        </div>
+      </a>
+      <a href="../m3-ipo/" class="nivel-row" style="text-decoration:none;color:inherit;">
+        <div class="nivel-num">M3</div>
+        <div>
+          <div class="nivel-nome">Framework IPO</div>
+          <div class="nivel-desc">Input → Process → Output. Estruturar qualquer trabalho na sua cabeça antes de pedir à IA.</div>
+        </div>
+      </a>
+      <a href="../m4-prompts/" class="nivel-row" style="text-decoration:none;color:inherit;">
+        <div class="nivel-num">M4</div>
+        <div>
+          <div class="nivel-nome">Engenharia de Prompts (PCTFL)</div>
+          <div class="nivel-desc">A fórmula completa do que o WYSIATI introduziu: Papel · Contexto · Tarefa · Formato · Limitações.</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
 </main>
+
 <footer>
   <div class="container">
     <p>Mentoria IA Executiva · Rafael Lima · 2026</p>
+    <p class="footer-meta">Acesso privado · M1 · Fundamentos</p>
   </div>
 </footer>
+
 </body>
 </html>
