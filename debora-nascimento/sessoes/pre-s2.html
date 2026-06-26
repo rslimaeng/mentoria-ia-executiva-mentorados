@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Pré-S2 · O que preparar · Mentoria IA Executiva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../_shared/assets/style.css">
+  <style>
+    .casa-card { background: var(--bg-warm); border-left: 4px solid var(--accent-warm); border-radius: 0 8px 8px 0; padding: 22px 26px; margin: 20px 0; }
+    .casa-card h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+    .casa-card .casa-prazo { font-size: 13px; color: var(--ink-muted); font-style: italic; margin-bottom: 14px; }
+    .casa-item { display: grid; grid-template-columns: 36px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--border-strong); align-items: start; }
+    .casa-item:first-of-type { border-top: none; padding-top: 4px; }
+    .casa-item-num { background: var(--accent); color: #fff; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 700; font-size: 14px; flex-shrink: 0; }
+    .casa-item-texto { font-size: 14.5px; color: var(--ink); line-height: 1.55; }
+    .casa-item-texto strong { display: block; margin-bottom: 3px; font-family: var(--serif); }
+    .casa-item-texto p { font-size: 13.5px; color: var(--ink-soft); margin: 4px 0 0; }
+
+    .roteiro { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 22px 26px; margin: 18px 0; }
+    .roteiro-item { display: grid; grid-template-columns: 80px 1fr 90px; gap: 16px; padding: 14px 0; border-top: 1px solid var(--border); align-items: center; }
+    .roteiro-item:first-of-type { border-top: none; padding-top: 0; }
+    .roteiro-mod { font-family: var(--serif); font-size: 14px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.6px; }
+    .roteiro-desc { font-size: 14.5px; color: var(--ink); line-height: 1.55; }
+    .roteiro-desc strong { display: block; margin-bottom: 2px; font-family: var(--serif); }
+    .roteiro-desc small { font-size: 12.5px; color: var(--ink-muted); }
+    .roteiro-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; text-align: center; }
+    .roteiro-tag.obrigatorio { background: var(--accent); color: #fff; }
+    .roteiro-tag.opcional { background: var(--bg-warm); color: var(--accent-warm-dark); border: 1px solid var(--accent-warm); }
+
+    .prompt-bloco { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
+    .prompt-bloco-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; flex-wrap: wrap; }
+    .prompt-bloco-num { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1; }
+    .prompt-bloco-titulo { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--ink); }
+    .prompt-bloco-area { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--accent-warm-dark); background: var(--bg-warm); padding: 3px 8px; border-radius: 4px; }
+    .prompt-bloco-contexto { font-size: 14px; color: var(--ink-soft); margin-bottom: 12px; line-height: 1.55; }
+    .prompt-bloco-texto { background: var(--bg-warm); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; padding: 14px 18px; font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 13.5px; color: var(--ink); line-height: 1.6; white-space: pre-wrap; margin-bottom: 10px; }
+    .prompt-bloco-esperado { font-size: 13px; color: var(--ink-muted); font-style: italic; }
+    .prompt-bloco-esperado strong { color: var(--ink-soft); font-style: normal; }
+
+    .reflexao-card { background: var(--bg-warm); border-left: 3px solid var(--accent-warm); border-radius: 0 6px 6px 0; padding: 18px 22px; margin: 14px 0; font-size: 15px; color: var(--ink); line-height: 1.6; }
+    .reflexao-card strong { font-family: var(--serif); display: block; margin-bottom: 6px; color: var(--ink); }
+
+    .citacao { background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 14px 20px; border-radius: 0 6px 6px 0; margin: 18px 0; font-style: italic; font-size: 15px; color: var(--ink); line-height: 1.55; }
+    .citacao::before { content: "“"; font-family: var(--serif); font-size: 32px; color: var(--accent); line-height: 0.5; vertical-align: -10px; margin-right: 4px; }
+
+    .callout-mentoria { background: var(--bg-warm); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 20px 0; font-size: 14.5px; color: var(--ink-soft); line-height: 1.6; }
+    .callout-mentoria strong { color: var(--ink); }
+
+    .btn-copy-prompt { display: inline-block; margin-top: 6px; font-size: 12.5px; color: var(--accent); background: none; border: 1px solid var(--accent); padding: 5px 12px; border-radius: 4px; cursor: pointer; font-family: inherit; font-weight: 600; }
+    .btn-copy-prompt:hover { background: var(--accent); color: #fff; }
+    .btn-copy-prompt.copied { background: var(--accent); color: #fff; }
+
+    @media (max-width: 720px) {
+      .roteiro-item { grid-template-columns: 1fr; gap: 6px; }
+      .roteiro-tag { justify-self: start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="../" class="topbar-logo">Mentoria IA Executiva · Débora</a>
+      <nav class="topbar-nav">
+        <a href="../">Início</a>
+        <a href="s1.html">S1</a>
+        <a href="../m1-fundamentos/">M1</a>
+        <a href="../banco-de-prompts/">Banco</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="module-header site-container">
+    <p class="eyebrow">Antes da Sessão 2</p>
+    <h1>O que preparar<br>antes da gente sentar de novo.</h1>
+    <div class="module-header-meta">
+      <span>~30 min de preparação</span>
+      <span>·</span>
+      <span>Sessão 2: data a confirmar</span>
+    </div>
+  </div>
+
+  <section class="section content-section" id="por-que">
+    <div class="site-container">
+      <p class="eyebrow">Por que essa página existe</p>
+      <h2>A S2 só destrava se você chegar com 4 coisas</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Na S1 a gente conversou. Na S2 <strong>você vai falar</strong> — e eu vou escavar onde realmente dói (ou doeria, se você estivesse fora da Câmara amanhã). Mas pra essa entrevista de profundidade fazer sentido, você precisa chegar com material concreto. Sem ele, a gente cai de novo no diagnóstico genérico — e você perde 2h.
+      </p>
+
+      <div class="citacao">
+        Eu nem tenho dores agora, porque eu tenho todas as pessoas que me fornecem o que eu preciso. Eu já tô prevendo uma dor futura.
+      </div>
+
+      <p style="font-size:15px; color:var(--ink-soft);">
+        Foi você que disse isso na S1. <strong>É exatamente por isso que as vagas são tão importantes</strong> — elas são o "futuro" concreto que a gente vai usar como filtro o tempo todo na S2.
+      </p>
+    </div>
+  </section>
+
+  <section class="section content-section" id="material" style="background:var(--bg-warm);">
+    <div class="site-container">
+      <p class="eyebrow">Bloco 1 — Material físico</p>
+      <h2>4 coisas pra trazer (ou ter pronto)</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Se não der pra fazer tudo, faz pelo menos a primeira. As vagas são o que destrava o roteiro inteiro.
+      </p>
+
+      <div class="casa-card">
+        <div class="casa-item">
+          <div class="casa-item-num">1</div>
+          <div class="casa-item-texto"><strong>3-5 vagas no LinkedIn que te interessam</strong>
+            <p>Gerente de RH, gerente comercial, gerente administrativa, coordenadora de operações — ou o que mais aparecer e te chamar atenção. Salva o link ou tira print. <strong>Por que importa:</strong> cada dor que a gente listar na S2 vai ser cruzada com "isso aparece em qual vaga?". É assim que a gente prioriza o que vale a pena aprender.</p>
+          </div>
+        </div>
+        <div class="casa-item">
+          <div class="casa-item-num">2</div>
+          <div class="casa-item-texto"><strong>Prints do extrato bancário da banda</strong>
+            <p>Pode ser do mês inteiro de junho (ou só da última semana, pra testar). <strong>Por que importa:</strong> a gente vai rodar IA AO VIVO lendo o extrato e cuspindo uma planilha categorizada. É o primeiro momento onde você vê IA "trabalhando" pra você — não eu mostrando, você fazendo.</p>
+          </div>
+        </div>
+        <div class="casa-item">
+          <div class="casa-item-num">3</div>
+          <div class="casa-item-texto"><strong>Notebook pessoal</strong>
+            <p>O notebook que tem o seu dia a dia "de casa" — não o da Câmara. <strong>Por que importa:</strong> a gente vai abrir o Claude no SEU ambiente, com o SEU login. O que a gente configurar fica com você depois da S2 — não morre quando você sai da Câmara.</p>
+          </div>
+        </div>
+        <div class="casa-item">
+          <div class="casa-item-num">4</div>
+          <div class="casa-item-texto"><strong>Ler o M1 (~12 min)</strong>
+            <p><a href="../m1-fundamentos/">Está aqui</a>. Conceitos centrais: os 7 níveis (sua régua de progresso), WYSIATI (por que contexto importa tanto), e os 4 riscos. <strong>Por que importa:</strong> se você chegar com o vocabulário, a S2 anda muito mais rápido — eu não preciso parar pra explicar, a gente vai direto pra prática.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout-mentoria"><strong>Se ficar apertado:</strong> manda WhatsApp avisando. Tenta pelo menos a (1) — sem vagas, a S2 vira diagnóstico aberto e a gente perde 30+ min preenchendo no ato.</div>
+    </div>
+  </section>
+
+  <section class="section content-section" id="roteiro">
+    <div class="site-container">
+      <p class="eyebrow">Bloco 2 — Roteiro de leitura</p>
+      <h2>O que ler na sua página antes</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Sua página tem 4 módulos + um banco de 17 prompts. <strong>M1 é obrigatório</strong> (12 min). O resto entra conforme tempo que você tiver — não precisa ler tudo, mas quanto mais você chegar, mais a gente avança.
+      </p>
+
+      <div class="roteiro">
+        <div class="roteiro-item">
+          <div class="roteiro-mod">M1</div>
+          <div class="roteiro-desc">
+            <strong><a href="../m1-fundamentos/">Fundamentos de IA</a></strong>
+            <small>7 níveis · WYSIATI · IA aninhada · 5 sinais · 4 riscos</small>
+          </div>
+          <div class="roteiro-tag obrigatorio">Obrigatório</div>
+        </div>
+        <div class="roteiro-item">
+          <div class="roteiro-mod">M4</div>
+          <div class="roteiro-desc">
+            <strong><a href="../m4-prompts/">Engenharia de Prompts (PCTFL)</a></strong>
+            <small>Como pedir bem · gerador interativo · carrossel Claude/ChatGPT/Gemini</small>
+          </div>
+          <div class="roteiro-tag obrigatorio">Obrigatório</div>
+        </div>
+        <div class="roteiro-item">
+          <div class="roteiro-mod">M2</div>
+          <div class="roteiro-desc">
+            <strong><a href="../m2-delegacao/">Inteligência Estratégica</a></strong>
+            <small>Os 3 modos de uso · matriz de decisão · quando NÃO usar</small>
+          </div>
+          <div class="roteiro-tag opcional">Se sobrar tempo</div>
+        </div>
+        <div class="roteiro-item">
+          <div class="roteiro-mod">M3</div>
+          <div class="roteiro-desc">
+            <strong><a href="../m3-ipo/">Framework IPO</a></strong>
+            <small>Toda tarefa tem entrada → processo → saída · validação de premissas</small>
+          </div>
+          <div class="roteiro-tag opcional">Se sobrar tempo</div>
+        </div>
+        <div class="roteiro-item">
+          <div class="roteiro-mod">Banco</div>
+          <div class="roteiro-desc">
+            <strong><a href="../banco-de-prompts/">17 prompts das suas 5 áreas</a></strong>
+            <small>Só dá uma navegada · vê quais te chamam atenção</small>
+          </div>
+          <div class="roteiro-tag opcional">Navegada rápida</div>
+        </div>
+      </div>
+
+      <div class="callout-mentoria"><strong>Dica:</strong> M1 + M4 = ~25 min de leitura. Faz num café, num sábado de manhã. Se você ler M1+M4, a S2 anda 2x mais rápido.</div>
+    </div>
+  </section>
+
+  <section class="section content-section" id="aquecimento" style="background:var(--bg-warm);">
+    <div class="site-container">
+      <p class="eyebrow">Bloco 3 — Aquecimento</p>
+      <h2>3 prompts pra você testar antes</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Não precisa fazer nada profundo. Só abre o Claude (<a href="https://claude.ai" target="_blank">claude.ai</a>), copia um desses 3 prompts, cola lá, e vê a resposta. Objetivo: <strong>tirar o medo da tela em branco</strong>. Quando a gente sentar na S2, você já vai ter sentido o gosto.
+      </p>
+
+      <div class="callout-mentoria">
+        <strong>Como funciona:</strong> clica em "Copiar prompt" → cola no Claude → ajusta o que está entre [colchetes] com seus dados → manda. Se travar em qualquer um, anota a dúvida e a gente vê na S2.
+      </div>
+
+      <div class="prompt-bloco">
+        <div class="prompt-bloco-header">
+          <div class="prompt-bloco-num">1</div>
+          <div class="prompt-bloco-titulo">Resumir uma reunião que você participou</div>
+          <div class="prompt-bloco-area">Gestão</div>
+        </div>
+        <p class="prompt-bloco-contexto">
+          Pega notas de qualquer reunião dos últimos 7 dias — ata da Câmara, conversa com vereador, reunião da banda. Cola no Claude e peça pra estruturar em decisões + pendências + próximos passos.
+        </p>
+        <pre class="prompt-bloco-texto" id="prompt-aq1">Você é uma assistente executiva ajudando uma chefe de gabinete a organizar registros de reunião.
+
+A reunião foi sobre: [descreva o assunto em 1 linha]
+
+Aqui estão minhas notas brutas:
+[cole suas anotações — pode ser bagunçado, é proposital]
+
+Estruture o registro em 3 blocos:
+1. **Decisões tomadas** (bullets curtos, no infinitivo)
+2. **Pendências** (com responsável e prazo se mencionado)
+3. **Próximos passos** (o que precisa acontecer até a próxima semana)
+
+Se algo nas minhas notas estiver ambíguo, marque com ⚠️ e me peça pra esclarecer no final.</pre>
+        <button class="btn-copy-prompt" data-prompt="prompt-aq1">Copiar prompt</button>
+        <p class="prompt-bloco-esperado"><strong>O que esperar:</strong> resposta estruturada em 3 seções limpas. Se ele inventar coisa que você não disse, é hora de você dar mais contexto — esse é exatamente o tipo de coisa que a gente vai aprofundar na S2.</p>
+      </div>
+
+      <div class="prompt-bloco">
+        <div class="prompt-bloco-header">
+          <div class="prompt-bloco-num">2</div>
+          <div class="prompt-bloco-titulo">Analisar uma das vagas que você trouxe</div>
+          <div class="prompt-bloco-area">RH / Transição</div>
+        </div>
+        <p class="prompt-bloco-contexto">
+          Pega a descrição completa de uma das vagas que você está olhando (copia do LinkedIn) e pede pra IA destrinchar requisitos vs. seu perfil atual.
+        </p>
+        <pre class="prompt-bloco-texto" id="prompt-aq2">Você é uma consultora de carreira ajudando uma gestora pública de Fortaleza em transição pro mercado privado.
+
+A vaga que ela está avaliando é esta:
+[cole a descrição completa da vaga aqui — título, requisitos, responsabilidades]
+
+O perfil dela hoje é:
+- Chefe de gabinete numa Câmara Municipal há [X] anos
+- Gerencia equipe de ~14 pessoas
+- Fez faculdade de [área]
+- Quer migrar pro privado em 6-12 meses
+- Está estudando IA aplicada à gestão
+
+Faça uma análise em 4 partes:
+1. **Match atual:** que partes da vaga ela já cobre hoje (com base no perfil)
+2. **Gaps óbvios:** o que ela claramente não tem (e que tipo de prova precisaria)
+3. **Gaps sutis:** o que a descrição não diz mas vai ser cobrado na prática
+4. **Como destacar IA aplicada:** 2-3 frases concretas pra carta de apresentação que mostram que ela está estudando IA pra gestão
+
+Seja honesta. Se a vaga não bater, diga.</pre>
+        <button class="btn-copy-prompt" data-prompt="prompt-aq2">Copiar prompt</button>
+        <p class="prompt-bloco-esperado"><strong>O que esperar:</strong> análise dividida em 4 partes. Vai te mostrar onde você tá forte e onde precisa investir tempo. Salve a resposta — vamos usar como input na S2.</p>
+      </div>
+
+      <div class="prompt-bloco">
+        <div class="prompt-bloco-header">
+          <div class="prompt-bloco-num">3</div>
+          <div class="prompt-bloco-titulo">Categorizar 5 lançamentos do extrato da banda</div>
+          <div class="prompt-bloco-area">Financeiro</div>
+        </div>
+        <p class="prompt-bloco-contexto">
+          Aquecimento pro hands-on que a gente vai rodar na S2. Pega 5 linhas do extrato (pode ser texto digitado mesmo), e pede pra IA categorizar.
+        </p>
+        <pre class="prompt-bloco-texto" id="prompt-aq3">Você é uma contadora ajudando a tesoureira de uma banda de forró a organizar as finanças do mês.
+
+Aqui estão 5 lançamentos do extrato:
+[cole 5 linhas — pode ser no formato: "DD/MM | descrição | valor"]
+
+Para cada lançamento:
+1. Sugira a **categoria** (ex: Receita-Show, Despesa-Combustível, Despesa-Equipamento, Despesa-Pessoal, etc.)
+2. Marque se é **entrada (+)** ou **saída (-)**
+3. Se a descrição estiver confusa, me peça pra esclarecer
+
+Devolva em formato de tabela simples (markdown).</pre>
+        <button class="btn-copy-prompt" data-prompt="prompt-aq3">Copiar prompt</button>
+        <p class="prompt-bloco-esperado"><strong>O que esperar:</strong> tabela com 5 linhas categorizadas. Pode ser que ele acerte tudo ou erre alguma categoria — não tem problema. <strong>Na S2 a gente faz a versão "de verdade" com print do extrato e Claude lendo a imagem direto.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section content-section" id="auto-avaliacao">
+    <div class="site-container">
+      <p class="eyebrow">Bloco 4 — Auto-avaliação</p>
+      <h2>Os 5 sinais — antes da S2</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Na sua página, dentro do <a href="../m1-fundamentos/#sinais">M1 tem um quiz dos 5 sinais</a>. Marca o que vale pra você HOJE. Não precisa printar — só faz, mentaliza o resultado, e me conta na abertura da S2 quantos você marcou.
+      </p>
+
+      <div class="ficha">
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">0-1 sinais</div>
+          <div class="ficha-row-val">Você ainda está na <strong>Pré-Exploradora</strong> (nível pré-1). Faz total sentido — você nunca usou IA generativa antes da semana retrasada. <em>Não é atraso, é começo.</em></div>
+        </div>
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">2-3 sinais</div>
+          <div class="ficha-row-val">Você já entrou na <strong>Exploradora</strong> (nível 1) — usou algumas vezes, viu o potencial. O que destrava daqui é repetir até virar reflexo.</div>
+        </div>
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">4-5 sinais</div>
+          <div class="ficha-row-val">Você já é <strong>Aprendiz</strong> (nível 2). É exatamente onde a gente quer chegar até a S8 — você chegou antes. Vamos calibrar o stretch pra Construtora (nível 3).</div>
+        </div>
+      </div>
+
+      <div class="callout-mentoria"><strong>Não tem certo nem errado.</strong> Os sinais são uma régua, não uma prova. Se você marcar 0 hoje e 4 na S8, a mentoria fez o que precisava fazer.</div>
+    </div>
+  </section>
+
+  <section class="section content-section" id="reflexao" style="background:var(--bg-warm);">
+    <div class="site-container">
+      <p class="eyebrow">Bloco 5 — Reflexão pessoal</p>
+      <h2>3 perguntas pra você ruminar</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Não precisa escrever resposta. Só deixa as perguntas no fundo da cabeça enquanto faz a casa. A gente vai voltar nelas na S2.
+      </p>
+
+      <div class="reflexao-card">
+        <strong>1. Das 5 áreas (Gestão · Mkt · Financeira · Atendimento · RH), em qual você se imagina daqui a 12 meses?</strong>
+        Não a área mais provável — a área onde você se vê <em>melhor</em>. Pode ser a mesma da Câmara em outra empresa, pode ser uma totalmente diferente. A resposta importa porque é ela que vai puxar o que a gente prioriza na S3 (Scorecard VIP).
+      </div>
+
+      <div class="reflexao-card">
+        <strong>2. Qual tarefa do seu dia atual a Câmara faz por você que, numa empresa privada, voltaria pro seu colo?</strong>
+        Pensa concreto: planilha de fluxo de caixa, triagem de currículo, redigir comunicado interno, montar pauta de reunião. Essas são as <em>dores futuras</em> que você mencionou na S1 — vamos atacar elas com IA na S2.
+      </div>
+
+      <div class="reflexao-card">
+        <strong>3. Se a banda crescer e virar negócio de R$ 500k/ano em 3 anos, o que você precisaria saber fazer sozinha?</strong>
+        Não é sobre se vai ou não acontecer. É sobre <em>se acontecesse</em>, o que destravaria. Provavelmente: precificação, contrato, marketing, gestão de equipe. IA ajuda em quase tudo isso. Saber em quais e em qual ordem é o que a gente vai mapear.
+      </div>
+    </div>
+  </section>
+
+  <section class="section content-section" id="checklist">
+    <div class="site-container">
+      <p class="eyebrow">Resumão</p>
+      <h2>Checklist final</h2>
+      <p style="font-size:15.5px; color:var(--ink-soft); margin-bottom:14px;">
+        Se você consegue marcar 4 dos 6 antes da S2, a gente sai sólido.
+      </p>
+
+      <div class="ficha">
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">Crítico</div>
+          <div class="ficha-row-val">☐ 3-5 vagas no LinkedIn salvas ou printadas</div>
+        </div>
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">Crítico</div>
+          <div class="ficha-row-val">☐ Notebook pessoal carregado e na bolsa</div>
+        </div>
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">Importante</div>
+          <div class="ficha-row-val">☐ Prints do extrato da banda (qualquer período recente)</div>
+        </div>
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">Importante</div>
+          <div class="ficha-row-val">☐ M1 lido (12 min) — pra chegar com vocabulário</div>
+        </div>
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">Bônus</div>
+          <div class="ficha-row-val">☐ M4 lido (15 min) — pra entender o gerador de prompts</div>
+        </div>
+        <div class="ficha-row">
+          <div class="ficha-row-lbl">Bônus</div>
+          <div class="ficha-row-val">☐ Pelo menos 1 dos 3 prompts de aquecimento testado</div>
+        </div>
+      </div>
+
+      <div class="callout-mentoria" style="margin-top:24px;">
+        <strong>Travou em algo?</strong> Manda WhatsApp. Resposta no mesmo dia. Não tem pergunta boba — a S2 é tua, vamos chegar nela com você confiante.
+      </div>
+    </div>
+  </section>
+
+  <section class="section content-section" id="proxima" style="background:var(--bg-warm);">
+    <div class="site-container" style="text-align:center;">
+      <p class="eyebrow">Próximo passo</p>
+      <h2 style="font-family:var(--serif); font-size:24px; font-weight:600; margin-bottom: 8px;">S2 — Entrevista de profundidade + hands-on</h2>
+      <p style="font-size:15px; color:var(--ink-soft); max-width:600px; margin: 0 auto 14px;">
+        2 horas. Você fala, eu escavo. A gente vai mapear 8-15 oportunidades concretas onde IA destrava sua transição, preencher o Mapa Pessoal 5D ao vivo, rodar o primeiro hands-on com extrato da banda, e sair com casa direcionada pra S3.
+      </p>
+      <p style="font-size:14px; color:var(--ink-muted); max-width:560px; margin: 0 auto;">
+        Data e local confirmados via WhatsApp. <a href="../">Voltar pra página principal</a>.
+      </p>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid var(--border); padding: 28px 24px; text-align:center; color:var(--ink-muted); font-size:13px; margin-top:40px;">
+    <p>Mentoria IA Executiva · Rafael Lima · 2026</p>
+    <p style="font-size:12px; margin-top:6px;">Pré-Sessão 2 · material de preparação</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.btn-copy-prompt').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.dataset.prompt;
+        const text = document.getElementById(id).textContent;
+        try {
+          await navigator.clipboard.writeText(text);
+          const original = btn.textContent;
+          btn.textContent = 'Copiado ✓';
+          btn.classList.add('copied');
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove('copied');
+          }, 2000);
+        } catch (e) {
+          alert('Não foi possível copiar. Selecione o texto manualmente.');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
