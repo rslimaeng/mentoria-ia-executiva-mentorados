@@ -28,6 +28,104 @@
     .section-mentoria h2 { font-family: var(--serif); font-size: 28px; font-weight: 600; margin-bottom: 8px; }
     .section-mentoria > .site-container > .eyebrow { margin-bottom: 8px; }
     .section-mentoria > .site-container > p { color: var(--ink-soft); font-size: 15px; line-height: 1.55; }
+
+    /* === Header de progresso === */
+    .progresso-header {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-warm);
+      padding: 22px 0;
+    }
+    .progresso-header .site-container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .trilha-row {
+      display: flex; align-items: center; gap: 18px;
+      padding: 7px 0;
+    }
+    .trilha-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5px; letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink-soft); font-weight: 600;
+      min-width: 110px;
+    }
+    .trilha-dots { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; }
+    .trilha-dot {
+      display: inline-block;
+      font-size: 11.5px; font-weight: 500;
+      padding: 4px 11px; border-radius: 14px;
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
+    .trilha-dot.done { background: var(--accent); color: #fff; }
+    .trilha-dot.doing {
+      background: #fdf3ec; color: var(--accent-warm-dark);
+      border: 1.5px solid var(--accent-warm); font-weight: 600;
+    }
+    .trilha-dot.todo {
+      background: var(--bg-card); color: var(--ink-soft);
+      border: 1px solid var(--border-strong);
+    }
+    .trilha-dot.future {
+      background: transparent; color: var(--ink-muted);
+      border: 1px dashed var(--border-strong);
+    }
+    @media (max-width: 720px) {
+      .trilha-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .trilha-label { min-width: unset; }
+    }
+
+    /* === Grid de eixos === */
+    .eixos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+      max-width: 960px;
+      margin: 24px auto 0;
+      padding: 0 24px;
+    }
+    .eixo-card {
+      display: block;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      text-decoration: none;
+      position: relative;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .eixo-card--active {
+      border-color: var(--accent-warm);
+      box-shadow: 0 2px 10px rgba(194,145,107,.14);
+    }
+    .eixo-card--active::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent-warm);
+      border-radius: 8px 8px 0 0;
+    }
+    .eixo-card--active:hover { transform: translateY(-2px); }
+    .eixo-card--future { opacity: .62; cursor: not-allowed; }
+    .eixo-card-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5px; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent-warm-dark); margin-bottom: 12px;
+    }
+    .eixo-card--future .eixo-card-eyebrow { color: var(--ink-muted); }
+    .eixo-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 600;
+      color: var(--ink); margin-bottom: 10px;
+    }
+    .eixo-card-desc {
+      font-size: 13.5px; color: var(--ink-soft);
+      line-height: 1.55; margin-bottom: 14px;
+    }
+    .eixo-card-footer {
+      display: flex; justify-content: space-between; align-items: baseline;
+      border-top: 1px solid var(--border); padding-top: 12px;
+    }
+    .eixo-card-meta { font-size: 12px; color: var(--ink-muted); font-weight: 500; }
+    .eixo-card-link { font-size: 13px; color: var(--accent); font-weight: 600; }
   </style>
 </head>
 <body>
@@ -36,8 +134,9 @@
     <div class="topbar-inner">
       <a href="./" class="topbar-logo">Mentoria IA Executiva · Débora</a>
       <nav class="topbar-nav">
-        <a href="#modulos">Módulos</a>
-        <a href="#banco">Banco</a>
+        <a href="#fundamentos">Fundamentos</a>
+        <a href="#eixos">Eixos</a>
+        <a href="#biblioteca">Biblioteca</a>
         <a href="#sessoes">Sessões</a>
       </nav>
     </div>
@@ -48,9 +147,9 @@
       <p class="eyebrow">Mentoria 1:1 · Rafael Lima</p>
       <h1>Sua trilha personalizada<br>de IA aplicada.</h1>
       <p class="hero-subtitle">
-        Espaço privado pra sua mentoria. Cresce a cada sessão: aqui ficam os fundamentos do que é IA generativa,
-        como pedir bem o que você quer (PCTFL), o framework IPO pra estruturar trabalho,
-        e o seu banco de prompts mapeado pelas suas áreas de interesse.
+        Espaço privado pra sua mentoria. Cresce a cada sessão: fundamentos do que é IA generativa,
+        eixos por setor (finanças, gestão, RH, marketing, n8n) com casos reais
+        e a sua biblioteca de prompts crescendo a cada encontro.
       </p>
       <div class="frentes-tag-row">
         <span class="frente-tag">Gestão Empresarial</span>
@@ -62,18 +161,55 @@
     </div>
   </section>
 
+  <section class="progresso-header">
+    <div class="site-container">
+      <div class="trilha-row">
+        <span class="trilha-label">Fundamentos</span>
+        <div class="trilha-dots">
+          <span class="trilha-dot done">M1</span>
+          <span class="trilha-dot done">M2</span>
+          <span class="trilha-dot done">M3</span>
+          <span class="trilha-dot done">M4</span>
+        </div>
+      </div>
+      <div class="trilha-row">
+        <span class="trilha-label">Eixos</span>
+        <div class="trilha-dots">
+          <span class="trilha-dot doing">Finanças</span>
+          <span class="trilha-dot future">Gestão</span>
+          <span class="trilha-dot future">RH</span>
+          <span class="trilha-dot future">Marketing</span>
+          <span class="trilha-dot future">n8n &amp; Atendimento</span>
+        </div>
+      </div>
+      <div class="trilha-row">
+        <span class="trilha-label">Sessões</span>
+        <div class="trilha-dots">
+          <span class="trilha-dot done">S1</span>
+          <span class="trilha-dot todo">S2</span>
+          <span class="trilha-dot future">S3</span>
+          <span class="trilha-dot future">S4</span>
+          <span class="trilha-dot future">S5</span>
+          <span class="trilha-dot future">S6</span>
+          <span class="trilha-dot future">S7</span>
+          <span class="trilha-dot future">S8</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <main>
 
-    <section id="modulos" class="section-mentoria">
+    <section id="fundamentos" class="section-mentoria">
       <div class="site-container" style="max-width:960px; margin:0 auto; padding: 0 24px;">
-        <p class="eyebrow">Conteúdo</p>
-        <h2>Módulos</h2>
-        <p>Quatro módulos curtos. Você lê na ordem. Cada um se constrói em cima do anterior.</p>
+        <p class="eyebrow">Base teórica</p>
+        <h2>Fundamentos</h2>
+        <p>Quatro módulos curtos. Você lê na ordem. Cada um se constrói em cima do anterior — base pra todos os eixos.</p>
       </div>
       <div class="modules-grid">
         <a href="m1-fundamentos/" class="module-card">
           <p class="module-card-eyebrow">M1</p>
-          <h3>Fundamentos de IA</h3>
+          <h3>Os 7 níveis de uso</h3>
           <p class="module-card-desc">Os 7 níveis de uso de IA, WYSIATI, diferença entre amador e profissional, riscos e boas práticas.</p>
           <div class="module-card-footer">
             <span class="module-card-duration">~12 min</span>
@@ -110,14 +246,53 @@
       </div>
     </section>
 
-    <section id="banco" class="section-mentoria" style="background:var(--bg-warm);">
+    <section id="eixos" class="section-mentoria" style="background:var(--bg-warm);">
       <div class="site-container" style="max-width:960px; margin:0 auto; padding: 0 24px;">
-        <p class="eyebrow">Aplicação</p>
-        <h2>Banco de prompts pessoal</h2>
+        <p class="eyebrow">Aplicação por setor</p>
+        <h2>Eixos</h2>
+        <p>Cada eixo é uma vertical do negócio. Você aprende as habilidades que a IA destrava ali, com casos reais e arquivos pra praticar. Começa com <strong>Finanças</strong>. Outros eixos chegam ao longo da mentoria.</p>
+      </div>
+      <div class="eixos-grid">
+        <a href="eixos/financas/" class="eixo-card eixo-card--active">
+          <p class="eixo-card-eyebrow">S3 · Em andamento</p>
+          <h3>Finanças</h3>
+          <p class="eixo-card-desc">DCF da sociedade, DRE em cascata, margem de contribuição por prato, auditoria de contrato. 5 habilidades destravadas com IA + 6 arquivos pra praticar.</p>
+          <div class="eixo-card-footer">
+            <span class="eixo-card-meta">10 habilidades · 6 momentos</span>
+            <span class="eixo-card-link">Abrir →</span>
+          </div>
+        </a>
+        <div class="eixo-card eixo-card--future">
+          <p class="eixo-card-eyebrow">S4 · Em breve</p>
+          <h3>Gestão</h3>
+          <p class="eixo-card-desc">POP do restaurante, diagnóstico de gargalo, manual operacional construído com IA.</p>
+        </div>
+        <div class="eixo-card eixo-card--future">
+          <p class="eixo-card-eyebrow">S6 · Em breve</p>
+          <h3>RH</h3>
+          <p class="eixo-card-desc">Recrutamento, treinamento, plano de carreira — chega até o L3 (assistente próprio).</p>
+        </div>
+        <div class="eixo-card eixo-card--future">
+          <p class="eixo-card-eyebrow">S7 · Em breve</p>
+          <h3>Marketing</h3>
+          <p class="eixo-card-desc">Posicionamento, anúncios, campanha de inauguração com IA.</p>
+        </div>
+        <div class="eixo-card eixo-card--future">
+          <p class="eixo-card-eyebrow">S8 · Em breve</p>
+          <h3>n8n &amp; Atendimento</h3>
+          <p class="eixo-card-desc">Mapa IA Generativa × Automação + 1 fluxo n8n rodando ao final.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="biblioteca" class="section-mentoria">
+      <div class="site-container" style="max-width:960px; margin:0 auto; padding: 0 24px;">
+        <p class="eyebrow">Operacional</p>
+        <h2>Biblioteca de prompts</h2>
         <div class="banco-card">
-          <h3>15–20 prompts mapeados às suas 5 áreas</h3>
-          <p>Prompts em formato PCTFL prontos pra usar, organizados por <strong>Gestão Empresarial · Marketing · Financeiro · Atendimento · RH</strong>. Cada prompt traz: quando usar, exemplo preenchido, variação e checklist do que ajustar.</p>
-          <a href="banco-de-prompts/" class="banco-cta">Ver banco completo →</a>
+          <h3>Prompts PCTFL prontos pra usar, organizados pelos seus eixos</h3>
+          <p>Por eixo: <strong>Finanças · Gestão · RH · Marketing · n8n &amp; Atendimento</strong>. Cada prompt traz quando usar, exemplo preenchido, variação e checklist do que ajustar. Cresce a cada sessão.</p>
+          <a href="banco-de-prompts/" class="banco-cta">Abrir biblioteca →</a>
         </div>
       </div>
     </section>
@@ -140,8 +315,8 @@
           </div>
           <div class="sessao-row">
             <span class="sessao-num">S3</span>
-            <span class="sessao-title">Scorecard VIP</span>
-            <span class="sessao-meta">—</span>
+            <span class="sessao-title"><a href="eixos/financas/">Eixo Finanças</a> · <a href="eixos/financas/" style="color:var(--accent); font-weight:600;">disponível →</a></span>
+            <span class="sessao-meta">a agendar</span>
           </div>
           <div class="sessao-row">
             <span class="sessao-num">S4</span>

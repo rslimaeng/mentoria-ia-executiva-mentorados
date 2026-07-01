@@ -32,7 +32,7 @@ mentoria-ia-executiva-mentorados/
 
 ## Operação
 
-- Repo conectado ao vault: `/Users/rafaellima/developer/9-meus-produtos/produtos-criados/produto-mentoria-ia-executiva/obsidian-mentoria-ia-executiva/`
+- Repo conectado ao vault: `/Users/rafaellima/developer/12-mentoria-ia-na-pratica/vault-interno/obsidian-mentoria-ia-executiva/`
 - Cada mentorado tem ficha em `04-mentorados/<slug>/` com `00-pagina-mentorado.md` apontando pra subpasta deste repo
 - Mudanças no design system (em `_shared/`) propagam automaticamente pra todos os mentorados
 

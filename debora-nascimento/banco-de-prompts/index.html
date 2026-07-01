@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Banco de Prompts · Mentoria IA Executiva</title>
+  <title>Biblioteca de Prompts · Mentoria IA Executiva</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -37,6 +37,28 @@
       font-size: 13px; padding: 9px 16px;
     }
     .btn-copy.copied { color: #fff; }
+    .prompt-card-tag {
+      display: inline-block;
+      margin-top: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--accent-warm-dark);
+      background: #fdf3ec;
+      border: 1px solid #e6c9a8;
+      padding: 3px 9px; border-radius: 12px;
+    }
+    .prompt-card-eixo {
+      display: inline-block;
+      margin-top: 6px; margin-left: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5px; font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--ink-soft);
+      background: var(--bg-warm);
+      border: 1px solid var(--border);
+      padding: 3px 9px; border-radius: 12px;
+    }
   </style>
 </head>
 <body>
@@ -47,7 +69,8 @@
       <a href="../" class="topbar-logo">Mentoria IA Executiva · Débora</a>
       <nav class="topbar-nav">
         <a href="../">Início</a>
-        <a href="../banco-de-prompts/" class="active">Banco de Prompts</a>
+        <a href="../banco-de-prompts/" class="active">Biblioteca</a>
+        <a href="../eixos/financas/">Eixo Finanças</a>
         <a href="../m4-prompts/">← M4</a>
       </nav>
     </div>
@@ -55,12 +78,12 @@
 
   <!-- Header da página -->
   <div class="module-header site-container">
-    <p class="eyebrow">Banco pessoal · 17 prompts</p>
-    <h1>17 prompts em 5 áreas.</h1>
+    <p class="eyebrow">Biblioteca pessoal · 26 prompts</p>
+    <h1>26 prompts em 5 eixos.</h1>
     <div class="module-header-meta">
       <span>Todos em formato PCTFL</span>
       <span>·</span>
-      <span>Prontos pra colar, ajustar 2-3 detalhes e usar</span>
+      <span>Cresce a cada sessão</span>
     </div>
   </div>
 
@@ -76,11 +99,23 @@
   <!-- Score Tiles: prompts por área -->
   <section class="site-container" style="padding: 0 0 24px">
     <div class="score-bands">
+      <div class="score-tile rh">
+        <p class="score-tile-emoji">💰</p>
+        <p class="score-tile-value">12</p>
+        <p class="score-tile-label">Finanças</p>
+        <p class="score-tile-desc">DCF, DRE, MC, fluxo, contrato — eixo S3</p>
+      </div>
       <div class="score-tile eng">
         <p class="score-tile-emoji">💼</p>
         <p class="score-tile-value">4</p>
-        <p class="score-tile-label">Gestão Empresarial</p>
+        <p class="score-tile-label">Gestão</p>
         <p class="score-tile-desc">Procedimentos, reuniões, KPIs, briefings</p>
+      </div>
+      <div class="score-tile com-lid">
+        <p class="score-tile-emoji">👥</p>
+        <p class="score-tile-value">5</p>
+        <p class="score-tile-label">RH</p>
+        <p class="score-tile-desc">Triagem, entrevista, avaliação</p>
       </div>
       <div class="score-tile adm">
         <p class="score-tile-emoji">📣</p>
@@ -88,17 +123,11 @@
         <p class="score-tile-label">Marketing</p>
         <p class="score-tile-desc">Campanhas, persona, copy com ganchos</p>
       </div>
-      <div class="score-tile rh">
-        <p class="score-tile-emoji">💰</p>
-        <p class="score-tile-value">3</p>
-        <p class="score-tile-label">Financeiro</p>
-        <p class="score-tile-desc">Margem, extrato, fluxo de caixa</p>
-      </div>
       <div class="score-tile com-lid">
-        <p class="score-tile-emoji">💬👥</p>
-        <p class="score-tile-value">2 + 5</p>
-        <p class="score-tile-label">Atendimento + RH</p>
-        <p class="score-tile-desc">WhatsApp, cobrança · Triagem, entrevista, avaliação</p>
+        <p class="score-tile-emoji">💬</p>
+        <p class="score-tile-value">2</p>
+        <p class="score-tile-label">n8n &amp; Atendimento</p>
+        <p class="score-tile-desc">WhatsApp, cobrança — eixo S8</p>
       </div>
     </div>
   </section>
@@ -106,12 +135,12 @@
   <!-- Filtro por área -->
   <section class="site-container" style="padding: 0 0 32px">
     <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">Todos (17)</button>
-      <button class="filter-btn" data-filter="gestao">💼 Gestão Empresarial (4)</button>
-      <button class="filter-btn" data-filter="marketing">📣 Marketing (3)</button>
-      <button class="filter-btn" data-filter="financeiro">💰 Financeiro (3)</button>
-      <button class="filter-btn" data-filter="atendimento">💬 Atendimento (2)</button>
+      <button class="filter-btn active" data-filter="all">Todos (26)</button>
+      <button class="filter-btn" data-filter="financeiro">💰 Finanças (12)</button>
+      <button class="filter-btn" data-filter="gestao">💼 Gestão (4)</button>
       <button class="filter-btn" data-filter="rh">👥 RH (5)</button>
+      <button class="filter-btn" data-filter="marketing">📣 Marketing (3)</button>
+      <button class="filter-btn" data-filter="atendimento">💬 n8n &amp; Atendimento (2)</button>
     </div>
   </section>
 
@@ -316,13 +345,123 @@ CANAL E PERSONA:
       </div>
     </div>
 
-    <!-- ============== FINANCEIRO ============== -->
+    <!-- ============== FINANÇAS — EIXO S3 ============== -->
+
+    <div class="prompt-card reveal" id="card-FM1A" data-function="financeiro">
+      <div class="prompt-card-header">
+        <div>
+          <h3>F-M1A — Entrevista pra estruturar contexto do negócio</h3>
+          <span class="prompt-card-function">💰 Finanças</span>
+          <span class="prompt-card-tag">S3 · Momento 1 · Modo Autopiloto · L1</span>
+        </div>
+      </div>
+      <p class="prompt-card-desc">Entrevista guiada onde você dita o contexto dos 3 negócios. A IA estrutura num <code>meu_contexto.md</code> que vira base de TODOS os outros prompts da S3. Sem isso, IA chuta.</p>
+      <a href="../eixos/financas/#momento-1" class="btn btn-outline btn-ver">Abrir na aula →</a>
+    </div>
+
+    <div class="prompt-card reveal" id="card-FM1B" data-function="financeiro">
+      <div class="prompt-card-header">
+        <div>
+          <h3>F-M1B — Plano de contas G4 do restaurante</h3>
+          <span class="prompt-card-function">💰 Finanças</span>
+          <span class="prompt-card-tag">S3 · Momento 1 · Modo Autopiloto · L1</span>
+        </div>
+      </div>
+      <p class="prompt-card-desc">Gera o <code>plano_de_contas.md</code> em cascata G4 (12 grupos). Mesma taxonomia da DRE em cascata — quem categoriza assim consegue ler resultado mensal em 5 minutos.</p>
+      <a href="../eixos/financas/#momento-1" class="btn btn-outline btn-ver">Abrir na aula →</a>
+    </div>
+
+    <div class="prompt-card reveal" id="card-FM2A" data-function="financeiro">
+      <div class="prompt-card-header">
+        <div>
+          <h3>F-M2A — DCF da sociedade: cenário base</h3>
+          <span class="prompt-card-function">💰 Finanças</span>
+          <span class="prompt-card-tag">S3 · Momento 2 ★ · Modo Colaboração · L2</span>
+        </div>
+      </div>
+      <p class="prompt-card-desc">Calcula VPL, TIR e payback descontado dos R$ 180k da cota de 25% do restaurante. Cenário-estrela da S3 — a decisão real na sua mesa.</p>
+      <a href="../eixos/financas/#momento-2" class="btn btn-outline btn-ver">Abrir na aula →</a>
+    </div>
+
+    <div class="prompt-card reveal" id="card-FM2B" data-function="financeiro">
+      <div class="prompt-card-header">
+        <div>
+          <h3>F-M2B — DCF: sensibilidade e cenário de estresse</h3>
+          <span class="prompt-card-function">💰 Finanças</span>
+          <span class="prompt-card-tag">S3 · Momento 2 ★ · Modo Colaboração · L2</span>
+        </div>
+      </div>
+      <p class="prompt-card-desc">Mesma DCF rodada em 3 cenários (base/estresse/otimista) + TMA mensal correta (composta, não dividida por 12). Mostra a faixa de risco.</p>
+      <a href="../eixos/financas/#momento-2" class="btn btn-outline btn-ver">Abrir na aula →</a>
+    </div>
+
+    <div class="prompt-card reveal" id="card-FM2C" data-function="financeiro">
+      <div class="prompt-card-header">
+        <div>
+          <h3>F-M2C — DCF: decisão final + narrativa pros sócios</h3>
+          <span class="prompt-card-function">💰 Finanças</span>
+          <span class="prompt-card-tag">S3 · Momento 2 ★ · Modo Colaboração · L2</span>
+        </div>
+      </div>
+      <p class="prompt-card-desc">Sintetiza os 3 cenários numa recomendação executiva ("entro / não entro / negocio cláusula X") + texto pronto pra apresentar.</p>
+      <a href="../eixos/financas/#momento-2" class="btn btn-outline btn-ver">Abrir na aula →</a>
+    </div>
+
+    <div class="prompt-card reveal" id="card-FM3A" data-function="financeiro">
+      <div class="prompt-card-header">
+        <div>
+          <h3>F-M3A — DRE em cascata: análise do mês</h3>
+          <span class="prompt-card-function">💰 Finanças</span>
+          <span class="prompt-card-tag">S3 · Momento 3 · Modo Colaboração · L2</span>
+        </div>
+      </div>
+      <p class="prompt-card-desc">Lê DRE G4 do mês e identifica os 3 indicadores com maior variação, hipóteses plausíveis e pergunta-chave pra próxima reunião com o sócio.</p>
+      <a href="../eixos/financas/#momento-3" class="btn btn-outline btn-ver">Abrir na aula →</a>
+    </div>
+
+    <div class="prompt-card reveal" id="card-FM3B" data-function="financeiro">
+      <div class="prompt-card-header">
+        <div>
+          <h3>F-M3B — Identificar anomalias no fluxo de caixa</h3>
+          <span class="prompt-card-function">💰 Finanças</span>
+          <span class="prompt-card-tag">S3 · Momento 3 · Modo Autopiloto · L1</span>
+        </div>
+      </div>
+      <p class="prompt-card-desc">Detecta duplicações, CAPEX classificado errado, picos suspeitos. Aplicado num mês de fluxo, IA aponta o que destoa do padrão.</p>
+      <a href="../eixos/financas/#momento-3" class="btn btn-outline btn-ver">Abrir na aula →</a>
+    </div>
+
+    <div class="prompt-card reveal" id="card-FM4" data-function="financeiro">
+      <div class="prompt-card-header">
+        <div>
+          <h3>F-M4 — MC por prato + recomendação de cardápio</h3>
+          <span class="prompt-card-function">💰 Finanças</span>
+          <span class="prompt-card-tag">S3 · Momento 4 · Modo Colaboração · L2</span>
+        </div>
+      </div>
+      <p class="prompt-card-desc">Calcula Margem de Contribuição dos 5 pratos âncora (unit, % e total mensal) e responde: qual prato sustenta a casa, qual deveria sair do menu, qual reposicionar.</p>
+      <a href="../eixos/financas/#momento-4" class="btn btn-outline btn-ver">Abrir na aula →</a>
+    </div>
+
+    <div class="prompt-card reveal" id="card-FM5" data-function="financeiro">
+      <div class="prompt-card-header">
+        <div>
+          <h3>F-M5 — Auditoria de contrato social com NotebookLM</h3>
+          <span class="prompt-card-function">💰 Finanças</span>
+          <span class="prompt-card-tag">S3 · Momento 5 · Modo Manual · L1</span>
+        </div>
+      </div>
+      <p class="prompt-card-desc">10 perguntas pra colar UMA POR VEZ no NotebookLM com o contrato social como fonte. Pega cláusulas de saída ruins, quórum de decisão e distribuição de lucros — antes de assinar.</p>
+      <a href="../eixos/financas/#momento-5" class="btn btn-outline btn-ver">Abrir na aula →</a>
+    </div>
+
+    <!-- ============== FINANCEIRO (genéricos) ============== -->
 
     <div class="prompt-card reveal" id="card-F01" data-function="financeiro">
       <div class="prompt-card-header">
         <div>
           <h3>F01 — Análise de Margem de Produto</h3>
-          <span class="prompt-card-function">💰 Financeiro</span>
+          <span class="prompt-card-function">💰 Finanças</span>
         </div>
         <button class="btn btn-outline btn-copy" data-copy="prompt-F01" style="flex-shrink:0">Copiar</button>
       </div>
@@ -357,7 +496,7 @@ CUSTOS FIXOS MENSAIS:
       <div class="prompt-card-header">
         <div>
           <h3>F02 — Categorizar Entradas e Saídas do Extrato</h3>
-          <span class="prompt-card-function">💰 Financeiro</span>
+          <span class="prompt-card-function">💰 Finanças</span>
         </div>
         <button class="btn btn-outline btn-copy" data-copy="prompt-F02" style="flex-shrink:0">Copiar</button>
       </div>
@@ -383,7 +522,7 @@ EXTRATO:
       <div class="prompt-card-header">
         <div>
           <h3>F03 — Projeção de Fluxo de Caixa (3 meses)</h3>
-          <span class="prompt-card-function">💰 Financeiro</span>
+          <span class="prompt-card-function">💰 Finanças</span>
         </div>
         <button class="btn btn-outline btn-copy" data-copy="prompt-F03" style="flex-shrink:0">Copiar</button>
       </div>

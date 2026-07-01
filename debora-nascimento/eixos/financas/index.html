@@ -1,0 +1,2323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Eixo Finanças · Mentoria IA Executiva · Débora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../_shared/assets/style.css">
+  <style>
+    /* === Cards de dores === */
+    .dores-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px; margin-top: 22px;
+    }
+    .dor-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px 22px;
+      border-top: 3px solid var(--accent-warm);
+    }
+    .dor-card .dor-num {
+      font-family: 'Playfair Display', serif; font-size: 12px;
+      color: var(--accent-warm-dark); font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase; margin: 0 0 6px;
+    }
+    .dor-card h4 {
+      font-family: 'Playfair Display', serif; font-size: 18px;
+      color: var(--ink); margin: 0 0 6px; line-height: 1.25;
+    }
+    .dor-card p {
+      font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin: 0;
+    }
+    .objetivo-callout {
+      background: linear-gradient(180deg, #eef4f6 0%, var(--bg-card) 80%);
+      border: 1px solid #b0cfd8;
+      border-radius: 12px; padding: 24px 28px; margin-top: 26px;
+    }
+    .objetivo-callout p { font-size: 15px; line-height: 1.7; color: var(--ink); margin: 0; }
+    .objetivo-callout strong { color: var(--accent-dark); }
+
+    /* === Mercado horizontal === */
+    .mercado-horizontal {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 10px; margin-top: 22px;
+    }
+    @media (max-width: 880px) { .mercado-horizontal { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .mercado-horizontal { grid-template-columns: 1fr; } }
+    .mercado-h-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 18px 18px 16px;
+      border-top: 3px solid var(--accent);
+      display: flex; flex-direction: column; height: 100%;
+    }
+    .mercado-h-num {
+      font-family: 'Playfair Display', serif; font-size: 26px;
+      color: var(--accent); font-weight: 700; line-height: 1; margin: 0 0 6px;
+    }
+    .mercado-h-tag {
+      font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent-warm-dark); font-weight: 600; margin: 0 0 8px;
+    }
+    .mercado-h-dado { font-size: 12px; color: var(--ink-soft); line-height: 1.5; margin: 0 0 10px; flex-grow: 1; }
+    .mercado-h-leitura { font-size: 12px; color: var(--ink); line-height: 1.5; margin: 0; padding-top: 10px; border-top: 1px solid var(--border); }
+    .mercado-h-leitura strong { color: var(--accent-warm-dark); }
+    .mercado-h-fonte { font-size: 10px; color: var(--ink-muted); letter-spacing: .06em; margin: 8px 0 0; }
+
+    .dois-tipos {
+      background: var(--ink); color: var(--bg);
+      border-radius: 12px; padding: 26px 30px; margin-top: 26px;
+    }
+    .dois-tipos p { font-family: 'Playfair Display', serif; font-size: 19px; line-height: 1.45; margin: 0 0 8px; color: var(--bg); }
+    .dois-tipos .dois-tipos-fonte { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-warm); margin: 12px 0 0; }
+
+    /* === Tabela de habilidades destravadas === */
+    .habilidades-table {
+      width: 100%; border-collapse: collapse;
+      background: var(--bg-card); border-radius: 10px;
+      overflow: hidden; border: 1px solid var(--border);
+      margin-top: 22px;
+    }
+    .habilidades-table thead { background: var(--bg-warm); }
+    .habilidades-table th {
+      font-family: 'Inter', sans-serif; font-size: 11px;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ink-soft); font-weight: 600;
+      text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border);
+    }
+    .habilidades-table td {
+      padding: 14px; border-bottom: 1px solid var(--border);
+      font-size: 13px; color: var(--ink-soft); line-height: 1.5; vertical-align: top;
+    }
+    .habilidades-table tr:last-child td { border-bottom: 0; }
+    .habilidades-table td.habilidade-nome { font-weight: 600; color: var(--ink); }
+    .habilidades-table td.habilidade-antes { font-style: italic; color: var(--ink-muted); }
+    .habilidades-table td.habilidade-depois { color: var(--accent-dark); font-weight: 500; }
+    .habilidades-table td.habilidade-nivel {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      color: var(--accent-warm-dark); text-align: center;
+    }
+    .habilidades-table td.habilidade-num {
+      font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700;
+      color: var(--accent); text-align: center; width: 36px;
+    }
+    .habilidades-table td.habilidade-onde { white-space: nowrap; padding-top: 10px; }
+    .hab-link {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 14px; letter-spacing: .04em;
+      text-decoration: none;
+    }
+    .hab-link.s3 { background: #eef4f6; color: var(--accent-dark); border: 1px solid #b0cfd8; }
+    .hab-link.s3:hover { background: var(--accent); color: white; }
+    .hab-link.s3.estrela { background: #fdf3ec; color: var(--accent-warm-dark); border-color: #e6c9a8; }
+    .hab-link.s3.estrela:hover { background: var(--accent-warm); color: white; }
+    .hab-link.transversal { background: var(--bg-warm); color: var(--ink-soft); border: 1px solid var(--border); font-style: italic; }
+    .hab-link.casa { background: #fdf3ec; color: var(--accent-warm-dark); border: 1px solid #e6c9a8; }
+    .hab-link.futuro { background: transparent; color: var(--ink-muted); border: 1px dashed var(--border-strong); }
+
+    /* === Bloco didático novo por momento (Ajuste 2) === */
+    .momento-didatico {
+      background: linear-gradient(180deg, #eef4f6 0%, var(--bg-card) 80%);
+      border-top: 1px solid var(--border); padding: 22px 22px 18px;
+    }
+    .momento-didatico .md-aprende {
+      font-family: 'Playfair Display', serif; font-size: 16px;
+      color: var(--ink); line-height: 1.4; margin: 0 0 14px;
+      padding: 12px 14px; background: var(--bg-card);
+      border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
+    }
+    .momento-didatico .md-aprende strong {
+      display: block; font-family: 'Inter', sans-serif; font-size: 10px;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent-dark); font-weight: 700; margin-bottom: 4px;
+    }
+    .momento-didatico-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      margin-bottom: 14px;
+    }
+    @media (max-width: 600px) { .momento-didatico-grid { grid-template-columns: 1fr; } }
+    .momento-didatico-grid .md-bloco {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 6px; padding: 12px 14px;
+    }
+    .momento-didatico-grid .md-bloco strong {
+      display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent-warm-dark); margin-bottom: 6px;
+    }
+    .momento-didatico-grid .md-bloco ul {
+      font-size: 12px; color: var(--ink); line-height: 1.55; margin: 0; padding-left: 18px;
+    }
+    .momento-didatico-grid .md-bloco p {
+      font-size: 12px; color: var(--ink); line-height: 1.55; margin: 0;
+    }
+    .marco-progresso {
+      margin-top: 12px; padding: 10px 14px;
+      background: var(--ink); color: var(--bg);
+      border-radius: 6px; font-size: 12px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .marco-progresso .marco-check {
+      display: inline-block; width: 18px; height: 18px; border-radius: 50%;
+      background: var(--accent); color: white;
+      text-align: center; line-height: 18px; font-size: 12px; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .marco-progresso strong { color: var(--bg); font-weight: 600; }
+    .marco-progresso .marco-prox { color: var(--accent-warm); margin-left: auto; font-size: 11px; letter-spacing: .04em; }
+
+    /* === Novo número de momento (substitui tempo) === */
+    .roteiro-numero {
+      font-family: 'Playfair Display', serif; font-size: 28px;
+      color: var(--accent); font-weight: 700; text-align: center;
+      line-height: 1;
+    }
+    .roteiro-item.estrela .roteiro-numero { color: var(--accent-warm-dark); }
+    .roteiro-numero small {
+      display: block; font-family: 'Inter', sans-serif;
+      font-size: 9px; font-weight: 700; color: var(--ink-muted);
+      letter-spacing: .12em; text-transform: uppercase; margin-top: 4px;
+    }
+
+    /* === Glossário inline (mantém) === */
+    .gloss { border-bottom: 1px dotted var(--accent-warm-dark); cursor: help; position: relative; }
+    .gloss:hover .gloss-tip, .gloss:focus-visible .gloss-tip { display: block; }
+    .gloss-tip {
+      display: none; position: absolute; bottom: 100%; left: 50%;
+      transform: translateX(-50%); background: var(--ink); color: var(--bg);
+      font-size: 12px; line-height: 1.45; font-weight: 400; letter-spacing: 0;
+      padding: 10px 14px; border-radius: 6px; width: 280px; z-index: 10;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.18); margin-bottom: 6px; pointer-events: none;
+    }
+
+    /* === Modos de delegação === */
+    .modo-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; line-height: 1; }
+    .modo-badge.auto { background: #eef4f6; color: #1d4250; border: 1px solid #b0cfd8; }
+    .modo-badge.colab { background: #fdf3ec; color: #8f6a4d; border: 1px solid #e6c9a8; }
+    .modo-badge.manual { background: #f4f1ea; color: #5a5247; border: 1px solid #d4c8b0; }
+
+    /* === Matriz de Competência === */
+    .matriz-block { margin-top: 24px; }
+    .matriz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+    @media (max-width: 600px) { .matriz-grid { grid-template-columns: 1fr; } }
+    .matriz-card { padding: 22px; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border); position: relative; border-top: 4px solid; }
+    .matriz-card.q1 { border-top-color: #b87f5a; }
+    .matriz-card.q2 { border-top-color: var(--accent-warm); background: #fdf3ec; }
+    .matriz-card.q3 { border-top-color: var(--accent); background: #eef4f6; }
+    .matriz-card.q4 { border-top-color: #1d4250; }
+    .matriz-card .matriz-tag { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 8px; }
+    .matriz-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--ink); margin: 0 0 4px; line-height: 1.2; }
+    .matriz-card .matriz-frase { font-size: 13px; color: var(--ink-muted); font-style: italic; margin: 0 0 14px; }
+    .matriz-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 10px; }
+    .matriz-card p strong { color: var(--ink); }
+    .matriz-card .matriz-lbl { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-warm-dark); margin: 12px 0 4px; }
+    .matriz-ponte {
+      margin-top: 20px; padding: 22px 26px;
+      background: linear-gradient(90deg, #fdf3ec 0%, #eef4f6 100%);
+      border: 1px solid var(--border); border-radius: 12px;
+      display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center;
+    }
+    @media (max-width: 600px) { .matriz-ponte { grid-template-columns: 1fr; text-align: center; gap: 8px; } }
+    .matriz-ponte-tag {
+      font-family: 'Playfair Display', serif; font-size: 22px;
+      color: var(--accent-warm-dark); font-weight: 700; line-height: 1;
+    }
+    .matriz-ponte-tag small { display: block; font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); font-weight: 600; margin-top: 4px; }
+    .matriz-ponte-arrow { color: var(--accent-warm); font-size: 22px; font-weight: 700; }
+    .matriz-ponte-msg { font-size: 14px; line-height: 1.6; color: var(--ink); margin: 0; }
+
+    /* === Degraus L0-L3 === */
+    .degraus-component { margin-top: 24px; }
+    .degraus-nav { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+    .degraus-nav button {
+      flex: 1; min-width: 90px; padding: 14px 12px; border-radius: 8px;
+      border: 1px solid var(--border); background: transparent; color: var(--ink-muted);
+      font-size: 13px; font-weight: 600; letter-spacing: .04em;
+      cursor: pointer; font-family: inherit; transition: all .12s;
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+    }
+    .degraus-nav button:hover { background: var(--bg-warm); color: var(--ink-soft); }
+    .degraus-nav button .degraus-nav-lvl { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; }
+    .degraus-nav button .degraus-nav-name { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+    .degraus-nav button.active { background: #eef4f6; color: var(--accent); border-color: #b0cfd8; }
+    .degraus-nav button.alvo-debora { border-color: var(--accent-warm); position: relative; }
+    .degraus-nav button.alvo-debora::after { content: 'alvo S3'; position: absolute; top: -8px; right: 6px; background: var(--accent-warm); color: white; font-size: 9px; padding: 1px 6px; border-radius: 3px; letter-spacing: .06em; font-weight: 600; }
+    .degraus-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+    .degraus-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--ink); margin: 0 0 6px; }
+    .degraus-card .degraus-card-sub { font-size: 13px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: .08em; margin: 0 0 18px; }
+    .degraus-card .degraus-card-lbl { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--accent-warm); margin: 16px 0 6px; }
+    .degraus-card p { font-size: 14px; color: var(--ink-soft); line-height: 1.7; margin: 0 0 12px; }
+    .degraus-depara {
+      display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px;
+      align-items: center; margin: 14px 0 18px;
+      padding: 16px; background: var(--bg-warm); border-radius: 10px;
+    }
+    @media (max-width: 560px) { .degraus-depara { grid-template-columns: 1fr; } }
+    .degraus-depara .depara-bloco {
+      font-size: 12px; color: var(--ink-soft); line-height: 1.5;
+    }
+    .degraus-depara .depara-bloco strong { display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-warm-dark); margin-bottom: 4px; }
+    .degraus-depara .depara-arrow { font-size: 18px; color: var(--accent-warm); font-weight: 700; }
+
+    /* === Exemplo DCF === */
+    .exemplo-card { background: linear-gradient(180deg, #fdf3ec 0%, #ffffff 80%); border: 1px solid #e6c9a8; border-radius: 16px; padding: 32px; margin-top: 24px; position: relative; }
+    .exemplo-card .exemplo-tag { position: absolute; top: -10px; left: 24px; background: var(--accent-warm); color: white; font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: .12em; text-transform: uppercase; }
+    .exemplo-card h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--ink); margin: 8px 0 6px; }
+    .exemplo-card .exemplo-sub { font-size: 13px; color: var(--accent-warm-dark); letter-spacing: .08em; text-transform: uppercase; margin: 0 0 16px; }
+    .exemplo-card p { font-size: 15px; line-height: 1.7; color: var(--ink-soft); margin: 0 0 14px; }
+    .exemplo-card .exemplo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 18px; }
+    .exemplo-card .exemplo-grid-item { background: rgba(255,255,255,0.7); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+    .exemplo-card .exemplo-grid-item .lbl { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-warm-dark); margin: 0 0 4px; }
+    .exemplo-card .exemplo-grid-item .val { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--ink); line-height: 1.3; margin: 0; }
+    .exemplo-card .exemplo-aplica { margin-top: 22px; padding-top: 18px; border-top: 1px dashed #e6c9a8; font-size: 14px; color: var(--ink-soft); }
+    .exemplo-card .exemplo-aplica strong { color: var(--ink); display: block; margin-bottom: 6px; }
+
+    /* === Arquivos pra praticar === */
+    .arquivos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 22px; }
+    .arquivo-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px 22px; display: flex; flex-direction: column;
+      border-left: 3px solid var(--accent);
+    }
+    .arquivo-card .arquivo-num {
+      font-family: 'Playfair Display', serif; font-size: 11px;
+      color: var(--accent); letter-spacing: .14em; text-transform: uppercase;
+      font-weight: 700; margin: 0 0 4px;
+    }
+    .arquivo-card h4 { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--ink); margin: 0 0 6px; line-height: 1.25; }
+    .arquivo-card .arquivo-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin: 0 0 14px; flex-grow: 1; }
+    .arquivo-card .arquivo-tags {
+      display: flex; gap: 6px; flex-wrap: wrap; padding-top: 10px;
+      border-top: 1px solid var(--border); margin-bottom: 12px;
+    }
+    .arquivo-card .arquivo-tags span {
+      font-size: 11px; padding: 2px 8px; border-radius: 3px;
+      background: var(--bg-warm); color: var(--ink-soft);
+    }
+    .arquivo-card .arquivo-btns { display: flex; gap: 8px; }
+    .arquivo-card .arquivo-btn {
+      display: inline-block; padding: 8px 14px; border-radius: 6px;
+      font-size: 12px; font-weight: 600; text-decoration: none;
+      letter-spacing: .04em;
+    }
+    .arquivo-card .arquivo-btn.primary { background: var(--accent); color: white; }
+    .arquivo-card .arquivo-btn.primary:hover { background: var(--accent-dark); }
+    .arquivo-card .arquivo-btn.ghost { background: transparent; color: var(--ink-soft); border: 1px solid var(--border); }
+    .arquivo-card .arquivo-btn.ghost:hover { background: var(--bg-warm); }
+
+    /* === Timeline horizontal UNIFORME dos 6 momentos === */
+    .timeline-s3 {
+      display: grid; grid-template-columns: repeat(6, 1fr);
+      gap: 8px; margin: 24px 0 8px;
+    }
+    @media (max-width: 700px) { .timeline-s3 { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 420px) { .timeline-s3 { grid-template-columns: 1fr; } }
+    .timeline-bar {
+      position: relative; border-radius: 8px; padding: 14px 14px 12px;
+      color: white; min-height: 92px; display: flex; flex-direction: column;
+      justify-content: space-between; overflow: hidden; transition: transform .15s;
+    }
+    .timeline-bar:hover { transform: translateY(-2px); cursor: pointer; }
+    .timeline-bar .timeline-bar-step {
+      font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: .12em;
+      text-transform: uppercase; opacity: .8; font-weight: 600;
+    }
+    .timeline-bar .timeline-bar-name {
+      font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600;
+      line-height: 1.2; margin: 6px 0 4px;
+    }
+    .timeline-bar .timeline-bar-min {
+      font-family: 'Inter', sans-serif; font-size: 11px; opacity: .9;
+    }
+    .timeline-bar.t1 { background: #4d7c89; }
+    .timeline-bar.t2 { background: var(--accent-warm); }
+    .timeline-bar.t3 { background: #5a8a96; }
+    .timeline-bar.t4 { background: #6da3aa; }
+    .timeline-bar.t5 { background: #7eb6b8; }
+    .timeline-bar.t6 { background: #8f8678; }
+    .timeline-bar.t2::after {
+      content: '★'; position: absolute; top: 8px; right: 10px;
+      font-size: 14px; opacity: .85;
+    }
+
+    /* === Resumão didático dos 6 momentos === */
+    .resumao-momentos {
+      background: var(--bg-warm); border: 1px solid var(--border-strong);
+      border-radius: 12px; padding: 24px 28px; margin: 18px 0 4px;
+    }
+    .resumao-momentos h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--ink); margin: 0 0 10px; }
+    .resumao-momentos p { font-size: 14px; color: var(--ink-soft); line-height: 1.65; margin: 0 0 12px; }
+    .resumao-fluxo {
+      display: grid; grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 10px; align-items: stretch; margin-top: 14px;
+    }
+    @media (max-width: 720px) { .resumao-fluxo { grid-template-columns: 1fr; } .resumao-fluxo .resumao-seta { transform: rotate(90deg); justify-self: center; } }
+    .resumao-fluxo .resumao-bloco {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 14px;
+    }
+    .resumao-fluxo .resumao-bloco strong {
+      display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent-warm-dark); margin-bottom: 4px;
+    }
+    .resumao-fluxo .resumao-bloco span { font-size: 12px; color: var(--ink-soft); line-height: 1.45; }
+    .resumao-fluxo .resumao-seta { color: var(--accent-warm); font-weight: 700; font-size: 18px; align-self: center; }
+
+    /* === Roteiro 6 momentos com acordeão === */
+    .roteiro-block { margin-top: 18px; display: grid; gap: 12px; }
+    .roteiro-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .roteiro-item.estrela { border-color: #e6c9a8; }
+    .roteiro-head { display: grid; grid-template-columns: 80px 1fr auto; gap: 16px; padding: 16px 20px; align-items: center; }
+    .roteiro-item.estrela .roteiro-head { background: linear-gradient(90deg, #fdf3ec 0%, var(--bg-card) 60%); }
+    .roteiro-tempo { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--accent); font-weight: 700; text-align: center; }
+    .roteiro-item.estrela .roteiro-tempo { color: var(--accent-warm-dark); }
+    .roteiro-tempo small { display: block; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; color: var(--ink-muted); letter-spacing: .08em; text-transform: uppercase; }
+    .roteiro-conteudo h4 { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--ink); margin: 0 0 4px; }
+    .roteiro-conteudo p { font-size: 13px; color: var(--ink-soft); line-height: 1.5; margin: 0; }
+    .roteiro-meta { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+    @media (max-width: 600px) { .roteiro-head { grid-template-columns: 1fr; } .roteiro-tempo { text-align: left; } .roteiro-meta { align-items: flex-start; } }
+
+    /* === Resumo dentro de cada momento === */
+    .momento-resumo {
+      background: #fafaf7; border-top: 1px solid var(--border);
+      padding: 18px 22px 14px;
+    }
+    .momento-resumo h5 {
+      font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent-warm-dark); font-weight: 700; margin: 0 0 10px;
+    }
+    .momento-resumo-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px; margin-bottom: 14px;
+    }
+    @media (max-width: 600px) { .momento-resumo-grid { grid-template-columns: 1fr; } }
+    .momento-resumo-grid .mr-bloco {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 6px; padding: 10px 12px;
+    }
+    .momento-resumo-grid .mr-bloco strong {
+      display: block; font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink-muted); margin-bottom: 4px;
+    }
+    .momento-resumo-grid .mr-bloco span { font-size: 12px; color: var(--ink); line-height: 1.4; }
+
+    /* === Conhecimentos fundamentais (modal) === */
+    .conhecimentos-bloco {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 6px; padding: 14px 16px; margin-bottom: 14px;
+    }
+    .conhecimentos-bloco h5 {
+      font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent-warm-dark); font-weight: 700; margin: 0 0 8px;
+    }
+    .conhecimentos-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .conhec-tag {
+      display: inline-block; padding: 4px 10px; border-radius: 14px;
+      background: var(--bg-warm); border: 1px solid var(--border);
+      font-size: 11px; font-weight: 600; color: var(--accent-dark);
+      cursor: pointer; transition: all .15s; font-family: inherit;
+    }
+    .conhec-tag:hover { background: var(--accent); color: white; border-color: var(--accent); }
+    .conhec-tag::before { content: '?'; display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); color: white; font-size: 10px; line-height: 14px; text-align: center; margin-right: 5px; font-weight: 700; }
+    .conhec-tag:hover::before { background: white; color: var(--accent); }
+
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(31, 29, 26, 0.6);
+      z-index: 1000; display: none; align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-content {
+      background: var(--bg); border-radius: 12px; padding: 30px 32px;
+      max-width: 520px; width: 100%; box-shadow: 0 12px 36px rgba(0,0,0,0.25);
+      position: relative;
+    }
+    .modal-content .modal-close {
+      position: absolute; top: 14px; right: 14px;
+      background: transparent; border: 0; color: var(--ink-muted);
+      font-size: 22px; cursor: pointer; padding: 4px 10px; line-height: 1;
+    }
+    .modal-content .modal-close:hover { color: var(--ink); }
+    .modal-content .modal-eyebrow { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-warm-dark); font-weight: 600; margin: 0 0 6px; }
+    .modal-content h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--ink); margin: 0 0 14px; }
+    .modal-content p { font-size: 14px; color: var(--ink-soft); line-height: 1.65; margin: 0 0 10px; }
+    .modal-content p strong { color: var(--ink); }
+    .modal-content .modal-exemplo {
+      background: var(--bg-warm); border-left: 3px solid var(--accent-warm);
+      padding: 12px 14px; margin-top: 12px; border-radius: 0 6px 6px 0;
+      font-size: 13px; color: var(--ink-soft); line-height: 1.55;
+    }
+    .modal-content .modal-exemplo strong { display: block; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-warm-dark); margin-bottom: 4px; }
+
+    /* === Prompts copyable === */
+    .roteiro-prompt { border-top: 1px solid var(--border); background: #fafaf7; }
+    .roteiro-prompt summary {
+      cursor: pointer; padding: 12px 20px; font-size: 13px; font-weight: 600;
+      color: var(--accent); list-style: none; display: flex; align-items: center; gap: 8px; user-select: none;
+    }
+    .roteiro-prompt summary::-webkit-details-marker { display: none; }
+    .roteiro-prompt summary::before { content: '▸'; transition: transform .15s; font-size: 11px; }
+    .roteiro-prompt[open] summary::before { transform: rotate(90deg); }
+    .roteiro-prompt summary:hover { background: rgba(44, 95, 112, 0.04); }
+    .roteiro-prompt-body { padding: 4px 22px 22px; }
+    .roteiro-prompt-body ul { font-size: 13px; color: var(--ink-soft); padding-left: 22px; margin: 0 0 8px; line-height: 1.6; }
+    .roteiro-prompt-body p { font-size: 13px; color: var(--ink-soft); margin: 0 0 12px; line-height: 1.55; }
+    .roteiro-prompt-body p code { background: var(--bg-warm); padding: 1px 6px; border-radius: 3px; font-size: 12px; color: var(--accent-dark); }
+    .roteiro-prompt-body h5 { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-warm-dark); margin: 16px 0 8px; }
+
+    .pctfl-wrap { position: relative; background: #1f1d1a; border-radius: 8px; margin: 8px 0 14px; }
+    .pctfl-copy { position: absolute; top: 8px; right: 8px; background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.18); border-radius: 5px; padding: 5px 10px; font-size: 11px; font-family: inherit; font-weight: 600; letter-spacing: .04em; cursor: pointer; transition: background .15s; }
+    .pctfl-copy:hover { background: rgba(255,255,255,0.2); }
+    .pctfl-copy.copied { background: var(--accent-warm); border-color: var(--accent-warm); }
+    .pctfl-wrap pre { margin: 0; padding: 38px 18px 18px; font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace; font-size: 12px; line-height: 1.65; color: #e6dfd2; white-space: pre-wrap; word-wrap: break-word; max-height: 480px; overflow-y: auto; }
+    .pctfl-wrap pre b { color: #c2916b; font-weight: 600; }
+
+    .sub-prompt { margin: 10px 0; background: white; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; }
+    .sub-prompt summary { cursor: pointer; font-size: 12px; font-weight: 600; color: var(--ink); list-style: none; display: flex; align-items: center; gap: 6px; }
+    .sub-prompt summary::before { content: '+'; color: var(--accent-warm); font-weight: 700; }
+    .sub-prompt[open] summary::before { content: '−'; }
+
+    .exercicio-casa {
+      margin-top: 14px; padding: 14px 16px; background: #fdf3ec;
+      border: 1px dashed #e6c9a8; border-radius: 8px;
+    }
+    .exercicio-casa strong { display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-warm-dark); margin-bottom: 6px; }
+    .exercicio-casa p { font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin: 0 0 6px; }
+    .exercicio-casa a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .exercicio-casa a:hover { text-decoration: underline; }
+
+    /* === Vislumbre — SVG árvore visual === */
+    .vislumbre { background: var(--bg-warm); border: 1px dashed var(--border-strong); border-radius: 12px; padding: 28px; margin-top: 20px; }
+    .vislumbre h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--ink); margin: 0 0 8px; }
+    .vislumbre .vislumbre-quando { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-warm-dark); margin: 0 0 12px; }
+    .vislumbre p { font-size: 14px; line-height: 1.7; color: var(--ink-soft); margin: 0 0 10px; }
+    .vislumbre code { background: var(--bg-card); padding: 1px 6px; border-radius: 3px; font-size: 12px; color: var(--accent-dark); font-family: 'SF Mono', Menlo, monospace; }
+    .arvore-svg { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin: 14px 0; }
+    .arvore-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .arvore-raiz { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; }
+    .arvore-filhos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; padding-left: 28px; position: relative; }
+    .arvore-filhos::before { content: ''; position: absolute; left: 14px; top: -6px; bottom: 0; border-left: 2px dashed var(--accent); opacity: 0.4; }
+    .arvore-node { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; position: relative; }
+    .arvore-node::before { content: ''; position: absolute; left: -14px; top: 22px; width: 14px; border-top: 2px dashed var(--accent); opacity: 0.4; }
+    .arvore-node.shared { border-left: 3px solid var(--accent-warm); }
+    .arvore-node-nome { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: var(--accent-dark); margin-bottom: 4px; }
+    .arvore-node-papel { font-size: 11px; color: var(--ink-soft); line-height: 1.4; }
+    .arvore-node.shared .arvore-node-nome { color: var(--accent-warm-dark); }
+
+    /* === Stack table === */
+    .stack-table th, .stack-table td { vertical-align: top; }
+    .stack-table .stack-quando { font-weight: 600; color: var(--accent); white-space: nowrap; }
+
+    /* === Bibliografia === */
+    .biblio-list { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
+    .biblio-list li { padding: 14px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+    .biblio-list li strong { color: var(--ink); }
+    .biblio-list li .biblio-tag { display: inline-block; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-warm-dark); margin-left: 6px; }
+
+    .callout.danger { background: #fdf3ec; border-left-color: var(--accent-warm); }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="../../" class="topbar-logo">Mentoria IA Executiva · Débora</a>
+      <nav class="topbar-nav">
+        <a href="../../">Início</a>
+        <a href="../../banco-de-prompts/">Banco de Prompts</a>
+        <a href="../../sessoes/">Sessões</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Header do eixo -->
+  <div class="module-header site-container">
+    <p class="eyebrow">Eixo · Finanças · Encontro 3</p>
+    <h1>IA em finanças, hoje.<br>A habilidade que você leva pra qualquer negócio.</h1>
+    <div class="module-header-meta">
+      <span>Aplica em restaurante, banda, corretora — e em qualquer próximo</span>
+      <span>·</span>
+      <span>Stack: Claude.ai Pro + NotebookLM + Claude for Excel</span>
+    </div>
+  </div>
+
+  <!-- Por que este eixo (DORES → HABILIDADE → OBJETIVO) -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Por que este eixo</p>
+      <h2>Quatro dores. Uma habilidade que serve a qualquer negócio.</h2>
+      <p>
+        Você foi direta sobre o que quer destravar em gestão financeira. Cada um desses pontos vira uma habilidade prática nesta S3 — sustentada por IA — e segue te servindo no restaurante, na banda, na corretora e em qualquer próximo negócio.
+      </p>
+
+      <div class="dores-grid">
+        <div class="dor-card">
+          <p class="dor-num">Dor 1</p>
+          <h4>Montar fluxo de caixa</h4>
+          <p>Saber entrada, saída e saldo de qualquer negócio sem depender da planilha do contador.</p>
+        </div>
+        <div class="dor-card">
+          <p class="dor-num">Dor 2</p>
+          <h4>Calcular margem de lucro</h4>
+          <p>Distinguir margem bruta, margem de contribuição e margem líquida — e usar cada uma na decisão certa.</p>
+        </div>
+        <div class="dor-card">
+          <p class="dor-num">Dor 3</p>
+          <h4>Saber se um produto dá lucro</h4>
+          <p>Olhar cardápio, apólice ou cachê de show e responder em 15 min: este aqui sustenta ou engana?</p>
+        </div>
+        <div class="dor-card">
+          <p class="dor-num">Dor 4</p>
+          <h4>Organizar contas a pagar e receber</h4>
+          <p>Categorizar lançamentos com plano de contas, identificar anomalias e fechar o mês com calma.</p>
+        </div>
+      </div>
+
+      <div class="objetivo-callout">
+        <p>
+          <strong>Objetivo desta S3:</strong> sair com a leitura financeira potencializada por IA — não como contadora, mas como gestora que faz a pergunta certa, lê o número crítico e <strong>cobra quando algo não bate</strong>. Habilidade agnóstica: o caso-âncora é o restaurante porque é a decisão mais quente agora; mas tudo que você aprende aqui replica em qualquer negócio próximo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Onde está o mercado (HORIZONTAL — 4 stats + 2 tipos + habilidades destravadas) -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Onde o mercado está · 2026</p>
+      <h2>Não é hype — é o novo padrão de quem decide com dado.</h2>
+      <p>
+        Quatro números pra você calibrar onde está e por que essa habilidade vira diferencial real — não promessa de LinkedIn. A escolha aqui não é entre "fazer manual" e "usar IA". É entre <strong>entrar no fluxo que vira padrão</strong> ou ficar pagando consultoria pra cada decisão.
+      </p>
+
+      <div class="mercado-horizontal">
+        <div class="mercado-h-card">
+          <p class="mercado-h-tag">Brasil · PME</p>
+          <p class="mercado-h-num">44%</p>
+          <p class="mercado-h-dado">dos pequenos negócios brasileiros já usam IA em alguma frente. Maturidade digital de PME = 37/80.</p>
+          <p class="mercado-h-leitura"><strong>Como ler:</strong> você não está atrasada. O gap real é entre "uso pra marketing" e <strong>"uso pra decisão de dados"</strong> — esse aqui é o seu terreno.</p>
+          <p class="mercado-h-fonte">Sebrae · 2025</p>
+        </div>
+        <div class="mercado-h-card">
+          <p class="mercado-h-tag">Global · McKinsey</p>
+          <p class="mercado-h-num">6%</p>
+          <p class="mercado-h-dado">das empresas qualificam como "AI high performers" (≥5% impacto em EBIT). O resto usa por cima do fluxo legado.</p>
+          <p class="mercado-h-leitura"><strong>Como ler:</strong> "usar ChatGPT às vezes" não move ponteiro. <strong>Ganho real vem de reestruturar o fluxo</strong> (extrato → conciliação → DRE → decisão) com IA dentro.</p>
+          <p class="mercado-h-fonte">McKinsey State of AI · 2025</p>
+        </div>
+        <div class="mercado-h-card">
+          <p class="mercado-h-tag">Contadores · CPA.com</p>
+          <p class="mercado-h-num">7,5 dias</p>
+          <p class="mercado-h-dado">de antecipação no fechamento mensal pra contadores que adotaram IA generativa. Mediana: 5h/sem economizadas.</p>
+          <p class="mercado-h-leitura"><strong>Como ler:</strong> seu contador que adota entrega mais rápido e mais barato. <strong>Você precisa falar a língua dele</strong> pra cobrar prazo e qualidade.</p>
+          <p class="mercado-h-fonte">Journal of Accountancy · ago/2025</p>
+        </div>
+        <div class="mercado-h-card">
+          <p class="mercado-h-tag">CFOs · Kyriba</p>
+          <p class="mercado-h-num">87% vs 11%</p>
+          <p class="mercado-h-dado">87% dos CFOs dizem que IA será "extremamente importante" em 2026. Mas só 11% usam de verdade dentro da função financeira.</p>
+          <p class="mercado-h-leitura"><strong>Como ler:</strong> existe gap entre intenção e execução. <strong>Quem executa agora (mesmo em L1/L2) sai na frente</strong> até de empresas maiores ainda em piloto.</p>
+          <p class="mercado-h-fonte">Kyriba CFO Survey · 2025</p>
+        </div>
+      </div>
+
+      <div class="dois-tipos">
+        <p>"Vai existir dois tipos de empresa: as que usam IA institucionalmente e as que perdem talento pra concorrência."</p>
+        <p class="dois-tipos-fonte">Kate Jensen · Chief Revenue Officer · Anthropic</p>
+      </div>
+
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 22px; color: var(--ink); margin: 32px 0 6px;">10 habilidades que a IA destrava em finanças PME</h3>
+      <p style="font-size: 14px; color: var(--ink-soft); margin: 0 0 6px;">As 5 primeiras você pratica nesta S3 — uma por momento. As outras 5 você destrava no caminho (casa pós-S3, S4, S5). Nível indica o degrau de uso (L1 estrutura · L2 dados · L3 assistente).</p>
+
+      <table class="habilidades-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Habilidade</th>
+            <th>Antes (sem IA)</th>
+            <th>Com IA</th>
+            <th>Onde você pratica</th>
+            <th>Nível</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="habilidade-num">1</td>
+            <td class="habilidade-nome">Categorizar despesas + estruturar plano de contas</td>
+            <td class="habilidade-antes">impraticável no Excel manual</td>
+            <td class="habilidade-depois">1-2h com prompt bem feito</td>
+            <td class="habilidade-onde"><a href="#momento-1" class="hab-link s3">Momento 1 ✓</a></td>
+            <td class="habilidade-nivel">L1 → L2</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">2</td>
+            <td class="habilidade-nome">Analisar viabilidade de investimento com DCF</td>
+            <td class="habilidade-antes">R$ 3-8k consultoria de M&A</td>
+            <td class="habilidade-depois">35 min · você + Claude</td>
+            <td class="habilidade-onde"><a href="#momento-2" class="hab-link s3 estrela">Momento 2 ★ ✓</a></td>
+            <td class="habilidade-nivel">L2</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">3</td>
+            <td class="habilidade-nome">Montar DRE em cascata a partir de extrato bagunçado</td>
+            <td class="habilidade-antes">1-2 dias contador · R$ 300-800/mês</td>
+            <td class="habilidade-depois">30-60 min sem dependência externa</td>
+            <td class="habilidade-onde"><a href="#momento-3" class="hab-link s3">Momento 3 ✓</a></td>
+            <td class="habilidade-nivel">L2</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">4</td>
+            <td class="habilidade-nome">Identificar qual produto realmente dá lucro (MC)</td>
+            <td class="habilidade-antes">cardápio gerido "no feeling"</td>
+            <td class="habilidade-depois">15 min · 5 pratos ranqueados</td>
+            <td class="habilidade-onde"><a href="#momento-4" class="hab-link s3">Momento 4 ✓</a></td>
+            <td class="habilidade-nivel">L1</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">5</td>
+            <td class="habilidade-nome">Ler contrato de 60 páginas + extrair cláusulas críticas</td>
+            <td class="habilidade-antes">4-6h advogado · ~R$ 800</td>
+            <td class="habilidade-depois">10-15 min · NotebookLM gratuito</td>
+            <td class="habilidade-onde"><a href="#momento-5" class="hab-link s3">Momento 5 ✓</a></td>
+            <td class="habilidade-nivel">L1</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">6</td>
+            <td class="habilidade-nome">Reunião com contador — entender o que ele diz</td>
+            <td class="habilidade-antes">dependência total, sem barganha</td>
+            <td class="habilidade-depois">30 min lendo demonstrações com Claude</td>
+            <td class="habilidade-onde"><span class="hab-link transversal">Transversal · vira efeito da S3</span></td>
+            <td class="habilidade-nivel">L1</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">7</td>
+            <td class="habilidade-nome">Conciliação bancária mensal (300+ lançamentos)</td>
+            <td class="habilidade-antes">6-10h · propenso a erro</td>
+            <td class="habilidade-depois">1-2h com validação humana</td>
+            <td class="habilidade-onde"><span class="hab-link casa">Casa pós-S3</span></td>
+            <td class="habilidade-nivel">L2</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">8</td>
+            <td class="habilidade-nome">Forecast de caixa 90 dias com cenários</td>
+            <td class="habilidade-antes">só com controller (R$ 8-15k/mês)</td>
+            <td class="habilidade-depois">dono treinado · 2h por mês</td>
+            <td class="habilidade-onde"><span class="hab-link futuro">S5 (KPIs)</span></td>
+            <td class="habilidade-nivel">L2/L3</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">9</td>
+            <td class="habilidade-nome">Análise variância orçado × realizado com narrativa</td>
+            <td class="habilidade-antes">1 dia de controller dedicado</td>
+            <td class="habilidade-depois">1-2h · output pronto pra board</td>
+            <td class="habilidade-onde"><span class="hab-link futuro">S5 (KPIs)</span></td>
+            <td class="habilidade-nivel">L2</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">10</td>
+            <td class="habilidade-nome">Simular impacto da Reforma Tributária no negócio</td>
+            <td class="habilidade-antes">R$ 3-10k consultoria especializada</td>
+            <td class="habilidade-depois">horas com Claude + texto oficial</td>
+            <td class="habilidade-onde"><span class="hab-link futuro">Roadmap S4+</span></td>
+            <td class="habilidade-nivel">L3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Matriz de Competência (com narrativa de PONTE Q2 → Q3 reforçada) -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Antes de aprender qualquer técnica</p>
+      <h2>Onde você está em cada habilidade financeira</h2>
+      <p>
+        Você não está num único nível — está em quadrantes diferentes pra cada habilidade. A Matriz de Competência (Noel Burch, anos 70) ajuda você a se localizar antes de avançar. <strong>O grande movimento desta S3 é tirar você do "sei que não sei" pro "sei que sei" em 4-5 habilidades centrais.</strong>
+      </p>
+
+      <div class="matriz-block">
+        <div class="matriz-grid">
+          <div class="matriz-card q1">
+            <p class="matriz-tag">Quadrante 1</p>
+            <h3>Não sei que não sei</h3>
+            <p class="matriz-frase">"Nunca pensei que IA pudesse fazer isso."</p>
+            <p><strong>Sintoma:</strong> nem sabe que a habilidade existe pra gestora. Acha que é coisa de contador ou de "gente que trabalha com finanças".</p>
+            <p class="matriz-lbl">Exemplo financeiro</p>
+            <p>"Não sabia que dava pra a IA montar um <span class="gloss">DCF<span class="gloss-tip">DCF = análise se o investimento vale a pena, baseada em quanto de caixa ele gera nos próximos anos.</span></span> da entrada numa sociedade em 35 minutos."</p>
+            <p class="matriz-lbl">Onde a S3 te leva</p>
+            <p>Abre repertório. <strong>Você sai sabendo que a habilidade existe</strong> e onde ela aplica — só por escutar o cardápio dos 6 momentos.</p>
+          </div>
+
+          <div class="matriz-card q2">
+            <p class="matriz-tag">Quadrante 2 · de onde a S3 te tira</p>
+            <h3>Sei que não sei</h3>
+            <p class="matriz-frase">"Sei que existe, mas trava na hora de fazer."</p>
+            <p><strong>Sintoma:</strong> já ouviu "IA faz <span class="gloss">DRE<span class="gloss-tip">DRE = Demonstração de Resultado do Exercício. O resumo financeiro do mês: quanto entrou, quanto saiu, quanto sobrou.</span></span>", "IA categoriza extrato". Quer fazer, mas não sabe começar. Sabe que tá perdendo tempo.</p>
+            <p class="matriz-lbl">Exemplo financeiro</p>
+            <p>"Sei que dá pra fazer engenharia de cardápio com IA, mas não sei como subir os dados nem o que perguntar."</p>
+            <p class="matriz-lbl">A ponte da S3</p>
+            <p><strong>Aqui é onde a maioria das suas habilidades financeiras está hoje.</strong> A S3 é exatamente isso: sentar com método e atravessar pra Q3.</p>
+          </div>
+
+          <div class="matriz-card q3">
+            <p class="matriz-tag">Quadrante 3 · onde a S3 te coloca</p>
+            <h3>Sei que sei</h3>
+            <p class="matriz-frase">"Sei como fazer e consigo explicar pra alguém."</p>
+            <p><strong>Sintoma:</strong> roda DRE com Claude, MC com Excel, valida com olho crítico. Demora um pouco — mas o resultado é confiável e replicável.</p>
+            <p class="matriz-lbl">Exemplo financeiro</p>
+            <p>"Pego um extrato, subo, peço categorização, confiro amostra e fecho planilha funcional em 30 min."</p>
+            <p class="matriz-lbl">Saída garantida da S3</p>
+            <p><strong>Em 4-5 habilidades centrais</strong>: estruturar contexto, DCF, DRE em cascata, MC por produto, auditar contrato.</p>
+          </div>
+
+          <div class="matriz-card q4">
+            <p class="matriz-tag">Quadrante 4 · horizonte</p>
+            <h3>Faço sem pensar</h3>
+            <p class="matriz-frase">"É natural — não preciso mais lembrar do passo a passo."</p>
+            <p><strong>Sintoma:</strong> cria <span class="gloss">Project<span class="gloss-tip">Project é a feature do Claude.ai onde a IA lembra do contexto entre conversas — espaço persistente, como uma pasta inteligente.</span></span> com arquivo de contexto em todo negócio novo automaticamente. Vira intuição.</p>
+            <p class="matriz-lbl">Exemplo financeiro</p>
+            <p>"Olho uma planilha nova e já penso direto em qual prompt, qual modelo, qual Project usar."</p>
+            <p class="matriz-lbl">Quando chega</p>
+            <p>~6 meses de prática. <strong>3-4 análises mensais consecutivas</strong> em cada habilidade.</p>
+          </div>
+        </div>
+
+        <div class="matriz-ponte">
+          <div class="matriz-ponte-tag">Q2<small>Sei que não sei</small></div>
+          <div class="matriz-ponte-arrow">→</div>
+          <div class="matriz-ponte-msg">
+            <strong>A ponte que esta S3 constrói.</strong> Nesta sessão você não vai virar a pessoa do Q4 — mas vai sair com 5 habilidades financeiras saindo do <em>"sei que não sei"</em> e entrando no <em>"sei que sei"</em>. A prática repetida nas semanas seguintes (casa + S4) leva você naturalmente pro Q4.
+          </div>
+          <div class="matriz-ponte-tag" style="color:var(--accent-dark);">Q3<small>Sei que sei</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Degraus L0-L3 (foco em DE → PARA + entregas concretas + alvo L2) -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Como a habilidade evolui na prática</p>
+      <h2>Os 4 degraus de uso de IA em Finanças</h2>
+      <p>
+        Enquanto a Matriz acima é sobre <strong>consciência</strong>, os degraus aqui são sobre <strong>capacidade técnica</strong>. A maior parte das gestoras começa entre L0 e L1. <strong>A meta concreta da S3 é te colocar em L2</strong> em pelo menos 3 cenários financeiros centrais — o salto que muda o que você consegue cobrar de você mesma e dos outros.
+      </p>
+
+      <div class="degraus-component">
+        <nav class="degraus-nav" id="degrausNav" aria-label="Selecione um degrau">
+          <button class="active" data-degrau="0"><span class="degraus-nav-lvl">L0</span><span class="degraus-nav-name">Intuitivo</span></button>
+          <button data-degrau="1"><span class="degraus-nav-lvl">L1</span><span class="degraus-nav-name">Com estrutura</span></button>
+          <button class="alvo-debora" data-degrau="2"><span class="degraus-nav-lvl">L2</span><span class="degraus-nav-name">Com dados</span></button>
+          <button data-degrau="3"><span class="degraus-nav-lvl">L3</span><span class="degraus-nav-name">Especializado</span></button>
+        </nav>
+        <div class="degraus-card" id="degrausCard"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exemplo de aplicação (DCF como caso âncora) -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Como a habilidade vira prática</p>
+      <h2>Exemplo de aplicação: a sua sociedade no restaurante</h2>
+      <p>
+        Aprender técnica solta não fica. A S3 ancora a habilidade em <strong>uma decisão real que você está vivendo agora</strong> — a entrada na sociedade do restaurante. Não porque o eixo é "sobre restaurante" — mas porque esse é o caso que tem urgência, contrato e número de verdade na sua mesa.
+      </p>
+      <p>
+        A mesma técnica que você vai usar aqui se aplica a tudo: avaliar abrir 2ª unidade do restaurante em 2027, virar sócia em outro negócio, comprar equipamento de R$ 50k pra banda, decidir aceitar uma proposta de aquisição da corretora daqui a 5 anos. <strong>É a habilidade que muda — o caso é só o terreno onde ela vira músculo.</strong>
+      </p>
+
+      <div class="exemplo-card">
+        <span class="exemplo-tag">★ Caso de aplicação na S3</span>
+        <h3>DCF da entrada na sociedade do restaurante</h3>
+        <p class="exemplo-sub">Modo Colaboração · Nível L2 · Cenário-estrela da S3</p>
+        <p>
+          Você senta com o Claude.ai Pro, traz a cota (R$ que vai aportar), o lucro projetado da operação, sua taxa mínima de atratividade. A IA monta <strong><button class="conhec-tag" data-termo="vpl">VPL</button></strong>, <strong><button class="conhec-tag" data-termo="tir">TIR</button></strong> e <strong><button class="conhec-tag" data-termo="payback">payback descontado</button></strong> em três cenários — pessimista, base, otimista. Você sai com planilha estruturada e parecer de uma página que cabe na conversa com seu sócio.
+        </p>
+
+        <div class="exemplo-grid">
+          <div class="exemplo-grid-item">
+            <p class="lbl">Você entra com</p>
+            <p class="val">Cota R$, lucro projetado, <button class="conhec-tag" data-termo="tma">TMA</button>, prazo</p>
+          </div>
+          <div class="exemplo-grid-item">
+            <p class="lbl">Você sai com</p>
+            <p class="val">Planilha 3 cenários + parecer 1 página</p>
+          </div>
+          <div class="exemplo-grid-item">
+            <p class="lbl">Onde a IA entra</p>
+            <p class="val">Monta o modelo, simula sensibilidade, escreve narrativa</p>
+          </div>
+          <div class="exemplo-grid-item">
+            <p class="lbl">Onde você decide</p>
+            <p class="val">Premissas, TMA, leitura final, ir/não ir</p>
+          </div>
+        </div>
+
+        <div class="exemplo-aplica">
+          <strong>Onde mais essa habilidade serve:</strong>
+          comprar equipamento financiado pra restaurante ou banda · avaliar virar sócia de outro negócio · decidir abertura de 2ª unidade · simular aceitar/recusar proposta de aquisição · analisar viabilidade de CDB vs negócio próprio.
+          <br><br>
+          <em>Mesmo método. Muda só o input.</em>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- NOVO BLOCO: Arquivos pra praticar -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Pra você não começar do zero</p>
+      <h2>6 arquivos prontos pra praticar — restaurante CHR</h2>
+      <p>
+        Pra a habilidade virar prática, você precisa ter dado em mãos. Preparei 6 arquivos com números realistas de um restaurante hipotético (R$ ~270k/mês de faturamento) + contrato de sociedade fictício. Você baixa, abre na ferramenta correspondente, e roda os prompts da sessão.
+      </p>
+      <p style="font-size: 13px; color: var(--ink-muted);">
+        ⓘ Dados são fictícios mas <strong>internamente consistentes</strong> — a DRE bate com o fluxo de caixa, a MC bate com a DRE. Tem <strong>2 anomalias plantadas no fluxo de caixa</strong> e <strong>3 pegadinhas no contrato</strong> — o tipo de erro real que IA precisa achar pra você. Bom exercício de validação.
+      </p>
+
+      <div class="arquivos-grid">
+        <div class="arquivo-card">
+          <p class="arquivo-num">Arquivo 1 · 31 KB</p>
+          <h4>Fluxo de caixa diário · 90 dias</h4>
+          <p class="arquivo-desc">567 lançamentos de mar a mai/2026, categorizados, com saldo acumulado calculado por fórmula. Aba "Resumo Mensal" com SUMIFS. <strong>2 anomalias plantadas</strong> pra IA achar (1 duplicação + 1 CAPEX/OPEX errado).</p>
+          <div class="arquivo-tags">
+            <span>Excel · 2 abas</span>
+            <span><a href="#momento-1" style="color:inherit;">Momento 1</a> + casa</span>
+          </div>
+          <div class="arquivo-btns">
+            <a href="exemplos/01-fluxo-caixa-restaurante-3meses.xlsx" download class="arquivo-btn primary">Baixar .xlsx</a>
+          </div>
+        </div>
+
+        <div class="arquivo-card">
+          <p class="arquivo-num">Arquivo 2 · 8 KB</p>
+          <h4>DRE em cascata G4 · 3 meses</h4>
+          <p class="arquivo-desc">Modelo padrão G4 com 12 grupos × 3 meses + média + % vertical. Linhas calculadas por fórmula. Aba "Indicadores" com MC, EBITDA, ponto de equilíbrio.</p>
+          <div class="arquivo-tags">
+            <span>Excel · 2 abas</span>
+            <span><a href="#momento-3" style="color:inherit;">Momento 3</a></span>
+          </div>
+          <div class="arquivo-btns">
+            <a href="exemplos/02-dre-cascata-g4-restaurante.xlsx" download class="arquivo-btn primary">Baixar .xlsx</a>
+          </div>
+        </div>
+
+        <div class="arquivo-card">
+          <p class="arquivo-num">Arquivo 3 · 7 KB</p>
+          <h4>MC dos 5 pratos âncora</h4>
+          <p class="arquivo-desc">Filé à parmegiana, camarão na moranga, picanha, risoto, hambúrguer. Preço, custo direto, comissão garçom, taxa cartão, volume mensal. MC unit, MC %, MC total por fórmula.</p>
+          <div class="arquivo-tags">
+            <span>Excel · 2 abas</span>
+            <span><a href="#momento-4" style="color:inherit;">Momento 4</a></span>
+          </div>
+          <div class="arquivo-btns">
+            <a href="exemplos/03-cinco-pratos-mc.xlsx" download class="arquivo-btn primary">Baixar .xlsx</a>
+          </div>
+        </div>
+
+        <div class="arquivo-card">
+          <p class="arquivo-num">Arquivo 4 · 10 KB</p>
+          <h4>Premissas DCF · 3 cenários</h4>
+          <p class="arquivo-desc">Cota 25% · R$ 180k · TMA 19% a.a. Aba "DCF Cálculo" com 60 meses, fluxo descontado, VPL, TIR, payback por fórmula. Aba "Sensibilidade" 2D (TMA × Crescimento).</p>
+          <div class="arquivo-tags">
+            <span>Excel · 3 abas</span>
+            <span><a href="#momento-2" style="color:inherit;">Momento 2 ★</a></span>
+          </div>
+          <div class="arquivo-btns">
+            <a href="exemplos/04-premissas-dcf-sociedade.xlsx" download class="arquivo-btn primary">Baixar .xlsx</a>
+          </div>
+        </div>
+
+        <div class="arquivo-card">
+          <p class="arquivo-num">Arquivo 5 · 11 KB</p>
+          <h4>Plano de contas G4 · 62 contas</h4>
+          <p class="arquivo-desc">Estrutura hierárquica em 7 grupos (Receitas, Deduções, CMV, Variáveis, Fixas, Outras, CAPEX). Cor por grupo. Aba "Como usar com IA" com prompt pronto pra colar no Claude.</p>
+          <div class="arquivo-tags">
+            <span>Excel · 2 abas</span>
+            <span><a href="#momento-1" style="color:inherit;">Momento 1</a></span>
+          </div>
+          <div class="arquivo-btns">
+            <a href="exemplos/05-plano-contas-restaurante.xlsx" download class="arquivo-btn primary">Baixar .xlsx</a>
+          </div>
+        </div>
+
+        <div class="arquivo-card" style="border-left-color: var(--accent-warm);">
+          <p class="arquivo-num" style="color: var(--accent-warm-dark);">Arquivo 6 · PDF</p>
+          <h4>Contrato social fictício — Restaurante CHR Ltda</h4>
+          <p class="arquivo-desc">Contrato de sociedade limitada em formato profissional (15+ páginas), com as 15 cláusulas típicas. <strong>3 pegadinhas plantadas</strong> — distribuição anual (quebra premissa do DCF), quórum 75% que silencia minoritário, lock-up 5 anos + arbitragem. Suba no NotebookLM e rode as 10 perguntas.</p>
+          <div class="arquivo-tags">
+            <span>PDF · 13 pgs</span>
+            <span><a href="#momento-5" style="color:inherit;">Momento 5</a></span>
+          </div>
+          <div class="arquivo-btns">
+            <a href="exemplos/06-contrato-sociedade-restaurante-chr.pdf" download class="arquivo-btn primary" style="background: var(--accent-warm);">Baixar .pdf</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Os 6 momentos da S3 (sem tempo, com marcadores didáticos por momento) -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">O encontro 3 ao vivo</p>
+      <h2>Os 6 momentos da S3</h2>
+
+      <!-- Timeline horizontal — sem minutos, foco na habilidade -->
+      <div class="timeline-s3" aria-label="Os 6 momentos da sessão">
+        <a href="#momento-1" class="timeline-bar t1" style="text-decoration:none;">
+          <div class="timeline-bar-step">Momento 1 · Hab. 1</div>
+          <div class="timeline-bar-name">Contexto em arquivo</div>
+          <div class="timeline-bar-min">Colaboração · L1 → L2</div>
+        </a>
+        <a href="#momento-2" class="timeline-bar t2" style="text-decoration:none;">
+          <div class="timeline-bar-step">Momento 2 · Hab. 2 ★</div>
+          <div class="timeline-bar-name">DCF da sociedade</div>
+          <div class="timeline-bar-min">Colaboração · L2</div>
+        </a>
+        <a href="#momento-3" class="timeline-bar t3" style="text-decoration:none;">
+          <div class="timeline-bar-step">Momento 3 · Hab. 3</div>
+          <div class="timeline-bar-name">DRE em cascata</div>
+          <div class="timeline-bar-min">Colaboração · L2</div>
+        </a>
+        <a href="#momento-4" class="timeline-bar t4" style="text-decoration:none;">
+          <div class="timeline-bar-step">Momento 4 · Hab. 4</div>
+          <div class="timeline-bar-name">MC dos pratos</div>
+          <div class="timeline-bar-min">Autopiloto · L1</div>
+        </a>
+        <a href="#momento-5" class="timeline-bar t5" style="text-decoration:none;">
+          <div class="timeline-bar-step">Momento 5 · Hab. 5</div>
+          <div class="timeline-bar-name">Auditoria contrato</div>
+          <div class="timeline-bar-min">Colaboração · L1</div>
+        </a>
+        <a href="#momento-6" class="timeline-bar t6" style="text-decoration:none;">
+          <div class="timeline-bar-step">Momento 6 · Vislumbre</div>
+          <div class="timeline-bar-name">AI Finance Team</div>
+          <div class="timeline-bar-min">Demonstração · L3</div>
+        </a>
+      </div>
+
+      <!-- RESUMÃO DIDÁTICO antes dos accordions -->
+      <div class="resumao-momentos">
+        <h3>Como a sessão flui — em uma frase por bloco</h3>
+        <p>
+          A S3 tem espinha dorsal — cada momento <strong>destrava UMA das 10 habilidades</strong> (as 5 primeiras) e abre o próximo. <strong>Primeiro você estrutura contexto em arquivo</strong> (Momento 1) — sem isso, IA acha o que quer. <strong>Aí vai pro cenário-estrela: o DCF da sociedade</strong> (Momento 2 ★) — a decisão real na sua mesa. <strong>Em seguida, ler o resultado mensal</strong> (Momento 3) e <strong>identificar qual produto sustenta a casa</strong> (Momento 4). <strong>Auditoria de contrato com NotebookLM</strong> (Momento 5) — pra você não cair em cláusula de saída ruim. <strong>Fechamento com vislumbre do AI Finance Team</strong> (Momento 6).
+        </p>
+        <div class="resumao-fluxo">
+          <div class="resumao-bloco">
+            <strong>Você entra com</strong>
+            <span>Cabeça cheia de contexto + decisão real (sociedade restaurante)</span>
+          </div>
+          <span class="resumao-seta">→</span>
+          <div class="resumao-bloco">
+            <strong>Durante a sessão</strong>
+            <span>6 momentos, 5 habilidades destravadas, 6 arquivos prontos pra praticar</span>
+          </div>
+          <span class="resumao-seta">→</span>
+          <div class="resumao-bloco">
+            <strong>Você sai com</strong>
+            <span>Project estruturado · 1 DCF · 1 DRE · 1 ranking de produtos · 1 auditoria de contrato</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="roteiro-block">
+
+        <!-- MOMENTO 1 -->
+        <article class="roteiro-item" id="momento-1">
+          <div class="roteiro-head">
+            <div class="roteiro-numero">1<small>Hab. 1/10</small></div>
+            <div class="roteiro-conteudo">
+              <h4>Habilidade: tirar contexto da cabeça e estruturar em arquivo</h4>
+              <p>Criamos o Project "Restaurante" no Claude.ai. Você dita, a IA estrutura, salvamos <code>meu_contexto.md</code> e <code>plano_de_contas.md</code>. <strong>Sem isso, todo prompt depois sai fraco.</strong></p>
+            </div>
+            <div class="roteiro-meta">
+              <span class="modo-badge colab">Colaboração</span>
+              <span class="cenario-tag">L1 → L2</span>
+            </div>
+          </div>
+
+          <div class="momento-didatico">
+            <p class="md-aprende"><strong>O que você vai aprender aqui</strong>Estruturar o conhecimento do seu negócio em arquivos legíveis pela IA — pra que toda análise futura (DRE, MC, DCF, contrato) parta de uma base sólida, sem você precisar reexplicar contexto a cada conversa.</p>
+            <div class="momento-didatico-grid">
+              <div class="md-bloco">
+                <strong>Resultados esperados</strong>
+                <ul>
+                  <li>1 Project "Restaurante — Sociedade" criado no Claude.ai</li>
+                  <li><code>meu_contexto.md</code> com perfil dos 3 negócios + decisão imediata</li>
+                  <li><code>plano_de_contas.md</code> em cascata G4 com 12 grupos</li>
+                </ul>
+              </div>
+              <div class="md-bloco">
+                <strong>Por que importa pro seu papel</strong>
+                <p>Gestora que cobra o contador precisa falar a língua dele — e o plano de contas é o "alfabeto" da contabilidade. Sem ele, toda análise depois é chute. <strong>Quem domina o contexto, manda na conversa</strong>.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="momento-resumo">
+            <h5>Resumo deste momento</h5>
+            <div class="momento-resumo-grid">
+              <div class="mr-bloco"><strong>Você entra com</strong><span>Cabeça cheia de contexto sobre os 3 negócios</span></div>
+              <div class="mr-bloco"><strong>O que acontece</strong><span>Entrevista guiada pela IA → você responde → IA estrutura em arquivo</span></div>
+              <div class="mr-bloco"><strong>Você sai com</strong><span>2 arquivos no Project: contexto + plano de contas</span></div>
+            </div>
+
+            <div class="conhecimentos-bloco">
+              <h5>Conhecimentos fundamentais (clique pra ver)</h5>
+              <div class="conhecimentos-tags">
+                <button class="conhec-tag" data-termo="project">Project</button>
+                <button class="conhec-tag" data-termo="plano-contas">Plano de contas</button>
+                <button class="conhec-tag" data-termo="cmv">CMV</button>
+                <button class="conhec-tag" data-termo="pctfl">PCTFL</button>
+              </div>
+            </div>
+          </div>
+
+          <details class="roteiro-prompt">
+            <summary>Ver prompts pra copiar (1A: contexto · 1B: plano de contas)</summary>
+            <div class="roteiro-prompt-body">
+              <h5>Antes de colar</h5>
+              <ul>
+                <li>Claude.ai Pro ativo (USD 20/mês)</li>
+                <li>Criar Project novo chamado "Restaurante — Sociedade"</li>
+                <li>Baixar o <a href="exemplos/05-plano-contas-restaurante.xlsx" download>Arquivo 5 (plano de contas)</a> como referência</li>
+              </ul>
+
+              <details class="sub-prompt">
+                <summary>Prompt 1A — Entrevista pra montar <code>meu_contexto.md</code></summary>
+                <div class="pctfl-wrap">
+                  <button class="pctfl-copy" data-target="p1a">Copiar</button>
+                  <pre id="p1a"><b># PAPEL</b>
+Você é uma controller financeira sênior de PME brasileira, com 15 anos de experiência ajudando gestores não-técnicos a estruturar contexto de negócio antes de qualquer análise. Sua especialidade é fazer as perguntas certas, na ordem certa, para tirar contexto da cabeça do gestor e botar em arquivo reutilizável.
+
+<b># CONTEXTO</b>
+Estou montando um Project no Claude.ai para usar como minha "central de inteligência financeira" pessoal. Tenho 3 frentes simultâneas: (1) vou virar sócia de um restaurante em Fortaleza nos próximos meses — é a decisão mais pesada do momento; (2) gerencio financeiramente a banda de forró da minha família; (3) sou assessora comercial em uma corretora de seguros. Sou gestora não-técnica — uso Excel/Google Sheets — não sou contadora.
+
+<b># TAREFA</b>
+Conduza uma entrevista em 4 blocos. Faça uma pergunta por vez, espere minha resposta, só vá pra próxima. Se eu responder vago, peça pra detalhar. No fim, monte o meu_contexto.md em 6 seções (quem sou, os 3 negócios, pessoas envolvidas, decisão imediata, restrições, glossário do meu vocabulário).
+
+Bloco 1 — Quem sou eu
+Bloco 2 — Os 3 negócios (3-4 perguntas por negócio: o que é + tamanho, modelo de receita, principais custos, sazonalidade, risco principal)
+Bloco 3 — Decisão imediata (qual decisão + prazo)
+Bloco 4 — Restrições (LGPD, capital, conhecimento, tempo) + 3-5 termos do meu vocabulário
+
+<b># FORMATO</b>
+Markdown estruturado, pronto pra eu salvar como arquivo de conhecimento do Project.
+
+<b># LIMITE</b>
+- NÃO invente dados que eu não te dei. Se eu não souber, marque [PREENCHER].
+- NÃO pule perguntas. Se eu responder vago, peça pra detalhar.
+- NÃO faça mais de 15 perguntas no total.
+
+Comece pelo Bloco 1, pergunta 1.</pre>
+                </div>
+              </details>
+
+              <details class="sub-prompt">
+                <summary>Prompt 1B — Montar <code>plano_de_contas.md</code></summary>
+                <div class="pctfl-wrap">
+                  <button class="pctfl-copy" data-target="p1b">Copiar</button>
+                  <pre id="p1b"><b># PAPEL</b>
+Você continua como controller financeira sênior. Agora vai me ajudar a montar o plano_de_contas.md do restaurante usando a DRE em cascata padrão G4 (Julian Tonioli, Fundamentos em Finanças) adaptada à realidade de um restaurante de bairro brasileiro.
+
+<b># CONTEXTO</b>
+Já temos o meu_contexto.md do Project. Agora preciso da estrutura de contas que vai sustentar TODA análise financeira do restaurante — DRE mensal, MC por prato, DCF da sociedade, fluxo de caixa. Quero que seja em cascata, adaptável (vai reutilizar com pequenas trocas pra banda e corretora) e didática.
+
+<b># TAREFA</b>
+Monte o plano_de_contas.md com a estrutura DRE em cascata G4 em 12 grupos:
+1. Receita Bruta (salão, delivery, eventos)
+2. Deduções
+3. Receita Líquida
+4. CMV / Custos Diretos
+5. Margem de Contribuição
+6. Custos Fixos
+7. EBITDA
+8. Depreciação e Amortização
+9. EBIT
+10. Resultado Financeiro
+11. Impostos sobre Lucro
+12. Resultado Líquido
+
+Pra cada categoria: nome em negrito + o que é (1 frase) + exemplos típicos restaurante (3-4) + adaptação banda (1 linha) + adaptação corretora (1 linha) + ⚠️ alerta tributário quando aplicável.
+
+<b># FORMATO</b>
+Markdown único, organizado em "Estrutura em cascata" + "Detalhamento" + "Convenção de nomenclatura" + "⚠️ Alertas tributários".
+
+<b># LIMITE</b>
+- NÃO invente alíquotas. Marque ⚠️ confira na fonte oficial.
+- NÃO use jargão sem explicação.
+- NÃO crie mais de 12 grupos principais.
+
+Pode começar.</pre>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <div class="exercicio-casa">
+            <strong>Exercício de casa</strong>
+            <p><strong>Camada 1 (básico):</strong> baixar o <a href="exemplos/01-fluxo-caixa-restaurante-3meses.xlsx" download>fluxo de caixa de 90 dias</a> e perguntar ao Claude (com o Project rodando): "categorize estes lançamentos no meu plano de contas". <strong>Confira amostra de 5 linhas</strong>.</p>
+            <p><strong>Camada 2 (desafio):</strong> achar as 2 anomalias plantadas no fluxo (1 lançamento duplicado + 1 CAPEX classificado errado como despesa). Sinalizar pra IA o que ela errou.</p>
+          </div>
+
+          <div class="marco-progresso">
+            <span class="marco-check">✓</span>
+            <strong>Marco de progresso:</strong> <span>Habilidade 1 de 10 destravada — Categorizar despesas + Plano de Contas</span>
+            <span class="marco-prox">Próxima: Habilidade 2 → DCF da sociedade ★</span>
+          </div>
+        </article>
+
+        <!-- MOMENTO 2 (DCF — estrela) -->
+        <article class="roteiro-item estrela" id="momento-2">
+          <div class="roteiro-head">
+            <div class="roteiro-numero">2<small>Hab. 2/10 ★</small></div>
+            <div class="roteiro-conteudo">
+              <h4>Habilidade: analisar viabilidade de investimento com DCF</h4>
+              <p>O cenário-âncora. VPL + TIR + payback descontado da sua cota no restaurante, em 3 cenários. <strong>Você sai com método pra aplicar a qualquer decisão de investimento dali pra frente.</strong></p>
+            </div>
+            <div class="roteiro-meta">
+              <span class="modo-badge colab">Colaboração</span>
+              <span class="cenario-tag">L2</span>
+            </div>
+          </div>
+
+          <div class="momento-didatico">
+            <p class="md-aprende"><strong>O que você vai aprender aqui</strong>Pegar uma decisão de investimento real (R$ 180k pra virar sócia de 25% do restaurante) e responder COM MÉTODO se vale a pena — em vez de "no feeling" ou de pagar consultoria. A técnica é o DCF, e ela serve pra TODA decisão de aporte que vier no seu caminho.</p>
+            <div class="momento-didatico-grid">
+              <div class="md-bloco">
+                <strong>Resultados esperados</strong>
+                <ul>
+                  <li><code>premissas_dcf.md</code> com 6 famílias de premissas capturadas</li>
+                  <li>Planilha com 3 cenários (estresse, base, otimista) e VPL/TIR/payback de cada</li>
+                  <li>Parecer executivo de 1 página pra reunião com sócio</li>
+                  <li>5 perguntas críticas pra fazer ANTES de assinar</li>
+                </ul>
+              </div>
+              <div class="md-bloco">
+                <strong>Por que importa pro seu papel</strong>
+                <p>Sócia minoritária sem método vira refém da narrativa do operador. <strong>Quem chega na reunião com VPL, TIR e payback na mão vira a voz que decide</strong> — não a voz que escuta. Habilidade que serve daqui pra qualquer aporte: 2ª unidade, compra de equipamento, virar sócia em outro negócio.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="momento-resumo">
+            <h5>Resumo deste momento</h5>
+            <div class="momento-resumo-grid">
+              <div class="mr-bloco"><strong>Você entra com</strong><span>Cota R$, lucro projetado, TMA, prazo de análise</span></div>
+              <div class="mr-bloco"><strong>O que acontece</strong><span>Captura de premissas (2A) → modelo DCF 3 cenários (2B) → parecer 1 página (2C)</span></div>
+              <div class="mr-bloco"><strong>Você sai com</strong><span>Planilha 3 cenários + parecer pra reunião com sócio</span></div>
+            </div>
+
+            <div class="conhecimentos-bloco">
+              <h5>Conhecimentos fundamentais (clique pra ver)</h5>
+              <div class="conhecimentos-tags">
+                <button class="conhec-tag" data-termo="vpl">VPL</button>
+                <button class="conhec-tag" data-termo="tir">TIR</button>
+                <button class="conhec-tag" data-termo="payback">Payback descontado</button>
+                <button class="conhec-tag" data-termo="tma">TMA</button>
+                <button class="conhec-tag" data-termo="sensibilidade">Sensibilidade</button>
+                <button class="conhec-tag" data-termo="dcf">DCF</button>
+              </div>
+            </div>
+          </div>
+
+          <details class="roteiro-prompt">
+            <summary>Ver prompts pra copiar (2A: premissas · 2B: modelo · 2C: parecer)</summary>
+            <div class="roteiro-prompt-body">
+              <h5>Antes de colar</h5>
+              <ul>
+                <li>Momento 1 feito (Project com contexto + plano de contas)</li>
+                <li>Baixar o <a href="exemplos/04-premissas-dcf-sociedade.xlsx" download>Arquivo 4 (premissas DCF)</a> pra ter números de referência</li>
+                <li><strong>Decisão:</strong> usa números reais do restaurante OU usa os fictícios do Arquivo 4 (cota R$ 180k · lucro distribuível R$ 7k/mês · TMA 19% a.a.)</li>
+              </ul>
+
+              <details class="sub-prompt">
+                <summary>Prompt 2A — Capturar premissas (6 famílias)</summary>
+                <div class="pctfl-wrap">
+                  <button class="pctfl-copy" data-target="p2a">Copiar</button>
+                  <pre id="p2a"><b># PAPEL</b>
+Você é analista de M&amp;A júnior especializado em PME brasileira, treinado pelo framework do André Borges (DCF simplificado pra negócio fechado, sem CAPM nem WACC). Vai capturar premissas pra eu rodar análise de viabilidade da minha entrada como sócia de um restaurante em Fortaleza.
+
+Decisão de sociedade não tolera premissa frouxa. Premissa errada = decisão errada. Você vai me forçar a clareza onde eu tentar passar batido.
+
+<b># CONTEXTO</b>
+Project "Restaurante — Sociedade" com meu_contexto.md e plano_de_contas.md já salvos. Vamos capturar as 6 famílias de premissas:
+1. Cota — quanto aporto em R$ e qual % da sociedade
+2. Fluxo de caixa esperado — lucro mensal distribuível
+3. TMA — custo de oportunidade + prêmio de risco
+4. Horizonte de análise — 5 anos é padrão PME
+5. Cenários — pessimista / base / otimista
+6. Saídas e cláusulas contratuais — multa de saída, distribuição, herdeiros
+
+<b># TAREFA</b>
+Conduza captura em 6 blocos (um por família). Pra cada bloco:
+1. Explique em 1 frase por que essa premissa importa (didático, sou gestora não-técnica)
+2. Faça as perguntas — uma por mensagem
+3. Se eu responder com gap, aponte ANTES de seguir
+4. No fim de cada bloco, recapitule em 3-4 linhas
+
+<b># FORMATO</b>
+No fim, gere o premissas_dcf.md pronto pra salvar.
+
+<b># LIMITE</b>
+- NÃO assuma valores. Se eu não souber, marque [PREENCHER após confirmar com sócio/contrato].
+- NÃO use CAPM, WACC ou beta. TMA = CDB + prêmio simples. É PME, não bolsa.
+- NÃO sugira valor terminal / perpetuidade.
+- NÃO pule a Família 6. É onde a maioria das sociedades quebra.
+
+Comece pela Família 1.</pre>
+                </div>
+              </details>
+
+              <details class="sub-prompt">
+                <summary>Prompt 2B — Montar modelo VPL + TIR + payback em 3 cenários</summary>
+                <div class="pctfl-wrap">
+                  <button class="pctfl-copy" data-target="p2b">Copiar</button>
+                  <pre id="p2b"><b># PAPEL</b>
+Você agora é analista de modelagem financeira. Vai pegar as premissas do premissas_dcf.md e construir o modelo DCF em 3 cenários, com VPL, TIR e payback descontado pra cada um.
+
+<b># CONTEXTO</b>
+Project "Restaurante — Sociedade". premissas_dcf.md nos arquivos do Project. Modelar a entrada como sócia: aporte único hoje (mês 0, negativo) e fluxos mensais distribuíveis (positivos).
+
+<b># TAREFA</b>
+Construa o modelo em 3 cenários (pessimista / base / otimista):
+1. Linha do tempo do fluxo (mês a mês): mês 0 = aporte (negativo); meses 1 a N = lucro distribuível mensal (positivo, ajustado pelo cenário)
+2. VPL pra cada cenário: VPL = Σ (Fluxo_t / (1+TMA_mensal)^t) − Aporte
+   ⚠️ **Converter TMA anual → mensal por composição:** TMA_mensal = (1+TMA_anual)^(1/12) − 1. NÃO usar TMA_anual / 12 (essa aproximação infla VPL em ~5-8%).
+3. TIR pra cada cenário: taxa que zera VPL. Reportar mensal E anual.
+4. Payback descontado: mês em que VPL acumulado vira positivo. Se não virar, reportar "payback > horizonte".
+5. Tabela comparativa final (3 cenários × 4 métricas + decisão preliminar).
+
+<b># FORMATO</b>
+3 partes: tabela mensal · cálculos passo a passo do BASE · tabela comparativa final.
+Se eu pedir, gere CSV pra colar no Sheets/Excel.
+
+<b># LIMITE</b>
+- NÃO chute premissa. Use o premissas_dcf.md. Falta dado, pare e pergunte.
+- NÃO recomende decisão final. Apresente números + decisão preliminar por cenário.
+- NÃO use CAPM, WACC, valor terminal.
+
+⚠️ Anti-alucinação: alíquota IR sobre lucro distribuído OU Simples Nacional embutido → marcar ⚠️ e "confirmar com contador".
+
+Comece pelo BASE.</pre>
+                </div>
+              </details>
+
+              <details class="sub-prompt">
+                <summary>Prompt 2C — Sensibilidade + parecer executivo de 1 página</summary>
+                <div class="pctfl-wrap">
+                  <button class="pctfl-copy" data-target="p2c">Copiar</button>
+                  <pre id="p2c"><b># PAPEL</b>
+Você agora é advisor financeiro PME sênior, com voz clara e direta. Vai (1) estressar o modelo e (2) escrever um parecer executivo de 1 página que eu levo pra reunião com sócio (e mostro pro contador).
+
+<b># CONTEXTO</b>
+Modelo DCF dos 3 cenários pronto (output do 2B). Premissas em premissas_dcf.md.
+
+<b># TAREFA</b>
+Parte 1 — Análise de sensibilidade no cenário BASE:
+- Variar UMA premissa por vez em ±10%, ±20%, ±30% e reportar mudança no VPL
+- Variáveis: lucro distribuível mensal, TMA, horizonte
+- Apontar qual variável o modelo é MAIS sensível
+
+Parte 2 — Parecer executivo de 1 página:
+- Cabeçalho: aporte, %, horizonte, TMA
+- Resumo executivo (3 linhas)
+- Tabela de resultados por cenário (VPL, TIR, payback)
+- Onde o modelo é mais frágil
+- 5 perguntas críticas pra fazer ao sócio antes de assinar
+- Seção "anti-alucinação / o que confirmar antes de fechar"
+- Recomendação preliminar (1 parágrafo curto)
+
+<b># FORMATO</b>
+Markdown pronto pra colar em parecer_executivo.md. Cabe em 1 página A4.
+
+<b># LIMITE</b>
+- NÃO mais de 1 página.
+- NÃO use jargão (DCF, VPL, TIR, payback) sem tradução na 1ª ocorrência.
+- NÃO recomendação categórica. Linguagem condicional baseada em cenário.
+- NÃO tire as 5 perguntas. É o ativo mais valioso do parecer.
+
+Comece pela sensibilidade.</pre>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <div class="exercicio-casa">
+            <strong>Exercício de casa</strong>
+            <p><strong>Camada 1 (básico):</strong> abrir o <a href="exemplos/04-premissas-dcf-sociedade.xlsx" download>Arquivo 4 (DCF)</a> no Excel/Sheets e mudar a TMA de 19% para 22%. Ver o que acontece com VPL e TIR. Anotar a leitura.</p>
+            <p><strong>Camada 2 (desafio):</strong> trazer dado real do restaurante (cota e lucro mensal projetado) e refazer o DCF. Comparar VPL real × VPL do exemplo fictício. Levar o parecer impresso pra reunião com sócio.</p>
+          </div>
+
+          <div class="marco-progresso">
+            <span class="marco-check">✓</span>
+            <strong>Marco de progresso:</strong> <span>Habilidade 2 de 10 destravada — Analisar viabilidade de investimento com DCF</span>
+            <span class="marco-prox">Próxima: Habilidade 3 → Ler resultado mensal (DRE em cascata)</span>
+          </div>
+        </article>
+
+        <!-- MOMENTO 3 -->
+        <article class="roteiro-item" id="momento-3">
+          <div class="roteiro-head">
+            <div class="roteiro-numero">3<small>Hab. 3/10</small></div>
+            <div class="roteiro-conteudo">
+              <h4>Habilidade: ler o resultado mensal de um negócio (DRE em cascata)</h4>
+              <p>Você entrega números do mês. A IA estrutura na cascata G4 — receita → MC → EBITDA → margem líquida — e escreve a interpretação executiva. <strong>Vale pro restaurante hoje, pro próximo negócio amanhã.</strong></p>
+            </div>
+            <div class="roteiro-meta">
+              <span class="modo-badge colab">Colaboração</span>
+              <span class="cenario-tag">L2</span>
+            </div>
+          </div>
+
+          <div class="momento-didatico">
+            <p class="md-aprende"><strong>O que você vai aprender aqui</strong>Transformar movimentação bagunçada (extrato + lançamentos) em DRE em cascata G4 estruturada, com 4 margens em % e narrativa pronta pra mandar pro sócio. Habilidade replicável: você roda no mesmo formato todo dia 5 do mês.</p>
+            <div class="momento-didatico-grid">
+              <div class="md-bloco">
+                <strong>Resultados esperados</strong>
+                <ul>
+                  <li>DRE em cascata G4 com 4 margens (bruta, contribuição, EBITDA, líquida)</li>
+                  <li>3 linhas pra investigar (anomalia / % fora do esperado / não classificado)</li>
+                  <li>Narrativa OIA (Observação → Insight → Ação) de 1 página A4</li>
+                </ul>
+              </div>
+              <div class="md-bloco">
+                <strong>Por que importa pro seu papel</strong>
+                <p>Gestora que recebe DRE do contador e não sabe ler vira refém. <strong>Quem lê DRE em 2 minutos identifica inconsistência antes do contador entregar</strong> — e cobra resposta. Essa é A habilidade que distingue gerente sênior de gerente júnior em qualquer negócio.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="momento-resumo">
+            <h5>Resumo deste momento</h5>
+            <div class="momento-resumo-grid">
+              <div class="mr-bloco"><strong>Você entra com</strong><span>Movimentação de 1 mês (arquivo 1 ou dado real)</span></div>
+              <div class="mr-bloco"><strong>O que acontece</strong><span>IA categoriza no plano de contas → monta DRE em cascata G4 → escreve narrativa OIA</span></div>
+              <div class="mr-bloco"><strong>Você sai com</strong><span>DRE + narrativa executiva pra mandar pro sócio</span></div>
+            </div>
+
+            <div class="conhecimentos-bloco">
+              <h5>Conhecimentos fundamentais (clique pra ver)</h5>
+              <div class="conhecimentos-tags">
+                <button class="conhec-tag" data-termo="dre">DRE</button>
+                <button class="conhec-tag" data-termo="mc">MC</button>
+                <button class="conhec-tag" data-termo="ebitda">EBITDA</button>
+                <button class="conhec-tag" data-termo="ebit">EBIT</button>
+                <button class="conhec-tag" data-termo="oia">OIA</button>
+                <button class="conhec-tag" data-termo="margem-bruta">Margem Bruta</button>
+              </div>
+            </div>
+          </div>
+
+          <details class="roteiro-prompt">
+            <summary>Ver prompts pra copiar (3A: DRE · 3B: narrativa OIA)</summary>
+            <div class="roteiro-prompt-body">
+              <h5>Antes de colar</h5>
+              <ul>
+                <li>Project "Restaurante" pronto (Momento 1)</li>
+                <li>Baixar <a href="exemplos/01-fluxo-caixa-restaurante-3meses.xlsx" download>fluxo de caixa</a> e <a href="exemplos/02-dre-cascata-g4-restaurante.xlsx" download>DRE de referência</a></li>
+                <li><strong>Como usar o arquivo de exemplo:</strong> cole UM mês isolado da aba "Fluxo Diário" (ex: só março de 2026 — filtra na coluna Data). Pra DRE comparativa de 3 meses lado a lado, abra a aba "Resumo Mensal" do Arquivo 2 — já está pronta.</li>
+                <li><strong>LGPD:</strong> anonimizar nome de cliente/fornecedor (<code>CLIENTE_A</code>, <code>FORNEC_B</code>)</li>
+              </ul>
+
+              <details class="sub-prompt">
+                <summary>Prompt 3A — Estruturar DRE em cascata G4</summary>
+                <div class="pctfl-wrap">
+                  <button class="pctfl-copy" data-target="p3a">Copiar</button>
+                  <pre id="p3a"><b># PAPEL</b>
+Você é controller financeira sênior, especializada em DRE em cascata padrão G4 (Julian Tonioli). Sua função é pegar movimentação bruta de 1 mês de restaurante e transformar em DRE estruturada em cascata, didática, replicável.
+
+<b># CONTEXTO</b>
+Project "Restaurante — Sociedade". meu_contexto.md e plano_de_contas.md já no Project. Vou colar 1 mês de movimentação. Quero a DRE no modelo G4 em cascata, com TODAS as margens em %, formato replicável.
+
+<b># TAREFA</b>
+1. Categorize cada linha da movimentação nas contas do plano. Linha que não couber → [A_CLASSIFICAR]. Linha ambígua → escolha a mais provável + ⚠️ revisar.
+
+2. Monte a DRE em cascata G4:
+- Faturamento Bruto
+- (−) Deduções
+- = Receita Líquida
+- (−) CMV / Custos Diretos
+- = Lucro Bruto + Margem Bruta %
+- (−) Despesas Variáveis
+- = Margem de Contribuição + MC %
+- (−) Custos Fixos
+- = EBITDA + Margem EBITDA %
+- (−) Depreciação
+- = EBIT
+- (−) Resultado Financeiro
+- (−) Impostos sobre Lucro
+- = Resultado Líquido + Margem Líquida %
+
+3. Apresente em 3 partes: A. Tabela da DRE · B. Tabela de margens em % com benchmark setorial sugerido ⚠️ · C. 3 linhas que merecem investigação.
+
+<b># FORMATO</b>
+Markdown com cabeçalho + 3 partes (A, B, C) + seção ⚠️ Anti-alucinação.
+
+<b># LIMITE</b>
+- NÃO invente benchmark setorial específico. Use faixas + ⚠️.
+- NÃO calcule alíquota Simples Nacional sem ⚠️.
+- NÃO crie linha que não existe na movimentação.
+
+Aqui está a movimentação:
+[COLAR AQUI — CSV, planilha, lista de lançamentos]</pre>
+                </div>
+              </details>
+
+              <details class="sub-prompt">
+                <summary>Prompt 3B — Narrativa executiva (framework OIA)</summary>
+                <div class="pctfl-wrap">
+                  <button class="pctfl-copy" data-target="p3b">Copiar</button>
+                  <pre id="p3b"><b># PAPEL</b>
+Você é controller comunicadora — sabe traduzir DRE em narrativa que sócio e família entendem em 2 minutos. Você usa o framework OIA: Observação → Insight → Ação.
+
+<b># CONTEXTO</b>
+DRE em cascata G4 do mês está pronta (output do Prompt 3A). Quero transformar em narrativa executiva de 1 página pra mandar pro sócio operador todo dia 5 do mês seguinte. O sócio NÃO é financeiro.
+
+<b># TAREFA</b>
+Gere 3 blocos aplicando OIA:
+
+Bloco 1 — O mês em 3 linhas
+- Faturamento + crescimento vs mês anterior
+- Lucro líquido + margem líquida
+- Destaque positivo OU alerta principal
+
+Bloco 2 — Os 3 alertas (das 3 linhas pra investigar do 3A) transformados em OIA:
+> Alerta 1 — [nome curto]
+> Observação: o que os números mostram (1 frase factual)
+> Insight: o que provavelmente significa (1-2 frases, hipótese)
+> Ação sugerida: o que fazer no próximo mês (1 frase concreta)
+
+Bloco 3 — Comparativo rápido: este mês × mês anterior × meta × status (↑/↓)
+
+<b># LIMITE</b>
+- NÃO use "EBITDA", "DRE", "CMV" sem tradução na 1ª ocorrência.
+- NÃO mais de 1 página A4.
+- NÃO transforme alerta em recomendação categórica.
+
+Pode começar.</pre>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <div class="exercicio-casa">
+            <strong>Exercício de casa</strong>
+            <p><strong>Camada 1 (básico):</strong> abrir a <a href="exemplos/02-dre-cascata-g4-restaurante.xlsx" download>DRE de exemplo</a>, ler a aba "Indicadores" e identificar: qual é a margem EBITDA? Está saudável pra restaurante? Pergunta pra IA depois.</p>
+            <p><strong>Camada 2 (desafio):</strong> rodar a DRE de UM mês de outro negócio (banda OU corretora) — usar o mesmo método, só trocando o plano de contas. Confirma que a habilidade pegou.</p>
+          </div>
+
+          <div class="marco-progresso">
+            <span class="marco-check">✓</span>
+            <strong>Marco de progresso:</strong> <span>Habilidade 3 de 10 destravada — Ler resultado mensal via DRE em cascata</span>
+            <span class="marco-prox">Próxima: Habilidade 4 → MC dos produtos</span>
+          </div>
+        </article>
+
+        <!-- MOMENTO 4 -->
+        <article class="roteiro-item" id="momento-4">
+          <div class="roteiro-head">
+            <div class="roteiro-numero">4<small>Hab. 4/10</small></div>
+            <div class="roteiro-conteudo">
+              <h4>Habilidade: saber qual produto realmente dá lucro (MC)</h4>
+              <p>Você lista 5 pratos (preço + custo direto + volume). A IA calcula MC unitária e total. <strong>Você sai sabendo qual sustenta a casa e qual engana.</strong> Mesma técnica pra show de banda, apólice de corretora, qualquer produto.</p>
+            </div>
+            <div class="roteiro-meta">
+              <span class="modo-badge auto">Autopiloto</span>
+              <span class="cenario-tag">L1</span>
+            </div>
+          </div>
+
+          <div class="momento-didatico">
+            <p class="md-aprende"><strong>O que você vai aprender aqui</strong>Quebrar a ilusão do "esse prato é caro, então deve dar lucro" e responder com dado: cada produto tem MC unitária, MC %, MC total — e os 3 contam histórias diferentes. Habilidade que vale pra cardápio de restaurante, line-up da banda, mix de apólices da corretora.</p>
+            <div class="momento-didatico-grid">
+              <div class="md-bloco">
+                <strong>Resultados esperados</strong>
+                <ul>
+                  <li>Tabela com 5 pratos ranqueada por MC total mensal</li>
+                  <li>Diagnóstico por prato: 🟢 Push · 🔴 Cut · 🟡 Manter</li>
+                  <li>3 ações concretas (uma por categoria) com métrica e risco</li>
+                </ul>
+              </div>
+              <div class="md-bloco">
+                <strong>Por que importa pro seu papel</strong>
+                <p>Empresário(a) que decide cardápio "no feeling" perde dinheiro silenciosamente. <strong>Quem tem MC na cabeça nunca mais pensa "vamos cortar isso" sem antes ver o impacto real</strong>. Vira a voz da racionalidade dentro do negócio — e isso aparece em qualquer reunião de mix de produto.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="momento-resumo">
+            <h5>Resumo deste momento</h5>
+            <div class="momento-resumo-grid">
+              <div class="mr-bloco"><strong>Você entra com</strong><span>5 pratos com preço, custo direto, volume mensal</span></div>
+              <div class="mr-bloco"><strong>O que acontece</strong><span>IA calcula MC unit + MC % + MC total · ranqueia · sugere 3 ações</span></div>
+              <div class="mr-bloco"><strong>Você sai com</strong><span>Ranking + 3 ações (push / cut / manter) pra próxima reunião</span></div>
+            </div>
+
+            <div class="conhecimentos-bloco">
+              <h5>Conhecimentos fundamentais (clique pra ver)</h5>
+              <div class="conhecimentos-tags">
+                <button class="conhec-tag" data-termo="mc">MC</button>
+                <button class="conhec-tag" data-termo="mc-unit">MC unitária</button>
+                <button class="conhec-tag" data-termo="mc-perc">MC %</button>
+                <button class="conhec-tag" data-termo="custo-var">Custo variável vs fixo</button>
+              </div>
+            </div>
+          </div>
+
+          <details class="roteiro-prompt">
+            <summary>Ver prompt pra copiar</summary>
+            <div class="roteiro-prompt-body">
+              <h5>Antes de colar</h5>
+              <ul>
+                <li>Project "Restaurante" pronto</li>
+                <li>Baixar o <a href="exemplos/03-cinco-pratos-mc.xlsx" download>Arquivo 3 (5 pratos MC)</a> como referência ou trazer dados reais de 5 pratos</li>
+                <li>Faltou ficha técnica? Estima + marca <code>[PREENCHER após confirmar com cozinha]</code></li>
+              </ul>
+
+              <div class="pctfl-wrap">
+                <button class="pctfl-copy" data-target="p4">Copiar</button>
+                <pre id="p4"><b># PAPEL</b>
+Você é analista de custos especializado em food service brasileiro. Vai calcular Margem de Contribuição (MC) por prato e gerar ranking + recomendação prática.
+
+Framework: MC do G4 + André Borges:
+- MC unitária = Preço de venda − Custos variáveis unitários
+- MC % = MC unitária / Preço de venda
+- MC total mensal = MC unitária × volume
+- Pratos vencem por TRÊS critérios juntos: MC unitária, MC %, MC total
+
+<b># CONTEXTO</b>
+Project "Restaurante — Sociedade". Vou colar 5 pratos âncora.
+
+Importante:
+- Comissão garçom é custo VARIÁVEL (entra em MC).
+- Taxa de cartão (~3%) é custo VARIÁVEL.
+- Aluguel, salário cozinha, marketing → NÃO entram aqui (fixos).
+
+<b># TAREFA</b>
+1. Calcule pra cada prato: MC unit (R$), MC %, MC total mensal
+2. Tabela ranqueada por MC total mensal
+3. Identifique 3 categorias:
+   🟢 Push — alta MC % E alta MC total
+   🔴 Cut — MC % baixa OU MC negativa
+   🟡 Manter — MC OK, sem urgência
+4. 3 ações concretas com: o que fazer · como medir · cuidado
+
+<b># FORMATO</b>
+Markdown com inputs + ranking + diagnóstico por prato + 3 ações + ⚠️ Anti-alucinação.
+
+<b># LIMITE</b>
+- NÃO recomende "tire do cardápio" sem propor teste prévio (2-4 semanas).
+- NÃO inclua custos fixos no cálculo de MC.
+- NÃO chute taxa cartão / comissão sem ⚠️.
+- NÃO mais que 3 ações.
+
+Aqui estão os 5 pratos:
+
+[COLAR AQUI — exemplo:
+1. Filé à parmegiana — preço R$ 58 · insumo R$ 18 · comissão 10% · cartão 3% · volume 240/mês
+2. ...]</pre>
+              </div>
+            </div>
+          </details>
+
+          <div class="exercicio-casa">
+            <strong>Exercício de casa</strong>
+            <p><strong>Camada 1 (básico):</strong> rodar o prompt com os 5 pratos do <a href="exemplos/03-cinco-pratos-mc.xlsx" download>Arquivo 3</a>. Comparar ranking que a IA dá com o ranking já calculado no XLSX. Bate?</p>
+            <p><strong>Camada 2 (desafio):</strong> trazer dados reais de 5 pratos do seu restaurante (com cozinha) e ranquear. Discutir com o sócio: qual prato sai do cardápio em fevereiro?</p>
+          </div>
+
+          <div class="marco-progresso">
+            <span class="marco-check">✓</span>
+            <strong>Marco de progresso:</strong> <span>Habilidade 4 de 10 destravada — Identificar qual produto realmente dá lucro</span>
+            <span class="marco-prox">Próxima: Habilidade 5 → Auditoria de contrato</span>
+          </div>
+        </article>
+
+        <!-- MOMENTO 5 -->
+        <article class="roteiro-item" id="momento-5">
+          <div class="roteiro-head">
+            <div class="roteiro-numero">5<small>Hab. 5/10</small></div>
+            <div class="roteiro-conteudo">
+              <h4>Habilidade: digerir documento longo com fonte citada (NotebookLM)</h4>
+              <p>Joga o contrato da sociedade no NotebookLM. Pergunta cláusulas de saída, quórum, distribuição, multa. <strong>Ele responde citando a página exata</strong> — não inventa porque é obrigado a apontar a fonte.</p>
+            </div>
+            <div class="roteiro-meta">
+              <span class="modo-badge colab">Colaboração</span>
+              <span class="cenario-tag">L1</span>
+            </div>
+          </div>
+
+          <div class="momento-didatico">
+            <p class="md-aprende"><strong>O que você vai aprender aqui</strong>Auditar um contrato de 15+ páginas em 10 minutos — sem advogado em todo passo. Cada resposta vem com citação clicável (página exata). Habilidade que vale pra apólice de seguro, contrato de show, contrato de aluguel, legislação tributária.</p>
+            <div class="momento-didatico-grid">
+              <div class="md-bloco">
+                <strong>Resultados esperados</strong>
+                <ul>
+                  <li>10 perguntas-chave respondidas com citação literal + nº página</li>
+                  <li>Auditoria classificada 🟢 clara · 🟡 negociar · 🔴 ambíguo</li>
+                  <li>Pelo menos 3 pontos críticos pra levar pro advogado</li>
+                </ul>
+              </div>
+              <div class="md-bloco">
+                <strong>Por que importa pro seu papel</strong>
+                <p>Sócia minoritária sem leitura crítica do contrato vira refém de cláusula ambígua. <strong>Quem chega no advogado com auditoria pronta paga menos hora e pergunta melhor</strong>. Esse é o filtro que separa quem assina por desespero de quem assina por escolha consciente.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="momento-resumo">
+            <h5>Resumo deste momento</h5>
+            <div class="momento-resumo-grid">
+              <div class="mr-bloco"><strong>Você entra com</strong><span>Contrato de sociedade em PDF (anonimizado se tiver CPF)</span></div>
+              <div class="mr-bloco"><strong>O que acontece</strong><span>Sobe no NotebookLM → faz 10 perguntas-chave → IA responde com citação literal + nº página</span></div>
+              <div class="mr-bloco"><strong>Você sai com</strong><span>Auditoria do contrato com 🟢🟡🔴 + pontos críticos pro advogado</span></div>
+            </div>
+
+            <div class="conhecimentos-bloco">
+              <h5>Conhecimentos fundamentais (clique pra ver)</h5>
+              <div class="conhecimentos-tags">
+                <button class="conhec-tag" data-termo="notebooklm">NotebookLM</button>
+                <button class="conhec-tag" data-termo="audio-overview">Audio Overview</button>
+                <button class="conhec-tag" data-termo="lockup">Lock-up</button>
+                <button class="conhec-tag" data-termo="quorum">Quórum</button>
+              </div>
+            </div>
+          </div>
+
+          <details class="roteiro-prompt">
+            <summary>Ver 10 perguntas-chave de auditoria de contrato</summary>
+            <div class="roteiro-prompt-body">
+              <h5>Antes de colar</h5>
+              <ul>
+                <li>Conta Google ativa</li>
+                <li>Contrato em PDF (versão mais recente) <strong>OU</strong> use o <a href="exemplos/06-contrato-sociedade-restaurante-chr.pdf" download>Arquivo 6 — contrato fictício do Restaurante CHR</a> pra praticar</li>
+                <li>Acessar <code>notebooklm.google</code> → criar notebook → subir PDF como fonte</li>
+                <li><strong>LGPD:</strong> CPF → 000.000.000-00 antes de subir (no contrato real). No fictício isso já está feito.</li>
+                <li><strong>Como usar:</strong> cole UMA pergunta por vez. Sempre clique no <code>[N]</code> da citação pra ver o trecho original.</li>
+              </ul>
+
+              <div class="pctfl-wrap">
+                <button class="pctfl-copy" data-target="p5">Copiar as 10 perguntas</button>
+                <pre id="p5"><b># 10 perguntas pra colar UMA POR VEZ no NotebookLM</b>
+
+<b>1. Cláusulas de saída</b>
+Quais condições pra um sócio sair voluntariamente? Tem prazo de aviso prévio (lock-up)? Tem multa? Como é calculado o valor da cota na saída? Cite cláusula e página.
+
+<b>2. Quórum pra decisões estratégicas</b>
+Quais decisões precisam de aprovação de quantos % dos sócios? Diferencie: (a) operacional, (b) financeiras médias, (c) estratégicas (abrir nova unidade, vender, dissolver). Cite cláusula e página.
+
+<b>3. Política de distribuição de lucros</b>
+Como o lucro é distribuído? Proporcional à participação ou regra diferente? Qual frequência? Exige reserva legal antes? Cite cláusula e página.
+
+<b>4. Multa de saída e lock-up</b>
+Existe período mínimo em que sou obrigada a permanecer antes de vender minha cota? Se sair antes, qual penalidade? Cite cláusula e página.
+
+<b>5. Exclusividade / não-concorrência</b>
+O contrato exige que eu não tenha participação em outro negócio do mesmo ramo durante a sociedade ou depois? Cite cláusula e página.
+
+<b>6. Herança e sucessão</b>
+O que acontece com minha cota em caso de falecimento? Vai pros herdeiros? Eles viram sócios ou os remanescentes compram a cota? Cite cláusula e página.
+
+<b>7. Alteração de quotas / entrada de novo sócio</b>
+Como pode entrar um novo sócio? Sócios atuais têm direito de preferência? Existe regra contra diluição? Cite cláusula e página.
+
+<b>8. Dissolução da sociedade</b>
+Em quais situações pode ser dissolvida? Quem decide? Como bens e caixa são divididos? Como se trata dívida pendente? Cite cláusula e página.
+
+<b>9. Pró-labore e remuneração de sócios</b>
+Qual a regra de pró-labore? Fixo, variável, ou só distribuição de lucro? Sócios não-operadores recebem? Cite cláusula e página.
+
+<b>10. Solução de conflitos</b>
+Como conflitos entre sócios são resolvidos? Mediação, arbitragem, foro judicial? Em qual cidade? Cite cláusula e página.
+
+⚠️ Anti-alucinação: se responder SEM citação [N], NÃO confie. Refaça pedindo: "cite o número da cláusula e a página exata".
+
+⚠️ NotebookLM ≠ advogado. Toda cláusula ambígua → consulta jurídica antes da assinatura.</pre>
+              </div>
+            </div>
+          </details>
+
+          <div class="exercicio-casa">
+            <strong>Exercício de casa</strong>
+            <p><strong>Camada 1 (básico):</strong> usar o <a href="exemplos/06-contrato-sociedade-restaurante-chr.pdf" download>Arquivo 6 (contrato fictício do Restaurante CHR)</a> e rodar as 10 perguntas no NotebookLM. <strong>Tem 3 pegadinhas plantadas</strong> — você consegue identificar as 3 antes de seguir pro Camada 2?</p>
+            <p><strong>Camada 2 (desafio real):</strong> quando o contrato real do restaurante chegar, rodar as 10 perguntas. Compilar em auditoria_contrato_AAAA-MM-DD.md. Aplicar respostas das perguntas 3, 4 e 9 direto no DCF do Momento 2.</p>
+          </div>
+
+          <div class="marco-progresso">
+            <span class="marco-check">✓</span>
+            <strong>Marco de progresso:</strong> <span>Habilidade 5 de 10 destravada — Auditar documento longo com fonte citada</span>
+            <span class="marco-prox">Próximo: Vislumbre do horizonte L3</span>
+          </div>
+        </article>
+
+        <!-- MOMENTO 6 -->
+        <article class="roteiro-item" id="momento-6">
+          <div class="roteiro-head">
+            <div class="roteiro-numero">6<small>Vislumbre L3</small></div>
+            <div class="roteiro-conteudo">
+              <h4>Vislumbre: onde a habilidade chega em 6 meses</h4>
+              <p>Mostro a Planilha Sistema G4 (14 abas) e a estrutura "AI Finance Team com 5 papéis" do tutorial Anthropic. <strong>Você não faz agora</strong> — vê o teto pra entender o que está construindo.</p>
+            </div>
+            <div class="roteiro-meta">
+              <span class="modo-badge manual">Demonstração</span>
+              <span class="cenario-tag">L3</span>
+            </div>
+          </div>
+
+          <div class="momento-didatico">
+            <p class="md-aprende"><strong>O que você vai ver aqui</strong>O HORIZONTE — a configuração L3 onde 5 papéis especializados (Controller, FP&amp;A, Reporting, Deck Builder, Shared) conversam entre si e você atua como decisora. <strong>Não é alvo da S3</strong>; é referência pra você não confundir L2 sólido (a sua meta hoje) com L3 (6-12 meses).</p>
+            <div class="momento-didatico-grid">
+              <div class="md-bloco">
+                <strong>Resultados esperados</strong>
+                <ul>
+                  <li>Visão clara do destino L3 (AI Finance Team)</li>
+                  <li>Entendimento de que o L3 NÃO é alvo agora</li>
+                  <li>Roadmap pessoal: L3 entra quando virar dor real</li>
+                </ul>
+              </div>
+              <div class="md-bloco">
+                <strong>Por que importa pro seu papel</strong>
+                <p>Sem ver o teto, ou você se contenta com L1 (parando crescimento) ou se cobra L3 sem ter L2 (frustração). <strong>O vislumbre te calibra — sabe pra onde vai sem se apressar.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="momento-resumo">
+            <h5>Resumo deste momento</h5>
+            <div class="momento-resumo-grid">
+              <div class="mr-bloco"><strong>Você entra com</strong><span>5 habilidades L2 acabadas de praticar</span></div>
+              <div class="mr-bloco"><strong>O que acontece</strong><span>Demonstração da estrutura AI Finance Team em 5 papéis (controller, FP&amp;A, reporting, deck builder, shared)</span></div>
+              <div class="mr-bloco"><strong>Você sai com</strong><span>Visão do horizonte L3 + sabendo que NÃO precisa chegar lá agora</span></div>
+            </div>
+
+            <div class="conhecimentos-bloco">
+              <h5>Conhecimentos fundamentais (clique pra ver)</h5>
+              <div class="conhecimentos-tags">
+                <button class="conhec-tag" data-termo="ai-finance-team">AI Finance Team</button>
+                <button class="conhec-tag" data-termo="controller">Controller</button>
+                <button class="conhec-tag" data-termo="fpna">FP&amp;A</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="marco-progresso">
+            <span class="marco-check">✓</span>
+            <strong>Sessão completa:</strong> <span>5 habilidades destravadas na S3 (1 a 5 de 10)</span>
+            <span class="marco-prox">Restantes: 6 transversal · 7 casa · 8-10 em S4-S5+</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="callout" style="margin-top: 24px">
+        <strong>Critério editorial desta sessão:</strong> densidade &gt; volume. Don Vu, chefe de dados e análise da New York Life (seguradora americana), é direto: <em>"é como dar esteira de academia pra todo mundo e esperar que cure problema do coração"</em>. Acesso à ferramenta sem mindset não funciona. <strong>Cada um dos 6 momentos é uma habilidade que você leva embora</strong> — não um produto que fica no notebook.
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Ferramentas que você vai usar</p>
+      <h2>Stack mínimo: Claude.ai Pro como base — R$ 110/mês</h2>
+      <p>
+        Três ferramentas cobrem 80% do que você precisa em Finanças. Sem assinatura cara de plugin ou ERP enterprise. A base é Claude.ai Pro — onde os Projects vivem e o contexto fica.
+      </p>
+
+      <table class="stack-table">
+        <thead>
+          <tr>
+            <th>Quando</th>
+            <th>Ferramenta</th>
+            <th>Custo</th>
+            <th>Pra que serve no seu eixo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="stack-quando">Base — L1 a L2</td>
+            <td><strong>Claude.ai Pro</strong></td>
+            <td>USD 20 / ~R$ 110/mês</td>
+            <td>Projects (espaço persistente), DCF da sociedade, DRE com narrativa, MC de pratos. Modelo: <strong>Sonnet</strong> pro dia-a-dia, <strong>Opus</strong> pra análise pesada.</td>
+          </tr>
+          <tr>
+            <td class="stack-quando">Documentos longos — L1</td>
+            <td><strong>NotebookLM</strong></td>
+            <td>Gratuito</td>
+            <td>Contrato da sociedade, apólice, legislação. Cita a página exata onde encontrou a resposta. <em>Audio Overview</em> vira "podcast" do balancete pros sócios.</td>
+          </tr>
+          <tr>
+            <td class="stack-quando">Planilha aberta — L2</td>
+            <td><strong>Claude for Excel</strong></td>
+            <td>Complemento do Excel incluído no Pro</td>
+            <td>Valida fórmulas, restrutura abas, gera lançamentos a partir de lista. Trabalha junto com você na planilha. Instala uma vez — usa toda semana.</td>
+          </tr>
+          <tr>
+            <td class="stack-quando">Operacional — opcional</td>
+            <td><strong>Conta Azul</strong> / <strong>Nibo</strong> / <strong>Omie</strong></td>
+            <td>R$ 65–230/mês</td>
+            <td>ERP brasileiro com IA embarcada. Vale se o negócio quiser operar formalmente. <strong>Opcional pra S3</strong>.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout" style="margin-top: 22px">
+        <strong>Não entram no seu stack agora:</strong> Plugin Finance pago, e-Auditoria, OpenClaw, n8n caseiro, integrações de mercado tipo FactSet/S&P. São mundo enterprise ou exigem volume que você ainda não tem.
+      </div>
+    </div>
+  </section>
+
+  <!-- Protocolo Anti-Alucinação -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Protocolo crítico — não pule</p>
+      <h2>Onde IA mente em Finanças — e como você se protege</h2>
+      <p>
+        Finanças tem armadilha clássica: a IA produz número que <em>parece</em> certo. Você cola num e-mail, manda pro sócio, descobre depois que estava errado. Em tributário, o erro vira multa. Cinco regras pra você dormir tranquila.
+      </p>
+
+      <div class="callout danger">
+        <strong>Alerta tributário — Reforma 2026-2033 em transição.</strong> A reforma IBS/CBS está sendo implantada em fases até 2033. <strong>2026 é teste, 2027 entra em vigor pro Simples Nacional</strong>. Modelos de IA têm cutoff anterior — vão errar alíquota, errar cronograma e inventar artigos de lei. <strong>Nunca</strong> aceite cálculo tributário direto da IA sem passar pelo contador.
+      </div>
+
+      <table style="margin-top: 24px">
+        <thead>
+          <tr>
+            <th>Regra</th>
+            <th>O que fazer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Regra 1 — Imposto sempre passa pelo contador</strong></td>
+            <td>Alíquota, prazo, DAS/ISS/ICMS, IBS/CBS — IA propõe, contador valida na Receita Federal.</td>
+          </tr>
+          <tr>
+            <td><strong>Regra 2 — Confira amostra de 5 linhas</strong></td>
+            <td>Planilha categorizada por IA? Pega 5 linhas aleatórias e confere com extrato bruto antes de confiar no total. 2 min te salvam de erro caro.</td>
+          </tr>
+          <tr>
+            <td><strong>Regra 3 — Suspeite da confiança alta sem fonte</strong></td>
+            <td>Resposta de IA muito segura sem citar fonte é alerta vermelho. Pergunte: "qual a confiança? em que cenário esse cálculo estaria errado?".</td>
+          </tr>
+          <tr>
+            <td><strong>Regra 4 — Privacidade: anonimize antes</strong></td>
+            <td>CNPJ completo, folha com nome, extrato com CPF — só em ferramenta paga com política de não-treino (Claude Pro tem). Em gratuita, anonimize primeiro.</td>
+          </tr>
+          <tr>
+            <td><strong>Regra 5 — Lei sempre na fonte oficial</strong></td>
+            <td>Toda citação de artigo, alíquota ou prazo: confirme em Receita Federal, SEFAZ-CE ou Prefeitura de Fortaleza antes de virar ação.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Vislumbre — AI Finance Team -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">O teto do eixo — só pra você ver pra onde vai</p>
+      <h2>Em 6-12 meses: seu próprio time de IA financeiro</h2>
+      <p>
+        A Anthropic publicou um tutorial mostrando como times de finanças estão organizando IA em <strong>5 papéis especializados que conversam entre si</strong>, com coordenador e construtor de apresentação. Não é pra você fazer agora — é pra ver o destino possível.
+      </p>
+
+      <div class="vislumbre">
+        <p class="vislumbre-quando">Horizonte · pós-S8 ou ano 2</p>
+        <h3>A estrutura "AI Finance Team" reduzida pra você</h3>
+        <p>
+          Pasta única no seu Google Drive. Dentro: arquivos <code>.md</code> que descrevem cada papel + coordenador + construtor de apresentação. Cada papel lê o que veio antes e entrega pro próximo. <strong>Você sai do papel de "executar" pro papel de "decidir se a recomendação está certa".</strong>
+        </p>
+
+        <div class="arvore-svg">
+          <div class="arvore-grid">
+            <div class="arvore-raiz">
+              <span class="arvore-icon">📁</span>
+              <span>financas-debora/</span>
+            </div>
+            <div class="arvore-filhos">
+              <div class="arvore-node shared">
+                <div class="arvore-node-nome">📂 shared/</div>
+                <div class="arvore-node-papel">Contexto compartilhado — meu_contexto · plano_de_contas · premissas · calendario</div>
+              </div>
+              <div class="arvore-node">
+                <div class="arvore-node-nome">📂 controller/</div>
+                <div class="arvore-node-papel">Revisa, valida, categoriza lançamentos</div>
+              </div>
+              <div class="arvore-node">
+                <div class="arvore-node-nome">📂 fpna/</div>
+                <div class="arvore-node-papel">Projeta cenários, simula e gera decisão</div>
+              </div>
+              <div class="arvore-node">
+                <div class="arvore-node-nome">📂 reporting/</div>
+                <div class="arvore-node-papel">Escreve narrativa executiva pro sócio</div>
+              </div>
+              <div class="arvore-node">
+                <div class="arvore-node-nome">📂 deck_builder/</div>
+                <div class="arvore-node-papel">Vira apresentação .pptx pronta</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          O tutorial mostra com SaaS, mas a lógica vale pra restaurante, banda e corretora. Na S3 você cria o equivalente a 1 papel (controller) + a estrutura <code>shared/</code> básica. Em S4-S7 a gente vai expandindo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bibliografia -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Pra você ter de cabeceira</p>
+      <h2>5 recursos que valem ser sua biblioteca do eixo</h2>
+      <p>
+        Curadoria mínima. Mais que cinco vira ruído. Tudo aqui é gratuito ou ferramenta que você já vai assinar.
+      </p>
+
+      <ul class="biblio-list">
+        <li>
+          <strong>Livro G4 — Fundamentos em Finanças</strong> (Julian Tonioli, 58p)
+          <span class="biblio-tag">Material da mentoria</span>
+          <br>
+          Sua bibliografia formal. Frase que vai te servir o resto da vida: <em>"lucro e caixa são funções muito distintas — empresa pode estar lucrativa e quebrar por falta de caixa"</em> (p.29). Joga no NotebookLM e vira "professor de plantão".
+        </li>
+        <li>
+          <strong>Tutorial "Full Claude for Finance Beginner"</strong> (YouTube, ~25 min)
+          <span class="biblio-tag">Vídeo prático</span>
+          <br>
+          Os 3 Modes (Chat / Code / Co-work) + 8 Layers (Projects, Scheduled Tasks, Connectors, Skills, etc.) + caso real ponta-a-ponta de reconciliação.
+        </li>
+        <li>
+          <strong>NotebookLM</strong> (Google) — <code>notebooklm.google</code>
+          <span class="biblio-tag">Gratuito</span>
+          <br>
+          Sua segunda IA. Use pra digerir contrato de sociedade, apólice, legislação, livro G4. Cita a página onde achou a resposta. <em>Audio Overview</em> vira "podcast" pros sócios.
+        </li>
+        <li>
+          <strong>Blogs Dattos + Conta Azul</strong> — biblioteca pública de prompts financeiros BR
+          <span class="biblio-tag">Prompts BR</span>
+          <br>
+          <code>dattos.com.br/blog/prompt</code> e <code>contaazul.com/blog/prompts-chat-gpt</code>. Casos reais de gestor / contador BR.
+        </li>
+        <li>
+          <strong>Sebrae IA Negócios</strong> — recurso oficial pra PME
+          <span class="biblio-tag">Oficial BR</span>
+          <br>
+          <code>sebrae.com.br/sites/PortalSebrae/sebrae-ia</code>. Atualizado pro contexto BR, gratuito.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Checklist saída -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">No fim da S3 você sai com</p>
+      <h2>Checklist de habilidades adquiridas</h2>
+      <p>
+        Cada item é uma <strong>habilidade praticada num caso real</strong> — não um produto entregue. Se bater todos, fechamos a S3 com você em L2 do eixo Finanças.
+      </p>
+
+      <ul class="entregavel-list">
+        <li><span class="entregavel-checkbox"></span><span class="entregavel-text">Sabe <strong>tirar contexto da cabeça e estruturar em arquivo</strong> (Project + meu_contexto.md + plano_de_contas.md) — aplicável a qualquer negócio</span></li>
+        <li><span class="entregavel-checkbox"></span><span class="entregavel-text">Sabe <strong>analisar viabilidade de investimento com DCF</strong> em 3 cenários — aplicado à sociedade do restaurante, replicável a qualquer aporte</span></li>
+        <li><span class="entregavel-checkbox"></span><span class="entregavel-text">Sabe <strong>ler o resultado mensal de um negócio</strong> via DRE em cascata com narrativa executiva</span></li>
+        <li><span class="entregavel-checkbox"></span><span class="entregavel-text">Sabe <strong>identificar qual produto realmente dá lucro</strong> via margem de contribuição — funciona pra prato, show, apólice</span></li>
+        <li><span class="entregavel-checkbox"></span><span class="entregavel-text">Sabe <strong>digerir documento longo com fonte citada</strong> via NotebookLM — contrato, apólice, legislação</span></li>
+        <li><span class="entregavel-checkbox"></span><span class="entregavel-text">Sabe se localizar na <strong>Matriz de Competência</strong> em cada habilidade financeira</span></li>
+        <li><span class="entregavel-checkbox"></span><span class="entregavel-text">Domina as <strong>5 regras do Protocolo Anti-Alucinação</strong>, especialmente sobre tributário IBS/CBS</span></li>
+        <li><span class="entregavel-checkbox"></span><span class="entregavel-text"><strong>Casa em 2 camadas:</strong> básico (refazer DCF com dado real) + desafio (rodar DRE em 1 dos outros negócios)</span></li>
+      </ul>
+      <p class="entregavel-progress">Conquista marcada: <strong>L2 Finanças</strong>. L3 fica como horizonte — entra naturalmente quando você fizer 3-4 análises mensais consecutivas.</p>
+    </div>
+  </section>
+
+  <!-- Navegação -->
+  <nav class="module-nav site-container">
+    <a href="../../" class="prev">
+      <span class="module-nav-label">Voltar</span>
+      ← Página inicial
+    </a>
+    <a href="../../sessoes/" class="next">
+      <span class="module-nav-label">Próxima</span>
+      Sessões →
+    </a>
+  </nav>
+
+  <!-- Footer -->
+  <footer>
+    <p>Mentoria IA Executiva · Rafael Lima · 2026</p>
+  </footer>
+
+  <!-- MODAL de Conhecimentos Fundamentais -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">×</button>
+      <p class="modal-eyebrow" id="modalEyebrow">Conhecimento fundamental</p>
+      <h3 id="modalTitulo">—</h3>
+      <div id="modalCorpo">—</div>
+    </div>
+  </div>
+
+  <script src="../../../_shared/assets/script.js"></script>
+  <script>
+    // ── Degraus L0-L3 (foco em DE → PARA + entregas) ──
+    var degraus = [
+      {
+        nivel: 'L0', nome: 'Intuitivo',
+        sub: 'Onde quase todo mundo começa',
+        de: 'Cola planilha no ChatGPT e pergunta "o que acha?". Sai resposta bonita mas não dá pra confiar.',
+        para: 'Você fechou a aba e esqueceu o prompt — não fica nada reaproveitável.',
+        entrega: 'Tipicamente nada que sobreviva à semana. Resultado bom-mas-não-confio, sem método.',
+        ferr: 'Claude.ai Free, ChatGPT Free, Gemini — qualquer um.',
+        proxPasso: 'Sair de L0 = aplicar PCTFL ao escrever prompt. Papel · Contexto · Tarefa · Formato · Limite. Esse é o salto pra L1.'
+      },
+      {
+        nivel: 'L1', nome: 'Com estrutura',
+        sub: 'IA com método aplicado',
+        de: 'Prompt é só "resume isso aqui" ou "me ajuda com isso".',
+        para: 'Prompt vira "atue como controller júnior do restaurante, classifique este extrato em 7 categorias do plano de contas, devolva tabela markdown, marque dúvida como Revisar".',
+        entrega: 'Outputs replicáveis. Banco de prompts vivo — você acumula os que funcionam.',
+        ferr: 'Claude.ai Pro · banco de prompts próprio · templates.',
+        proxPasso: 'Sair de L1 = botar DADO no jogo (planilha, extrato, ficha técnica) E estruturar contexto em arquivo (Project + meu_contexto.md). Aí entra L2.'
+      },
+      {
+        nivel: 'L2', nome: 'Com dados', alvoDebora: true,
+        sub: 'A meta concreta da S3',
+        de: 'Faz prompt bonito mas sem dado real, ou tem dado mas re-explica contexto toda vez.',
+        para: 'Sobe planilha real (ou usa Arquivo 1-5), IA processa, identifica padrão, devolve narrativa OIA. Project com contexto fixo.',
+        entrega: 'DCF da sociedade · DRE em cascata · MC dos 5 pratos · Auditoria de contrato · Project estruturado.',
+        ferr: 'Claude.ai Pro (Projects + Artifacts) · Claude for Excel · NotebookLM (PDFs) · planilhas G4.',
+        proxPasso: 'Sair de L2 = parar de refazer prompt toda vez. Você cria assistentes especializados com contexto pré-carregado — L3.'
+      },
+      {
+        nivel: 'L3', nome: 'Especializado',
+        sub: 'Horizonte do eixo',
+        de: 'Trabalha "no lance" — abre Claude, escreve prompt, pega output, fecha.',
+        para: 'Tem múltiplos Projects ("Controller Restaurante", "FP&A Restaurante", "Reporting") com instruções fixas e exemplos. Eles conversam via arquivos.',
+        entrega: 'AI Finance Team reduzido. Você atua como decisora, não como executora.',
+        ferr: 'Claude Projects · Skills · Scheduled Tasks · Claude in Excel pra modelagem séria.',
+        proxPasso: 'L3 fica como horizonte. Entra naturalmente após 3-4 análises mensais consecutivas — quando "estou refazendo tudo de novo" virar dor real.'
+      }
+    ];
+
+    var curD = 0;
+    var nav = document.getElementById('degrausNav');
+    var card = document.getElementById('degrausCard');
+
+    function renderCard() {
+      var d = degraus[curD];
+      card.innerHTML =
+        '<h3>' + d.nivel + ' · ' + d.nome + '</h3>' +
+        '<p class="degraus-card-sub">' + d.sub + '</p>' +
+        '<div class="degraus-depara">' +
+          '<div class="depara-bloco"><strong>De</strong>' + d.de + '</div>' +
+          '<div class="depara-arrow">→</div>' +
+          '<div class="depara-bloco"><strong>Para</strong>' + d.para + '</div>' +
+        '</div>' +
+        '<p class="degraus-card-lbl">Entregas concretas deste degrau</p>' +
+        '<p>' + d.entrega + '</p>' +
+        '<p class="degraus-card-lbl">Ferramentas típicas</p>' +
+        '<p>' + d.ferr + '</p>' +
+        '<p class="degraus-card-lbl">Como saltar pro próximo</p>' +
+        '<p>' + d.proxPasso + '</p>';
+    }
+
+    nav.querySelectorAll('button').forEach(function(btn, i) {
+      btn.addEventListener('click', function() {
+        nav.querySelectorAll('button').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        curD = i;
+        renderCard();
+      });
+    });
+    renderCard();
+
+    // ── MODAL de Conhecimentos Fundamentais ──
+    var conhecimentos = {
+      'project': {
+        eyebrow: 'Ferramenta',
+        titulo: 'Project (Claude.ai)',
+        corpo: '<p><strong>Espaço persistente no Claude.ai onde você junta contexto (arquivos, instruções) que a IA sempre considera em todo chat dentro daquele Project.</strong> Tipo uma pasta inteligente que "sabe" do seu negócio.</p><p>Sem Project, você re-explica contexto a cada conversa. Com Project, basta perguntar "rode a DRE de junho" — a IA já sabe quem você é, qual o restaurante, qual o plano de contas.</p><div class="modal-exemplo"><strong>Pra que serve aqui</strong>O Momento 1 monta o Project "Restaurante — Sociedade" com meu_contexto.md + plano_de_contas.md. Todos os outros momentos (DCF, DRE, MC, NotebookLM) usam esse contexto.</div>'
+      },
+      'plano-contas': {
+        eyebrow: 'Estrutura contábil',
+        titulo: 'Plano de contas',
+        corpo: '<p><strong>Lista organizada das categorias de receita, custo e despesa de um negócio.</strong> É o "alfabeto" da contabilidade. Sem ele, IA categoriza extrato de forma inconsistente — "Combustível" entra em despesa fixa numa linha e variável na outra.</p><p>O plano de contas G4 do exemplo tem 62 contas em 7 grupos: Receitas · Deduções · CMV · Variáveis · Fixas · Outras · CAPEX.</p><div class="modal-exemplo"><strong>Pra que serve aqui</strong>Quando você cola um extrato e pede "categoriza", a IA usa o plano de contas como referência fixa. Resultado: consistência entre meses, fácil comparação mês a mês.</div>'
+      },
+      'cmv': {
+        eyebrow: 'Conceito de custo',
+        titulo: 'CMV — Custo da Mercadoria Vendida',
+        corpo: '<p><strong>O que você gasta DIRETAMENTE pra produzir/comprar o que vende.</strong> No restaurante: ingrediente do prato. Na corretora: comissão de produção. Na banda: cachê de músico contratado.</p><p>Não inclui aluguel, salário fixo da cozinha, marketing — esses são custos FIXOS (entram depois na DRE).</p><div class="modal-exemplo"><strong>Por que importa</strong>CMV alto = pouca margem bruta = pouco espaço pra cobrir fixo. Restaurante típico: CMV 30-35%. Acima de 40% acende alerta.</div>'
+      },
+      'pctfl': {
+        eyebrow: 'Framework de prompt',
+        titulo: 'PCTFL',
+        corpo: '<p><strong>Estrutura pra escrever prompt em 5 partes:</strong></p><p><strong>P — Papel:</strong> quem a IA está sendo (controller, analista de M&A, advogado).<br><strong>C — Contexto:</strong> o que ela precisa saber pra responder bem.<br><strong>T — Tarefa:</strong> o que você quer EXATAMENTE.<br><strong>F — Formato:</strong> como devolver (markdown, tabela, lista).<br><strong>L — Limite:</strong> o que NÃO fazer (não inventar dado, não usar jargão sem traduzir).</p><div class="modal-exemplo"><strong>Pra que serve aqui</strong>Todos os prompts da S3 seguem PCTFL. É o salto de L0 ("resume isso") pra L1 (instrução estruturada).</div>'
+      },
+      'dcf': {
+        eyebrow: 'Modelo de análise',
+        titulo: 'DCF — Discounted Cash Flow',
+        corpo: '<p><strong>Análise se um investimento vale a pena, baseada em quanto de caixa ele gera nos próximos anos — descontado pela taxa do dinheiro no tempo.</strong></p><p>Lógica simples: R$ 100 hoje vale mais que R$ 100 daqui a 5 anos. O DCF traz todo fluxo futuro pra hoje e soma. Se a soma é maior que o aporte → investimento vale a pena.</p><div class="modal-exemplo"><strong>Pra que serve aqui</strong>O DCF da sociedade pergunta: a cota de R$ 180k vale a pena se o restaurante distribuir R$ 7k/mês ao longo de 5 anos? Resposta sai em VPL, TIR e payback.</div>'
+      },
+      'vpl': {
+        eyebrow: 'Métrica DCF',
+        titulo: 'VPL — Valor Presente Líquido',
+        corpo: '<p><strong>Quanto vale HOJE todo o dinheiro que um investimento vai gerar no futuro, descontado pelo tempo.</strong></p><p>Lê assim:<br>VPL > 0 → vale a pena (gera mais que custo de oportunidade)<br>VPL = 0 → indiferente<br>VPL < 0 → não vale (deixa no CDB)</p><div class="modal-exemplo"><strong>Exemplo</strong>Aporte R$ 180k · recebe R$ 7k/mês por 60 meses · TMA 19% a.a. → VPL = R$ 133k positivo. Tradução: além de recuperar o aporte, você ganha R$ 133k em valor de hoje.</div>'
+      },
+      'tir': {
+        eyebrow: 'Métrica DCF',
+        titulo: 'TIR — Taxa Interna de Retorno',
+        corpo: '<p><strong>A rentabilidade do investimento em % ao ano.</strong> É a taxa que zeraria o VPL.</p><p>Compare com:<br>CDB atual (~13% a.a.) → se TIR > CDB, ganha mais que banco<br>TMA (CDB + prêmio risco) → se TIR > TMA, vale empreender</p><div class="modal-exemplo"><strong>Exemplo</strong>Cenário base do exemplo: TIR ~56% a.a. Significa: investir os R$ 180k no restaurante dá retorno equivalente a 56% a.a. composto. Bem acima da TMA 19%.</div>'
+      },
+      'payback': {
+        eyebrow: 'Métrica DCF',
+        titulo: 'Payback descontado',
+        corpo: '<p><strong>Em quantos meses (ou anos) você recupera o que aportou — já considerando que dinheiro hoje vale mais que amanhã.</strong></p><p>Diferente do "payback simples" (que só conta os fluxos brutos, sem desconto), o payback DESCONTADO é mais conservador: usa os fluxos já trazidos pra valor presente.</p><div class="modal-exemplo"><strong>Exemplo</strong>Aporte R$ 180k · fluxo descontado começa a acumular · payback descontado em ~38 meses. Tradução: você recupera o aporte em pouco mais de 3 anos. O resto é lucro.</div>'
+      },
+      'tma': {
+        eyebrow: 'Premissa DCF',
+        titulo: 'TMA — Taxa Mínima de Atratividade',
+        corpo: '<p><strong>O retorno mínimo que faz valer a pena investir no negócio em vez de no CDB.</strong></p><p>Fórmula simples (sem CAPM/WACC, que é coisa de empresa de capital aberto):<br><strong>TMA = CDB de referência + prêmio de risco PME</strong></p><p>CDB atual ≈ 13% a.a. · prêmio risco PME 5-10 p.p. → TMA típica 18-23% a.a.</p><div class="modal-exemplo"><strong>Por que importa</strong>Sem TMA bem definida, o DCF não conversa com a sua realidade. Se você define TMA = 10%, qualquer negócio parece bom. Se define = 30%, nenhum passa. A TMA é o filtro.</div>'
+      },
+      'sensibilidade': {
+        eyebrow: 'Análise DCF',
+        titulo: 'Análise de sensibilidade',
+        corpo: '<p><strong>Mostra como o VPL muda quando você varia UMA premissa por vez.</strong> Identifica onde o modelo é mais frágil.</p><p>Exemplo no DCF do restaurante: você descobre que aumentar TMA de 19% pra 22% reduz VPL em 18%. Mas reduzir o lucro distribuível em 20% reduz VPL em 40%. <strong>Conclusão: o modelo é MAIS sensível ao lucro distribuível</strong> — é nessa premissa que você precisa ter mais certeza.</p><div class="modal-exemplo"><strong>Pra que serve aqui</strong>Antes de ir pra reunião com sócio, você sabe DE COR onde a recomendação pode quebrar. Não chega com 1 número — chega com 1 número + 3 hipóteses.</div>'
+      },
+      'dre': {
+        eyebrow: 'Demonstração financeira',
+        titulo: 'DRE — Demonstração de Resultado',
+        corpo: '<p><strong>Resumo financeiro do período: quanto entrou, quanto saiu, quanto sobrou.</strong></p><p>A DRE em CASCATA (modelo G4) mostra os números em camadas — receita → tira CMV → margem bruta → tira variáveis → MC → tira fixas → EBITDA → lucro líquido. Cada degrau mostra ONDE o dinheiro está sendo gasto.</p><div class="modal-exemplo"><strong>Por que cascata</strong>Você vê não só o resultado final, mas QUAL ETAPA está corroendo a margem. Margem bruta OK mas EBITDA ruim? Problema nos fixos. EBITDA OK mas lucro líquido ruim? Problema nos impostos.</div>'
+      },
+      'mc': {
+        eyebrow: 'Conceito de margem',
+        titulo: 'MC — Margem de Contribuição',
+        corpo: '<p><strong>Quanto sobra de uma venda DEPOIS dos custos diretos daquela venda</strong> (ingrediente + comissão garçom + taxa cartão).</p><p>É DIFERENTE de lucro líquido — a MC não desconta aluguel, salário fixo, marketing. É a "contribuição" daquela venda pra pagar os fixos.</p><div class="modal-exemplo"><strong>Por que importa</strong>Soma das MC > custos fixos = lucro. Soma das MC < custos fixos = prejuízo. MC negativa em um prato = ele NÃO contribui — está gerando despesa cada vez que vende.</div>'
+      },
+      'mc-unit': {
+        eyebrow: 'Métrica MC',
+        titulo: 'MC unitária',
+        corpo: '<p><strong>Margem de contribuição POR UNIDADE vendida.</strong></p><p>Fórmula: MC unitária = Preço de venda − Custo variável unitário</p><p>Exemplo do Arquivo 3: Camarão na moranga · preço R$ 78 · custo R$ 42,16 (insumo R$ 32 + comissão R$ 7,80 + cartão R$ 2,34) → <strong>MC unitária = R$ 35,84</strong>.</p><div class="modal-exemplo"><strong>Pra que serve</strong>Compara qual prato dá MAIS dinheiro pra cobrir fixo. Mas atenção — sozinha pode enganar. Vê também MC % e MC total.</div>'
+      },
+      'mc-perc': {
+        eyebrow: 'Métrica MC',
+        titulo: 'MC %',
+        corpo: '<p><strong>Margem de contribuição como PERCENTUAL do preço.</strong></p><p>Fórmula: MC % = MC unitária / Preço de venda</p><p>Exemplo: hambúrguer · preço R$ 42 · custo R$ 19,52 → MC unit R$ 22,48 → <strong>MC % = 54%</strong>.</p><div class="modal-exemplo"><strong>Por que tem 3 critérios juntos</strong>MC % alta mas volume baixo = pouco impacto no caixa. MC % baixa mas volume alto = pode sustentar a casa. Ranking final usa MC TOTAL (MC unit × volume) — é o que de fato cai no bolso.</div>'
+      },
+      'custo-var': {
+        eyebrow: 'Classificação',
+        titulo: 'Custo variável vs custo fixo',
+        corpo: '<p><strong>Custo variável:</strong> sobe e desce com o volume vendido. Insumo do prato (sem venda, sem insumo). Comissão garçom. Taxa cartão (% sobre venda). Embalagem delivery.</p><p><strong>Custo fixo:</strong> existe vendendo ou não. Aluguel. Salário fixo. Energia base. Internet. Software.</p><div class="modal-exemplo"><strong>Por que importa pra MC</strong>MC só desconta o VARIÁVEL. Se você incluir aluguel no cálculo de MC do prato, distorce — porque o aluguel não muda quando vende 100 ou 1000 pratos. Aluguel entra DEPOIS, no cálculo do EBITDA.</div>'
+      },
+      'ebitda': {
+        eyebrow: 'Métrica de operação',
+        titulo: 'EBITDA',
+        corpo: '<p><strong>Lucro operacional PURO — antes de juros, impostos, depreciação e amortização.</strong></p><p>Mostra se a OPERAÇÃO em si gera caixa, separando de questões financeiras (juros do empréstimo) e fiscais (impostos).</p><div class="modal-exemplo"><strong>Por que importa</strong>Restaurante com EBITDA negativo = a operação não para de pé sozinha. Restaurante com EBITDA positivo mas lucro líquido negativo = problema fiscal/dívida, não operacional. Conserva diagnósticos diferentes.</div>'
+      },
+      'ebit': {
+        eyebrow: 'Métrica de operação',
+        titulo: 'EBIT',
+        corpo: '<p><strong>Lucro antes de juros e impostos.</strong> É o EBITDA menos a depreciação e amortização.</p><p>EBIT é mais conservador que EBITDA — reconhece que o equipamento de cozinha (forno, fogão, freezer) vai precisar ser trocado um dia, e descontar a depreciação "antecipa" esse custo de forma contábil.</p><div class="modal-exemplo"><strong>Quando importa</strong>Pra negócio com pouco ativo (corretora, banda), EBIT ≈ EBITDA. Pra negócio com muito ativo (restaurante), depreciação pode ser 3-8% do faturamento.</div>'
+      },
+      'margem-bruta': {
+        eyebrow: 'Margem',
+        titulo: 'Margem Bruta',
+        corpo: '<p><strong>Quanto sobra da receita depois de descontar o CMV (custos diretos).</strong></p><p>Fórmula: Margem Bruta = (Receita Líquida − CMV) / Receita Líquida</p><p>Restaurante saudável: margem bruta 60-70%. Abaixo de 55% acende alerta no CMV.</p><div class="modal-exemplo"><strong>Diferença pra MC</strong>Margem Bruta só desconta CMV (insumos). MC desconta CMV + despesas variáveis (comissão, cartão, delivery). MC é sempre menor que Margem Bruta.</div>'
+      },
+      'oia': {
+        eyebrow: 'Framework de leitura',
+        titulo: 'OIA — Observação → Insight → Ação',
+        corpo: '<p><strong>Framework do IEL pra transformar dado em decisão executiva.</strong></p><p><strong>O — Observação:</strong> o que os números mostram (factual, sem interpretar).<br><strong>I — Insight:</strong> o que isso provavelmente significa (hipótese).<br><strong>A — Ação:</strong> o que fazer no próximo mês (concreto).</p><div class="modal-exemplo"><strong>Exemplo aplicado</strong>O: CMV subiu de 32% pra 38% em maio. · I: provavelmente é o aumento da carne em abril que ainda não foi repassado pro preço. · A: revisar preço da picanha em junho ou trocar fornecedor de cárneas — testar 2 cotações.</div>'
+      },
+      'notebooklm': {
+        eyebrow: 'Ferramenta',
+        titulo: 'NotebookLM',
+        corpo: '<p><strong>Ferramenta gratuita do Google.</strong> Sobe até 50 fontes (PDFs, links, vídeos do YouTube), faz pergunta, ela responde CITANDO o trecho exato + nº da página.</p><p>Anti-alucinação POR DESIGN: a interface é construída pra que toda resposta tenha citação clicável. Sem citação, não é resposta.</p><div class="modal-exemplo"><strong>Pra que serve aqui</strong>Auditoria de contrato de sociedade · leitura de apólice · digerir legislação tributária · transformar livro G4 em "professor de plantão" com Audio Overview.</div>'
+      },
+      'audio-overview': {
+        eyebrow: 'Feature NotebookLM',
+        titulo: 'Audio Overview',
+        corpo: '<p><strong>Feature do NotebookLM que vira suas fontes num podcast em áudio.</strong> Dois locutores discutem o conteúdo de forma natural, em 10-25 min.</p><p>Útil pra ouvir no carro / academia / cozinha. Português-BR rolou em ago/2025 — qualidade boa.</p><div class="modal-exemplo"><strong>Caso prático</strong>Sobe o livro G4 + o contrato da sociedade + a apólice da banda. Gera Audio Overview de cada um. Você ouve nos 30 min do trânsito todo dia. Em 1 semana, está fluente em finanças e contrato.</div>'
+      },
+      'lockup': {
+        eyebrow: 'Cláusula contratual',
+        titulo: 'Lock-up',
+        corpo: '<p><strong>Período mínimo em que você não pode vender sua cota da sociedade.</strong> Se sair antes, multa.</p><p>Típico: 3-5 anos. Lock-up protege os sócios remanescentes (que estão construindo o negócio) e a empresa (que tem caixa estrutural).</p><div class="modal-exemplo"><strong>Por que importa pro DCF</strong>Se o lock-up é 5 anos e o DCF dá VPL negativo no ano 3, você não tem como sair sem multa. Premissa de horizonte do DCF tem que ser compatível com o lock-up do contrato.</div>'
+      },
+      'quorum': {
+        eyebrow: 'Decisão societária',
+        titulo: 'Quórum',
+        corpo: '<p><strong>Porcentagem de sócios que precisa aprovar uma decisão.</strong></p><p>Decisões operacionais (compra mensal de insumo): 50%+1.<br>Decisões financeiras médias (empréstimo): 51-67%.<br>Decisões estratégicas (vender ponto, abrir 2ª unidade, dissolver): 75% ou unanimidade.</p><div class="modal-exemplo"><strong>Risco pra sócio minoritário</strong>Se você tem 25% e TODA decisão precisa de 75%, você só tem voz se OUTRO sócio votar com você. Se TUDO precisa de 51%, sócio majoritário (75%) atropela. Equilíbrio: quórum qualificado pra estratégico + simples pra operacional.</div>'
+      },
+      'ai-finance-team': {
+        eyebrow: 'Estrutura L3',
+        titulo: 'AI Finance Team',
+        corpo: '<p><strong>Estrutura proposta pelo tutorial Anthropic: 5 papéis especializados em IA que conversam entre si</strong> através de arquivos compartilhados.</p><p>Os 5 papéis: <strong>Controller</strong> (revisa lançamentos) · <strong>FP&A</strong> (projeta cenários) · <strong>Reporting</strong> (escreve narrativa) · <strong>Deck Builder</strong> (vira apresentação) + <strong>Shared</strong> (contexto comum).</p><div class="modal-exemplo"><strong>Não é pra você fazer agora</strong>É o horizonte L3. Na S3 você cria só 1 papel (Controller) + a estrutura Shared. Em S4-S7 expandimos. Em S8, decide se monta o time inteiro ou se o que tem já basta.</div>'
+      },
+      'controller': {
+        eyebrow: 'Papel financeiro',
+        titulo: 'Controller',
+        corpo: '<p><strong>Quem revisa, valida e categoriza tudo que entra e sai do negócio.</strong> Função tática: classificar lançamentos, fechar mês, montar DRE, conferir.</p><p>Diferente do CFO (estratégico) e do FP&A (futuro). Controller é PRESENTE — o que está acontecendo agora.</p><div class="modal-exemplo"><strong>No AI Finance Team</strong>O "controller IA" é o primeiro papel que você cria. É a habilidade central da S3 — Momento 1 (estruturar contexto) e Momento 3 (DRE) são funções clássicas de controller.</div>'
+      },
+      'fpna': {
+        eyebrow: 'Papel financeiro',
+        titulo: 'FP&A — Financial Planning & Analysis',
+        corpo: '<p><strong>Quem planeja o FUTURO do negócio.</strong> Função estratégica: projetar caixa, modelar cenários, simular decisões grandes (entrar em sociedade, comprar equipamento, abrir filial).</p><div class="modal-exemplo"><strong>No AI Finance Team</strong>O "FP&A IA" é o segundo papel que cresce naturalmente — Momento 2 (DCF da sociedade) é exatamente uma análise FP&A. Em S5 (Gestão Pt.2 — KPIs) a gente expande pra forecast 13 semanas, cenários sensibilidade.</div>'
+      }
+    };
+
+    var modalOverlay = document.getElementById('modalOverlay');
+    var modalClose = document.getElementById('modalClose');
+    var modalEyebrow = document.getElementById('modalEyebrow');
+    var modalTitulo = document.getElementById('modalTitulo');
+    var modalCorpo = document.getElementById('modalCorpo');
+
+    function abrirModal(termo) {
+      var c = conhecimentos[termo];
+      if (!c) return;
+      modalEyebrow.textContent = c.eyebrow;
+      modalTitulo.textContent = c.titulo;
+      modalCorpo.innerHTML = c.corpo;
+      modalOverlay.classList.add('active');
+    }
+    function fecharModal() { modalOverlay.classList.remove('active'); }
+
+    document.querySelectorAll('.conhec-tag').forEach(function(btn) {
+      btn.addEventListener('click', function() { abrirModal(btn.dataset.termo); });
+    });
+    modalClose.addEventListener('click', fecharModal);
+    modalOverlay.addEventListener('click', function(e) { if (e.target === modalOverlay) fecharModal(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') fecharModal(); });
+
+    // ── Clipboard copy pros prompts PCTFL ──
+    document.querySelectorAll('.pctfl-copy').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var targetId = btn.dataset.target;
+        var pre = document.getElementById(targetId);
+        if (!pre) return;
+        var text = pre.textContent;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓ Copiado';
+            btn.classList.add('copied');
+            setTimeout(function() {
+              btn.textContent = orig;
+              btn.classList.remove('copied');
+            }, 1800);
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
