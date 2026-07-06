@@ -59,6 +59,85 @@
       border: 1px solid var(--border);
       padding: 3px 9px; border-radius: 12px;
     }
+
+    /* === Bloco Assistentes de Projeto === */
+    .assistentes-block {
+      background: linear-gradient(180deg, var(--bg-warm) 0%, var(--bg) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 0 40px;
+      margin-bottom: 32px;
+    }
+    .assistentes-block > .site-container > .eyebrow { margin-bottom: 6px; }
+    .assistentes-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px; font-weight: 600;
+      margin-bottom: 6px; color: var(--ink);
+    }
+    .assistentes-block > .site-container > p {
+      color: var(--ink-soft); font-size: 14.5px; line-height: 1.55;
+      max-width: 720px; margin-bottom: 22px;
+    }
+    .assistentes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .assistente-card {
+      display: block;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 22px;
+      text-decoration: none;
+      position: relative;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .assistente-card--active {
+      border-color: var(--accent-warm);
+      box-shadow: 0 2px 10px rgba(194,145,107,.14);
+    }
+    .assistente-card--active::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent-warm);
+      border-radius: 8px 8px 0 0;
+    }
+    .assistente-card--active:hover { transform: translateY(-2px); }
+    .assistente-card--future { opacity: .55; cursor: not-allowed; }
+    .assistente-card-icon {
+      display: inline-block;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--accent-warm);
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 16px; font-weight: 700;
+      line-height: 34px; text-align: center;
+      margin-bottom: 12px;
+    }
+    .assistente-card--future .assistente-card-icon {
+      background: var(--border-strong);
+    }
+    .assistente-card-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5px; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--accent-warm-dark);
+      display: block; margin-bottom: 4px;
+    }
+    .assistente-card--future .assistente-card-eyebrow { color: var(--ink-muted); }
+    .assistente-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 600;
+      color: var(--ink); margin-bottom: 8px;
+    }
+    .assistente-card-desc {
+      font-size: 13px; color: var(--ink-soft);
+      line-height: 1.5; margin-bottom: 14px;
+    }
+    .assistente-card-cta {
+      font-size: 13px; color: var(--accent); font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -141,6 +220,58 @@
       <button class="filter-btn" data-filter="rh">👥 RH (5)</button>
       <button class="filter-btn" data-filter="marketing">📣 Marketing (3)</button>
       <button class="filter-btn" data-filter="atendimento">💬 n8n &amp; Atendimento (2)</button>
+    </div>
+  </section>
+
+  <!-- Bloco Assistentes de Projeto -->
+  <section class="assistentes-block">
+    <div class="site-container" style="padding: 0 24px">
+      <p class="eyebrow">Assistentes de Projeto</p>
+      <h2>Professores por eixo — configure 1x, use 24/7</h2>
+      <p>
+        Diferente dos prompts abaixo (que você cola em um chat qualquer), estes assistentes são configurações completas de Project no Claude.ai.
+        Cada eixo da mentoria terá seu Professor didático próprio, com contexto, materiais e regras já embutidos.
+        <strong>Cresce a cada sessão.</strong>
+      </p>
+      <div class="assistentes-grid">
+
+        <a href="assistente-financas.html" class="assistente-card assistente-card--active">
+          <span class="assistente-card-icon">F</span>
+          <span class="assistente-card-eyebrow">S3 · Disponível</span>
+          <h3>Professor de Finanças PME</h3>
+          <p class="assistente-card-desc">Ensina por analogia (cozinha, banda), comparação lado a lado e artefato visual. Tira dúvidas de DRE, DCF, MC e leitura de contrato.</p>
+          <span class="assistente-card-cta">Configurar →</span>
+        </a>
+
+        <div class="assistente-card assistente-card--future">
+          <span class="assistente-card-icon">G</span>
+          <span class="assistente-card-eyebrow">S4 · Em breve</span>
+          <h3>Professor de Gestão</h3>
+          <p class="assistente-card-desc">POP, diagnóstico de gargalo, manual operacional. Foco em processos e rotina.</p>
+        </div>
+
+        <div class="assistente-card assistente-card--future">
+          <span class="assistente-card-icon">R</span>
+          <span class="assistente-card-eyebrow">S6 · Em breve</span>
+          <h3>Professor de RH</h3>
+          <p class="assistente-card-desc">Recrutamento, treinamento, plano de carreira. Vai até assistente próprio (L3).</p>
+        </div>
+
+        <div class="assistente-card assistente-card--future">
+          <span class="assistente-card-icon">M</span>
+          <span class="assistente-card-eyebrow">S7 · Em breve</span>
+          <h3>Professor de Marketing</h3>
+          <p class="assistente-card-desc">Posicionamento, anúncios, jornada de cliente e copy de conversão.</p>
+        </div>
+
+        <div class="assistente-card assistente-card--future">
+          <span class="assistente-card-icon">N</span>
+          <span class="assistente-card-eyebrow">S8 · Em breve</span>
+          <h3>Professor de n8n &amp; Atendimento</h3>
+          <p class="assistente-card-desc">Mapa IA Generativa × Automação. WhatsApp, cobrança, fluxos.</p>
+        </div>
+
+      </div>
     </div>
   </section>
 
