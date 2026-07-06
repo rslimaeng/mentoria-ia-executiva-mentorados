@@ -407,7 +407,18 @@ Tarefa: Me guie por perguntas — no máximo 5 por vez — até termos matéria 
 
 Formato: Perguntas primeiro. Quando eu autorizar, matriz SWOT em tabela + 5 Forças em bullet por força (Alta/Média/Baixa) + 3 ações rankeadas por impacto.
 
-Limitações: NADA de "insights genéricos". Só o que sair das MINHAS respostas. Se algum quadrante ficar vazio, marque "sem sinal — pesquisar" em vez de inventar.</pre>
+Limitações: NADA de "insights genéricos". Só o que sair das MINHAS respostas. Se algum quadrante ficar vazio, marque "sem sinal — pesquisar" em vez de inventar.
+
+FORMATO DE ENTREGA (2 partes)
+1. Análise textual completa (matriz SWOT + 5 Forças + 3 ações) do jeito acima.
+2. Depois, **Artifact HTML self-contained interativo** com:
+   - Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display (serif) + Inter (sans) via Google Fonts.
+   - Header serif com título "SWOT + 5 Forças · [nome do negócio]" + botão 🖨️ imprimir (window.print).
+   - **Matriz SWOT 2×2**: 4 quadrantes coloridos (Forças verde-suave, Fraquezas âmbar-suave, Oportunidades azul-suave, Ameaças vermelho-suave). Cada quadrante com `<ul contenteditable>` pré-preenchida com meus bullets — posso editar direto.
+   - **Cinco Forças de Porter em cards**: 5 cards em coluna. Cada card com nome + textarea descrição + radio button Alta/Média/Baixa que muda cor da borda ao vivo.
+   - **3 ações prioritárias em rodapé** com checkbox de "feito".
+   - `@media print` esconde botão e força layout A4. Rodapé: "Mentoria IA Executiva · Débora Nascimento · 2026".
+   - JavaScript vanilla, zero framework. Salve estado em localStorage se sobrar tempo.</pre>
       </div>
     </div>
 
@@ -432,6 +443,17 @@ Tarefa: Ouça minha descrição. Estruture em hierarquia PROCESSO > SUBPROCESSO 
 Formato: Fluxo em texto hierárquico (indentação). Ao final: tabela de gargalos suspeitos com coluna "por que suspeito".
 
 Limitações: NÃO invente etapas que eu não descrevi. Se algo ficou ambíguo, pergunte antes de estruturar.
+
+FORMATO DE ENTREGA (2 partes)
+1. Análise textual completa (fluxo hierárquico + tabela de gargalos) do jeito acima.
+2. Depois, **Artifact HTML self-contained interativo** com:
+   - Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   - Header serif com título "AS-IS · [nome do processo]" + botão 🖨️ imprimir.
+   - **Fluxo hierárquico editável**: lista aninhada PROC > SUBPROC > ATIV > TAREFA com indentação visual (borda esquerda por nível, cor por profundidade). Cada linha é `contenteditable`. Botão "+ subitem" em cada nível. Botão "🚨 gargalo" que pinta a linha de âmbar e adiciona ícone.
+   - **Contadores ao vivo no topo**: X etapas mapeadas · Y gargalos marcados · Z níveis de profundidade.
+   - **Tabela lateral "Gargalos suspeitos"** com colunas: etapa · por que suspeito (editável) · impacto estimado (select Alto/Médio/Baixo com cor).
+   - `@media print` A4. Rodapé: "Mentoria IA Executiva · Débora Nascimento · 2026".
+   - JavaScript vanilla, zero framework.
 
 MINHA DESCRIÇÃO:
 [cole ou digite]</pre>
@@ -460,6 +482,18 @@ Formato: POP em 1 página (markdown). 5W2H em tabela separada, uma linha por aç
 
 Limitações: Nada de responsável abstrato ("gerente"). Se falta info, marque [DEFINIR] em vez de inventar. Cada passo termina com critério de "feito" objetivo.
 
+FORMATO DE ENTREGA (2 partes)
+1. Análise textual completa (POP em markdown + tabela 5W2H) do jeito acima.
+2. Depois, **Artifact HTML self-contained interativo** com:
+   - Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   - **Documento formato A4 imprimível** — mimetiza POP formal de qualidade. Cabeçalho superior direito com botão 🖨️ imprimir.
+   - **Cabeçalho do POP** com campos editáveis: nº do POP · versão · data · responsável · revisão prevista.
+   - **7 blocos obrigatórios em ordem** (Objetivo · Escopo · Responsáveis · Materiais · Procedimento · Registros · Referências) — cada bloco é `contenteditable` com placeholder claro. Se algum ficar vazio ao imprimir, borda vermelha.
+   - **Procedimento com numeração automática** dos passos (JS regenera 1., 2., 3. quando ela adiciona/remove linha). Cada passo tem coluna "critério de feito".
+   - **Tabela 5W2H no rodapé** com 7 colunas editáveis + botão "+ ação".
+   - `@media print` esconde botões, força margens A4 (210×297mm), mantém quebras limpas. Rodapé: "Mentoria IA Executiva · Débora Nascimento · 2026".
+   - JavaScript vanilla, zero framework.
+
 AS-IS:
 [cole o AS-IS do Momento 2]</pre>
       </div>
@@ -487,7 +521,18 @@ Formato: Tabela — coluna: nome do KPI · fórmula · tipo (Lagging/Leading) ·
 
 Limitações: Nada de KPI de vaidade (curtidas, seguidores, "engajamento" solto). Se algum KPI depender de dado que não tenho, marque [precisa infra: sistema X] em vez de assumir.
 
-Aguarde minha aprovação antes de gerar o dashboard visual.</pre>
+Aguarde minha aprovação antes de gerar o dashboard visual.
+
+FORMATO DE ENTREGA (2 partes — depois da minha aprovação)
+1. Tabela textual dos 5 KPIs (fórmula, tipo, faixas, ação, ritmo, dono) do jeito acima.
+2. Depois, **Artifact HTML self-contained interativo** com:
+   - Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b + verde #5c7d5f (KPI verde), amarelo #c08a2a (atenção), vermelho #b54a3a (crítico). Fontes Playfair Display + Inter via Google Fonts.
+   - Header serif com título "Dashboard de KPIs · [nome do negócio]" + botão 🖨️ imprimir + botão "Salvar valores" (localStorage).
+   - **Grid de 5 tiles**, um por KPI. Cada tile: nome + badge Lagging/Leading + fórmula pequena + `<input type="number">` valor atual + faixas verde/amarelo/vermelho listadas + **cor do tile MUDA AO VIVO** conforme o valor entra em faixa (background gradient sutil pra cor correspondente).
+   - **Área "ação por cor" embaixo do input**: mostra automaticamente a ação escrita pra faixa atual.
+   - **Ritmo de review no rodapé**: calendário mínimo mostrando "próxima review semanal: [dia da semana]" e "próxima mensal: [último dia útil do mês]".
+   - `@media print` A4 landscape. Rodapé: "Mentoria IA Executiva · Débora Nascimento · 2026".
+   - JavaScript vanilla, zero framework. Estado persistido em localStorage — ela volta amanhã e os valores continuam.</pre>
       </div>
     </div>
 
@@ -512,6 +557,18 @@ Tarefa: Vou colar uma lista de 15-20 indicadores que estou considerando. Classif
 Formato: Tabela — colunas: indicador · classificação (A/B/C) · por quê · substituto (se C).
 
 Limitações: Se algum indicador for ambíguo, classifique como B e explique. Nada de "depende do contexto" — decida com o que eu escrevi.
+
+FORMATO DE ENTREGA (2 partes)
+1. Tabela textual (indicador · A/B/C · por quê · substituto se C) do jeito acima.
+2. Depois, **Artifact HTML self-contained interativo** com:
+   - Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b + verde (KPI), amarelo (contexto), vermelho (vaidade). Fontes Playfair Display + Inter via Google Fonts.
+   - Header serif "Classificador de Indicadores · [negócio]" + botão 🖨️ imprimir.
+   - **3 colunas visuais (kanban-like)**: "KPI real" (verde), "Contexto" (amarelo), "Vaidade" (vermelho). Cada indicador vira card arrastável (drag-and-drop) entre colunas — eu posso discordar da IA e mover.
+   - Cada card mostra: nome + porque a IA classificou assim (colapsado, clica pra expandir).
+   - **Cards da coluna vermelha (vaidade) têm campo "substituto sugerido"** editável embaixo do card.
+   - Contadores no topo das colunas mudam ao vivo conforme eu movo cards.
+   - `@media print` — imprime só a coluna "KPI real" (com meus substitutos aplicados) como lista final. Rodapé: "Mentoria IA Executiva · Débora Nascimento · 2026".
+   - JavaScript vanilla, zero framework.
 
 INDICADORES CANDIDATOS:
 [cole a lista, um por linha]</pre>
@@ -538,7 +595,19 @@ Tarefa: Análise em 3 etapas: (1) por etapa, calcule tempo médio, desvio padrã
 
 Formato: Tabela na (1) + diagrama textual em árvore na (2) + tabela na (3) com colunas: hipótese · categoria Hosotani · 5 Porquês (colapsado) · próxima verificação sugerida.
 
-Limitações: Se qualquer coluna estiver ausente ou dado inconsistente, sinalize antes de calcular. Não invente hipótese sem lastro nos dados.</pre>
+Limitações: Se qualquer coluna estiver ausente ou dado inconsistente, sinalize antes de calcular. Não invente hipótese sem lastro nos dados.
+
+FORMATO DE ENTREGA (2 partes)
+1. Análise textual completa (estatística por etapa + fishbone + 5 hipóteses) do jeito acima.
+2. Depois, **Artifact HTML self-contained interativo** com:
+   - Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   - Header serif "Diagnóstico de gargalo · [nome do processo]" + botão 🖨️ imprimir.
+   - **Bloco 1 — estatística por etapa**: tabela colorida (heatmap sutil) com tempo médio, desvio, 90º percentil, % retrabalho. Linha da etapa mais problemática destacada em terracota.
+   - **Bloco 2 — Espinha-de-peixe (SVG)**: diagrama Ishikawa horizontal com 6 espinhas (matéria-prima, equipamentos, pessoas, ambiente, procedimentos, informações). Cada espinha tem `<ul contenteditable>` colateral onde adiciono causas específicas. Setas do SVG puxam pra "problema" no topo direito.
+   - **Bloco 3 — 5 Hipóteses ranqueadas**: cards editáveis com probabilidade (`<select>` Alta/Média/Baixa que muda cor) + 5 Porquês colapsáveis + "próxima verificação" com checkbox de feito.
+   - **Botão "Marcar hipótese pra investigar"** no card → move ela pra topo do ranking + destaque verde.
+   - `@media print` A4. Rodapé: "Mentoria IA Executiva · Débora Nascimento · 2026".
+   - JavaScript vanilla, zero framework. SVG inline (sem lib externa).</pre>
       </div>
     </div>
 
@@ -562,7 +631,19 @@ Tarefa: Aplique os 5 Porquês. Pra cada nível, formule 1 pergunta objetiva, agu
 
 Formato: 5 rodadas de pergunta-resposta. Ao final: tabela com colunas Nível · Pergunta · Resposta · Contramediada sugerida (só na 5). Depois: 1 frase explicando por que a contramediada da 5ª pergunta é diferente das reações típicas ao sintoma.
 
-Limitações: NÃO avance pro próximo Porquê sem minha resposta. Se minha resposta for evasiva ("não sei", "acho que"), aponte e me peça pra concretizar antes de avançar.</pre>
+Limitações: NÃO avance pro próximo Porquê sem minha resposta. Se minha resposta for evasiva ("não sei", "acho que"), aponte e me peça pra concretizar antes de avançar.
+
+FORMATO DE ENTREGA (2 partes)
+1. Condução da cascata textual (5 rodadas de pergunta-resposta + tabela final + contramediada) do jeito acima.
+2. Depois, **Artifact HTML self-contained interativo** com:
+   - Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   - Header serif "5 Porquês · [sintoma]" + botão 🖨️ imprimir.
+   - **Cascata visual empilhada**: 5 rounds em coluna, conectados por seta descendente. Cada round mostra: nº grande serif, pergunta pré-preenchida (do texto), `<textarea>` pra resposta, botão "Avançar" que só habilita quando resposta tem 20+ chars.
+   - Round bloqueado fica cinza claro, ativo em terracota, respondido em teal-suave.
+   - **5º round destaca "Contramediada"** em card grande verde, campo `<textarea>` grande pra ação sobre a causa-raiz. Alerta visual se ela tentar escrever ação sobre sintoma (checagem por keywords do enunciado inicial).
+   - **Bloco lateral "Anomalia × Problema"**: 2 cards mini pra ela marcar qual dos dois é o caso — muda a natureza da contramediada.
+   - `@media print` A4. Rodapé: "Mentoria IA Executiva · Débora Nascimento · 2026".
+   - JavaScript vanilla, zero framework.</pre>
       </div>
     </div>
 
@@ -587,6 +668,18 @@ Tarefa: (1) Aloque cada iniciativa em matriz 2×2 Impacto × Esforço. Justifiqu
 Formato: Matriz visualizada em ASCII (4 quadrantes). Depois tabela 5W2H, uma linha por iniciativa priorizada. Ao final: dependências entre iniciativas em bullets.
 
 Limitações: Se não souber o custo, marque [estimar]. Se o responsável depender de contratação futura, marque [depende: RH]. Não invente prazos "genéricos" — pergunte se estiver ambíguo.
+
+FORMATO DE ENTREGA (2 partes)
+1. Análise textual completa (matriz ASCII + tabela 5W2H + dependências) do jeito acima.
+2. Depois, **Artifact HTML self-contained interativo** com:
+   - Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b + verde (quick win), amarelo (major project), cinza (fill-in), vermelho (thankless). Fontes Playfair Display + Inter via Google Fonts.
+   - Header serif "Priorização · [horizonte 30-60 dias]" + botão 🖨️ imprimir.
+   - **Matriz 2×2 interativa (drag-and-drop)**: 4 quadrantes coloridos com eixo X (esforço) e Y (impacto) marcados. Cada iniciativa é card arrastável entre quadrantes. Card mostra nome curto + justificativa colapsável.
+   - As 3 iniciativas do quadrante alto-impacto/baixo-esforço ficam automaticamente destacadas com borda terracota + badge "Quick Win".
+   - **Tabela 5W2H embaixo**: só as iniciativas do quadrante quick win aparecem. 7 colunas editáveis (What/Why/Where/When/Who/How/How much). Alerta visual (borda vermelha) se algum campo vazio. Botão "+ ação" pra adicionar linhas manuais.
+   - **Bloco "Dependências"** em rodapé: setas visuais entre cards que dependem uns dos outros. Editável.
+   - `@media print` A4: imprime matriz + 5W2H + dependências. Rodapé: "Mentoria IA Executiva · Débora Nascimento · 2026".
+   - JavaScript vanilla, zero framework. HTML5 Drag and Drop API.
 
 INICIATIVAS:
 [cole aqui]</pre>

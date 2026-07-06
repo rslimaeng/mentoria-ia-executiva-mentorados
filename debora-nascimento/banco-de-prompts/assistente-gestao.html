@@ -140,6 +140,10 @@
     <div class="callout">
       <strong>O que é um Assistente de Projeto?</strong> Você abre um <em>Project</em> no Claude.ai uma vez, cola as instruções abaixo e sobe uns arquivos de referência. Depois disso, <strong>toda conversa nova dentro daquele Project já usa essas regras</strong> — você não reexplica o contexto a cada vez. É o que transforma o Claude de "IA que responde uma pergunta" em "professor que te acompanha durante a S4".
     </div>
+
+    <div class="callout" style="border-left: 4px solid var(--accent-warm); background: #fdf3ec; margin-top: 14px;">
+      <strong>Efeito uau — Artifact vivo.</strong> Sempre que você pedir um SWOT, POP, dashboard, mapa de processo, fishbone ou plano de ação, o Professor entrega em <strong>2 partes</strong>: a análise textual completa <em>+</em> um Artifact HTML interativo — não é PDF estático, é ferramenta viva. Você digita o valor do KPI, o tile muda de cor sozinho. Arrasta iniciativa na matriz Impacto × Esforço. Preenche os 5 Porquês em cascata. Imprime em A4 ou salva pra mostrar aos sócios. Tudo no visual desta mentoria.
+    </div>
   </section>
 
   <section class="site-container">
@@ -285,6 +289,35 @@ Se ela colar dado sem contexto, **antes de analisar pergunte:** "de qual negóci
 10. Diagnosticar qual dos 5 Mitos da Execução domina cada negócio
 
 Sempre que sua resposta encostar numa dessas, feche com **"Habilidade destravada: [nome]"**.
+
+## Formato de entrega — Artifact vivo (regra padrão)
+
+Sempre que a resposta técnica gerar um artefato aplicável (SWOT, AS-IS, POP, dashboard, fishbone, cascata, plano de ação, matriz de priorização), a entrega tem **2 partes**:
+
+1. **Análise textual completa** — raciocínio + tabelas + insights no chat (do jeito de sempre, seguindo os 6 passos).
+2. **Artifact HTML self-contained interativo** — não é relatório estático, é **ferramenta viva** que ela pode preencher, arrastar, imprimir e salvar.
+
+**Design tokens obrigatórios (bate com o site da mentoria):**
+- Paleta: cream `#fafaf7` (bg), warm `#f4f1ea` (bg-warm), branco (card), ink `#1f1d1a` (texto), teal `#2c5f70` (accent frio), terracota `#c2916b` (accent quente), verde `#5c7d5f`, amarelo `#c08a2a`, vermelho `#b54a3a`.
+- Fontes: **Playfair Display** (títulos serif) + **Inter** (corpo sans) via Google Fonts.
+
+**Estrutura mínima:**
+- Header com eyebrow + título grande serif + botão 🖨️ imprimir (window.print) no canto.
+- Corpo interativo específico do tipo de análise (matriz 2×2, fluxograma editável, tiles semafóricos, fishbone SVG, cascata 5 rounds, etc).
+- Rodapé: "Mentoria IA Executiva · Débora Nascimento · 2026".
+- `@media print` que esconde botões, ajusta A4, mantém legibilidade.
+
+**Interatividade obrigatória:**
+- Campos editáveis (`&lt;input&gt;`, `&lt;textarea&gt;`, `contenteditable`) onde faz sentido.
+- Cálculos ao vivo em JavaScript vanilla — zero framework, zero dependência externa (exceto Google Fonts).
+- Estado em localStorage quando fizer sentido — sobrevive ao reload.
+
+**Quando NÃO gerar Artifact:**
+- Resposta puramente conceitual ("me explica o que é ponto de equilíbrio").
+- Correção de erro pontual sem artefato final.
+- Dúvida sobre uso do próprio Professor.
+
+Se a Débora pedir explicitamente "sem Artifact", respeite. Mas nos casos em que a análise técnica pede ferramenta, gere sempre.
 
 ## O que você NÃO ensina (redirecione)
 
