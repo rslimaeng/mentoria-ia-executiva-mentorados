@@ -157,8 +157,8 @@
 
   <!-- Header da página -->
   <div class="module-header site-container">
-    <p class="eyebrow">Biblioteca pessoal · 26 prompts</p>
-    <h1>26 prompts em 5 eixos.</h1>
+    <p class="eyebrow">Biblioteca pessoal · 34 prompts</p>
+    <h1>34 prompts em 5 eixos.</h1>
     <div class="module-header-meta">
       <span>Todos em formato PCTFL</span>
       <span>·</span>
@@ -186,9 +186,9 @@
       </div>
       <div class="score-tile eng">
         <p class="score-tile-emoji">💼</p>
-        <p class="score-tile-value">4</p>
+        <p class="score-tile-value">12</p>
         <p class="score-tile-label">Gestão</p>
-        <p class="score-tile-desc">Procedimentos, reuniões, KPIs, briefings</p>
+        <p class="score-tile-desc">SWOT, AS-IS, POP, KPIs, gargalo — eixo S4</p>
       </div>
       <div class="score-tile com-lid">
         <p class="score-tile-emoji">👥</p>
@@ -214,9 +214,9 @@
   <!-- Filtro por área -->
   <section class="site-container" style="padding: 0 0 32px">
     <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">Todos (26)</button>
+      <button class="filter-btn active" data-filter="all">Todos (34)</button>
       <button class="filter-btn" data-filter="financeiro">💰 Finanças (12)</button>
-      <button class="filter-btn" data-filter="gestao">💼 Gestão (4)</button>
+      <button class="filter-btn" data-filter="gestao">💼 Gestão (12)</button>
       <button class="filter-btn" data-filter="rh">👥 RH (5)</button>
       <button class="filter-btn" data-filter="marketing">📣 Marketing (3)</button>
       <button class="filter-btn" data-filter="atendimento">💬 n8n &amp; Atendimento (2)</button>
@@ -243,12 +243,13 @@
           <span class="assistente-card-cta">Configurar →</span>
         </a>
 
-        <div class="assistente-card assistente-card--future">
+        <a href="assistente-gestao.html" class="assistente-card assistente-card--active">
           <span class="assistente-card-icon">G</span>
-          <span class="assistente-card-eyebrow">S4 · Em breve</span>
-          <h3>Professor de Gestão</h3>
-          <p class="assistente-card-desc">POP, diagnóstico de gargalo, manual operacional. Foco em processos e rotina.</p>
-        </div>
+          <span class="assistente-card-eyebrow">S4 · Disponível</span>
+          <h3>Professor de Gestão PME</h3>
+          <p class="assistente-card-desc">Ensina SWOT, AS-IS, POP, KPI, causa-raiz e priorização por analogia + comparação + artefato. Não recontar o MBA — aplica com IA como copilota.</p>
+          <span class="assistente-card-cta">Configurar →</span>
+        </a>
 
         <div class="assistente-card assistente-card--future">
           <span class="assistente-card-icon">R</span>
@@ -381,6 +382,214 @@ Limitações: Não invente prazos nem nomes. Se eu não definir critérios de su
 
 DESCRIÇÃO INFORMAL:
 [fale como falaria pra um colega no café]</pre>
+      </div>
+    </div>
+
+    <!-- ============== GESTÃO — EIXO S4 (Momentos) ============== -->
+
+    <div class="prompt-card reveal" id="card-G-M1A" data-function="gestao">
+      <div class="prompt-card-header">
+        <div>
+          <h3>G-M1A — SWOT + 5 Forças de Porter com IA copilota</h3>
+          <span class="prompt-card-tag">S4 · Momento 1 · Modo Colaboração · L2</span>
+          <span class="prompt-card-eixo"><a href="../eixos/gestao/#momento-1">Abrir na aula →</a></span>
+        </div>
+        <button class="btn btn-outline btn-copy" data-copy="prompt-G-M1A" style="flex-shrink:0">Copiar</button>
+      </div>
+      <p class="prompt-card-desc">Diagnóstico estratégico de UM negócio (restaurante, banda ou corretora) — IA faz as perguntas, você responde, sai com matriz + 3 ações.</p>
+      <button class="btn btn-outline btn-ver" onclick="openPromptPreview('G-M1A')">Ver prompt →</button>
+      <div class="prompt-body">
+<pre id="prompt-G-M1A">Papel: Você é consultora sênior de estratégia PME.
+
+Contexto: Sou dona/gestora de um negócio [tipo]. Preciso de SWOT + 5 Forças de Porter aplicado. Público-alvo: [breve]. Fase atual: [em construção / operando / expansão]. Concorrentes diretos: [3 nomes ou "não sei"].
+
+Tarefa: Me guie por perguntas — no máximo 5 por vez — até termos matéria pra preencher SWOT (Forças / Fraquezas / Oportunidades / Ameaças) e 5 Forças. Depois entregue o quadro estruturado + 3 ações prioritárias.
+
+Formato: Perguntas primeiro. Quando eu autorizar, matriz SWOT em tabela + 5 Forças em bullet por força (Alta/Média/Baixa) + 3 ações rankeadas por impacto.
+
+Limitações: NADA de "insights genéricos". Só o que sair das MINHAS respostas. Se algum quadrante ficar vazio, marque "sem sinal — pesquisar" em vez de inventar.</pre>
+      </div>
+    </div>
+
+    <div class="prompt-card reveal" id="card-G-M2" data-function="gestao">
+      <div class="prompt-card-header">
+        <div>
+          <h3>G-M2 — Mapa AS-IS a partir de descrição verbal</h3>
+          <span class="prompt-card-tag">S4 · Momento 2 · Modo Colaboração · L2</span>
+          <span class="prompt-card-eixo"><a href="../eixos/gestao/#momento-2">Abrir na aula →</a></span>
+        </div>
+        <button class="btn btn-outline btn-copy" data-copy="prompt-G-M2" style="flex-shrink:0">Copiar</button>
+      </div>
+      <p class="prompt-card-desc">Descreve um processo em linguagem natural, IA estrutura em hierarquia PROCESSO&gt;SUBPROCESSO&gt;ATIVIDADE e aponta 2-3 gargalos suspeitos.</p>
+      <button class="btn btn-outline btn-ver" onclick="openPromptPreview('G-M2')">Ver prompt →</button>
+      <div class="prompt-body">
+<pre id="prompt-G-M2">Papel: Você é analista de processos.
+
+Contexto: Vou descrever verbalmente COMO é hoje um processo do meu negócio [nome do processo]. Meu objetivo é ter um AS-IS estruturado que sirva de base pra POP e pra achar gargalos.
+
+Tarefa: Ouça minha descrição. Estruture em hierarquia PROCESSO > SUBPROCESSO > ATIVIDADE > TAREFA. Cada nível com entrada e saída. Depois marque 2-3 pontos suspeitos de gargalo (retrabalho, espera, decisão manual repetitiva).
+
+Formato: Fluxo em texto hierárquico (indentação). Ao final: tabela de gargalos suspeitos com coluna "por que suspeito".
+
+Limitações: NÃO invente etapas que eu não descrevi. Se algo ficou ambíguo, pergunte antes de estruturar.
+
+MINHA DESCRIÇÃO:
+[cole ou digite]</pre>
+      </div>
+    </div>
+
+    <div class="prompt-card reveal" id="card-G-M3" data-function="gestao">
+      <div class="prompt-card-header">
+        <div>
+          <h3>G-M3 — POP a partir do AS-IS + 5W2H integrado</h3>
+          <span class="prompt-card-tag">S4 · Momento 3 · Modo Colaboração · L2</span>
+          <span class="prompt-card-eixo"><a href="../eixos/gestao/#momento-3">Abrir na aula →</a></span>
+        </div>
+        <button class="btn btn-outline btn-copy" data-copy="prompt-G-M3" style="flex-shrink:0">Copiar</button>
+      </div>
+      <p class="prompt-card-desc">Transforma AS-IS em POP com 7 blocos obrigatórios + plano de implementação 5W2H com os 2 H's (How + How much) que a IA sempre esquece.</p>
+      <button class="btn btn-outline btn-ver" onclick="openPromptPreview('G-M3')">Ver prompt →</button>
+      <div class="prompt-body">
+<pre id="prompt-G-M3">Papel: Você é editor de POP especialista em Qualidade.
+
+Contexto: Tenho um AS-IS de processo mapeado (cole abaixo). Preciso do POP versão 1 pra entregar à equipe.
+
+Tarefa: Redija POP com os 7 blocos obrigatórios: Objetivo · Escopo · Responsáveis · Materiais e equipamentos · Procedimento (passos numerados) · Registros e documentação · Referências. Depois, plano de ação 5W2H (What / Why / Where / When / Who / How / How much) pra implementar o POP na equipe em 30 dias.
+
+Formato: POP em 1 página (markdown). 5W2H em tabela separada, uma linha por ação.
+
+Limitações: Nada de responsável abstrato ("gerente"). Se falta info, marque [DEFINIR] em vez de inventar. Cada passo termina com critério de "feito" objetivo.
+
+AS-IS:
+[cole o AS-IS do Momento 2]</pre>
+      </div>
+    </div>
+
+    <div class="prompt-card reveal" id="card-G-M4A" data-function="gestao">
+      <div class="prompt-card-header">
+        <div>
+          <h3>G-M4A — Dashboard 5 KPIs semafórico (Lagging × Leading)</h3>
+          <span class="prompt-card-tag">S4 · Momento 4 ★ · Modo Colaboração · L2</span>
+          <span class="prompt-card-eixo"><a href="../eixos/gestao/#momento-4">Abrir na aula →</a></span>
+        </div>
+        <button class="btn btn-outline btn-copy" data-copy="prompt-G-M4A" style="flex-shrink:0">Copiar</button>
+      </div>
+      <p class="prompt-card-desc">Traduz objetivo do negócio em 5 KPIs SMART balanceados (pelo menos 1 Leading), com faixa verde/amarelo/vermelho e ação por cor.</p>
+      <button class="btn btn-outline btn-ver" onclick="openPromptPreview('G-M4A')">Ver prompt →</button>
+      <div class="prompt-body">
+<pre id="prompt-G-M4A">Papel: Você é analista sênior de KPIs.
+
+Contexto: Meu negócio [tipo]. Objetivo dos próximos 90 dias em 1 frase: [objetivo].
+
+Tarefa: Proponha 5 KPIs para monitorar esse objetivo. Regras: (a) máx 5. (b) ao menos 1 Leading (preditivo). (c) cada KPI SMART. (d) cada um com faixa verde/amarelo/vermelho + regra de ação por cor. (e) frequência de review (weekly ou monthly). (f) responsável sugerido por função (não nome).
+
+Formato: Tabela — coluna: nome do KPI · fórmula · tipo (Lagging/Leading) · faixa verde · amarelo · vermelho · ação por cor · frequência · dono.
+
+Limitações: Nada de KPI de vaidade (curtidas, seguidores, "engajamento" solto). Se algum KPI depender de dado que não tenho, marque [precisa infra: sistema X] em vez de assumir.
+
+Aguarde minha aprovação antes de gerar o dashboard visual.</pre>
+      </div>
+    </div>
+
+    <div class="prompt-card reveal" id="card-G-M4B" data-function="gestao">
+      <div class="prompt-card-header">
+        <div>
+          <h3>G-M4B — Distinguir KPI de métrica de vaidade</h3>
+          <span class="prompt-card-tag">S4 · Momento 4 ★ · Modo Autopiloto · L1</span>
+          <span class="prompt-card-eixo"><a href="../eixos/gestao/#momento-4">Abrir na aula →</a></span>
+        </div>
+        <button class="btn btn-outline btn-copy" data-copy="prompt-G-M4B" style="flex-shrink:0">Copiar</button>
+      </div>
+      <p class="prompt-card-desc">Você lista 15-20 indicadores candidatos. IA separa KPI real (dado + regra de ação) de métrica de vaidade e propõe substituto pra cada vaidade.</p>
+      <button class="btn btn-outline btn-ver" onclick="openPromptPreview('G-M4B')">Ver prompt →</button>
+      <div class="prompt-body">
+<pre id="prompt-G-M4B">Papel: Você é analista sênior de indicadores.
+
+Contexto: Meu negócio [tipo]. Objetivo geral: [objetivo].
+
+Tarefa: Vou colar uma lista de 15-20 indicadores que estou considerando. Classifique cada um em: (A) KPI real — tem dado + regra de ação quando desvia; (B) métrica de contexto — informativa, não move decisão; (C) vaidade — sente-bem mas não muda comportamento. Para cada C, proponha 1 substituto SMART que capture o mesmo sinal com regra de ação.
+
+Formato: Tabela — colunas: indicador · classificação (A/B/C) · por quê · substituto (se C).
+
+Limitações: Se algum indicador for ambíguo, classifique como B e explique. Nada de "depende do contexto" — decida com o que eu escrevi.
+
+INDICADORES CANDIDATOS:
+[cole a lista, um por linha]</pre>
+      </div>
+    </div>
+
+    <div class="prompt-card reveal" id="card-G-M5A" data-function="gestao">
+      <div class="prompt-card-header">
+        <div>
+          <h3>G-M5A — Diagnóstico de gargalo com CSV de tempos</h3>
+          <span class="prompt-card-tag">S4 · Momento 5 · Modo Colaboração · L2</span>
+          <span class="prompt-card-eixo"><a href="../eixos/gestao/#momento-5">Abrir na aula →</a></span>
+        </div>
+        <button class="btn btn-outline btn-copy" data-copy="prompt-G-M5A" style="flex-shrink:0">Copiar</button>
+      </div>
+      <p class="prompt-card-desc">Cola CSV com etapa × tempo × retrabalho, IA aplica Espinha-de-peixe Hosotani e rankeia 5 hipóteses de causa-raiz com 5 Porquês.</p>
+      <button class="btn btn-outline btn-ver" onclick="openPromptPreview('G-M5A')">Ver prompt →</button>
+      <div class="prompt-body">
+<pre id="prompt-G-M5A">Papel: Você é especialista em diagnóstico de eficiência de processos e análise de dado.
+
+Contexto: Anexei CSV com colunas: etapa_id · tempo_execucao_min · data_inicio · data_fim · funcao_responsavel · numero_retrabalhos. Meu processo: [descreva em 1 linha].
+
+Tarefa: Análise em 3 etapas: (1) por etapa, calcule tempo médio, desvio padrão, 90º percentil, % retrabalho. Aponte a etapa mais problemática. (2) aplique Espinha-de-peixe com as 6 categorias Hosotani (matéria-prima, equipamentos, pessoas, ambiente, procedimentos, informações). (3) rankeie 5 hipóteses de causa-raiz por probabilidade, aplicando 5 Porquês em cada.
+
+Formato: Tabela na (1) + diagrama textual em árvore na (2) + tabela na (3) com colunas: hipótese · categoria Hosotani · 5 Porquês (colapsado) · próxima verificação sugerida.
+
+Limitações: Se qualquer coluna estiver ausente ou dado inconsistente, sinalize antes de calcular. Não invente hipótese sem lastro nos dados.</pre>
+      </div>
+    </div>
+
+    <div class="prompt-card reveal" id="card-G-M5B" data-function="gestao">
+      <div class="prompt-card-header">
+        <div>
+          <h3>G-M5B — 5 Porquês pra descer de sintoma à causa-raiz</h3>
+          <span class="prompt-card-tag">S4 · Momento 5 · Modo Colaboração · L1</span>
+          <span class="prompt-card-eixo"><a href="../eixos/gestao/#momento-5">Abrir na aula →</a></span>
+        </div>
+        <button class="btn btn-outline btn-copy" data-copy="prompt-G-M5B" style="flex-shrink:0">Copiar</button>
+      </div>
+      <p class="prompt-card-desc">Você tem um sintoma ("cliente reclama do atendimento"). IA guia pelos 5 Porquês pra chegar em contramediada acionável — sem parar no primeiro chute.</p>
+      <button class="btn btn-outline btn-ver" onclick="openPromptPreview('G-M5B')">Ver prompt →</button>
+      <div class="prompt-body">
+<pre id="prompt-G-M5B">Papel: Você é facilitadora de análise causa-raiz treinada em método Toyota.
+
+Contexto: Tenho um sintoma no meu negócio [descreva em 1 frase — ex.: "cliente do restaurante reclama do tempo de espera"].
+
+Tarefa: Aplique os 5 Porquês. Pra cada nível, formule 1 pergunta objetiva, aguarde minha resposta e só então avance. No 5º nível, proponha a contramediada (ação sobre a CAUSA-RAIZ, não sobre o sintoma). Diferencie explicitamente anomalia (desvio pontual) de problema (padrão persistente).
+
+Formato: 5 rodadas de pergunta-resposta. Ao final: tabela com colunas Nível · Pergunta · Resposta · Contramediada sugerida (só na 5). Depois: 1 frase explicando por que a contramediada da 5ª pergunta é diferente das reações típicas ao sintoma.
+
+Limitações: NÃO avance pro próximo Porquê sem minha resposta. Se minha resposta for evasiva ("não sei", "acho que"), aponte e me peça pra concretizar antes de avançar.</pre>
+      </div>
+    </div>
+
+    <div class="prompt-card reveal" id="card-G-M6" data-function="gestao">
+      <div class="prompt-card-header">
+        <div>
+          <h3>G-M6 — Priorização Impacto × Esforço + Plano 5W2H</h3>
+          <span class="prompt-card-tag">S4 · Momento 6 · Modo Colaboração · L2</span>
+          <span class="prompt-card-eixo"><a href="../eixos/gestao/#momento-6">Abrir na aula →</a></span>
+        </div>
+        <button class="btn btn-outline btn-copy" data-copy="prompt-G-M6" style="flex-shrink:0">Copiar</button>
+      </div>
+      <p class="prompt-card-desc">Lista de 10+ iniciativas → matriz 2×2 Impacto × Esforço → escolha das 3 quick wins → 5W2H completo pra executar na semana.</p>
+      <button class="btn btn-outline btn-ver" onclick="openPromptPreview('G-M6')">Ver prompt →</button>
+      <div class="prompt-body">
+<pre id="prompt-G-M6">Papel: Você é PMO sênior focado em priorização e execução.
+
+Contexto: Nesta S4 apareceram várias iniciativas nos momentos 1 a 5. Vou colar a lista abaixo. Meu negócio: [tipo]. Meu horizonte: 30-60 dias.
+
+Tarefa: (1) Aloque cada iniciativa em matriz 2×2 Impacto × Esforço. Justifique a alocação em 1 linha por iniciativa. (2) Marque as 3 iniciativas do quadrante alto-impacto/baixo-esforço (quick wins). (3) Redija plano 5W2H para as 3 escolhidas — cada linha com What · Why · Where · When · Who · How · How much (R$ estimado ou horas).
+
+Formato: Matriz visualizada em ASCII (4 quadrantes). Depois tabela 5W2H, uma linha por iniciativa priorizada. Ao final: dependências entre iniciativas em bullets.
+
+Limitações: Se não souber o custo, marque [estimar]. Se o responsável depender de contratação futura, marque [depende: RH]. Não invente prazos "genéricos" — pergunte se estiver ambíguo.
+
+INICIATIVAS:
+[cole aqui]</pre>
       </div>
     </div>
 

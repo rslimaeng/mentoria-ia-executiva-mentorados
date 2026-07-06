@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Eixo Gestão · Mentoria IA Executiva · Débora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../_shared/assets/style.css">
+  <style>
+    /* === Cards de dores === */
+    .dores-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px; margin-top: 22px;
+    }
+    .dor-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px 22px;
+      border-top: 3px solid var(--accent-warm);
+    }
+    .dor-card .dor-num {
+      font-family: 'Playfair Display', serif; font-size: 12px;
+      color: var(--accent-warm-dark); font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase; margin: 0 0 6px;
+    }
+    .dor-card h4 {
+      font-family: 'Playfair Display', serif; font-size: 18px;
+      color: var(--ink); margin: 0 0 6px; line-height: 1.25;
+    }
+    .dor-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin: 0; }
+    .objetivo-callout {
+      background: linear-gradient(180deg, #eef4f6 0%, var(--bg-card) 80%);
+      border: 1px solid #b0cfd8;
+      border-radius: 12px; padding: 24px 28px; margin-top: 26px;
+    }
+    .objetivo-callout p { font-size: 15px; line-height: 1.7; color: var(--ink); margin: 0; }
+    .objetivo-callout strong { color: var(--accent-dark); }
+
+    /* === Mercado horizontal === */
+    .mercado-horizontal {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 10px; margin-top: 22px;
+    }
+    @media (max-width: 880px) { .mercado-horizontal { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .mercado-horizontal { grid-template-columns: 1fr; } }
+    .mercado-h-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 18px 18px 16px;
+      border-top: 3px solid var(--accent);
+      display: flex; flex-direction: column; height: 100%;
+    }
+    .mercado-h-num {
+      font-family: 'Playfair Display', serif; font-size: 26px;
+      color: var(--accent); font-weight: 700; line-height: 1; margin: 0 0 6px;
+    }
+    .mercado-h-tag {
+      font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent-warm-dark); font-weight: 600; margin: 0 0 8px;
+    }
+    .mercado-h-dado { font-size: 12px; color: var(--ink-soft); line-height: 1.5; margin: 0 0 10px; flex-grow: 1; }
+    .mercado-h-leitura { font-size: 12px; color: var(--ink); line-height: 1.5; margin: 0; padding-top: 10px; border-top: 1px solid var(--border); }
+    .mercado-h-leitura strong { color: var(--accent-warm-dark); }
+    .mercado-h-fonte { font-size: 10px; color: var(--ink-muted); letter-spacing: .06em; margin: 8px 0 0; }
+
+    .dois-tipos {
+      background: var(--ink); color: var(--bg);
+      border-radius: 12px; padding: 26px 30px; margin-top: 26px;
+    }
+    .dois-tipos p { font-family: 'Playfair Display', serif; font-size: 19px; line-height: 1.45; margin: 0 0 8px; color: var(--bg); }
+    .dois-tipos .dois-tipos-fonte { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-warm); margin: 12px 0 0; }
+
+    /* === Tabela de habilidades destravadas === */
+    .habilidades-table {
+      width: 100%; border-collapse: collapse;
+      background: var(--bg-card); border-radius: 10px;
+      overflow: hidden; border: 1px solid var(--border);
+      margin-top: 22px;
+    }
+    .habilidades-table thead { background: var(--bg-warm); }
+    .habilidades-table th {
+      font-family: 'Inter', sans-serif; font-size: 11px;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ink-soft); font-weight: 600;
+      text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border);
+    }
+    .habilidades-table td {
+      padding: 14px; border-bottom: 1px solid var(--border);
+      font-size: 13px; color: var(--ink-soft); line-height: 1.5; vertical-align: top;
+    }
+    .habilidades-table tr:last-child td { border-bottom: 0; }
+    .habilidades-table td.habilidade-nome { font-weight: 600; color: var(--ink); }
+    .habilidades-table td.habilidade-antes { font-style: italic; color: var(--ink-muted); }
+    .habilidades-table td.habilidade-depois { color: var(--accent-dark); font-weight: 500; }
+    .habilidades-table td.habilidade-nivel {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      color: var(--accent-warm-dark); text-align: center;
+    }
+    .habilidades-table td.habilidade-num {
+      font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700;
+      color: var(--accent); text-align: center; width: 36px;
+    }
+    .habilidades-table td.habilidade-onde { white-space: nowrap; padding-top: 10px; }
+    .hab-link {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 14px; letter-spacing: .04em;
+      text-decoration: none;
+    }
+    .hab-link.s4 { background: #eef4f6; color: var(--accent-dark); border: 1px solid #b0cfd8; }
+    .hab-link.s4:hover { background: var(--accent); color: white; }
+    .hab-link.s4.estrela { background: #fdf3ec; color: var(--accent-warm-dark); border-color: #e6c9a8; }
+    .hab-link.s4.estrela:hover { background: var(--accent-warm); color: white; }
+    .hab-link.futuro { background: transparent; color: var(--ink-muted); border: 1px dashed var(--border-strong); }
+
+    /* === Bloco didático por momento === */
+    .momento-didatico {
+      background: linear-gradient(180deg, #eef4f6 0%, var(--bg-card) 80%);
+      border-top: 1px solid var(--border); padding: 22px 22px 18px;
+    }
+    .momento-didatico .md-aprende {
+      font-family: 'Playfair Display', serif; font-size: 16px;
+      color: var(--ink); line-height: 1.4; margin: 0 0 14px;
+      padding: 12px 14px; background: var(--bg-card);
+      border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
+    }
+    .momento-didatico .md-aprende strong {
+      display: block; font-family: 'Inter', sans-serif; font-size: 10px;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent-dark); font-weight: 700; margin-bottom: 4px;
+    }
+    .momento-didatico-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      margin-bottom: 14px;
+    }
+    @media (max-width: 600px) { .momento-didatico-grid { grid-template-columns: 1fr; } }
+    .momento-didatico-grid .md-bloco {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 6px; padding: 12px 14px;
+    }
+    .momento-didatico-grid .md-bloco strong {
+      display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent-warm-dark); margin-bottom: 6px;
+    }
+    .momento-didatico-grid .md-bloco ul {
+      font-size: 12px; color: var(--ink); line-height: 1.55; margin: 0; padding-left: 18px;
+    }
+    .momento-didatico-grid .md-bloco p {
+      font-size: 12px; color: var(--ink); line-height: 1.55; margin: 0;
+    }
+    .marco-progresso {
+      margin-top: 12px; padding: 10px 14px;
+      background: var(--ink); color: var(--bg);
+      border-radius: 6px; font-size: 12px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .marco-progresso .marco-check {
+      display: inline-block; width: 18px; height: 18px; border-radius: 50%;
+      background: var(--accent); color: white;
+      text-align: center; line-height: 18px; font-size: 12px; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .marco-progresso strong { color: var(--bg); font-weight: 600; }
+    .marco-progresso .marco-prox { color: var(--accent-warm); margin-left: auto; font-size: 11px; letter-spacing: .04em; }
+
+    /* === Número do momento === */
+    .roteiro-numero {
+      font-family: 'Playfair Display', serif; font-size: 28px;
+      color: var(--accent); font-weight: 700; text-align: center;
+      line-height: 1;
+    }
+    .roteiro-item.estrela .roteiro-numero { color: var(--accent-warm-dark); }
+    .roteiro-numero small {
+      display: block; font-family: 'Inter', sans-serif;
+      font-size: 9px; font-weight: 700; color: var(--ink-muted);
+      letter-spacing: .12em; text-transform: uppercase; margin-top: 4px;
+    }
+
+    /* === Timeline horizontal dos 6 momentos === */
+    .timeline-6 {
+      display: grid; grid-template-columns: repeat(6, 1fr);
+      gap: 8px; margin: 22px 0 8px;
+    }
+    @media (max-width: 720px) { .timeline-6 { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 420px) { .timeline-6 { grid-template-columns: repeat(2, 1fr); } }
+    .timeline-item {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 10px 10px;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center;
+      border-top: 3px solid var(--accent);
+    }
+    .timeline-item.estrela { border-top-color: var(--accent-warm); background: #fdf3ec; }
+    .timeline-item .ti-num {
+      font-family: 'Playfair Display', serif; font-size: 22px;
+      color: var(--accent); font-weight: 700; line-height: 1;
+    }
+    .timeline-item.estrela .ti-num { color: var(--accent-warm-dark); }
+    .timeline-item .ti-titulo {
+      font-size: 11.5px; font-weight: 600; color: var(--ink);
+      margin: 8px 0 2px; line-height: 1.3;
+    }
+    .timeline-item .ti-hab {
+      font-size: 10px; color: var(--ink-soft); font-style: italic; line-height: 1.35;
+    }
+
+    /* === Roteiro 6 momentos === */
+    .roteiro-item {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; margin-bottom: 22px;
+      overflow: hidden;
+    }
+    .roteiro-item.estrela { border-color: var(--accent-warm); }
+    .roteiro-item.estrela .roteiro-header { background: #fdf3ec; }
+    .roteiro-header {
+      display: grid; grid-template-columns: 80px 1fr; gap: 18px;
+      padding: 20px 24px; align-items: center;
+      background: var(--bg-warm);
+      border-bottom: 1px solid var(--border);
+    }
+    .roteiro-header h3 {
+      font-family: 'Playfair Display', serif; font-size: 20px;
+      color: var(--ink); margin: 0 0 4px; line-height: 1.25;
+    }
+    .roteiro-header .rt-modo {
+      font-size: 11px; letter-spacing: .08em; color: var(--ink-soft);
+      font-weight: 500;
+    }
+    .roteiro-body { padding: 20px 24px 0; }
+    .roteiro-body p { font-size: 14px; color: var(--ink); line-height: 1.65; margin: 0 0 12px; }
+    .roteiro-body strong { color: var(--ink); font-weight: 600; }
+
+    /* === Modo badge === */
+    .modo-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; line-height: 1; }
+    .modo-badge.auto { background: #eef4f6; color: #1d4250; border: 1px solid #b0cfd8; }
+    .modo-badge.colab { background: #fdf3ec; color: #8f6a4d; border: 1px solid #e6c9a8; }
+    .modo-badge.manual { background: #f4f1ea; color: #5a5247; border: 1px solid #d4c8b0; }
+
+    /* === Prompt inline === */
+    .prompt-inline {
+      background: var(--ink); color: #e6dfd2; border-radius: 8px;
+      padding: 18px 20px; margin: 10px 0;
+      font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.65;
+      white-space: pre-wrap; word-wrap: break-word;
+      position: relative;
+    }
+    .prompt-inline b { color: #c2916b; font-weight: 600; }
+    .prompt-inline-label {
+      display: inline-block; margin-bottom: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent-warm-dark); font-weight: 700;
+    }
+
+    /* === Materiais list === */
+    .materiais-list { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
+    .materiais-list li { padding: 14px 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; display: flex; gap: 14px; }
+    .materiais-list li strong { color: var(--ink); font-weight: 600; }
+    .materiais-list li .mat-num {
+      font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700;
+      color: var(--accent); flex-shrink: 0; width: 24px; text-align: center;
+    }
+    .materiais-list li.dica { border-left: 3px solid var(--accent-warm); background: #fdf3ec; }
+    .materiais-list li.dica .mat-num { color: var(--accent-warm-dark); }
+
+    /* === Setup Claude === */
+    .setup-steps-mini {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+      margin: 18px 0 8px;
+    }
+    @media (max-width: 720px) { .setup-steps-mini { grid-template-columns: 1fr; } }
+    .setup-mini {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 16px 18px;
+    }
+    .setup-mini h4 {
+      font-family: 'Playfair Display', serif; font-size: 15px;
+      color: var(--ink); margin: 0 0 4px;
+    }
+    .setup-mini .sm-num {
+      display: inline-block; width: 24px; height: 24px;
+      background: var(--accent); color: white; border-radius: 50%;
+      text-align: center; line-height: 24px; font-size: 12px; font-weight: 700;
+      margin-right: 6px;
+    }
+    .setup-mini p { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; margin: 6px 0 0; }
+    .setup-mini a { color: var(--accent); font-weight: 600; }
+
+    .callout.danger { background: #fdf3ec; border-left-color: var(--accent-warm); }
+
+    .exercicio-casa {
+      margin-top: 14px; padding: 14px 16px; background: #fdf3ec;
+      border: 1px dashed #e6c9a8; border-radius: 8px;
+    }
+    .exercicio-casa strong { display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-warm-dark); margin-bottom: 6px; }
+    .exercicio-casa p { font-size: 13px; color: var(--ink-soft); line-height: 1.55; margin: 0 0 6px; }
+    .exercicio-casa a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="../../" class="topbar-logo">Mentoria IA Executiva · Débora</a>
+      <nav class="topbar-nav">
+        <a href="../../">Início</a>
+        <a href="../../banco-de-prompts/">Biblioteca</a>
+        <a href="../../banco-de-prompts/assistente-gestao.html">Professor de Gestão</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Header do eixo -->
+  <div class="module-header site-container">
+    <p class="eyebrow">Eixo · Gestão · Encontro 4</p>
+    <h1>IA aplicada à gestão.<br>Práticas canônicas com um copiloto ao lado.</h1>
+    <div class="module-header-meta">
+      <span>6 práticas que servem em qualquer negócio</span>
+      <span>·</span>
+      <span>Stack: Claude.ai Pro + NotebookLM + Notion</span>
+    </div>
+  </div>
+
+  <!-- Por que este eixo -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Por que este eixo</p>
+      <h2>Você já viu os frameworks no MBA. Agora você aplica com IA como copilota.</h2>
+      <p>
+        Este encontro NÃO é aula de gestão do zero. É sobre transformar frameworks canônicos (SWOT, POP, KPI, PDCA) em <strong>prática viva</strong> — usando IA pra tirar você do papel branco e chegar em minutos onde antes levava horas ou dias. Habilidade transferível entre restaurante, banda, corretora e qualquer próximo negócio.
+      </p>
+
+      <div class="dores-grid">
+        <div class="dor-card">
+          <p class="dor-num">Dor 1</p>
+          <h4>Sair do papel branco</h4>
+          <p>Ter um framework mas travar em "por onde começo?". IA vira o parceiro que faz a primeira versão contigo.</p>
+        </div>
+        <div class="dor-card">
+          <p class="dor-num">Dor 2</p>
+          <h4>Padronizar sem cansar</h4>
+          <p>POP, checklist, manual — coisas que a equipe precisa e ninguém tem tempo pra escrever. IA transcreve o que está na sua cabeça.</p>
+        </div>
+        <div class="dor-card">
+          <p class="dor-num">Dor 3</p>
+          <h4>Medir o que importa</h4>
+          <p>Escolher 5 KPIs certos em vez de 30 métricas de vaidade. Saber a diferença entre "olhar pra trás" e "olhar pra frente".</p>
+        </div>
+        <div class="dor-card">
+          <p class="dor-num">Dor 4</p>
+          <h4>Achar causa-raiz, não sintoma</h4>
+          <p>Diagnóstico estruturado em vez de "tenta assim". Espinha-de-peixe + 5 Porquês + análise de dado — em 20 min.</p>
+        </div>
+      </div>
+
+      <div class="objetivo-callout">
+        <p>
+          <strong>Objetivo desta S4:</strong> sair com 6 práticas rodadas na sua mão + 1 Professor de Gestão configurado no Claude.ai pra tirar dúvidas entre encontros. Você não vira consultora de processos — você vira <strong>a gestora que faz a pergunta certa, tira do papel em minutos e cobra quando alguém não tem framework</strong>. Habilidade agnóstica: aplica no restaurante em construção, na banda de forró, na corretora que você quer gerenciar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Onde está o mercado -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Onde o mercado está · 2026</p>
+      <h2>Já é padrão emergente — quem executa agora sai na frente.</h2>
+      <p>
+        Quatro números pra calibrar. O gap real não é "usar IA sim ou não" — é entre <strong>quem tem framework aplicado com IA</strong> e quem usa IA solta em cima de processo sem forma.
+      </p>
+
+      <div class="mercado-horizontal">
+        <div class="mercado-h-card">
+          <p class="mercado-h-tag">Brasil · PME</p>
+          <p class="mercado-h-num">44%</p>
+          <p class="mercado-h-dado">das PMEs brasileiras já usam IA. Só 22% de forma estruturada — 38% ainda dependem de planilhas manuais.</p>
+          <p class="mercado-h-leitura"><strong>Como ler:</strong> o gap é <strong>estrutura</strong>, não acesso. Quem tem framework (SWOT + POP + KPI) e IA junto vira minoria performática.</p>
+          <p class="mercado-h-fonte">Nautis · Sebrae · 2026</p>
+        </div>
+        <div class="mercado-h-card">
+          <p class="mercado-h-tag">Brasil · Sebrae</p>
+          <p class="mercado-h-num">34%</p>
+          <p class="mercado-h-dado">das micro/pequenas empresas dizem que <strong>economia de tempo</strong> é o principal benefício percebido em IA — não redução de custo, não faturamento.</p>
+          <p class="mercado-h-leitura"><strong>Como ler:</strong> hora do gestor é o recurso escasso. IA em gestão é sobre <strong>escalar sua atenção</strong>, não substituir sua decisão.</p>
+          <p class="mercado-h-fonte">Sebrae · 2025</p>
+        </div>
+        <div class="mercado-h-card">
+          <p class="mercado-h-tag">Global · Kaplan/Norton</p>
+          <p class="mercado-h-num">60%</p>
+          <p class="mercado-h-dado">dos planos estratégicos fracassam por <strong>execução</strong>, não por má estratégia. Ferramenta e disciplina falham antes do plano.</p>
+          <p class="mercado-h-leitura"><strong>Como ler:</strong> não adianta ter SWOT bonito. O diferencial é <strong>o loop diário</strong> (KPI → causa-raiz → 5W2H → PDCA) rodando.</p>
+          <p class="mercado-h-fonte">Execution Premium · 2008</p>
+        </div>
+        <div class="mercado-h-card">
+          <p class="mercado-h-tag">Brasil · Nautis 2026</p>
+          <p class="mercado-h-num">9%</p>
+          <p class="mercado-h-dado">das PMEs que adotaram IA <strong>têm ROI mensurado</strong>. 79% assinam contratos de consultoria sem piloto validado — e não têm agente em produção após 12 meses.</p>
+          <p class="mercado-h-leitura"><strong>Como ler:</strong> prova em pequeno primeiro. IA em gestão começa com 1 POP + 1 dashboard + 1 diagnóstico — não com "transformação digital".</p>
+          <p class="mercado-h-fonte">Nautis · Estado da IA PME · 2026</p>
+        </div>
+      </div>
+
+      <div class="dois-tipos">
+        <p>"60% dos planos estratégicos fracassam por execução, não estratégia. Ferramenta e disciplina falham antes do plano."</p>
+        <p class="dois-tipos-fonte">Kaplan &amp; Norton · Execution Premium</p>
+      </div>
+
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 22px; color: var(--ink); margin: 32px 0 6px;">10 habilidades que a IA destrava em gestão PME</h3>
+      <p style="font-size: 14px; color: var(--ink-soft); margin: 0 0 6px;">As 6 primeiras você pratica nesta S4 — uma por momento. As outras 4 você destrava no caminho (casa pós-S4, S5, S6). Nível indica o degrau de uso (L1 estrutura · L2 dados · L3 assistente).</p>
+
+      <table class="habilidades-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Habilidade</th>
+            <th>Antes (sem IA)</th>
+            <th>Com IA</th>
+            <th>Onde você pratica</th>
+            <th>Nível</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="habilidade-num">1</td>
+            <td class="habilidade-nome">Estruturar diagnóstico estratégico (SWOT + 5 Forças)</td>
+            <td class="habilidade-antes">papel branco por 2 horas</td>
+            <td class="habilidade-depois">v1 em 20 min, refinada em 40</td>
+            <td class="habilidade-onde"><a href="#momento-1" class="hab-link s4">Momento 1 ✓</a></td>
+            <td class="habilidade-nivel">L2</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">2</td>
+            <td class="habilidade-nome">Mapear processo em AS-IS (hierarquia PROC>SUBPROC>ATIV)</td>
+            <td class="habilidade-antes">"como a gente faz mesmo?"</td>
+            <td class="habilidade-depois">descreve verbal, IA estrutura em fluxo com primeiros gargalos apontados</td>
+            <td class="habilidade-onde"><a href="#momento-2" class="hab-link s4">Momento 2 ✓</a></td>
+            <td class="habilidade-nivel">L2</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">3</td>
+            <td class="habilidade-nome">Padronizar rotina (POP + 5W2H integrado)</td>
+            <td class="habilidade-antes">"depois eu escrevo"</td>
+            <td class="habilidade-depois">POP v1 em 20 min com todos os 7 blocos</td>
+            <td class="habilidade-onde"><a href="#momento-3" class="hab-link s4">Momento 3 ✓</a></td>
+            <td class="habilidade-nivel">L2</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">4</td>
+            <td class="habilidade-nome">Definir e monitorar KPIs (dashboard semafórico + Lagging × Leading)</td>
+            <td class="habilidade-antes">30 métricas soltas ou nenhuma</td>
+            <td class="habilidade-depois">5 KPIs escolhidos + regra de ação por cor</td>
+            <td class="habilidade-onde"><a href="#momento-4" class="hab-link s4 estrela">Momento 4 ★ ✓</a></td>
+            <td class="habilidade-nivel">L2</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">5</td>
+            <td class="habilidade-nome">Diagnosticar causa-raiz (CSV + Espinha-de-peixe Hosotani)</td>
+            <td class="habilidade-antes">"tenta assim" no chute</td>
+            <td class="habilidade-depois">5 hipóteses ranqueadas com % retrabalho por etapa</td>
+            <td class="habilidade-onde"><a href="#momento-5" class="hab-link s4">Momento 5 ✓</a></td>
+            <td class="habilidade-nivel">L2</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">6</td>
+            <td class="habilidade-nome">Priorizar iniciativas (Impacto × Esforço) + Plano 5W2H</td>
+            <td class="habilidade-antes">"o mais urgente primeiro"</td>
+            <td class="habilidade-depois">matriz 2×2 + plano com prazo + responsável + custo</td>
+            <td class="habilidade-onde"><a href="#momento-6" class="hab-link s4">Momento 6 ✓</a></td>
+            <td class="habilidade-nivel">L2</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">7</td>
+            <td class="habilidade-nome">Aplicar Cadeia de Valor Porter em decisão de terceirização</td>
+            <td class="habilidade-antes">gut-feeling do "faz ou compra"</td>
+            <td class="habilidade-depois">cadeia mapeada + trade-offs por atividade</td>
+            <td class="habilidade-onde"><span class="hab-link futuro">Casa pós-S4</span></td>
+            <td class="habilidade-nivel">L2</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">8</td>
+            <td class="habilidade-nome">Cascatear metas (empresa → depto → pessoa)</td>
+            <td class="habilidade-antes">meta anual sem desdobrar</td>
+            <td class="habilidade-depois">Strategy Map + BSC + KPIs individuais</td>
+            <td class="habilidade-onde"><span class="hab-link futuro">S5</span></td>
+            <td class="habilidade-nivel">L2</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">9</td>
+            <td class="habilidade-nome">Diagnosticar qual dos 5 Mitos da Execução domina o negócio</td>
+            <td class="habilidade-antes">"todo mundo tá alinhado" (não está)</td>
+            <td class="habilidade-depois">checklist HBR aplicado + ação por mito</td>
+            <td class="habilidade-onde"><span class="hab-link futuro">Casa pós-S4</span></td>
+            <td class="habilidade-nivel">L1</td>
+          </tr>
+          <tr>
+            <td class="habilidade-num">10</td>
+            <td class="habilidade-nome">Rodar PDCA completo (9 passos Falconi) em ciclo mensal</td>
+            <td class="habilidade-antes">"a gente faz PDCA meio de olho"</td>
+            <td class="habilidade-depois">assistente próprio conduzindo o ciclo mês a mês</td>
+            <td class="habilidade-onde"><span class="hab-link futuro">S8</span></td>
+            <td class="habilidade-nivel">L3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 6 Momentos — Timeline + Roteiro -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Roteiro da S4</p>
+      <h2>6 práticas canônicas. Uma habilidade por momento.</h2>
+      <p>
+        Cada momento é uma prática que fica com você. Não são "temas do MBA" — são <strong>ciclos de aplicação com IA como copilota</strong>: você chega com um problema real (de qualquer negócio), sai com um artefato pronto e a habilidade destravada.
+      </p>
+
+      <div class="timeline-6">
+        <div class="timeline-item">
+          <div class="ti-num">1</div>
+          <div class="ti-titulo">SWOT + 5 Forças</div>
+          <div class="ti-hab">Diagnóstico estratégico</div>
+        </div>
+        <div class="timeline-item">
+          <div class="ti-num">2</div>
+          <div class="ti-titulo">Mapa AS-IS</div>
+          <div class="ti-hab">Mapear processo</div>
+        </div>
+        <div class="timeline-item">
+          <div class="ti-num">3</div>
+          <div class="ti-titulo">POP + 5W2H</div>
+          <div class="ti-hab">Padronizar rotina</div>
+        </div>
+        <div class="timeline-item estrela">
+          <div class="ti-num">4</div>
+          <div class="ti-titulo">Dashboard 5 KPIs</div>
+          <div class="ti-hab">Medir o que decide</div>
+        </div>
+        <div class="timeline-item">
+          <div class="ti-num">5</div>
+          <div class="ti-titulo">Causa-raiz</div>
+          <div class="ti-hab">Diagnosticar gargalo</div>
+        </div>
+        <div class="timeline-item">
+          <div class="ti-num">6</div>
+          <div class="ti-titulo">Prioridade + Plano</div>
+          <div class="ti-hab">Impacto × Esforço + 5W2H</div>
+        </div>
+      </div>
+
+      <!-- MOMENTO 1 -->
+      <div class="roteiro-item" id="momento-1">
+        <div class="roteiro-header">
+          <div class="roteiro-numero">1<small>Momento</small></div>
+          <div>
+            <h3>Diagnóstico estratégico — SWOT + 5 Forças com IA como copilota</h3>
+            <div class="rt-modo"><span class="modo-badge colab">Colaboração</span> · L1→L2 · Claude.ai</div>
+          </div>
+        </div>
+        <div class="momento-didatico">
+          <div class="md-aprende">
+            <strong>Habilidade destravada aqui</strong>
+            Você chega sem SWOT. Sai com SWOT + 5 Forças aplicadas a UM dos seus negócios, com IA fazendo as perguntas certas em vez de você travar no papel branco.
+          </div>
+          <div class="momento-didatico-grid">
+            <div class="md-bloco">
+              <strong>O que a IA faz</strong>
+              <ul>
+                <li>Guia por perguntas dirigidas ("qual seu maior cliente?", "quem seu concorrente direto?")</li>
+                <li>Preenche matriz 2×2 (SWOT) a partir das respostas</li>
+                <li>Traduz respostas informais em bullets estruturados</li>
+                <li>Rankeia forças por impacto potencial</li>
+              </ul>
+            </div>
+            <div class="md-bloco">
+              <strong>O que você faz</strong>
+              <ul>
+                <li>Escolhe qual negócio analisar (restaurante, banda, corretora)</li>
+                <li>Responde as perguntas com o que sabe</li>
+                <li>Descarta bullets genéricos que não se aplicam</li>
+                <li>Fecha com 3 ações prioritárias saindo do quadro</li>
+              </ul>
+            </div>
+          </div>
+          <div class="marco-progresso">
+            <span class="marco-check">✓</span>
+            <strong>Marco:</strong> SWOT + 5 Forças de UM negócio real na sua mão.
+            <span class="marco-prox">Próximo: mapa AS-IS →</span>
+          </div>
+        </div>
+        <div class="roteiro-body">
+          <p>Framework antigo (SWOT tem 60+ anos, 5 Forças tem 45+). O que muda com IA: <strong>você sai do "por onde começo?"</strong> em 20 min em vez de 2h. IA vira o consultor que sabe as perguntas certas — você é o dono que sabe as respostas.</p>
+          <p class="prompt-inline-label">Prompt-âncora (Colaboração)</p>
+          <div class="prompt-inline"><b>Papel:</b> Você é consultora sênior de estratégia PME.
+<b>Contexto:</b> Sou dona/gestora de um negócio [tipo]. Preciso de SWOT + 5 Forças de Porter aplicado. Público-alvo: [breve]. Fase atual: [em construção / operando / expansão]. Concorrentes diretos: [3 nomes ou "não sei"].
+<b>Tarefa:</b> Me guie por perguntas — no máximo 5 por vez — até termos matéria pra preencher SWOT (Forças / Fraquezas / Oportunidades / Ameaças) e 5 Forças. Depois entregue o quadro estruturado + 3 ações prioritárias.
+<b>Formato:</b> Perguntas primeiro. Quando eu autorizar, matriz SWOT em tabela + 5 Forças em bullet por força (Alta/Média/Baixa) + 3 ações rankeadas por impacto.
+<b>Limitações:</b> NADA de "insights genéricos". Só o que sair das MINHAS respostas. Se algum quadrante ficar vazio, marque "sem sinal — pesquisar" em vez de inventar.</div>
+        </div>
+      </div>
+
+      <!-- MOMENTO 2 -->
+      <div class="roteiro-item" id="momento-2">
+        <div class="roteiro-header">
+          <div class="roteiro-numero">2<small>Momento</small></div>
+          <div>
+            <h3>Mapa AS-IS — descreve verbal, IA estrutura o processo</h3>
+            <div class="rt-modo"><span class="modo-badge colab">Colaboração</span> · L2 · Claude.ai</div>
+          </div>
+        </div>
+        <div class="momento-didatico">
+          <div class="md-aprende">
+            <strong>Habilidade destravada aqui</strong>
+            Você chega com processo "na cabeça". Sai com AS-IS estruturado em hierarquia PROCESSO > SUBPROCESSO > ATIVIDADE + os primeiros gargalos apontados pela IA.
+          </div>
+          <div class="momento-didatico-grid">
+            <div class="md-bloco">
+              <strong>O que a IA faz</strong>
+              <ul>
+                <li>Transforma descrição verbal em fluxo estruturado</li>
+                <li>Nomeia atividades e subprocessos</li>
+                <li>Aponta pontos de decisão e loops</li>
+                <li>Sugere gargalos suspeitos ("aqui parece haver retrabalho")</li>
+              </ul>
+            </div>
+            <div class="md-bloco">
+              <strong>O que você faz</strong>
+              <ul>
+                <li>Escolhe UM processo (fechamento de caixa, cotação corretora, contratação de show)</li>
+                <li>Descreve como é HOJE (não como deveria ser)</li>
+                <li>Confirma ou corrige a estrutura da IA</li>
+                <li>Marca os 2-3 gargalos mais dolorosos</li>
+              </ul>
+            </div>
+          </div>
+          <div class="marco-progresso">
+            <span class="marco-check">✓</span>
+            <strong>Marco:</strong> AS-IS de 1 processo real com gargalos marcados.
+            <span class="marco-prox">Próximo: virar POP →</span>
+          </div>
+        </div>
+        <div class="roteiro-body">
+          <p>Falconi diz: <strong>sem AS-IS, IA vira acelerador de caos</strong>. Você precisa saber como o processo é hoje antes de otimizar. E o ganho da IA aqui é enorme: <strong>ela obriga você a nomear cada etapa</strong> — o que você faz "no automático" fica visível.</p>
+          <p class="prompt-inline-label">Prompt-âncora (Colaboração)</p>
+          <div class="prompt-inline"><b>Papel:</b> Você é analista de processos.
+<b>Contexto:</b> Vou descrever verbalmente COMO é hoje um processo do meu negócio [nome do processo]. Meu objetivo é ter um AS-IS estruturado que sirva de base pra POP e pra achar gargalos.
+<b>Tarefa:</b> Ouça minha descrição. Estruture em hierarquia PROCESSO > SUBPROCESSO > ATIVIDADE > TAREFA. Cada nível com entrada e saída. Depois marque 2-3 pontos suspeitos de gargalo (retrabalho, espera, decisão manual repetitiva).
+<b>Formato:</b> Fluxo em texto hierárquico (indentação). Ao final: tabela de gargalos suspeitos com coluna "por que suspeito".
+<b>Limitações:</b> NÃO invente etapas que eu não descrevi. Se algo ficou ambíguo, pergunte antes de estruturar.
+
+<b>MINHA DESCRIÇÃO:</b>
+[cole ou digite]</div>
+        </div>
+      </div>
+
+      <!-- MOMENTO 3 -->
+      <div class="roteiro-item" id="momento-3">
+        <div class="roteiro-header">
+          <div class="roteiro-numero">3<small>Momento</small></div>
+          <div>
+            <h3>POP a partir do AS-IS — padronização em 20 minutos</h3>
+            <div class="rt-modo"><span class="modo-badge colab">Colaboração</span> · L1→L2 · Claude.ai</div>
+          </div>
+        </div>
+        <div class="momento-didatico">
+          <div class="md-aprende">
+            <strong>Habilidade destravada aqui</strong>
+            Você chega com AS-IS mapeado. Sai com POP v1 completo (7 blocos padrão) + plano de ação 5W2H pra implementar. Pode entregar pra equipe amanhã.
+          </div>
+          <div class="momento-didatico-grid">
+            <div class="md-bloco">
+              <strong>O que a IA faz</strong>
+              <ul>
+                <li>Aplica prompt viral BR ("editor de POP da qualidade")</li>
+                <li>Preenche 7 blocos padrão: Objetivo, Escopo, Responsáveis, Materiais, Procedimento, Registros, Referências</li>
+                <li>Redige 5W2H para as ações de implementação</li>
+                <li>Traduz jargão técnico em linguagem operacional</li>
+              </ul>
+            </div>
+            <div class="md-bloco">
+              <strong>O que você faz</strong>
+              <ul>
+                <li>Cola o AS-IS do Momento 2</li>
+                <li>Revisa se cada passo cabe na realidade</li>
+                <li>Confirma responsáveis + critério de "feito"</li>
+                <li>Descarta o que virou POP-de-consultor (sem uso)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="marco-progresso">
+            <span class="marco-check">✓</span>
+            <strong>Marco:</strong> POP v1 pronto pra imprimir + 5W2H de implementação.
+            <span class="marco-prox">Próximo: KPIs pra monitorar →</span>
+          </div>
+        </div>
+        <div class="roteiro-body">
+          <p>POP não é fluxograma. POP tem <strong>7 blocos obrigatórios</strong>: Objetivo, Escopo, Responsáveis, Materiais, Procedimento, Registros, Referências. IA erra ao entregar fluxograma "vestido de POP" — o prompt-âncora força os 7 blocos. E 5W2H integrado: cada ação com <em>What, Why, Where, When, Who, How, How much</em> — os 2 H's são o que a IA mais esquece.</p>
+          <p class="prompt-inline-label">Prompt-âncora (Colaboração)</p>
+          <div class="prompt-inline"><b>Papel:</b> Você é editor de POP especialista em Qualidade.
+<b>Contexto:</b> Tenho um AS-IS de processo mapeado (cole abaixo). Preciso do POP versão 1 pra entregar à equipe.
+<b>Tarefa:</b> Redija POP com os 7 blocos obrigatórios: Objetivo · Escopo · Responsáveis · Materiais e equipamentos · Procedimento (passos numerados) · Registros e documentação · Referências. Depois, plano de ação 5W2H (What / Why / Where / When / Who / How / How much) pra implementar o POP na equipe em 30 dias.
+<b>Formato:</b> POP em 1 página (markdown). 5W2H em tabela separada, uma linha por ação.
+<b>Limitações:</b> Nada de responsável abstrato ("gerente"). Se falta info, marque [DEFINIR] em vez de inventar. Cada passo termina com critério de "feito" objetivo.
+
+<b>AS-IS:</b>
+[cole o AS-IS do Momento 2]</div>
+        </div>
+      </div>
+
+      <!-- MOMENTO 4 — ESTRELA -->
+      <div class="roteiro-item estrela" id="momento-4">
+        <div class="roteiro-header">
+          <div class="roteiro-numero">4<small>★ Momento</small></div>
+          <div>
+            <h3>Dashboard 5 KPIs em semáforo — Lagging × Leading</h3>
+            <div class="rt-modo"><span class="modo-badge colab">Colaboração</span> · L2 · Claude.ai + Notion</div>
+          </div>
+        </div>
+        <div class="momento-didatico">
+          <div class="md-aprende">
+            <strong>Habilidade destravada aqui</strong>
+            Você chega com 30 métricas de vaidade ou nenhuma. Sai com 5 KPIs escolhidos: <strong>ao menos 1 Leading</strong> (comportamento que prevê resultado) + regra de ação por cor + ritmo de review (weekly/monthly).
+          </div>
+          <div class="momento-didatico-grid">
+            <div class="md-bloco">
+              <strong>O que a IA faz</strong>
+              <ul>
+                <li>Traduz objetivo do negócio em 5 KPIs SMART</li>
+                <li>Balanceia Lagging (passado) × Leading (preditivo)</li>
+                <li>Define faixa verde/amarelo/vermelho por indicador</li>
+                <li>Sugere ação por cor + regra de review</li>
+              </ul>
+            </div>
+            <div class="md-bloco">
+              <strong>O que você faz</strong>
+              <ul>
+                <li>Define objetivo do negócio em 1 frase</li>
+                <li>Rejeita KPIs de vaidade (curtidas, followers, etc.)</li>
+                <li>Confirma quem é dono de cada KPI</li>
+                <li>Marca ritual semanal + mensal no calendário</li>
+              </ul>
+            </div>
+          </div>
+          <div class="marco-progresso">
+            <span class="marco-check">✓</span>
+            <strong>Marco:</strong> Dashboard de 5 KPIs semafórico pronto no Notion (ou markdown salvo).
+            <span class="marco-prox">Próximo: causa-raiz quando o KPI vira vermelho →</span>
+          </div>
+        </div>
+        <div class="roteiro-body">
+          <p><strong>Este é o momento âncora da S4.</strong> Sem dashboard funcional, os outros 5 momentos não sustentam. Regra do Bernard Marr: <strong>KPI ≠ Métrica</strong>. Métrica é dado passivo. KPI é dado + regra de ação. Se o indicador não te faz agir quando desvia, ele não é KPI — é ruído.</p>
+          <p>Regra fixa: <strong>pelo menos 1 dos 5 KPIs precisa ser Leading</strong> (preditivo). Se você só olha resultado passado (faturamento, lucro), você reage — não previne.</p>
+          <p class="prompt-inline-label">Prompt-âncora (Colaboração)</p>
+          <div class="prompt-inline"><b>Papel:</b> Você é analista sênior de KPIs.
+<b>Contexto:</b> Meu negócio [tipo]. Objetivo dos próximos 90 dias em 1 frase: [objetivo].
+<b>Tarefa:</b> Proponha 5 KPIs para monitorar esse objetivo. Regras: (a) máx 5. (b) ao menos 1 Leading (preditivo). (c) cada KPI SMART. (d) cada um com faixa verde/amarelo/vermelho + regra de ação por cor. (e) frequência de review (weekly ou monthly). (f) responsável sugerido por função (não nome).
+<b>Formato:</b> Tabela — coluna: nome do KPI · fórmula · tipo (Lagging/Leading) · faixa verde · amarelo · vermelho · ação por cor · frequência · dono.
+<b>Limitações:</b> Nada de KPI de vaidade (curtidas, seguidores, "engajamento" solto). Se algum KPI depender de dado que não tenho, marque [precisa infra: sistema X] em vez de assumir.
+
+Aguarde minha aprovação antes de gerar o dashboard visual.</div>
+        </div>
+      </div>
+
+      <!-- MOMENTO 5 -->
+      <div class="roteiro-item" id="momento-5">
+        <div class="roteiro-header">
+          <div class="roteiro-numero">5<small>Momento</small></div>
+          <div>
+            <h3>Diagnóstico de gargalo — CSV + Espinha-de-peixe</h3>
+            <div class="rt-modo"><span class="modo-badge colab">Colaboração</span> · L2 · Claude for Excel / ChatGPT</div>
+          </div>
+        </div>
+        <div class="momento-didatico">
+          <div class="md-aprende">
+            <strong>Habilidade destravada aqui</strong>
+            Você chega com "acho que o problema é X". Sai com <strong>5 hipóteses ranqueadas</strong> baseadas em dado real, com Espinha-de-peixe Hosotani estruturando as causas em 6 categorias.
+          </div>
+          <div class="momento-didatico-grid">
+            <div class="md-bloco">
+              <strong>O que a IA faz</strong>
+              <ul>
+                <li>Lê CSV (etapa · tempo · retrabalho)</li>
+                <li>Calcula tempo médio, desvio, 90º percentil, % retrabalho por etapa</li>
+                <li>Aplica Espinha-de-peixe com 6 categorias Hosotani</li>
+                <li>Rankeia 5 hipóteses de causa-raiz</li>
+              </ul>
+            </div>
+            <div class="md-bloco">
+              <strong>O que você faz</strong>
+              <ul>
+                <li>Fornece CSV real ou simula 1 processo em 90 dias</li>
+                <li>Anonimiza coluna "responsável" (nome de função, não pessoa)</li>
+                <li>Aplica os 5 Porquês pra fechar do sintoma à raiz</li>
+                <li>Escolhe 1 hipótese pra testar na semana</li>
+              </ul>
+            </div>
+          </div>
+          <div class="marco-progresso">
+            <span class="marco-check">✓</span>
+            <strong>Marco:</strong> Diagnóstico causa-raiz de 1 gargalo real, com Espinha-de-peixe estruturada.
+            <span class="marco-prox">Próximo: priorizar as ações →</span>
+          </div>
+        </div>
+        <div class="roteiro-body">
+          <p>Falconi ensina: <strong>anomalia ≠ problema, contramediada ≠ ação corretiva</strong>. Anomalia é desvio do padrão (etapa X está fora da faixa). Problema exige investigar a causa. Contramediada é agir sobre a causa (não sobre o sintoma). IA sozinha para no sintoma — você força ela a chegar na raiz com os <strong>5 Porquês</strong> + as <strong>6 categorias Hosotani</strong>: matéria-prima · equipamentos · pessoas · ambiente · procedimentos · informações.</p>
+          <p class="prompt-inline-label">Prompt-âncora (Colaboração)</p>
+          <div class="prompt-inline"><b>Papel:</b> Você é especialista em diagnóstico de eficiência de processos e análise de dado.
+<b>Contexto:</b> Anexei CSV com colunas: etapa_id · tempo_execucao_min · data_inicio · data_fim · funcao_responsavel · numero_retrabalhos. Meu processo: [descreva em 1 linha].
+<b>Tarefa:</b> Análise em 3 etapas: (1) por etapa, calcule tempo médio, desvio padrão, 90º percentil, % retrabalho. Aponte a etapa mais problemática. (2) aplique Espinha-de-peixe com as 6 categorias Hosotani (matéria-prima, equipamentos, pessoas, ambiente, procedimentos, informações). (3) rankeie 5 hipóteses de causa-raiz por probabilidade, aplicando 5 Porquês em cada.
+<b>Formato:</b> Tabela na (1) + diagrama textual em árvore na (2) + tabela na (3) com colunas: hipótese · categoria Hosotani · 5 Porquês (colapsado) · próxima verificação sugerida.
+<b>Limitações:</b> Se qualquer coluna estiver ausente ou dado inconsistente, sinalize antes de calcular. Não invente hipótese sem lastro nos dados.</div>
+          <div class="exercicio-casa">
+            <strong>Antes da S4</strong>
+            <p>Se você não tiver CSV real, ok — Rafael prepara um CSV didático fictício. Traga <strong>1 processo</strong> que você quer diagnosticar (mesmo o do M2 serve).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOMENTO 6 -->
+      <div class="roteiro-item" id="momento-6">
+        <div class="roteiro-header">
+          <div class="roteiro-numero">6<small>Momento</small></div>
+          <div>
+            <h3>Priorização Impacto × Esforço + Plano de Ação 5W2H</h3>
+            <div class="rt-modo"><span class="modo-badge colab">Colaboração</span> · L1→L2 · Claude.ai</div>
+          </div>
+        </div>
+        <div class="momento-didatico">
+          <div class="md-aprende">
+            <strong>Habilidade destravada aqui</strong>
+            Você chega com "tenho 10 ideias, não sei por onde começar". Sai com matriz 2×2 Impacto × Esforço + plano de ação 5W2H pras 3 iniciativas do quadrante "quick win". Executa na segunda-feira.
+          </div>
+          <div class="momento-didatico-grid">
+            <div class="md-bloco">
+              <strong>O que a IA faz</strong>
+              <ul>
+                <li>Aloca cada iniciativa na matriz (alto/baixo impacto × alto/baixo esforço)</li>
+                <li>Explicita critério da alocação</li>
+                <li>Redige 5W2H completo para cada iniciativa priorizada</li>
+                <li>Sinaliza dependências entre iniciativas</li>
+              </ul>
+            </div>
+            <div class="md-bloco">
+              <strong>O que você faz</strong>
+              <ul>
+                <li>Lista todas as iniciativas que apareceram nos M1-M5</li>
+                <li>Ajusta a alocação quando conhece contexto que a IA não sabe</li>
+                <li>Escolhe as 3 do quadrante quick win</li>
+                <li>Compromete data + responsável em cada linha 5W2H</li>
+              </ul>
+            </div>
+          </div>
+          <div class="marco-progresso">
+            <span class="marco-check">✓</span>
+            <strong>Marco:</strong> Matriz + Plano 5W2H de 3 iniciativas com data e responsável.
+            <span class="marco-prox">Fim da S4 — 6 habilidades destravadas ✓</span>
+          </div>
+        </div>
+        <div class="roteiro-body">
+          <p>HBR (Homkes 2015) — <strong>5 Mitos da Execução</strong>: Mito #2 é "execução = seguir o plano". Realidade: execução é agilidade + adaptação. Por isso 5W2H tem <strong>revisão obrigatória a cada ciclo</strong> — não é plano estático, é planilha viva. Os 2 H's são o que a IA mais esquece: <em>How (como concretamente)</em> e <em>How much (custo/prazo em número)</em>.</p>
+          <p class="prompt-inline-label">Prompt-âncora (Colaboração)</p>
+          <div class="prompt-inline"><b>Papel:</b> Você é PMO sênior focado em priorização e execução.
+<b>Contexto:</b> Nesta S4 apareceram várias iniciativas nos momentos 1 a 5. Vou colar a lista abaixo. Meu negócio: [tipo]. Meu horizonte: 30-60 dias.
+<b>Tarefa:</b> (1) Aloque cada iniciativa em matriz 2×2 Impacto × Esforço. Justifique a alocação em 1 linha por iniciativa. (2) Marque as 3 iniciativas do quadrante alto-impacto/baixo-esforço (quick wins). (3) Redija plano 5W2H para as 3 escolhidas — cada linha com What · Why · Where · When · Who · How · How much (R$ estimado ou horas).
+<b>Formato:</b> Matriz visualizada em ASCII (4 quadrantes). Depois tabela 5W2H, uma linha por iniciativa priorizada. Ao final: dependências entre iniciativas em bullets.
+<b>Limitações:</b> Se não souber o custo, marque [estimar]. Se o responsável depender de contratação futura, marque [depende: RH]. Não invente prazos "genéricos" — pergunte se estiver ambíguo.
+
+<b>INICIATIVAS:</b>
+[cole aqui]</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Materiais -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Materiais de referência</p>
+      <h2>O que você vai ter em mãos</h2>
+      <p>
+        Poucos arquivos. Cada um usado em um momento específico. Você recebe o CSV do M5 em conversa nova — não sobe no Project pra não estragar o exercício.
+      </p>
+      <ul class="materiais-list">
+        <li>
+          <span class="mat-num">1</span>
+          <div><strong>Brief do restaurante (fase de obra)</strong> — endereço, público-alvo, cardápio esperado, sócios, funcionários previstos. Base pra M1 (SWOT + 5 Forças).</div>
+        </li>
+        <li>
+          <span class="mat-num">2</span>
+          <div><strong>AS-IS-modelo — fechamento de caixa</strong> — versão didática pra você adaptar. Ajuda a calibrar profundidade esperada no M2.</div>
+        </li>
+        <li>
+          <span class="mat-num">3</span>
+          <div><strong>POP-modelo com 5W2H integrado</strong> — os 7 blocos obrigatórios preenchidos + plano de implementação. Usado no M3.</div>
+        </li>
+        <li>
+          <span class="mat-num">4</span>
+          <div><strong>Dashboard-modelo — 5 KPIs semafórico</strong> — template Notion/markdown com Lagging × Leading, faixa por cor, ritual de review. Referência do M4.</div>
+        </li>
+        <li>
+          <span class="mat-num">5</span>
+          <div><strong>Bibliografia mínima</strong> — Falconi Rotina (foco: cap POP + PDCA + Espinha-de-peixe) · 75 KPIs Bernard Marr · HBR "Why Strategy Execution Unravels" (5 Mitos). Você já tem esses PDFs no seu material do MBA.</div>
+        </li>
+        <li class="dica">
+          <span class="mat-num">6</span>
+          <div><strong>CSV de tempos (fictício)</strong> — usado no M5 pra diagnóstico de gargalo. <strong>Recebe em conversa nova durante a sessão</strong>, não sobe no Project. Anonimizado por padrão (função em vez de nome).</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Alerta anti-alucinação + LGPD -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Antes de aplicar</p>
+      <h2>Onde a IA cai — e como você não cai junto</h2>
+
+      <div class="callout danger">
+        <strong>Cuidado com dado de pessoa.</strong> POP menciona função, não nome próprio (<code>garçom_A</code>, <code>chef_B</code>). CSV de gargalo tem coluna "responsável" — anonimize antes de subir. Decisões sobre <strong>contratar/demitir/remanejar</strong> NÃO saem da IA — isso é S6 (RH) e é humano-only.
+      </div>
+
+      <div class="callout">
+        <strong>Anti-alucinação em gestão.</strong> IA generativa <em>inventa opinião com voz de dado</em>. Falconi manda a regra: <strong>fato + dado &gt; opinião</strong>. Toda vez que a IA te devolve "conclusão", pergunte: <em>saiu do arquivo que subi ou saiu da 'sabedoria' dela?</em> No primeiro caso, valide o arquivo. No segundo, trate como hipótese e cheque em campo. Casos brasileiros (Nautis, Rede Açaí) — confira detalhes numéricos antes de citar em pitch.
+      </div>
+
+      <div class="callout">
+        <strong>Cuidado com "5 Mitos aplicados sem contexto".</strong> Se você não sabe qual mito domina, pergunte à sua equipe — não deixa a IA chutar por você. Ela vai te dar resposta plausível mas genérica. Prompt-âncora do Momento 6 força você a colar iniciativas concretas.
+      </div>
+    </div>
+  </section>
+
+  <!-- Como preparar -->
+  <section class="section content-section reveal">
+    <div class="site-container">
+      <p class="eyebrow">Antes da sessão</p>
+      <h2>Setup em 3 passos</h2>
+
+      <div class="setup-steps-mini">
+        <div class="setup-mini">
+          <h4><span class="sm-num">1</span>Claude.ai Pro ativo</h4>
+          <p>Se ainda não tem, ativa (USD 20/mês ≈ R$ 110). Sem Pro, você não abre Project — e o Professor de Gestão vive dentro de um Project. <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a></p>
+        </div>
+        <div class="setup-mini">
+          <h4><span class="sm-num">2</span>Professor de Gestão configurado</h4>
+          <p>Abra o assistente e cole as Project Instructions. <a href="../../banco-de-prompts/assistente-gestao.html">Configurar Professor →</a></p>
+        </div>
+        <div class="setup-mini">
+          <h4><span class="sm-num">3</span>Notion (opcional)</h4>
+          <p>Se você vai usar dashboard no Notion, tenha uma workspace criada. Se não, o dashboard do M4 vira markdown salvo no Project — funciona igual.</p>
+        </div>
+      </div>
+
+      <div class="exercicio-casa" style="margin-top: 20px;">
+        <strong>Escolhas antes de começar</strong>
+        <p><strong>1 negócio âncora</strong> pro M1 (SWOT + 5 Forças): restaurante em construção · banda de forró · corretora. Você pode trocar entre momentos — não precisa ser o mesmo em todos.</p>
+        <p><strong>1 processo</strong> pra mapear no M2: fechamento de caixa · ciclo de venda corretora · montagem de show. O que mais te incomoda hoje.</p>
+        <p><strong>Objetivo em 1 frase</strong> pro M4: "faturar R$ X em 90 dias" · "reduzir CMV pra Y%" · "fechar Z novos contratos". Objetivo mensurável é a base do dashboard.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nav rodapé -->
+  <nav class="module-nav site-container" style="margin-top: 48px">
+    <a href="../../">
+      <span class="module-nav-label">Início</span>
+      ← Voltar à trilha
+    </a>
+    <a href="../../banco-de-prompts/assistente-gestao.html" class="next">
+      <span class="module-nav-label">Professor de Gestão</span>
+      Configurar assistente →
+    </a>
+  </nav>
+
+  <footer style="border-top:1px solid var(--border); padding: 28px 24px; text-align:center; color:var(--ink-muted); font-size:13px; margin-top:40px;">
+    <p>Mentoria IA Executiva · Rafael Lima · 2026</p>
+    <p style="font-size:12px; margin-top:6px;">Acesso privado · conteúdo personalizado · noindex</p>
+  </footer>
+
+</body>
+</html>
