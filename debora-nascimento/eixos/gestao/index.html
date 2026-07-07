@@ -288,6 +288,112 @@
 
     .callout.danger { background: #fdf3ec; border-left-color: var(--accent-warm); }
 
+    /* === Bloco Origem & quando aplicar === */
+    .origem-bloco {
+      background: var(--bg-warm); border: 1px solid var(--border);
+      border-radius: 8px; padding: 18px 22px; margin: 18px 0 14px;
+    }
+    .origem-bloco .origem-eyebrow {
+      font-family: 'Inter', sans-serif; font-size: 10px;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--accent-warm-dark); font-weight: 700; margin: 0 0 6px;
+    }
+    .origem-bloco h4 {
+      font-family: 'Playfair Display', serif; font-size: 17px;
+      color: var(--ink); margin: 0 0 6px; font-weight: 600; line-height: 1.3;
+    }
+    .origem-bloco p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 10px; }
+    .origem-bloco p strong { color: var(--ink); font-weight: 600; }
+    .quando-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px;
+    }
+    @media (max-width: 600px) { .quando-grid { grid-template-columns: 1fr; } }
+    .quando-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 6px; padding: 12px 14px;
+    }
+    .quando-card.sim { border-left: 3px solid #5c7d5f; }
+    .quando-card.nao { border-left: 3px solid var(--accent-warm); }
+    .quando-card strong {
+      display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+      margin: 0 0 6px; font-weight: 700;
+    }
+    .quando-card.sim strong { color: #5c7d5f; }
+    .quando-card.nao strong { color: var(--accent-warm-dark); }
+    .quando-card ul { margin: 0; padding-left: 16px; font-size: 12.5px; color: var(--ink); line-height: 1.55; }
+    .biblio-inline {
+      margin-top: 12px; padding: 12px 14px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 6px; font-size: 12px; color: var(--ink-soft); line-height: 1.55;
+    }
+    .biblio-inline strong { display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-warm-dark); margin: 0 0 6px; font-weight: 700; }
+    .biblio-inline ul { margin: 0; padding-left: 16px; }
+    .biblio-inline em { color: var(--ink); font-style: normal; font-weight: 500; }
+
+    /* === Prompt wrap com botão copiar === */
+    .prompt-wrap { position: relative; margin: 10px 0; }
+    .prompt-inline-copy {
+      position: absolute; top: 8px; right: 8px;
+      background: rgba(255,255,255,0.1); color: white;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 5px; padding: 5px 12px;
+      font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: .04em; cursor: pointer;
+      transition: background .15s;
+      z-index: 2;
+    }
+    .prompt-inline-copy:hover { background: rgba(255,255,255,0.2); }
+    .prompt-inline-copy.copied { background: var(--accent-warm); border-color: var(--accent-warm); }
+    .prompt-wrap .prompt-inline { margin: 0; padding-right: 90px; }
+
+    /* === Tag "gera Artifact" === */
+    .artifact-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: linear-gradient(90deg, var(--accent-warm) 0%, #d4a67c 100%);
+      color: white; padding: 4px 12px 4px 10px;
+      border-radius: 14px; font-size: 11px; font-weight: 600;
+      letter-spacing: .04em; margin-left: 8px;
+      vertical-align: middle;
+    }
+    .artifact-tag::before { content: '✨'; font-size: 12px; }
+
+    /* === Prompt secundário (details colapsável) === */
+    .prompt-details {
+      margin: 14px 0 6px; background: var(--bg-warm);
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 0;
+    }
+    .prompt-details summary {
+      cursor: pointer; padding: 12px 18px;
+      font-family: 'Inter', sans-serif; font-size: 12.5px; font-weight: 600;
+      color: var(--ink); list-style: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .prompt-details summary::before {
+      content: '+'; color: var(--accent-warm); font-weight: 700; font-size: 16px;
+    }
+    .prompt-details[open] summary::before { content: '−'; }
+    .prompt-details summary .prompt-tipo {
+      font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent-warm-dark); margin-right: 4px;
+    }
+    .prompt-details .prompt-details-body { padding: 0 18px 16px; }
+    .prompt-details .prompt-details-body p { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 10px; }
+
+    /* === Anti-padrões === */
+    .anti-padroes {
+      margin: 16px 0 6px; padding: 16px 20px;
+      background: #fdf3ec; border-left: 3px solid var(--accent-warm);
+      border-radius: 0 8px 8px 0;
+    }
+    .anti-padroes strong.ap-label {
+      display: block; font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent-warm-dark); font-weight: 700; margin: 0 0 8px;
+    }
+    .anti-padroes ul { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink); line-height: 1.6; }
+    .anti-padroes ul li { margin-bottom: 4px; }
+    .anti-padroes ul li strong { color: var(--accent-warm-dark); font-weight: 600; }
+
     .exercicio-casa {
       margin-top: 14px; padding: 14px 16px; background: #fdf3ec;
       border: 1px dashed #e6c9a8; border-radius: 8px;
@@ -590,13 +696,140 @@
           </div>
         </div>
         <div class="roteiro-body">
-          <p>Framework antigo (SWOT tem 60+ anos, 5 Forças tem 45+). O que muda com IA: <strong>você sai do "por onde começo?"</strong> em 20 min em vez de 2h. IA vira o consultor que sabe as perguntas certas — você é o dono que sabe as respostas.</p>
-          <p class="prompt-inline-label">Prompt-âncora (Colaboração)</p>
-          <div class="prompt-inline"><b>Papel:</b> Você é consultora sênior de estratégia PME.
-<b>Contexto:</b> Sou dona/gestora de um negócio [tipo]. Preciso de SWOT + 5 Forças de Porter aplicado. Público-alvo: [breve]. Fase atual: [em construção / operando / expansão]. Concorrentes diretos: [3 nomes ou "não sei"].
-<b>Tarefa:</b> Me guie por perguntas — no máximo 5 por vez — até termos matéria pra preencher SWOT (Forças / Fraquezas / Oportunidades / Ameaças) e 5 Forças. Depois entregue o quadro estruturado + 3 ações prioritárias.
-<b>Formato:</b> Perguntas primeiro. Quando eu autorizar, matriz SWOT em tabela + 5 Forças em bullet por força (Alta/Média/Baixa) + 3 ações rankeadas por impacto.
-<b>Limitações:</b> NADA de "insights genéricos". Só o que sair das MINHAS respostas. Se algum quadrante ficar vazio, marque "sem sinal — pesquisar" em vez de inventar.</div>
+          <p>Framework antigo (SWOT tem 60+ anos, 5 Forças tem 45+). Mas o problema não é o framework — é a página em branco. Sem dado de mercado, ele vira lista de opinião. <strong>Com IA como copilota + pesquisa web integrada, você passa de 2h de brainstorm suado pra 30 min de diagnóstico fundamentado</strong> — Claude puxa concorrentes, benchmarks e movimentos do setor, você entra com o que só o dono sabe.</p>
+
+          <!-- Origem & bibliografia -->
+          <div class="origem-bloco">
+            <p class="origem-eyebrow">Origem &amp; leituras de apoio</p>
+            <h4>De onde vem — e por que ainda vale em 2026</h4>
+            <p><strong>SWOT</strong> nasce em 1965 (Learned/Andrews, Harvard). Sobrevive porque força a dupla lente <em>interno × externo</em>. <strong>5 Forças de Porter</strong> vem de 1979 (HBR "How Competitive Forces Shape Strategy"). Sobrevive porque tira o holofote dos concorrentes diretos e obriga a olhar entrantes, substitutos, fornecedores e clientes. Juntos, dão diagnóstico redondo.</p>
+            <div class="biblio-inline">
+              <strong>Do seu material do MBA (IEL/FDC — pasta PER2 ESTRATÉGIA)</strong>
+              <ul>
+                <li><em>CASO VERDEMAR_A4.pdf</em> — supermercado gourmet BH, 25 anos, expansão em crise. Aplique o SWOT dele mentalmente antes do seu.</li>
+                <li><em>FDC ESTRATÉGIA — 5 Entendendo Michael Porter (Guia Essencial).pdf</em> — 5 Forças destrinchadas.</li>
+                <li><em>Verdemar_5Forcas_FDC.xlsx</em> — planilha modelo. Serve de referência de output.</li>
+                <li><em>P2_Estrategia_PARTICIPANTE_2021.pdf</em> — apostila da disciplina com framework passo a passo.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Quando aplicar × Quando NÃO aplicar -->
+          <div class="quando-grid">
+            <div class="quando-card sim">
+              <strong>Quando aplicar</strong>
+              <ul>
+                <li>Decisão de reposicionar, abrir unidade nova, mudar segmento-alvo</li>
+                <li>Início de operação (fase de plano de negócio)</li>
+                <li>Retomada anual — check da rota</li>
+                <li>Vai apresentar pra sócio, banco ou investidor</li>
+              </ul>
+            </div>
+            <div class="quando-card nao">
+              <strong>Quando NÃO aplicar</strong>
+              <ul>
+                <li>Problema é operacional (fluxo de caixa quebrando, POP faltando) — não é estratégia, é rotina</li>
+                <li>Você já fez ano passado e nada mudou de fato — refazer não gera insight, faça pós-mortem</li>
+                <li>Prazo é hoje pra amanhã — SWOT bem feito exige coleta de dado</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Prompt 0 — Pesquisa de Mercado -->
+          <details class="prompt-details">
+            <summary><span class="prompt-tipo">Prompt 0 · Pré-preparo</span>Pesquisa de mercado — Claude levanta concorrentes e tendências ANTES</summary>
+            <div class="prompt-details-body">
+              <p>Rode este primeiro numa conversa com Claude (Sonnet ou Opus com Web Search ativo). O output vira insumo do prompt-âncora — você cola no Papel/Contexto.</p>
+              <div class="prompt-wrap">
+                <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m1-pesquisa')">Copiar</button>
+                <div class="prompt-inline" id="p-m1-pesquisa"><b>Papel:</b> Você é analista sênior de inteligência de mercado com acesso a busca web.
+<b>Contexto:</b> Vou fazer SWOT + 5 Forças do meu negócio [tipo] em [cidade/região]. Antes do diagnóstico, preciso de um mapa objetivo do mercado local + setor.
+<b>Tarefa:</b> Use Web Search e me devolva um brief em 6 blocos:
+1. <b>Tamanho e crescimento do setor</b> — número/dado do IBGE, Sebrae, associações setoriais (últimos 24 meses).
+2. <b>3-5 concorrentes locais/regionais</b> — nome, posicionamento em 1 frase, faixa de preço, ponto forte percebido.
+3. <b>3-5 concorrentes de referência nacional</b> — casos que estão "dando certo" no país.
+4. <b>Tendências de comportamento do cliente</b> — o que mudou nos últimos 2 anos (hábito, canal, expectativa).
+5. <b>Barreiras regulatórias/tributárias</b> ativas no setor.
+6. <b>3 movimentos recentes de M&amp;A, fechamento ou expansão</b> — sinal de pra onde o setor está indo.
+<b>Formato:</b> markdown com títulos e bullets curtos. Cada afirmação com fonte (link ou nome do relatório). Se não encontrar dado confiável em algum bloco, escreva "sem sinal público — perguntar em campo".
+<b>Limitações:</b> ZERO opinião — só fato citado. Se um concorrente que eu já sei que existe não aparecer no search, sinalize.
+
+<b>MEU NEGÓCIO:</b>
+Tipo: [ex.: restaurante à la carte, cozinha regional, ticket médio R$ 80]
+Cidade/região: [ex.: Fortaleza — CE, bairro Meireles]
+Fase: [em construção / operando há X anos / expansão]</div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Prompt-âncora -->
+          <p class="prompt-inline-label" style="margin-top: 16px;">Prompt-âncora · Colaboração<span class="artifact-tag">gera Artifact interativo</span></p>
+          <p style="font-size: 13px; color: var(--ink-soft); margin: 0 0 8px;">Cole o brief do Prompt 0 no campo indicado. Se pulou o Prompt 0, coloque o que sabe de cabeça — o Claude vai perguntar o que faltar.</p>
+          <div class="prompt-wrap">
+            <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m1-ancora')">Copiar</button>
+            <div class="prompt-inline" id="p-m1-ancora"><b>Papel:</b> Você é consultora sênior de estratégia PME com repertório de Michael Porter (5 Forças, Cadeia de Valor) e Kim &amp; Mauborgne (Oceano Azul). Já entregou 200+ SWOTs pra donos de negócio no Brasil.
+<b>Contexto:</b> Sou dona/gestora e preciso de SWOT + 5 Forças fundamentados — não mais uma lista genérica. Cole abaixo:
+· BRIEF DE MERCADO (output do Prompt 0): [cole aqui, ou "não fiz"]
+· MEU NEGÓCIO: tipo, cidade, fase (construção/operação/expansão), receita mensal aproximada, tamanho da equipe.
+· MEU OBJETIVO 12 MESES: 1 frase concreta ("faturar R$ X", "abrir 2ª unidade", "vender pra rede").
+<b>Tarefa:</b> Execute em 4 fases, PARANDO em cada fase pra minha validação:
+1. <b>Diagnóstico do brief</b> — leia o material, aponte 3 lacunas críticas ("não sei o preço médio da concorrência local") e me faça no máx 5 perguntas dirigidas pra fechar as lacunas.
+2. <b>SWOT com critério explícito</b> — matriz 2×2. Cada bullet numerado, com fonte (brief / minha resposta / hipótese). Marque com ⚠️ os que são hipótese pra eu validar em campo.
+3. <b>5 Forças de Porter com critério de intensidade</b> — pra cada força use os critérios abaixo pra decidir Alta/Média/Baixa (não chute):
+   · <i>Rivalidade</i>: nº concorrentes + concentração + diferenciação + taxa de crescimento do setor
+   · <i>Novos entrantes</i>: capital inicial + regulação + curva de aprendizado + acesso a canal
+   · <i>Substitutos</i>: existência de solução alternativa + custo de troca + performance relativa
+   · <i>Poder do fornecedor</i>: concentração de fornecedores + custo de troca + relevância pro meu produto
+   · <i>Poder do comprador</i>: concentração de clientes + custo de troca pra ele + sensibilidade a preço
+4. <b>3 ações prioritárias</b> — cada uma amarrada a: qual quadrante SWOT resolve · qual força de Porter neutraliza · custo estimado (R$ ou horas) · prazo 30/60/90 dias.
+<b>Formato:</b> Fase 1 em texto direto. Fase 2 em tabela markdown 2×2. Fase 3 em tabela (Força · Intensidade · Justificativa em 1 linha · Movimento sugerido). Fase 4 em tabela (Ação · Quadrante/Força · Custo · Prazo · KPI de sucesso).
+<b>Limitações:</b> ZERO bullet genérico ("melhorar atendimento", "investir em marketing"). Toda afirmação amarrada a fonte (brief, minha resposta, ou marcada como hipótese). Se um quadrante ou força não tem sinal, escreva "sem sinal — coleta em campo antes de decidir" — nunca invente.
+
+FORMATO DE ENTREGA (2 partes)
+1. Análise textual completa das 4 fases acima.
+2. Depois, <b>Artifact HTML self-contained interativo</b> com:
+   · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   · Header serif "SWOT + 5 Forças · [meu negócio]" + botão 🖨️ imprimir (window.print).
+   · <b>Matriz SWOT 2×2</b>: 4 quadrantes coloridos (Forças verde, Fraquezas âmbar, Oportunidades azul, Ameaças vermelho). Cada quadrante com &lt;ul contenteditable&gt; pré-preenchida com os bullets numerados — dá pra editar direto. Hipóteses ⚠️ com fundo levemente hachurado.
+   · <b>5 Forças em cards</b>: 5 cards em coluna. Cada card com nome + textarea justificativa + radio Alta/Média/Baixa que muda cor da borda ao vivo + campo "movimento sugerido".
+   · <b>3 Ações no rodapé</b> em cards com checkbox de "feito", tag de prazo (30/60/90) e custo estimado.
+   · @media print A4. Rodapé: "Mentoria IA Executiva · Débora Nascimento · 2026".
+   · JavaScript vanilla, zero framework. Estado em localStorage.</div>
+          </div>
+
+          <!-- Prompt de refino -->
+          <details class="prompt-details">
+            <summary><span class="prompt-tipo">Prompt 2 · Refino</span>Iterar depois — pressionar as hipóteses e reduzir a lista</summary>
+            <div class="prompt-details-body">
+              <p>Use quando o SWOT sair completo mas você achar que ficou genérico ou tem hipótese demais pra validar. Cole o output anterior + peça pressão.</p>
+              <div class="prompt-wrap">
+                <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m1-refino')">Copiar</button>
+                <div class="prompt-inline" id="p-m1-refino"><b>Papel:</b> Você é sócia sênior de consultoria estratégica — o "advogado do diabo" numa reunião de comitê.
+<b>Contexto:</b> Cola abaixo o SWOT + 5 Forças que rodamos.
+<b>Tarefa:</b> Pressione o material em 3 ângulos:
+1. <b>Bullets que soam a chavão</b> — marque cada um que caberia em qualquer restaurante/PME do mundo. Substitua por versão específica ou remova.
+2. <b>Hipóteses ⚠️ ranqueadas por risco</b> — se a hipótese estiver errada, qual das 3 ações prioritárias racha? Tabela: hipótese · ação afetada · como validar em 1 semana · custo da validação.
+3. <b>1 movimento contraintuitivo</b> — leia SWOT + 5 Forças e me proponha 1 jogada que ninguém do setor faria mas que os dados sugerem. Justifique em 3 linhas.
+<b>Formato:</b> 3 blocos em ordem. Direto ao ponto.
+<b>Limitações:</b> Se todos os bullets forem específicos, diga isso e não crie problema pra parecer útil.
+
+<b>SWOT + 5 FORÇAS:</b>
+[cole aqui]</div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Anti-padrões -->
+          <div class="anti-padroes">
+            <strong class="ap-label">Anti-padrões — o que evitar</strong>
+            <ul>
+              <li><strong>SWOT genérico sem fonte.</strong> "Boa localização" — pra quem? Comparado a quem? Todo bullet precisa de referência.</li>
+              <li><strong>5 Forças respondida "no sentimento".</strong> Alta/Média/Baixa exige critério (nº de players, capital de entrada). O prompt-âncora força isso — respeite.</li>
+              <li><strong>Confundir SWOT com plano de ação.</strong> Diagnóstico ≠ decisão. Diagnóstico aponta o quadro, plano é próximo passo (M6).</li>
+              <li><strong>Pular o Prompt 0.</strong> Sem dado de mercado, o SWOT vira lista de percepções. Investe 15 min na pesquisa antes.</li>
+              <li><strong>Refazer SWOT sem revisitar o anterior.</strong> Compare com o do ano passado — o que mudou de posição no quadrante é o insight, não os bullets em si.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -977,6 +1210,23 @@ Aguarde minha aprovação antes de gerar o dashboard visual.</div>
     <p>Mentoria IA Executiva · Rafael Lima · 2026</p>
     <p style="font-size:12px; margin-top:6px;">Acesso privado · conteúdo personalizado · noindex</p>
   </footer>
+
+  <script>
+    function copyPromptI(btn, elId) {
+      var el = document.getElementById(elId);
+      if (!el) return;
+      var text = el.innerText || el.textContent;
+      navigator.clipboard.writeText(text).then(function () {
+        var original = btn.textContent;
+        btn.textContent = '✓ Copiado';
+        btn.classList.add('copied');
+        setTimeout(function () {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
 
 </body>
 </html>
