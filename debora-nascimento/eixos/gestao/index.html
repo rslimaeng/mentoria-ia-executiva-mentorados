@@ -434,7 +434,7 @@
   <section class="section content-section">
     <div class="site-container">
       <p class="eyebrow">Por que este eixo</p>
-      <h2>Você já viu os frameworks no MBA. Agora você aplica com IA como copilota.</h2>
+      <h2>Você já conhece esses frameworks. Aqui você aplica com IA como copilota.</h2>
       <p>
         Este encontro NÃO é aula de gestão do zero. É sobre transformar frameworks canônicos (SWOT, POP, KPI, PDCA) em <strong>prática viva</strong> — usando IA pra tirar você do papel branco e chegar em minutos onde antes levava horas ou dias. Habilidade transferível entre restaurante, banda, corretora e qualquer próximo negócio.
       </p>
@@ -621,7 +621,7 @@
       <p class="eyebrow">Roteiro da S4</p>
       <h2>6 práticas canônicas. Uma habilidade por momento.</h2>
       <p>
-        Cada momento é uma prática que fica com você. Não são "temas do MBA" — são <strong>ciclos de aplicação com IA como copilota</strong>: você chega com um problema real (de qualquer negócio), sai com um artefato pronto e a habilidade destravada.
+        Cada momento é uma prática que fica com você. Não são "temas de aula" — são <strong>ciclos de aplicação com IA como copilota</strong>: você chega com um problema real (de qualquer negócio), sai com um artefato pronto e a habilidade destravada.
       </p>
 
       <div class="timeline-6">
@@ -788,7 +788,8 @@ Fase: [em construção / operando há X anos / expansão]</div>
 <b>Formato:</b> Fase 1 em texto direto. Fase 2 em tabela markdown 2×2. Fase 3 em tabela (Força · Intensidade · Justificativa em 1 linha · Movimento sugerido). Fase 4 em tabela (Ação · Quadrante/Força · Custo · Prazo · KPI de sucesso).
 <b>Limitações:</b> ZERO bullet genérico ("melhorar atendimento", "investir em marketing"). Toda afirmação amarrada a fonte (brief, minha resposta, ou marcada como hipótese). Se um quadrante ou força não tem sinal, escreva "sem sinal — coleta em campo antes de decidir" — nunca invente.
 
-FORMATO DE ENTREGA (2 partes)
+FORMATO DE ENTREGA (2 partes — ORDEM OBRIGATÓRIA)
+Só gere o Artifact APÓS eu validar todas as fases da Tarefa. Não antecipe.
 1. Análise textual completa das 4 fases acima.
 2. Depois, <b>Artifact HTML self-contained interativo</b> com:
    · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
@@ -950,20 +951,20 @@ FORMATO DE ENTREGA (2 partes)
 <b>Contexto:</b> Vou colar a descrição de UM processo do meu negócio, COMO ACONTECE HOJE (não como deveria ser). Meu objetivo é ter um AS-IS estruturado que sirva de base pra POP (M3) e pra achar gargalos (M5).
 <b>Tarefa:</b> Execute em 4 fases, PARANDO em cada pra minha validação:
 1. <b>Diagnóstico da descrição</b> — leia e me devolva 3 lacunas críticas ("não ficou claro quem confere o pagamento") e no máx 5 perguntas dirigidas.
-2. <b>Estrutura hierárquica</b> — organize em <i>PROCESSO &gt; SUBPROCESSO &gt; ATIVIDADE &gt; TAREFA</i>. Para cada nível, defina entrada (o que chega) e saída (o que sai). Numere: 1., 1.1., 1.1.1.
-3. <b>Marcação de sinais de gargalo</b> — em cada etapa, marque com ícone o sinal detectado: 🕒 espera · 🔄 retrabalho · 🖐️ decisão manual · 🤝 handoff. Justifique em 1 linha por marcação.
-4. <b>Tabela de gargalos suspeitos</b> — top 5, colunas: nº da etapa · sinal · descrição curta · impacto estimado (ALTO/MÉDIO/BAIXO) · pergunta pra investigar em campo.
-<b>Formato:</b> Fase 1 em texto. Fase 2 em bloco de código com indentação. Fase 3 embutida na Fase 2 (ícones ao lado das etapas). Fase 4 em tabela markdown.
+2. <b>Estrutura hierárquica + sinais de gargalo</b> — organize em <i>PROCESSO &gt; SUBPROCESSO &gt; ATIVIDADE &gt; TAREFA</i>. Para cada nível, defina entrada (o que chega) e saída (o que sai). Numere: 1., 1.1., 1.1.1. Em cada etapa suspeita, marque ao lado com uma das letras: <b>[E]</b> espera · <b>[R]</b> retrabalho · <b>[M]</b> decisão manual repetitiva · <b>[H]</b> handoff (troca de mão). Justifique em 1 linha por marcação.
+3. <b>Tabela de gargalos suspeitos</b> — top 5, colunas: nº da etapa · sinal (E/R/M/H) · descrição curta · impacto estimado (ALTO/MÉDIO/BAIXO) · pergunta pra investigar em campo.
+<b>Formato:</b> Fase 1 em texto direto. Fase 2 em bloco de código com indentação, letras [E]/[R]/[M]/[H] ao lado das etapas marcadas. Fase 3 em tabela markdown.
 <b>Limitações:</b> Não invente etapa que não descrevi. Se ficou ambíguo, marque [DEFINIR EM CAMPO]. Não misture AS-IS com sugestão de melhoria (isso é TO-BE, fica pro M6).
 
-FORMATO DE ENTREGA (2 partes)
+FORMATO DE ENTREGA (2 partes — ORDEM OBRIGATÓRIA)
+Só gere o Artifact APÓS eu validar todas as fases da Tarefa. Não antecipe.
 1. Análise textual completa das 4 fases.
 2. <b>Artifact HTML self-contained interativo</b> com:
    · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
    · Header serif "AS-IS · [nome do processo]" + botão 🖨️ imprimir.
-   · <b>Fluxo visual em cards verticais</b>: cada atividade em um card com nº · nome · entrada · saída · ícone de gargalo se aplicável. Setas SVG entre cards.
+   · <b>Fluxo visual em cards verticais</b>: cada atividade em um card com nº · nome · entrada · saída · badge de gargalo (letra E/R/M/H em círculo colorido) quando aplicável. Setas SVG entre cards.
    · Card <contenteditable> pra editar direto no HTML.
-   · <b>Painel lateral "Gargalos suspeitos"</b>: 5 cards com sinal, descrição, impacto (radio verde/amarelo/vermelho ao vivo) e textarea "próxima verificação".
+   · <b>Painel lateral "Gargalos suspeitos"</b>: 5 cards com sinal (E/R/M/H), descrição, impacto (radio verde/amarelo/vermelho ao vivo) e textarea "próxima verificação".
    · Botão "Adicionar etapa" e "Adicionar gargalo" que injeta card novo.
    · @media print A4 paisagem. Rodapé: "Mentoria IA Executiva · Débora Nascimento · 2026".
    · JavaScript vanilla, zero framework. Estado em localStorage.
@@ -1137,7 +1138,8 @@ FORMATO DE ENTREGA (2 partes)
 <b>Formato:</b> Fase 1 em markdown formatado tipo documento (headers # ## ###). Fase 2 em tabela. Fase 3 em tabela.
 <b>Limitações:</b> Zero "responsável abstrato" ("o gerente"). Zero passo "verificar" sem critério. Se falta info, marque [DEFINIR] — nunca invente. Não misture procedimento com política.
 
-FORMATO DE ENTREGA (2 partes)
+FORMATO DE ENTREGA (2 partes — ORDEM OBRIGATÓRIA)
+Só gere o Artifact APÓS eu validar as 3 fases da Tarefa. Não antecipe.
 1. POP + Anexo + 5W2H em markdown.
 2. <b>Artifact HTML self-contained interativo — POP formato A4 imprimível</b>:
    · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
@@ -1314,21 +1316,15 @@ Cole abaixo:
 <b>Tarefa:</b> Execute em 4 fases, PARANDO em cada pra validação:
 1. <b>Filtro de proposta</b> — sugira 8 KPIs candidatos. Pra cada um, marque: (a) Lagging ou Leading; (b) qual dor/objetivo ele endereça; (c) fonte do dado (sistema, planilha, contagem manual).
 2. <b>Corte pros 5 finalistas</b> — aplicando as regras: máx 5 · pelo menos 1 Leading · pelo menos 1 financeiro · pelo menos 1 operacional · pelo menos 1 cliente. Justifique cada corte.
-3. <b>SMART + Faixas + Ação por cor</b> — pra cada um dos 5 finalistas, entregue tabela:
-   · Nome do KPI
-   · Fórmula (variáveis explícitas)
-   · Tipo (Lagging/Leading)
-   · SMART completo (S/M/A/R/T em 1 linha cada)
-   · Faixa verde · amarelo · vermelho (número, não adjetivo)
-   · Ação de cor amarela (o que fazer)
-   · Ação de cor vermelha (o que fazer + em quanto tempo)
-   · Frequência (semanal/quinzenal/mensal)
-   · Dono (função, nunca nome)
+3. <b>SMART + Faixas + Ação por cor</b> — pra cada um dos 5 finalistas, entregue <b>2 tabelas legíveis</b> (não uma única de 8 colunas):
+   · <b>Tabela A — Identidade do KPI</b>: Nome · Fórmula (variáveis explícitas) · Tipo (Lagging/Leading) · Dono (função) · Frequência (semanal/quinzenal/mensal) · SMART em 1 linha corrida.
+   · <b>Tabela B — Operação semafórica</b>: Nome · Verde (número) · Amarelo (número) · Vermelho (número) · Ação amarelo (o que fazer) · Ação vermelho (o que fazer + em quanto tempo).
 4. <b>Ritmo de execução</b> — desenhe o calendário: quando reúne pra ver, quem apresenta, o que sai da reunião. Formato: "toda 2ª 9h — 30min · dono apresenta · sai 1 ação por KPI amarelo/vermelho".
-<b>Formato:</b> Fase 1 em tabela. Fase 2 em texto argumentativo. Fase 3 em tabela detalhada. Fase 4 em bloco de agenda.
+<b>Formato:</b> Fase 1 em tabela. Fase 2 em texto argumentativo. Fase 3 em 2 tabelas (A e B). Fase 4 em bloco de agenda.
 <b>Limitações:</b> Zero KPI de vaidade (curtidas, seguidores, "engajamento" solto). Se um KPI depende de dado que não tenho, marque [precisa infra: sistema X]. Se propor Leading, EXPLICITE qual comportamento ele prevê.
 
-FORMATO DE ENTREGA (2 partes)
+FORMATO DE ENTREGA (2 partes — ORDEM OBRIGATÓRIA)
+Só gere o Artifact APÓS eu validar todas as fases da Tarefa. Não antecipe.
 1. Análise textual completa das 4 fases.
 2. <b>Artifact HTML self-contained interativo — Dashboard semafórico</b>:
    · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
@@ -1478,7 +1474,7 @@ Objetivo 90d: [ ]
                 <div class="prompt-inline" id="p-m5-pesquisa"><b>Papel:</b> Você é analista sênior de dado operacional.
 <b>Contexto:</b> Vou colar/anexar minha planilha de execução do processo [nome]. Preciso saber se ela tem o mínimo pra análise de gargalo com Espinha-de-peixe + 5 Porquês.
 <b>Tarefa:</b>
-1. <b>Diagnóstico das colunas</b> — mapeia o que você achou vs o que precisa: etapa · tempo de execução · data · função responsável · nº de retrabalhos · categoria da ocorrência.
+1. <b>Diagnóstico das colunas</b> — mapeia o que você achou vs as 7 colunas que o M5 precisa: <i>etapa_id · tempo_execucao_min · data_inicio · data_fim · funcao_responsavel · numero_retrabalhos · categoria_ocorrencia</i>.
 2. <b>O que está faltando</b> — se falta coluna crítica, sugira como preencher retroativamente (com o que já se sabe) ou capturar daqui pra frente.
 3. <b>Anonimização</b> — checa se tem nome próprio. Se tiver, gera um script mental de substituição (função vs nome). NÃO exponha nomes reais na análise.
 4. <b>Modelo de linha ideal</b> — mostra 3 linhas exemplo do formato final que a análise precisa.
@@ -1506,7 +1502,8 @@ Objetivo 90d: [ ]
 <b>Formato:</b> Fase 1 em tabela. Fase 2 em diagrama textual em árvore (com indentação clara). Fase 3 em tabela detalhada. Fase 4 em tabela.
 <b>Limitações:</b> Se qualquer coluna estiver ausente ou dado inconsistente, sinalize e pare. Não invente hipótese sem lastro. NUNCA termine 5 Porquês em "porque a pessoa X é assim" — se chegar aí, recomece. Causa raiz é sempre sistêmica.
 
-FORMATO DE ENTREGA (2 partes)
+FORMATO DE ENTREGA (2 partes — ORDEM OBRIGATÓRIA)
+Só gere o Artifact APÓS eu validar todas as fases da Tarefa. Não antecipe.
 1. Análise textual completa das 4 fases.
 2. <b>Artifact HTML self-contained interativo</b>:
    · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
@@ -1694,10 +1691,11 @@ FORMATO DE ENTREGA (2 partes)
    · <i>Who</i> — função responsável (nunca nome).
    · <i>How</i> — 3-5 passos concretos.
    · <i>How much</i> — R$ estimado + horas estimadas. Se depender de estimativa, marque [validar com compra].
-<b>Formato:</b> Fase 1 em texto. Fase 2 em tabela + matriz visual em ASCII. Fase 3 em bullets. Fase 4 em texto argumentativo. Fase 5 em 3 tabelas (uma por iniciativa).
+<b>Formato:</b> Fase 1 em texto. Fase 2 em tabela markdown (sem ASCII — a visualização navegável fica no Artifact). Fase 3 em bullets. Fase 4 em texto argumentativo. Fase 5 em 3 tabelas (uma por iniciativa).
 <b>Limitações:</b> Zero prazo genérico ("em breve"). Se não sabe custo, marque [validar orçamento]. Se depende de contratação, marque [depende: RH — S6]. Se dependencia bloqueia, não escolha como quick win.
 
-FORMATO DE ENTREGA (2 partes)
+FORMATO DE ENTREGA (2 partes — ORDEM OBRIGATÓRIA)
+Só gere o Artifact APÓS eu validar todas as fases da Tarefa. Não antecipe.
 1. Análise textual completa das 5 fases.
 2. <b>Artifact HTML self-contained interativo</b>:
    · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
