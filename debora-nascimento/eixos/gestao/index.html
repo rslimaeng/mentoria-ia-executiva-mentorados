@@ -327,8 +327,10 @@
       border-radius: 6px; font-size: 12px; color: var(--ink-soft); line-height: 1.55;
     }
     .biblio-inline strong { display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-warm-dark); margin: 0 0 6px; font-weight: 700; }
-    .biblio-inline ul { margin: 0; padding-left: 16px; }
+    .biblio-inline ul { margin: 0; padding-left: 16px; font-size: 12px; }
+    .biblio-inline ul li { font-size: 12px; line-height: 1.5; margin-bottom: 2px; }
     .biblio-inline em { color: var(--ink); font-style: normal; font-weight: 500; }
+    .biblio-inline strong.regra-inline { display: inline; font-size: inherit; letter-spacing: 0; text-transform: none; color: var(--ink); font-weight: 600; }
 
     /* === Prompt wrap com botão copiar === */
     .prompt-wrap { position: relative; margin: 10px 0; }
@@ -710,7 +712,7 @@
                 <li>As 5 Forças de Porter em ordem — Rivalidade · Novos entrantes · Substitutos · Poder do fornecedor · Poder do comprador — e o critério objetivo pra cada intensidade (Alta/Média/Baixa).</li>
                 <li>A pergunta-âncora do Porter: <em>"qual é a estrutura do meu setor e como ela captura ou libera lucro?"</em> — SWOT sozinho não responde; junto com 5 Forças, responde.</li>
                 <li>Um caso âncora — expansão em crise, marca própria como diferenciador, controle de fornecedor pela escala — pra calibrar profundidade esperada no seu diagnóstico.</li>
-                <li>A regra dura: <strong>toda afirmação com fonte</strong>. Sem dado, marca como hipótese e valida em campo.</li>
+                <li>A regra dura: <strong class="regra-inline">toda afirmação com fonte</strong>. Sem dado, marca como hipótese e valida em campo.</li>
               </ul>
             </div>
           </div>
@@ -875,16 +877,134 @@ FORMATO DE ENTREGA (2 partes)
           </div>
         </div>
         <div class="roteiro-body">
-          <p>Falconi diz: <strong>sem AS-IS, IA vira acelerador de caos</strong>. Você precisa saber como o processo é hoje antes de otimizar. E o ganho da IA aqui é enorme: <strong>ela obriga você a nomear cada etapa</strong> — o que você faz "no automático" fica visível.</p>
-          <p class="prompt-inline-label">Prompt-âncora (Colaboração)</p>
-          <div class="prompt-inline"><b>Papel:</b> Você é analista de processos.
-<b>Contexto:</b> Vou descrever verbalmente COMO é hoje um processo do meu negócio [nome do processo]. Meu objetivo é ter um AS-IS estruturado que sirva de base pra POP e pra achar gargalos.
-<b>Tarefa:</b> Ouça minha descrição. Estruture em hierarquia PROCESSO > SUBPROCESSO > ATIVIDADE > TAREFA. Cada nível com entrada e saída. Depois marque 2-3 pontos suspeitos de gargalo (retrabalho, espera, decisão manual repetitiva).
-<b>Formato:</b> Fluxo em texto hierárquico (indentação). Ao final: tabela de gargalos suspeitos com coluna "por que suspeito".
-<b>Limitações:</b> NÃO invente etapas que eu não descrevi. Se algo ficou ambíguo, pergunte antes de estruturar.
+          <p>Regra dura de quem faz gestão de rotina: <strong>sem AS-IS, IA vira acelerador de caos</strong>. Você precisa saber como o processo é HOJE antes de otimizar. E o ganho da IA aqui é enorme — <strong>ela te obriga a nomear cada etapa</strong>. O que você faz "no automático" fica visível. E o que é invisível, ninguém padroniza nem melhora.</p>
 
-<b>MINHA DESCRIÇÃO:</b>
-[cole ou digite]</div>
+          <!-- Fundamentos & pontos-chave -->
+          <div class="origem-bloco">
+            <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
+            <h4>De onde vem o mapeamento de processo — e o que muda com IA</h4>
+            <p>O rigor de descrever processo em hierarquia (macro → sub → atividade → tarefa) vem da <strong>engenharia de processos industrial</strong> (Taylor, Ford) e ganha forma moderna no <strong>Sistema Toyota de Produção</strong> (Taiichi Ohno) — que introduz o "gemba walk": ir ver o processo acontecer antes de opinar. Nos anos 90, a <strong>notação BPMN</strong> universaliza a forma. No Brasil, <strong>Falconi</strong> ancora essa lógica no PDCA: você só melhora o que consegue desenhar. Ohno resume: <em>"mapear é modo de ver o processo — sem ver, não há kaizen"</em>.</p>
+            <div class="biblio-inline">
+              <strong>O que você precisa dominar deste momento</strong>
+              <ul>
+                <li>A hierarquia canônica — <em>PROCESSO &gt; SUBPROCESSO &gt; ATIVIDADE &gt; TAREFA</em> — e o que cada nível responde (o processo entrega valor, a tarefa é uma ação de 1 pessoa).</li>
+                <li><strong class="regra-inline">Cada nível tem entrada (input) e saída (output)</strong> — sem isso, não dá pra encaixar POP nem medir gargalo.</li>
+                <li>Diferença crítica <strong class="regra-inline">AS-IS × TO-BE</strong> — AS-IS é como é hoje, cru; TO-BE é como deveria ser depois de otimizar. Misturar os dois é o erro #1.</li>
+                <li>Os 4 sinais clássicos de gargalo — <em>espera</em> (fila entre etapas), <em>retrabalho</em> (etapa que refaz outra), <em>decisão manual repetitiva</em> (deveria ser regra), <em>handoff</em> (troca de mão) — pra você reconhecer sem precisar de dado.</li>
+                <li>A regra dura: <strong class="regra-inline">descreve o que acontece, não o que você gostaria que acontecesse</strong>. Se está feio, deixa feio. É o feio que vira melhoria depois.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Quando aplicar × Quando NÃO aplicar -->
+          <div class="quando-grid">
+            <div class="quando-card sim">
+              <strong>Quando aplicar</strong>
+              <ul>
+                <li>Antes de escrever POP — sem AS-IS, POP vira ficção</li>
+                <li>Antes de contratar/comprar sistema — pra saber o que precisa automatizar</li>
+                <li>Onboarding de nova pessoa — descrever pra explicar</li>
+                <li>Auditoria interna ou preparação pra selo/ISO</li>
+                <li>Quando um processo dá defeito recorrente e ninguém sabe onde</li>
+              </ul>
+            </div>
+            <div class="quando-card nao">
+              <strong>Quando NÃO aplicar</strong>
+              <ul>
+                <li>Processo genérico "porque é boa prática" — sem dor concreta, vira burocracia</li>
+                <li>Processo que mudou 3x nos últimos 6 meses — não está estável, mapear é fotografar chuva</li>
+                <li>Só quer padronizar — pula pra M3 (POP direto), sem AS-IS formal</li>
+                <li>Atividade criativa/adaptativa (venda consultiva com cliente único, curadoria) — mapa engessa</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Prompt 0 — Pré-preparo -->
+          <details class="prompt-details">
+            <summary><span class="prompt-tipo">Prompt 0 · Pré-preparo</span>Grave áudio do processo — depois cole a transcrição no prompt-âncora</summary>
+            <div class="prompt-details-body">
+              <p>Você mapear processo escrevendo trava. Escolhe 1 processo, abre o gravador do celular, descreve por 4-6 minutos como acontece HOJE (do início ao fim, inclusive as exceções). Transcreve com Claude, ChatGPT ou Whisper. O texto vira o insumo do prompt-âncora — mais fiel do que qualquer memória escrita.</p>
+              <div class="prompt-wrap">
+                <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m2-pesquisa')">Copiar</button>
+                <div class="prompt-inline" id="p-m2-pesquisa"><b>Papel:</b> Você é transcritor + editor de fala.
+<b>Contexto:</b> Vou colar/anexar o áudio (ou transcrição bruta) de mim descrevendo um processo do meu negócio. Falo naturalmente, com "aí", "então", pausas, correções.
+<b>Tarefa:</b>
+1. Limpe muletas ("aí", "tipo", "então"), corrija repetições, mas <b>preserve TODAS as etapas mencionadas</b>, inclusive exceções ("quando o cliente pede X, aí a gente...").
+2. Marque em <b>negrito</b> os verbos de ação (receber, checar, enviar, aprovar, arquivar).
+3. Ao final, liste em bullets separados as <b>exceções e casos especiais</b> mencionados — não deixe embutidos no texto corrido.
+<b>Formato:</b> Texto corrido limpo + bloco final "Exceções mencionadas".
+<b>Limitações:</b> NÃO invente etapa que eu não falei. Se ficou ambíguo qual a ordem, marque [ordem incerta] em vez de assumir.
+
+<b>ÁUDIO / TRANSCRIÇÃO BRUTA:</b>
+[cole aqui]</div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Prompt-âncora -->
+          <p class="prompt-inline-label" style="margin-top: 16px;">Prompt-âncora · Colaboração<span class="artifact-tag">gera Artifact interativo</span></p>
+          <p style="font-size: 13px; color: var(--ink-soft); margin: 0 0 8px;">Cole a transcrição limpa do Prompt 0 no campo indicado. Se pulou o Prompt 0, escreva direto como se contasse pra um analista novo do time.</p>
+          <div class="prompt-wrap">
+            <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m2-ancora')">Copiar</button>
+            <div class="prompt-inline" id="p-m2-ancora"><b>Papel:</b> Você é analista sênior de processos, formação em Engenharia de Produção com repertório Falconi + Toyota. Já mapeou 300+ processos de PME no Brasil.
+<b>Contexto:</b> Vou colar a descrição de UM processo do meu negócio, COMO ACONTECE HOJE (não como deveria ser). Meu objetivo é ter um AS-IS estruturado que sirva de base pra POP (M3) e pra achar gargalos (M5).
+<b>Tarefa:</b> Execute em 4 fases, PARANDO em cada pra minha validação:
+1. <b>Diagnóstico da descrição</b> — leia e me devolva 3 lacunas críticas ("não ficou claro quem confere o pagamento") e no máx 5 perguntas dirigidas.
+2. <b>Estrutura hierárquica</b> — organize em <i>PROCESSO &gt; SUBPROCESSO &gt; ATIVIDADE &gt; TAREFA</i>. Para cada nível, defina entrada (o que chega) e saída (o que sai). Numere: 1., 1.1., 1.1.1.
+3. <b>Marcação de sinais de gargalo</b> — em cada etapa, marque com ícone o sinal detectado: 🕒 espera · 🔄 retrabalho · 🖐️ decisão manual · 🤝 handoff. Justifique em 1 linha por marcação.
+4. <b>Tabela de gargalos suspeitos</b> — top 5, colunas: nº da etapa · sinal · descrição curta · impacto estimado (ALTO/MÉDIO/BAIXO) · pergunta pra investigar em campo.
+<b>Formato:</b> Fase 1 em texto. Fase 2 em bloco de código com indentação. Fase 3 embutida na Fase 2 (ícones ao lado das etapas). Fase 4 em tabela markdown.
+<b>Limitações:</b> Não invente etapa que não descrevi. Se ficou ambíguo, marque [DEFINIR EM CAMPO]. Não misture AS-IS com sugestão de melhoria (isso é TO-BE, fica pro M6).
+
+FORMATO DE ENTREGA (2 partes)
+1. Análise textual completa das 4 fases.
+2. <b>Artifact HTML self-contained interativo</b> com:
+   · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   · Header serif "AS-IS · [nome do processo]" + botão 🖨️ imprimir.
+   · <b>Fluxo visual em cards verticais</b>: cada atividade em um card com nº · nome · entrada · saída · ícone de gargalo se aplicável. Setas SVG entre cards.
+   · Card <contenteditable> pra editar direto no HTML.
+   · <b>Painel lateral "Gargalos suspeitos"</b>: 5 cards com sinal, descrição, impacto (radio verde/amarelo/vermelho ao vivo) e textarea "próxima verificação".
+   · Botão "Adicionar etapa" e "Adicionar gargalo" que injeta card novo.
+   · @media print A4 paisagem. Rodapé: "Mentoria IA Executiva · Débora Nascimento · 2026".
+   · JavaScript vanilla, zero framework. Estado em localStorage.
+
+<b>MINHA DESCRIÇÃO (do Prompt 0 ou direta):</b>
+[cole aqui]</div>
+          </div>
+
+          <!-- Prompt 2 · Refino -->
+          <details class="prompt-details">
+            <summary><span class="prompt-tipo">Prompt 2 · Refino</span>Ir do gargalo à causa — 5 Porquês na etapa mais crítica</summary>
+            <div class="prompt-details-body">
+              <p>Depois do AS-IS pronto, escolha 1 gargalo do top 5 e rode este prompt pra descer do sintoma à causa antes de decidir intervir. Antecipa parte do M5 sem sair do fluxo do M2.</p>
+              <div class="prompt-wrap">
+                <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m2-refino')">Copiar</button>
+                <div class="prompt-inline" id="p-m2-refino"><b>Papel:</b> Você é engenheira sênior de melhoria contínua (formação Toyota Way + Falconi).
+<b>Contexto:</b> Cole abaixo o AS-IS que rodamos + o gargalo escolhido (nº da etapa e descrição).
+<b>Tarefa:</b>
+1. <b>5 Porquês encadeados</b> — parta do sintoma e desça 5 níveis até chegar num sistema/processo, NUNCA numa pessoa. Se travar antes de 5, diga por quê.
+2. <b>Classifique a causa raiz</b> em 1 das 6 categorias Hosotani (matéria-prima · equipamentos · pessoas · ambiente · procedimentos · informações).
+3. <b>3 contramedidas candidatas</b> — cada uma amarrada a: tempo pra implementar · custo estimado · o que precisa parar de fazer.
+<b>Formato:</b> Cascata numerada + tabela final.
+<b>Limitações:</b> Se algum nível dos 5 Porquês virar "porque a pessoa X é assim" — RECOMECE. Causa raiz é sempre sistêmica, não individual.
+
+<b>AS-IS + GARGALO:</b>
+[cole aqui]</div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Anti-padrões -->
+          <div class="anti-padroes">
+            <strong class="ap-label">Anti-padrões — o que evitar</strong>
+            <ul>
+              <li><strong>Descrever como deveria ser</strong>, não como é. AS-IS honesto é o único que gera melhoria real. O "como deveria" fica pro TO-BE (M6).</li>
+              <li><strong>Pular entrada/saída por nível.</strong> Sem input/output claro, você não descobre onde falta ou sobra informação — é a origem mais comum de gargalo.</li>
+              <li><strong>Misturar 3 processos no mesmo mapa.</strong> "Atendimento" não é um processo — é 5. Escolha 1 e vá fundo.</li>
+              <li><strong>Ignorar exceções.</strong> "99% das vezes é assim" — o 1% que não é assim costuma ser o gargalo real. Documente a exceção com um marcador claro.</li>
+              <li><strong>Culpar pessoa no diagnóstico.</strong> Se o mapa termina em "Fulano é lento" — refaça. Processo bem desenhado não depende de pessoa específica pra dar certo.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -929,16 +1049,144 @@ FORMATO DE ENTREGA (2 partes)
           </div>
         </div>
         <div class="roteiro-body">
-          <p>POP não é fluxograma. POP tem <strong>7 blocos obrigatórios</strong>: Objetivo, Escopo, Responsáveis, Materiais, Procedimento, Registros, Referências. IA erra ao entregar fluxograma "vestido de POP" — o prompt-âncora força os 7 blocos. E 5W2H integrado: cada ação com <em>What, Why, Where, When, Who, How, How much</em> — os 2 H's são o que a IA mais esquece.</p>
-          <p class="prompt-inline-label">Prompt-âncora (Colaboração)</p>
-          <div class="prompt-inline"><b>Papel:</b> Você é editor de POP especialista em Qualidade.
-<b>Contexto:</b> Tenho um AS-IS de processo mapeado (cole abaixo). Preciso do POP versão 1 pra entregar à equipe.
-<b>Tarefa:</b> Redija POP com os 7 blocos obrigatórios: Objetivo · Escopo · Responsáveis · Materiais e equipamentos · Procedimento (passos numerados) · Registros e documentação · Referências. Depois, plano de ação 5W2H (What / Why / Where / When / Who / How / How much) pra implementar o POP na equipe em 30 dias.
-<b>Formato:</b> POP em 1 página (markdown). 5W2H em tabela separada, uma linha por ação.
-<b>Limitações:</b> Nada de responsável abstrato ("gerente"). Se falta info, marque [DEFINIR] em vez de inventar. Cada passo termina com critério de "feito" objetivo.
+          <p>POP <strong>não é fluxograma</strong>. Fluxograma responde "qual a ordem". POP responde "como qualquer pessoa faz isso corretamente, sem depender de treinamento verbal". A IA erra sempre pro mesmo lado: entrega fluxograma vestido de POP. O prompt-âncora força os <strong>7 blocos obrigatórios</strong> + <strong>critério de feito objetivo por passo</strong> — que é o que separa POP profissional de "instrução informal em pdf".</p>
+
+          <!-- Fundamentos & pontos-chave -->
+          <div class="origem-bloco">
+            <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
+            <h4>De onde vem o POP moderno — e por que 7 blocos são inegociáveis</h4>
+            <p>O POP nasce no <strong>TWI (Training Within Industry)</strong>, programa do governo americano na 2ª Guerra pra padronizar treino industrial em massa. A Toyota adota nos anos 50 no seu programa <strong>Job Instruction</strong> — vira base do padrão japonês de qualidade. A <strong>norma ISO 9001</strong> (revisada em 2015) codifica a exigência de procedimento documentado pra ganhar certificação. No Brasil, <strong>Falconi</strong> (Gestão da Rotina, 1994) traduz a lógica pra PME: "sem POP, não há PDCA — porque não há padrão pra comparar". A regra Toyota fica: <em>"sem padrão, não há melhoria"</em>.</p>
+            <div class="biblio-inline">
+              <strong>O que você precisa dominar deste momento</strong>
+              <ul>
+                <li>Os <strong class="regra-inline">7 blocos obrigatórios</strong> — <em>Objetivo · Escopo · Responsáveis · Materiais/Equipamentos · Procedimento numerado · Registros · Referências</em>. Faltando 1, não é POP — é instrução.</li>
+                <li>Diferença POP × fluxograma × checklist — POP descreve execução completa; fluxograma mostra decisão; checklist é o verificador do POP.</li>
+                <li><strong class="regra-inline">Critério de "feito" objetivo por passo</strong> — passo termina em "verificar" só se define <em>o que</em> se verifica (temperatura ≤ 5°C, não "conferir").</li>
+                <li>Responsável por <em>função</em>, nunca por nome — POP dura mais que a pessoa naquele cargo.</li>
+                <li>O <strong class="regra-inline">5W2H integrado</strong> não é sobre o POP em si — é sobre <em>como implantar</em> na equipe (What, Why, Where, When, Who, How, How much). Os 2 H's são o que a IA mais esquece.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Quando aplicar × Quando NÃO aplicar -->
+          <div class="quando-grid">
+            <div class="quando-card sim">
+              <strong>Quando aplicar</strong>
+              <ul>
+                <li>Processo que se repete pelo menos 1x/semana</li>
+                <li>Troca de turno ou passagem entre pessoas frequente</li>
+                <li>Onboarding — nova pessoa precisa executar sozinha</li>
+                <li>Preparação pra ISO, certificação ou auditoria de cliente</li>
+                <li>Você é o único que sabe fazer — se sair de férias, para</li>
+              </ul>
+            </div>
+            <div class="quando-card nao">
+              <strong>Quando NÃO aplicar</strong>
+              <ul>
+                <li>Processo que muda toda semana — POP fica obsoleto no dia seguinte</li>
+                <li>Atividade criativa/consultiva (venda relacional, curadoria) — engessa</li>
+                <li>Rotina que acontece 1-2x/ano — não vale o custo de manter</li>
+                <li>Você ainda não tem o AS-IS (M2) — sem AS-IS, o POP vira ficção padronizada</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Prompt 0 — Pré-preparo -->
+          <details class="prompt-details">
+            <summary><span class="prompt-tipo">Prompt 0 · Pré-preparo</span>Auditar o AS-IS antes — checar se ele tá pronto pra virar POP</summary>
+            <div class="prompt-details-body">
+              <p>Nem todo AS-IS está no ponto de virar POP. Se falta responsável, entrada/saída ou critério, o POP herda o buraco. Este prompt roda um pré-check em 60 segundos.</p>
+              <div class="prompt-wrap">
+                <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m3-pesquisa')">Copiar</button>
+                <div class="prompt-inline" id="p-m3-pesquisa"><b>Papel:</b> Você é auditor sênior de sistema de qualidade (formação ISO 9001 + Falconi).
+<b>Contexto:</b> Vou colar o AS-IS do M2. Antes de virar POP, quero saber onde tem lacuna.
+<b>Tarefa:</b> Rode um checklist em 6 pontos e me devolva o resultado em tabela:
+1. Cada atividade tem responsável definido (função, não nome)?
+2. Cada atividade tem entrada e saída explícita?
+3. Existe critério objetivo pra saber que a atividade foi concluída?
+4. As exceções estão documentadas?
+5. Há decisões (if/else) explicitadas ou embutidas no texto?
+6. Falta materiais/equipamentos/sistemas necessários pra execução?
+<b>Formato:</b> Tabela: item · Status (✅/❌/⚠️) · Onde no AS-IS · Ação sugerida.
+<b>Limitações:</b> Seja duro. Se marcar tudo verde, você não olhou direito. Marque ⚠️ pra "existe mas está fraco".
 
 <b>AS-IS:</b>
-[cole o AS-IS do Momento 2]</div>
+[cole aqui]</div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Prompt-âncora -->
+          <p class="prompt-inline-label" style="margin-top: 16px;">Prompt-âncora · Colaboração<span class="artifact-tag">gera Artifact interativo</span></p>
+          <p style="font-size: 13px; color: var(--ink-soft); margin: 0 0 8px;">Cole o AS-IS validado (se rodou o Prompt 0, cole a versão corrigida). Se ainda tem lacunas, deixe — o prompt-âncora vai te devolver [DEFINIR] em vez de inventar.</p>
+          <div class="prompt-wrap">
+            <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m3-ancora')">Copiar</button>
+            <div class="prompt-inline" id="p-m3-ancora"><b>Papel:</b> Você é editora sênior de POPs com formação em ISO 9001 + Sistema Toyota + Gestão da Rotina (Falconi). Já editou 500+ POPs pra PME e indústria.
+<b>Contexto:</b> Tenho um AS-IS mapeado (cole abaixo). Preciso do POP versão 1 pra entregar à equipe em 30 dias. Meu negócio: [tipo].
+<b>Tarefa:</b> Execute em 3 fases, PARANDO em cada pra minha validação:
+1. <b>POP com 7 blocos obrigatórios</b>:
+   · <i>Objetivo</i> — 1 frase, verbo no infinitivo ("Padronizar fechamento de caixa...").
+   · <i>Escopo</i> — o que este POP cobre e o que NÃO cobre.
+   · <i>Responsáveis</i> — cargo/função, nunca nome. Papel de cada um em 1 linha.
+   · <i>Materiais e equipamentos</i> — inclusive sistemas, formulários, tecnologia.
+   · <i>Procedimento</i> — passos numerados 1., 2., 3. Cada passo termina em critério objetivo de "feito" (verificar temperatura ≤ 5°C, contar cédulas 3 vezes, foto no grupo do WhatsApp).
+   · <i>Registros</i> — onde fica o log, quem confere, com que frequência.
+   · <i>Referências</i> — normas, POPs relacionados, decisão que originou.
+2. <b>Anexo — Fluxo de exceções</b> — o que fazer quando o cenário sair do padrão (falta de energia, sistema fora, ausência do responsável). Tabela: exceção · quem decide · próximo passo.
+3. <b>5W2H de implantação (30 dias)</b> — plano pra treinar e adotar o POP. Colunas: What (ação) · Why · Where · When · Who (função) · How · How much (R$ ou horas). Mínimo 5 linhas: comunicar equipe · treinar · piloto · revisar após 15 dias · oficializar.
+<b>Formato:</b> Fase 1 em markdown formatado tipo documento (headers # ## ###). Fase 2 em tabela. Fase 3 em tabela.
+<b>Limitações:</b> Zero "responsável abstrato" ("o gerente"). Zero passo "verificar" sem critério. Se falta info, marque [DEFINIR] — nunca invente. Não misture procedimento com política.
+
+FORMATO DE ENTREGA (2 partes)
+1. POP + Anexo + 5W2H em markdown.
+2. <b>Artifact HTML self-contained interativo — POP formato A4 imprimível</b>:
+   · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   · Cabeçalho oficial A4: nome empresa (editável) · código POP-XXX · revisão v1 · data · nº página.
+   · Blocos 1-7 do POP em seções formais com títulos serif.
+   · Cada passo do procedimento em card com nº · descrição · critério de feito (fundo destacado) · responsável.
+   · Rodapé com aprovações: "Elaborado por · Revisado por · Aprovado por" com linha pra assinatura.
+   · Aba lateral colapsável com Anexo exceções + 5W2H de implantação.
+   · Botão 🖨️ imprime só o POP (esconde a aba lateral).
+   · Todos os campos <contenteditable> pra ajuste ao vivo. Estado em localStorage.
+   · JavaScript vanilla, zero framework.
+
+<b>AS-IS:</b>
+[cole aqui]</div>
+          </div>
+
+          <!-- Prompt 2 · Refino -->
+          <details class="prompt-details">
+            <summary><span class="prompt-tipo">Prompt 2 · Refino</span>Auditar o POP recém-nascido como se fosse ISO — antes de imprimir</summary>
+            <div class="prompt-details-body">
+              <p>Antes de entregar pra equipe, rode o POP num auditor severo. Ele vai marcar tudo que não passaria numa inspeção real. Melhor descobrir agora do que depois de imprimir 20 cópias.</p>
+              <div class="prompt-wrap">
+                <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m3-refino')">Copiar</button>
+                <div class="prompt-inline" id="p-m3-refino"><b>Papel:</b> Você é auditor externo ISO 9001 rigoroso — foi contratado pra fazer o pré-review deste POP antes da inspeção real.
+<b>Contexto:</b> Cole abaixo o POP + Anexo + 5W2H.
+<b>Tarefa:</b>
+1. <b>Checklist ISO 9001 (10 pontos)</b> — cada bloco do POP contra critério ISO. Verde/amarelo/vermelho + motivo.
+2. <b>Bullshit detector</b> — marque cada passo do procedimento que soa a "burocrático sem prático". Reescreva em versão executável.
+3. <b>Teste do turno da noite</b> — releia o POP fingindo que é o funcionário mais novo, no plantão de madrugada, com o sistema fora. Onde ele trava? Aponte + sugira o que adicionar no Anexo de exceções.
+<b>Formato:</b> 3 blocos. Direto ao ponto.
+<b>Limitações:</b> Se o POP passa em tudo, diga isso — não crie problema falso.
+
+<b>POP + ANEXO + 5W2H:</b>
+[cole aqui]</div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Anti-padrões -->
+          <div class="anti-padroes">
+            <strong class="ap-label">Anti-padrões — o que evitar</strong>
+            <ul>
+              <li><strong>POP vestido de fluxograma.</strong> Se o documento é só caixinhas com setas, não é POP — é fluxo. POP tem texto executável passo a passo.</li>
+              <li><strong>Responsável por nome próprio.</strong> "João faz..." vira dor quando João sai. Sempre por função ("caixa do turno noite").</li>
+              <li><strong>Passo "verificar" sem critério.</strong> Verificar o quê? Contra o quê? Ponto de rejeição = qualquer coisa que dependa de opinião.</li>
+              <li><strong>POP de 8 páginas.</strong> Se ninguém lê inteiro, ninguém executa. Corte pra 1-2 páginas ou quebre em vários POPs menores.</li>
+              <li><strong>Publicar sem piloto.</strong> POP entra em ambiente controlado por 15 dias antes de virar oficial — depois ajusta com o feedback real.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -983,16 +1231,157 @@ FORMATO DE ENTREGA (2 partes)
           </div>
         </div>
         <div class="roteiro-body">
-          <p><strong>Este é o momento âncora da S4.</strong> Sem dashboard funcional, os outros 5 momentos não sustentam. Regra do Bernard Marr: <strong>KPI ≠ Métrica</strong>. Métrica é dado passivo. KPI é dado + regra de ação. Se o indicador não te faz agir quando desvia, ele não é KPI — é ruído.</p>
-          <p>Regra fixa: <strong>pelo menos 1 dos 5 KPIs precisa ser Leading</strong> (preditivo). Se você só olha resultado passado (faturamento, lucro), você reage — não previne.</p>
-          <p class="prompt-inline-label">Prompt-âncora (Colaboração)</p>
-          <div class="prompt-inline"><b>Papel:</b> Você é analista sênior de KPIs.
-<b>Contexto:</b> Meu negócio [tipo]. Objetivo dos próximos 90 dias em 1 frase: [objetivo].
-<b>Tarefa:</b> Proponha 5 KPIs para monitorar esse objetivo. Regras: (a) máx 5. (b) ao menos 1 Leading (preditivo). (c) cada KPI SMART. (d) cada um com faixa verde/amarelo/vermelho + regra de ação por cor. (e) frequência de review (weekly ou monthly). (f) responsável sugerido por função (não nome).
-<b>Formato:</b> Tabela — coluna: nome do KPI · fórmula · tipo (Lagging/Leading) · faixa verde · amarelo · vermelho · ação por cor · frequência · dono.
-<b>Limitações:</b> Nada de KPI de vaidade (curtidas, seguidores, "engajamento" solto). Se algum KPI depender de dado que não tenho, marque [precisa infra: sistema X] em vez de assumir.
+          <p><strong>Este é o momento âncora da S4.</strong> Os outros 5 momentos entregam artefatos. Este entrega <strong>ritmo</strong>. Sem dashboard rodando semana a semana, POP vira papel de gaveta, SWOT vira apresentação e causa-raiz vira reunião sem consequência. A regra que atravessa tudo aqui: <strong>KPI ≠ métrica</strong>. Métrica é dado passivo. KPI é dado + regra de ação. Se o número desvia e ninguém age, não era KPI — era ruído com faixa colorida.</p>
 
-Aguarde minha aprovação antes de gerar o dashboard visual.</div>
+          <!-- Fundamentos & pontos-chave -->
+          <div class="origem-bloco">
+            <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
+            <h4>De onde vem a lógica dos KPIs em semáforo — e por que 5 é o teto</h4>
+            <p>O conceito de <strong>KPI (Key Performance Indicator)</strong> ganha forma nos anos 80 e 90 com o <strong>Balanced Scorecard</strong> (Kaplan &amp; Norton, Harvard, 1992) — que separa dado em 4 perspectivas: financeira · cliente · processo · aprendizado. A distinção <strong>Lagging × Leading</strong> vem do mesmo repertório: Lagging olha o resultado (o passado), Leading olha o comportamento que <em>causa</em> o resultado (o futuro). <strong>Bernard Marr</strong>, no clássico "Key Performance Indicators: 75 that Every Manager Needs to Know" (2012), formaliza o critério <em>SMART</em> aplicado a KPI e a regra do teto: 5 KPIs por área. Acima disso, ninguém decide — todos viram planilha. Kaplan &amp; Norton (2008) fecham: <em>60% dos planos estratégicos fracassam por execução, não por má estratégia</em> — e execução mora no dashboard.</p>
+            <div class="biblio-inline">
+              <strong>O que você precisa dominar deste momento</strong>
+              <ul>
+                <li><strong class="regra-inline">KPI ≠ Métrica</strong> — métrica é medição neutra; KPI vem com faixa (verde/amarelo/vermelho) e regra de ação por cor. Sem regra de ação, é métrica.</li>
+                <li><strong class="regra-inline">Lagging × Leading</strong> — Lagging = resultado (faturamento, NPS, lucro). Leading = comportamento que prevê (nº de visitas, leads qualificados, taxa de conversão). Dashboard precisa ter os dois.</li>
+                <li><strong class="regra-inline">Regra do 5</strong> — no máximo 5 KPIs por painel. Acima disso, ninguém age. 3 é ideal.</li>
+                <li><strong class="regra-inline">Cada KPI tem dono por função</strong> (nunca por nome) + ritmo de review (semanal/mensal) marcado no calendário.</li>
+                <li>O critério <strong class="regra-inline">SMART</strong> (Doran, 1981) — <em>Specific · Measurable · Achievable · Relevant · Time-bound</em> — vale pra cada KPI, não só pra meta.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Quando aplicar × Quando NÃO aplicar -->
+          <div class="quando-grid">
+            <div class="quando-card sim">
+              <strong>Quando aplicar</strong>
+              <ul>
+                <li>Operação já rodando com dado histórico (mínimo 30 dias)</li>
+                <li>Fim de trimestre / início de ciclo — momento de recalibrar rota</li>
+                <li>Vai apresentar performance pra sócio, banco ou conselho</li>
+                <li>Sente que "trabalha muito e não sabe se avança" — dashboard resolve o cego</li>
+                <li>Depois de M1 (SWOT) — os KPIs traduzem as prioridades estratégicas em número</li>
+              </ul>
+            </div>
+            <div class="quando-card nao">
+              <strong>Quando NÃO aplicar</strong>
+              <ul>
+                <li>Piloto/MVP sem histórico — sem base, faixa vira chute</li>
+                <li>Projeto único (não recorrente) — usa milestones, não KPIs</li>
+                <li>Você não tem quem seja dono de nenhum KPI — sem dono, morre</li>
+                <li>Só quer "sensação de controle" — KPI mal escolhido dá ilusão de controle e ainda te faz agir errado</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Prompt 0 — Pré-preparo -->
+          <details class="prompt-details">
+            <summary><span class="prompt-tipo">Prompt 0 · Pré-preparo</span>Benchmark do setor — quais KPIs realmente movem seu tipo de negócio</summary>
+            <div class="prompt-details-body">
+              <p>Antes de escolher seus 5 KPIs, veja o que o setor usa como padrão. Isso te tira do "que métrica seria bacana ter?" e te leva pra "que métrica sabidamente prevê saúde nesse tipo de negócio?". Rode em Claude com Web Search.</p>
+              <div class="prompt-wrap">
+                <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m4-pesquisa')">Copiar</button>
+                <div class="prompt-inline" id="p-m4-pesquisa"><b>Papel:</b> Você é analista sênior de performance com acesso a benchmark setorial.
+<b>Contexto:</b> Vou definir KPIs pro meu negócio [tipo] em [cidade/região], fase [operação/expansão/piloto]. Antes de escolher, quero um mapa das métricas-padrão do setor.
+<b>Tarefa:</b> Use Web Search e me devolva em 4 blocos:
+1. <b>5-8 KPIs mais usados no setor</b> — nome, fórmula, tipo (Lagging/Leading), fonte (relatório setorial, associação, benchmark). Priorize os que aparecem em múltiplas fontes.
+2. <b>Benchmarks típicos</b> — pra cada KPI, faixa média do setor + faixa top 25%. Se não achar dado público, marque "sem benchmark público".
+3. <b>3-5 KPIs "de vaidade" desse setor</b> — os que a maioria mede mas que não predizem saúde real. Explique por quê.
+4. <b>2-3 KPIs Leading raros mas poderosos</b> — os que operadores de elite usam e a média ignora.
+<b>Formato:</b> Tabelas markdown. Cada afirmação com fonte.
+<b>Limitações:</b> ZERO opinião. Só benchmark citado. Se não encontrar, marque explícito.
+
+<b>MEU NEGÓCIO:</b>
+Tipo: [ex.: restaurante à la carte ticket médio R$ 80]
+Cidade/região: [ex.: Fortaleza — CE]
+Fase: [em construção / operando há X anos / expansão]
+Objetivo dos próximos 90 dias: [1 frase]</div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Prompt-âncora -->
+          <p class="prompt-inline-label" style="margin-top: 16px;">Prompt-âncora · Colaboração<span class="artifact-tag">gera Artifact interativo</span></p>
+          <p style="font-size: 13px; color: var(--ink-soft); margin: 0 0 8px;">Cole o benchmark do Prompt 0 no campo indicado. Se pulou, coloque o que sabe do setor — o Claude vai propor mas com hipótese explícita.</p>
+          <div class="prompt-wrap">
+            <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m4-ancora')">Copiar</button>
+            <div class="prompt-inline" id="p-m4-ancora"><b>Papel:</b> Você é diretora de performance sênior com formação BSC Kaplan/Norton + repertório Bernard Marr (75 KPIs). Já desenhou dashboards executivos pra 100+ PMEs.
+<b>Contexto:</b> Preciso de dashboard executivo com 5 KPIs pra rodar semanalmente no meu negócio.
+Cole abaixo:
+· BENCHMARK DO SETOR (output do Prompt 0): [cole aqui, ou "não fiz"]
+· MEU NEGÓCIO: tipo, fase, receita mensal aproximada, tamanho da equipe.
+· OBJETIVO 90 DIAS em 1 frase: [ex.: "faturar R$ 250k/mês estável", "abrir 2ª unidade em 60 dias"].
+· 3 DORES ATUAIS: [ex.: margem apertando · time saindo · fluxo de caixa oscilando].
+<b>Tarefa:</b> Execute em 4 fases, PARANDO em cada pra validação:
+1. <b>Filtro de proposta</b> — sugira 8 KPIs candidatos. Pra cada um, marque: (a) Lagging ou Leading; (b) qual dor/objetivo ele endereça; (c) fonte do dado (sistema, planilha, contagem manual).
+2. <b>Corte pros 5 finalistas</b> — aplicando as regras: máx 5 · pelo menos 1 Leading · pelo menos 1 financeiro · pelo menos 1 operacional · pelo menos 1 cliente. Justifique cada corte.
+3. <b>SMART + Faixas + Ação por cor</b> — pra cada um dos 5 finalistas, entregue tabela:
+   · Nome do KPI
+   · Fórmula (variáveis explícitas)
+   · Tipo (Lagging/Leading)
+   · SMART completo (S/M/A/R/T em 1 linha cada)
+   · Faixa verde · amarelo · vermelho (número, não adjetivo)
+   · Ação de cor amarela (o que fazer)
+   · Ação de cor vermelha (o que fazer + em quanto tempo)
+   · Frequência (semanal/quinzenal/mensal)
+   · Dono (função, nunca nome)
+4. <b>Ritmo de execução</b> — desenhe o calendário: quando reúne pra ver, quem apresenta, o que sai da reunião. Formato: "toda 2ª 9h — 30min · dono apresenta · sai 1 ação por KPI amarelo/vermelho".
+<b>Formato:</b> Fase 1 em tabela. Fase 2 em texto argumentativo. Fase 3 em tabela detalhada. Fase 4 em bloco de agenda.
+<b>Limitações:</b> Zero KPI de vaidade (curtidas, seguidores, "engajamento" solto). Se um KPI depende de dado que não tenho, marque [precisa infra: sistema X]. Se propor Leading, EXPLICITE qual comportamento ele prevê.
+
+FORMATO DE ENTREGA (2 partes)
+1. Análise textual completa das 4 fases.
+2. <b>Artifact HTML self-contained interativo — Dashboard semafórico</b>:
+   · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   · Header serif "Dashboard Executivo · [meu negócio] · [semana XX/2026]" + botão 🖨️.
+   · <b>5 cards KPI em grid responsivo</b>: cada card com nome · valor atual (input number, atualizável) · faixa (barra colorida com verde/amarelo/vermelho — cor da borda muda ao vivo) · última semana (comparativo com seta ↑↓) · dono · ação sugerida por cor atual.
+   · Ao editar valor, cor do card e ação mudam ao vivo.
+   · <b>Painel lateral "Ritmo"</b> — checklist da agenda semanal com checkboxes.
+   · <b>Rodapé com histórico</b> — 4 últimas semanas em minigráfico de barras (SVG inline, sem lib).
+   · Estado em localStorage (persiste entre visitas).
+   · @media print A4 paisagem. JavaScript vanilla, zero framework.
+
+<b>SE PULAR O PROMPT 0, COLE APENAS:</b>
+Tipo: [ ]
+Fase: [ ]
+Objetivo 90d: [ ]
+3 dores: [ ]</div>
+          </div>
+
+          <!-- Prompt 2 · Refino -->
+          <details class="prompt-details">
+            <summary><span class="prompt-tipo">Prompt 2 · Refino</span>Vaidade × Ação — bullshit detector nos KPIs escolhidos</summary>
+            <div class="prompt-details-body">
+              <p>Antes de bater o dashboard como versão final, passa por um crítico duro. Ele vai destacar KPI que soa lindo e mede nada. Melhor descobrir agora do que descobrir daqui a 3 meses reagindo em cima de indicador que não previa consequência real.</p>
+              <div class="prompt-wrap">
+                <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m4-refino')">Copiar</button>
+                <div class="prompt-inline" id="p-m4-refino"><b>Papel:</b> Você é sócio sênior de venture capital — famoso por detestar métrica de vaidade.
+<b>Contexto:</b> Cola abaixo os 5 KPIs propostos com faixas e ações.
+<b>Tarefa:</b>
+1. <b>Teste da vaidade</b> — pra cada KPI, responda: "se esse número dobrar amanhã, o negócio muda?" Se a resposta for "não necessariamente", KPI reprovado.
+2. <b>Teste da ação</b> — pra cada KPI, responda: "quando ele vira vermelho, existe ação clara + dono + prazo?" Se não, KPI reprovado.
+3. <b>Teste do Leading</b> — o(s) KPI(s) Leading realmente antecipam o Lagging correspondente? Prove ou substitua.
+4. <b>Substituições sugeridas</b> — pros KPIs reprovados, proponha substituto direto e explique por quê.
+<b>Formato:</b> 4 blocos + tabela final "KPI Antes / Substituto Depois".
+<b>Limitações:</b> Se todos passarem, diga isso — não invente crítica pra soar rigoroso.
+
+<b>5 KPIs:</b>
+[cole aqui]</div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Anti-padrões -->
+          <div class="anti-padroes">
+            <strong class="ap-label">Anti-padrões — o que evitar</strong>
+            <ul>
+              <li><strong>KPI sem regra de ação por cor.</strong> Verde/amarelo/vermelho só serve se cada cor tem "faz isso agora". Sem ação, é semáforo decorativo.</li>
+              <li><strong>Só Lagging.</strong> Faturamento, lucro, margem — todos importantes, todos olham pro passado. Se você só reage, sempre corre atrás.</li>
+              <li><strong>Mais de 5 KPIs.</strong> Fisicamente, o time humano não age em cima de 15 indicadores. Vira planilha, para de virar decisão.</li>
+              <li><strong>KPI sem dono ou com dono compartilhado.</strong> "Todo mundo é dono" = ninguém é dono. Uma função responde.</li>
+              <li><strong>Faixa em adjetivo.</strong> "Bom / regular / ruim" não vale. Precisa ser número: verde ≥ 12%, amarelo 8-12%, vermelho &lt; 8%.</li>
+              <li><strong>Review sem cadência fixa no calendário.</strong> Se não tem hora marcada, não acontece. 30 minutos por semana + 1 hora por mês.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -1037,13 +1426,138 @@ Aguarde minha aprovação antes de gerar o dashboard visual.</div>
           </div>
         </div>
         <div class="roteiro-body">
-          <p>Falconi ensina: <strong>anomalia ≠ problema, contramediada ≠ ação corretiva</strong>. Anomalia é desvio do padrão (etapa X está fora da faixa). Problema exige investigar a causa. Contramediada é agir sobre a causa (não sobre o sintoma). IA sozinha para no sintoma — você força ela a chegar na raiz com os <strong>5 Porquês</strong> + as <strong>6 categorias Hosotani</strong>: matéria-prima · equipamentos · pessoas · ambiente · procedimentos · informações.</p>
-          <p class="prompt-inline-label">Prompt-âncora (Colaboração)</p>
-          <div class="prompt-inline"><b>Papel:</b> Você é especialista em diagnóstico de eficiência de processos e análise de dado.
-<b>Contexto:</b> Anexei CSV com colunas: etapa_id · tempo_execucao_min · data_inicio · data_fim · funcao_responsavel · numero_retrabalhos. Meu processo: [descreva em 1 linha].
-<b>Tarefa:</b> Análise em 3 etapas: (1) por etapa, calcule tempo médio, desvio padrão, 90º percentil, % retrabalho. Aponte a etapa mais problemática. (2) aplique Espinha-de-peixe com as 6 categorias Hosotani (matéria-prima, equipamentos, pessoas, ambiente, procedimentos, informações). (3) rankeie 5 hipóteses de causa-raiz por probabilidade, aplicando 5 Porquês em cada.
-<b>Formato:</b> Tabela na (1) + diagrama textual em árvore na (2) + tabela na (3) com colunas: hipótese · categoria Hosotani · 5 Porquês (colapsado) · próxima verificação sugerida.
-<b>Limitações:</b> Se qualquer coluna estiver ausente ou dado inconsistente, sinalize antes de calcular. Não invente hipótese sem lastro nos dados.</div>
+          <p>Regra dura de melhoria contínua: <strong>anomalia ≠ problema, contramedida ≠ ação corretiva</strong>. Anomalia é desvio do padrão (etapa X está fora da faixa). Problema exige investigar a causa antes de mexer. Contramedida ataca a <em>causa</em>, não o sintoma. IA sozinha, por default, para no sintoma — você força ela a descer com os <strong>5 Porquês</strong> + as <strong>6 categorias Hosotani</strong>. Sem esse duplo, todo diagnóstico da IA fica na superfície e você trata sintoma novo toda semana.</p>
+
+          <!-- Fundamentos & pontos-chave -->
+          <div class="origem-bloco">
+            <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
+            <h4>De onde vem a espinha-de-peixe — e por que 5 Porquês evita 90% do erro</h4>
+            <p>O <strong>diagrama de Ishikawa</strong> (espinha-de-peixe) nasce nos anos 60 no Japão, criado por <strong>Kaoru Ishikawa</strong> como ferramenta central do controle de qualidade total. Nos anos 90, <strong>Hosotani</strong> refina o método pra 6 categorias industriais universais — <em>matéria-prima · equipamentos · pessoas · ambiente · procedimentos · informações</em> — que funcionam em qualquer setor. Em paralelo, os <strong>5 Porquês</strong> vêm da Toyota (Sakichi Toyoda) — regra prática: pergunte "por quê?" 5 vezes seguidas em cima da resposta anterior, e você chega ao sistema (não à pessoa). No Brasil, <strong>Falconi</strong> integra os dois no ciclo PDCA e fecha com a distinção clássica <em>anomalia × problema × contramedida</em>. A regra Toyoda resume: <em>"a causa raiz nunca é uma pessoa — é sempre um sistema que permite o erro"</em>.</p>
+            <div class="biblio-inline">
+              <strong>O que você precisa dominar deste momento</strong>
+              <ul>
+                <li>As <strong class="regra-inline">6 categorias Hosotani</strong> — <em>matéria-prima · equipamentos · pessoas · ambiente · procedimentos · informações</em> — em ordem. Pra cada etapa problemática, pergunte: qual dessas 6 pode ter falhado?</li>
+                <li><strong class="regra-inline">5 Porquês encadeados</strong> — cada "porque" nasce da resposta do "porque" anterior. Se travar antes de 5, você não chegou à raiz.</li>
+                <li>Distinção <strong class="regra-inline">anomalia × problema × contramedida</strong>: anomalia = desvio; problema = causa investigada; contramedida = ação sobre a causa (não sobre sintoma).</li>
+                <li>A regra dura da causa raiz — <strong class="regra-inline">sempre sistêmica, nunca individual</strong>. Se termina em "porque Fulano é assim", volta pro 4º porquê e refaça.</li>
+                <li>Diferença <em>Espinha × 5 Porquês</em> — Espinha é lente <em>panorâmica</em> (mostra todas as causas possíveis); 5 Porquês é lente <em>profunda</em> (desce numa única linha). Usa os dois juntos.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Quando aplicar × Quando NÃO aplicar -->
+          <div class="quando-grid">
+            <div class="quando-card sim">
+              <strong>Quando aplicar</strong>
+              <ul>
+                <li>KPI virou vermelho no dashboard (M4) e você quer entender por quê</li>
+                <li>Reclamação recorrente (mesma queixa 3+ vezes)</li>
+                <li>Retrabalho crônico numa etapa específica</li>
+                <li>Meta batendo por sorte (sem entender o mecanismo) — invenda antes que quebre</li>
+                <li>Depois de acidente, incidente ou erro caro — pra não se repetir</li>
+              </ul>
+            </div>
+            <div class="quando-card nao">
+              <strong>Quando NÃO aplicar</strong>
+              <ul>
+                <li>Problema pontual único (aconteceu 1x, condição excepcional) — não vale o custo</li>
+                <li>Decisão fora do seu controle (política do governo, mudança de fornecedor único no mercado)</li>
+                <li>Situação humana isolada (conflito interpessoal, decisão de contratar/demitir) — vai pra S6/RH, não pra causa-raiz</li>
+                <li>Você já sabe a causa e só está procurando desculpa pra não agir</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Prompt 0 — Pré-preparo -->
+          <details class="prompt-details">
+            <summary><span class="prompt-tipo">Prompt 0 · Pré-preparo</span>Preparar o CSV — colunas mínimas pra análise dar bala</summary>
+            <div class="prompt-details-body">
+              <p>Se você tem planilha de execução do processo (não importa se é simples), rode este primeiro pra saber se ela tem o mínimo pra IA calcular. Se não tiver, o prompt te devolve o gabarito e você prepara em 15 min.</p>
+              <div class="prompt-wrap">
+                <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m5-pesquisa')">Copiar</button>
+                <div class="prompt-inline" id="p-m5-pesquisa"><b>Papel:</b> Você é analista sênior de dado operacional.
+<b>Contexto:</b> Vou colar/anexar minha planilha de execução do processo [nome]. Preciso saber se ela tem o mínimo pra análise de gargalo com Espinha-de-peixe + 5 Porquês.
+<b>Tarefa:</b>
+1. <b>Diagnóstico das colunas</b> — mapeia o que você achou vs o que precisa: etapa · tempo de execução · data · função responsável · nº de retrabalhos · categoria da ocorrência.
+2. <b>O que está faltando</b> — se falta coluna crítica, sugira como preencher retroativamente (com o que já se sabe) ou capturar daqui pra frente.
+3. <b>Anonimização</b> — checa se tem nome próprio. Se tiver, gera um script mental de substituição (função vs nome). NÃO exponha nomes reais na análise.
+4. <b>Modelo de linha ideal</b> — mostra 3 linhas exemplo do formato final que a análise precisa.
+<b>Formato:</b> Tabela diagnóstica + lista de faltantes + 3 linhas exemplo.
+<b>Limitações:</b> Se a planilha estiver totalmente crua ("só datas"), diga honesto que precisa ampliar antes de rodar M5.
+
+<b>MINHA PLANILHA:</b>
+[cole colunas ou anexe arquivo]</div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Prompt-âncora -->
+          <p class="prompt-inline-label" style="margin-top: 16px;">Prompt-âncora · Colaboração<span class="artifact-tag">gera Artifact interativo</span></p>
+          <p style="font-size: 13px; color: var(--ink-soft); margin: 0 0 8px;">Cole o CSV validado pelo Prompt 0. Se não tem planilha, é possível rodar com narrativa detalhada — o Claude vai calcular menos e perguntar mais.</p>
+          <div class="prompt-wrap">
+            <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m5-ancora')">Copiar</button>
+            <div class="prompt-inline" id="p-m5-ancora"><b>Papel:</b> Você é engenheira sênior de melhoria contínua (formação Toyota Way + Falconi + Hosotani). Já rodou 400+ análises de causa raiz em PME e indústria.
+<b>Contexto:</b> Anexei/colei CSV com colunas: etapa_id · tempo_execucao_min · data_inicio · data_fim · funcao_responsavel · numero_retrabalhos · categoria_ocorrencia. Processo: [descreva em 1 linha]. Sintoma observado: [ex.: "KPI de retrabalho estourou faixa vermelha 3 semanas seguidas"].
+<b>Tarefa:</b> Execute em 4 fases, PARANDO em cada pra minha validação:
+1. <b>Estatística por etapa</b> — pra cada etapa, calcule: tempo médio · desvio padrão · 90º percentil · % retrabalho · nº de ocorrências por semana. Rankeie da mais problemática pra menos.
+2. <b>Espinha-de-peixe Hosotani</b> — desenhe as 6 espinhas (matéria-prima · equipamentos · pessoas · ambiente · procedimentos · informações). Em cada espinha, no mínimo 2 causas candidatas amarradas ao dado (que linha do CSV sugere essa hipótese). Marque com ⚠️ se for hipótese não sustentada por dado.
+3. <b>Top 5 hipóteses ranqueadas</b> — tabela: hipótese · categoria Hosotani · evidência no dado (linha/etapa) · 5 Porquês (cascata visível 1→5) · classificação final (procedimento/pessoas/equipamentos/etc — sempre sistêmica) · próxima verificação (1 semana).
+4. <b>Contramedidas candidatas</b> — pra as top 3 hipóteses, 1 contramedida cada. Colunas: contramedida · qual causa raiz endereça · o que deixa de acontecer no processo · custo estimado · tempo de implementação.
+<b>Formato:</b> Fase 1 em tabela. Fase 2 em diagrama textual em árvore (com indentação clara). Fase 3 em tabela detalhada. Fase 4 em tabela.
+<b>Limitações:</b> Se qualquer coluna estiver ausente ou dado inconsistente, sinalize e pare. Não invente hipótese sem lastro. NUNCA termine 5 Porquês em "porque a pessoa X é assim" — se chegar aí, recomece. Causa raiz é sempre sistêmica.
+
+FORMATO DE ENTREGA (2 partes)
+1. Análise textual completa das 4 fases.
+2. <b>Artifact HTML self-contained interativo</b>:
+   · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   · Header serif "Análise Causa-Raiz · [processo]" + botão 🖨️.
+   · <b>Espinha-de-peixe em SVG interativo</b> — 6 espinhas nomeadas. Cada causa em card clicável. Hover destaca. Editável.
+   · <b>Cascata 5 Porquês guiada</b> — 5 campos sequenciais. Cada campo desbloqueado após preencher o anterior. Se detectar padrão "porque Fulano é...", exibe alerta vermelho pra refazer.
+   · <b>Tabela top 5 hipóteses</b> — cada linha expansível pra mostrar 5 Porquês + próxima verificação (editável).
+   · <b>Cards de contramedida</b> — 3 cards com checkbox "implementar" + campo custo + campo prazo.
+   · @media print A4 paisagem. Estado em localStorage.
+   · JavaScript vanilla, zero framework.
+
+<b>CSV / DADOS:</b>
+[cole aqui]</div>
+          </div>
+
+          <!-- Prompt 2 · Refino -->
+          <details class="prompt-details">
+            <summary><span class="prompt-tipo">Prompt 2 · Refino</span>Separar dado × intuição — e forçar contramedida por hipótese</summary>
+            <div class="prompt-details-body">
+              <p>Depois da análise, chega uma hora que você fica com hipóteses "muito lindas" mas sem chão de dado. Este prompt separa o que tá firme do que é achismo — e força a decisão de contramedida antes de você se apaixonar pela análise.</p>
+              <div class="prompt-wrap">
+                <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m5-refino')">Copiar</button>
+                <div class="prompt-inline" id="p-m5-refino"><b>Papel:</b> Você é sócio sênior de consultoria — chamado pra fazer o "pare, olhe, decida" no final da análise.
+<b>Contexto:</b> Cole abaixo o output completo do prompt-âncora.
+<b>Tarefa:</b>
+1. <b>Onde tem dado × onde tem intuição</b> — pra cada hipótese, classifique: (A) sustentada por dado no CSV; (B) mistura dado + intuição; (C) só intuição. Tabela.
+2. <b>Hipóteses tipo C são deletadas OU viradas em campo</b> — sugira 1 mini-teste de 1 semana pra cada C que virar hipótese testável.
+3. <b>Priorizar contramedida com Impacto × Certeza</b> — pra cada contramedida do prompt-âncora, cruze: impacto (alto/médio/baixo) × certeza da causa raiz (alta/média/baixa). Só executa contramedida com certeza alta + impacto alto/médio.
+4. <b>1 recomendação executiva</b> — em 3 linhas: "faça X esta semana. Se não resolver em 15 dias, próximo passo é Y."
+<b>Formato:</b> 4 blocos. Direto.
+<b>Limitações:</b> Se todas as hipóteses forem tipo A (dado firme), diga isso — não crie problema falso.
+
+<b>ANÁLISE:</b>
+[cole aqui]</div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Anti-padrões -->
+          <div class="anti-padroes">
+            <strong class="ap-label">Anti-padrões — o que evitar</strong>
+            <ul>
+              <li><strong>Parar no 2º ou 3º porquê.</strong> Aí você ainda está no sintoma. A regra dos 5 existe pra forçar profundidade.</li>
+              <li><strong>Terminar em "porque Fulano é assim".</strong> Volta pro 4º porquê e refaça. Causa raiz é sempre sistêmica (procedimento fraco, treinamento ausente, incentivo errado).</li>
+              <li><strong>Espinha-de-peixe genérica.</strong> Cada causa deve estar amarrada a linha/dado — senão vira "poderia ser qualquer coisa", não análise.</li>
+              <li><strong>Confundir sintoma e problema.</strong> "Cliente reclamou" é sintoma. "Sistema não avisa o cozinheiro em pico" é problema. Contramedida ataca problema, não reclamação.</li>
+              <li><strong>Contramedida sem responsável e prazo.</strong> Sem quem-quando, é diagnóstico — não é ação.</li>
+              <li><strong>Análise linda, ação zero.</strong> Se saiu 20 páginas de espinha e nada mudou em 15 dias, o dashboard M4 vai marcar de novo. Análise sem execução vira teatro.</li>
+            </ul>
+          </div>
+
           <div class="exercicio-casa">
             <strong>Antes da S4</strong>
             <p>Se você não tiver CSV real, ok — Rafael prepara um CSV didático fictício. Traga <strong>1 processo</strong> que você quer diagnosticar (mesmo o do M2 serve).</p>
@@ -1092,16 +1606,149 @@ Aguarde minha aprovação antes de gerar o dashboard visual.</div>
           </div>
         </div>
         <div class="roteiro-body">
-          <p>HBR (Homkes 2015) — <strong>5 Mitos da Execução</strong>: Mito #2 é "execução = seguir o plano". Realidade: execução é agilidade + adaptação. Por isso 5W2H tem <strong>revisão obrigatória a cada ciclo</strong> — não é plano estático, é planilha viva. Os 2 H's são o que a IA mais esquece: <em>How (como concretamente)</em> e <em>How much (custo/prazo em número)</em>.</p>
-          <p class="prompt-inline-label">Prompt-âncora (Colaboração)</p>
-          <div class="prompt-inline"><b>Papel:</b> Você é PMO sênior focado em priorização e execução.
-<b>Contexto:</b> Nesta S4 apareceram várias iniciativas nos momentos 1 a 5. Vou colar a lista abaixo. Meu negócio: [tipo]. Meu horizonte: 30-60 dias.
-<b>Tarefa:</b> (1) Aloque cada iniciativa em matriz 2×2 Impacto × Esforço. Justifique a alocação em 1 linha por iniciativa. (2) Marque as 3 iniciativas do quadrante alto-impacto/baixo-esforço (quick wins). (3) Redija plano 5W2H para as 3 escolhidas — cada linha com What · Why · Where · When · Who · How · How much (R$ estimado ou horas).
-<b>Formato:</b> Matriz visualizada em ASCII (4 quadrantes). Depois tabela 5W2H, uma linha por iniciativa priorizada. Ao final: dependências entre iniciativas em bullets.
-<b>Limitações:</b> Se não souber o custo, marque [estimar]. Se o responsável depender de contratação futura, marque [depende: RH]. Não invente prazos "genéricos" — pergunte se estiver ambíguo.
+          <p>Momento de fechar o ciclo. Você tem SWOT (M1), mapa AS-IS (M2), POP (M3), dashboard (M4) e causa-raiz (M5). Toda análise vira lista de iniciativas — e listas longas <strong>matam execução</strong>. HBR (Homkes 2015) mostra: <strong>60% dos planos estratégicos fracassam por execução, não por má estratégia</strong>. E o mito #2 dos 5 Mitos da Execução é achar que "execução = seguir o plano". A realidade é agilidade + priorização em ciclos. Por isso o par <strong>Matriz 2×2 + 5W2H</strong> é canônico: um filtra, o outro executa. Os 2 H's do 5W2H são o que a IA mais esquece — <em>How</em> (como concretamente) e <em>How much</em> (custo/prazo em número).</p>
 
-<b>INICIATIVAS:</b>
+          <!-- Fundamentos & pontos-chave -->
+          <div class="origem-bloco">
+            <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
+            <h4>De onde vem a matriz Impacto × Esforço — e por que 5W2H completa</h4>
+            <p>A <strong>matriz 2×2 de priorização</strong> nasce como derivação da <strong>Matriz de Eisenhower</strong> (Urgente × Importante, 1954) e amadurece nos anos 90/2000 nas escolas de gestão de projeto como <em>Impacto × Esforço</em> — versão mais operacional pra times pequenos. Empresas de produto (Intercom, Airbnb) formalizam variações como <strong>RICE (Reach · Impact · Confidence · Effort)</strong> pra times de tecnologia. O <strong>5W2H</strong> vem do <em>Kaizen</em> japonês (Toyota, anos 50) — evolução do 5W1H clássico com "How much" adicionado pra amarrar custo/prazo em número. No Brasil, <strong>Falconi</strong> integra o par no PDCA: matriz define <em>o que fazer</em>, 5W2H define <em>como fazer</em>. E Kaplan &amp; Norton fecham: <em>plano sem cadência de revisão é intenção; plano com cadência é execução</em>.</p>
+            <div class="biblio-inline">
+              <strong>O que você precisa dominar deste momento</strong>
+              <ul>
+                <li>Os <strong class="regra-inline">4 quadrantes da matriz 2×2</strong> — <em>Quick Win</em> (alto impacto + baixo esforço) · <em>Projeto Estratégico</em> (alto impacto + alto esforço) · <em>Preencher Espaço</em> (baixo impacto + baixo esforço) · <em>Repensar</em> (baixo impacto + alto esforço). Cada quadrante tem tratamento diferente.</li>
+                <li><strong class="regra-inline">Critério objetivo pra cada eixo</strong> — Impacto = quanto move ponteiro do KPI/objetivo. Esforço = horas × complexidade × dinheiro. Sem critério, viram achismo colorido.</li>
+                <li>Os <strong class="regra-inline">7 campos do 5W2H</strong> — <em>What · Why · Where · When · Who · How · How much</em>. Faltando qualquer um, a iniciativa não roda.</li>
+                <li><strong class="regra-inline">Dependências</strong> — priorizar sem mapear dependências gera "iniciativa 3 travada esperando iniciativa 7 que ninguém puxou".</li>
+                <li>A regra dura: <strong class="regra-inline">plano com cadência de revisão</strong>. Sem revisão a cada 15/30 dias, o 5W2H vira arquivo de gaveta. O par mais forte é <em>M6 + retorno ao M4</em> (dashboard) mês a mês.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Quando aplicar × Quando NÃO aplicar -->
+          <div class="quando-grid">
+            <div class="quando-card sim">
+              <strong>Quando aplicar</strong>
+              <ul>
+                <li>Fim de ciclo diagnóstico (rodou M1-M5) e tem 10+ iniciativas na mesa</li>
+                <li>Planejamento trimestral ou semestral</li>
+                <li>Sócios/comitê pedindo prioridades pro próximo horizonte</li>
+                <li>Sensação de "corro pra tudo lado, não avanço" — matriz revela a dispersão</li>
+                <li>Recém-saída de retro/pós-mortem com muitos aprendizados</li>
+              </ul>
+            </div>
+            <div class="quando-card nao">
+              <strong>Quando NÃO aplicar</strong>
+              <ul>
+                <li>Iniciativa única e óbvia — não precisa de matriz de 1 ponto</li>
+                <li>Decisão fora do seu controle (aguardando terceiro decidir)</li>
+                <li>Time em urgência aguda hoje — resolve o incêndio, prioriza semana que vem</li>
+                <li>Você só quer "sensação de organização" — matriz mal usada vira teatro executivo</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Prompt 0 — Pré-preparo -->
+          <details class="prompt-details">
+            <summary><span class="prompt-tipo">Prompt 0 · Pré-preparo</span>Consolidar iniciativas de M1-M5 em lista única antes de priorizar</summary>
+            <div class="prompt-details-body">
+              <p>Você chegou aqui com iniciativas espalhadas em 5 outputs diferentes. Antes de priorizar, unifique — nomes iguais viraram diferentes, algumas se sobrepõem, outras somem. Este prompt cola tudo e dedupa.</p>
+              <div class="prompt-wrap">
+                <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m6-pesquisa')">Copiar</button>
+                <div class="prompt-inline" id="p-m6-pesquisa"><b>Papel:</b> Você é PMO sênior organizando o funil de iniciativas de um ciclo.
+<b>Contexto:</b> Vou colar os outputs (ou resumos) dos momentos M1 (SWOT), M2 (AS-IS + gargalos), M3 (POP + 5W2H), M4 (dashboard + KPIs vermelhos), M5 (contramedidas). Meu negócio: [tipo]. Horizonte: 60-90 dias.
+<b>Tarefa:</b>
+1. <b>Extrair todas as iniciativas mencionadas</b> — ação concreta, verbo no infinitivo ("Implantar POP de fechamento de caixa"). Descarta genérico ("melhorar atendimento").
+2. <b>Deduplicar</b> — iniciativas com nomes diferentes mas objetivo igual viram uma só. Cita a origem (M1/M2/M3/M4/M5).
+3. <b>Classificar por natureza</b> — Estratégica / Operacional / Comercial / Financeira / Gente / Compliance.
+4. <b>Lista consolidada pronta pra matriz</b> — tabela: nº · iniciativa · natureza · origem · KPI que ela move (referenciando M4).
+<b>Formato:</b> Tabela final markdown.
+<b>Limitações:</b> Se aparecer iniciativa vaga demais ("cuidar mais dos clientes"), sinalize e peça reformulação. Não invente iniciativa que não estava nos outputs.
+
+<b>OUTPUTS M1-M5:</b>
 [cole aqui]</div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Prompt-âncora -->
+          <p class="prompt-inline-label" style="margin-top: 16px;">Prompt-âncora · Colaboração<span class="artifact-tag">gera Artifact interativo</span></p>
+          <p style="font-size: 13px; color: var(--ink-soft); margin: 0 0 8px;">Cole a lista consolidada do Prompt 0. Se pulou, cole a lista bruta — o Claude vai deduplicar antes de priorizar.</p>
+          <div class="prompt-wrap">
+            <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m6-ancora')">Copiar</button>
+            <div class="prompt-inline" id="p-m6-ancora"><b>Papel:</b> Você é PMO sênior focada em priorização executiva e execução em ciclos. Formação Falconi + PMO Kaplan/Norton + repertório de startups (RICE).
+<b>Contexto:</b> Rodei M1-M5 e cheguei em uma lista de iniciativas. Preciso priorizar, escolher 3 quick wins e ter plano 5W2H executável semana que vem. Meu negócio: [tipo]. Horizonte: 60-90 dias. KPIs vermelhos hoje (do M4): [liste].
+<b>Tarefa:</b> Execute em 5 fases, PARANDO em cada pra minha validação:
+1. <b>Critério explícito de cada eixo</b> — antes de alocar, defina em texto:
+   · <i>Impacto</i>: peso 40% no KPI vermelho + 30% em receita direta + 30% em risco mitigado.
+   · <i>Esforço</i>: horas de execução + custo em R$ + complexidade (baixa/média/alta) + dependência externa.
+   Ajuste os pesos se meu contexto pedir.
+2. <b>Alocação na matriz 2×2</b> — cada iniciativa em 1 dos 4 quadrantes. Tabela: iniciativa · impacto (Alto/Baixo) · esforço (Alto/Baixo) · quadrante · justificativa em 1 linha.
+3. <b>Mapa de dependências</b> — bullets tipo "A precisa de B pronta". Marque iniciativas que dependem de terceiros/RH/orçamento.
+4. <b>Corte pros 3 Quick Wins</b> — no quadrante Alto Impacto + Baixo Esforço, pegue os 3 melhores. Se não houver 3, avise e recomende reformular alguns como "quick win light".
+5. <b>Plano 5W2H completo pros 3 escolhidos</b> — tabela por iniciativa. Colunas:
+   · <i>What</i> — ação específica, verbo no infinitivo.
+   · <i>Why</i> — qual dor resolve, qual KPI move.
+   · <i>Where</i> — onde acontece (setor, unidade, canal).
+   · <i>When</i> — data de início · data de fim · marco intermediário (dia 7 e dia 15).
+   · <i>Who</i> — função responsável (nunca nome).
+   · <i>How</i> — 3-5 passos concretos.
+   · <i>How much</i> — R$ estimado + horas estimadas. Se depender de estimativa, marque [validar com compra].
+<b>Formato:</b> Fase 1 em texto. Fase 2 em tabela + matriz visual em ASCII. Fase 3 em bullets. Fase 4 em texto argumentativo. Fase 5 em 3 tabelas (uma por iniciativa).
+<b>Limitações:</b> Zero prazo genérico ("em breve"). Se não sabe custo, marque [validar orçamento]. Se depende de contratação, marque [depende: RH — S6]. Se dependencia bloqueia, não escolha como quick win.
+
+FORMATO DE ENTREGA (2 partes)
+1. Análise textual completa das 5 fases.
+2. <b>Artifact HTML self-contained interativo</b>:
+   · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   · Header serif "Priorização &amp; Plano · [meu negócio] · ciclo [mês/2026]" + botão 🖨️.
+   · <b>Matriz 2×2 drag-and-drop</b> — 4 quadrantes (Quick Win verde · Projeto Estratégico azul · Preencher espaço cinza · Repensar vermelho). Cards de iniciativa arrastáveis, posição salva em localStorage. Contagem por quadrante ao vivo.
+   · <b>Painel lateral "Dependências"</b> — grafo em SVG com setas.
+   · <b>Bloco 5W2H expansível</b> — 3 cards por iniciativa quick win. Cada campo <contenteditable>. Checkbox "concluído" que risca o item.
+   · <b>Barra de progresso do ciclo</b> — % de tarefas concluídas × total do plano. Atualiza ao vivo.
+   · <b>Marco intermediário</b> — data dia 7 e dia 15 destacadas com alerta se atrasado.
+   · @media print A4 paisagem. JavaScript vanilla, zero framework.
+
+<b>LISTA CONSOLIDADA (Prompt 0 ou bruta):</b>
+[cole aqui]</div>
+          </div>
+
+          <!-- Prompt 2 · Refino -->
+          <details class="prompt-details">
+            <summary><span class="prompt-tipo">Prompt 2 · Refino</span>Advogado do diabo — os quick wins são realmente quick? Realmente wins?</summary>
+            <div class="prompt-details-body">
+              <p>Antes de sair executando, faça o teste da realidade. Quick wins costumam sub-estimar esforço (viés otimista) e super-estimar impacto (viés de novidade). Este prompt puxa o freio.</p>
+              <div class="prompt-wrap">
+                <button class="prompt-inline-copy" onclick="copyPromptI(this, 'p-m6-refino')">Copiar</button>
+                <div class="prompt-inline" id="p-m6-refino"><b>Papel:</b> Você é diretor sênior de operações — famoso por matar quick wins otimistas antes de virarem problema.
+<b>Contexto:</b> Cole abaixo os 3 quick wins escolhidos + 5W2H de cada.
+<b>Tarefa:</b>
+1. <b>Teste do esforço real</b> — pra cada quick win, responda: "considerando tudo (setup + execução + comunicação + treinamento), o esforço estimado tá subestimado por 2× ou 3×?" Reveja e diga.
+2. <b>Teste do impacto real</b> — "se executar 100% correto, quanto o KPI-alvo se move em 30 dias? Em 90 dias?" Se não tiver estimativa clara, o quick win é hipótese, não plano.
+3. <b>Teste do dono</b> — "o responsável está sobrecarregado com outra iniciativa desta lista? Vira gargalo?"
+4. <b>Recomenda ordem</b> — os 3 podem começar na mesma semana? Ou tem sequência obrigatória?
+5. <b>1 recomendação executiva</b> — 3 linhas: "comece por X esta semana. Y espera Z. W pode virar Projeto Estratégico ao invés de Quick Win."
+<b>Formato:</b> 5 blocos. Direto.
+<b>Limitações:</b> Se tudo passa nos testes, diga isso — não crie problema falso.
+
+<b>3 QUICK WINS + 5W2H:</b>
+[cole aqui]</div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Anti-padrões -->
+          <div class="anti-padroes">
+            <strong class="ap-label">Anti-padrões — o que evitar</strong>
+            <ul>
+              <li><strong>Matriz sem critério explícito de eixo.</strong> Impacto e Esforço "no olho" viram matriz que confirma o viés — não decisão. Peso deve estar escrito.</li>
+              <li><strong>Ignorar dependências.</strong> Escolher 3 quick wins que dependem da mesma pessoa/orçamento vira 1 quick win e 2 congelados.</li>
+              <li><strong>5W2H sem How much em número.</strong> Sem custo/prazo, é intenção. Marca [estimar] em vez de "razoável".</li>
+              <li><strong>Escolher só quick wins.</strong> Se só faz quick win, nunca resolve o Projeto Estratégico — que é onde mora o salto. Reserve espaço.</li>
+              <li><strong>Plano estático.</strong> 5W2H sem cadência de revisão (dia 7 · dia 15 · dia 30) morre em 2 semanas. Amarra revisão no dashboard M4.</li>
+              <li><strong>Executar antes do dono confirmar.</strong> Se o dono não bateu o martelo com sua função, não é 5W2H — é sonho compartilhado.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -1135,7 +1782,7 @@ Aguarde minha aprovação antes de gerar o dashboard visual.</div>
         </li>
         <li>
           <span class="mat-num">5</span>
-          <div><strong>Bibliografia mínima</strong> — Falconi Rotina (foco: cap POP + PDCA + Espinha-de-peixe) · 75 KPIs Bernard Marr · HBR "Why Strategy Execution Unravels" (5 Mitos). Você já tem esses PDFs no seu material do MBA.</div>
+          <div><strong>Bibliografia mínima</strong> — <em>Gestão da Rotina</em> (Falconi) para POP · PDCA · Espinha-de-peixe · <em>Key Performance Indicators: 75</em> (Bernard Marr) · Artigo HBR <em>"Why Strategy Execution Unravels"</em> (5 Mitos, Sull/Homkes/Sull). Referências públicas — todos estão disponíveis em livraria/acervo digital.</div>
         </li>
         <li class="dica">
           <span class="mat-num">6</span>
