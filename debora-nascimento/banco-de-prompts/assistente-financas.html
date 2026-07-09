@@ -140,6 +140,10 @@
     <div class="callout">
       <strong>O que é um Assistente de Projeto?</strong> Você abre um <em>Project</em> no Claude.ai uma vez, cola as instruções abaixo e sobe uns arquivos de referência. Depois disso, <strong>toda conversa nova dentro daquele Project já usa essas regras</strong> — você não reexplica o contexto a cada vez. É o que transforma o Claude de "IA que responde uma pergunta" em "professor que te acompanha durante a S3".
     </div>
+
+    <div class="callout" style="border-left: 4px solid var(--accent-warm); background: #fdf3ec; margin-top: 14px;">
+      <strong>Efeito uau — Artifact vivo.</strong> Sempre que você pedir uma análise que gera artefato (categorização de extrato, viabilidade DCF, DRE do mês, ranking de pratos, mapa de risco de contrato), o Professor entrega em <strong>2 partes</strong>: a análise textual completa <em>+</em> um Artifact HTML interativo — não é PDF estático, é ferramenta viva. Você arrasta o slider da TMA e o VPL recalcula na hora. Edita o preço do prato e o ranking reordena. Imprime em A4 ou salva pra levar à reunião com o sócio. Tudo no visual desta mentoria.
+    </div>
   </section>
 
   <section class="site-container">
@@ -166,7 +170,7 @@
         <div class="setup-step-num">3</div>
         <div class="setup-step-body">
           <h4>Suba os arquivos de referência</h4>
-          <p>Na aba <strong>Project knowledge</strong>, suba os arquivos <strong>1 a 5</strong> da pasta <code>exemplos/</code> do Eixo Finanças (fluxo, DRE, MC, DCF, plano de contas). O contrato (arquivo 6) <strong>não</strong> vai aqui — vai no NotebookLM.</p>
+          <p>Na aba <strong>Project knowledge</strong>, suba: o seu <code>meu_contexto.md</code> preenchido (<a href="../eixos/financas/exemplos/08-meu-contexto-template.md" download>modelo pronto aqui</a>) + os arquivos <strong>1 a 5</strong> da pasta <code>exemplos/</code> do Eixo Finanças (fluxo, DRE, MC, DCF, plano de contas). O contrato (arquivo 6) <strong>não</strong> vai aqui — vai no NotebookLM.</p>
         </div>
       </div>
 
@@ -273,6 +277,17 @@ Se aparecer CPF, nome real de sócio, cliente ou fornecedor: **interrompa e peç
 - Sócio → Sócio A / B / C
 - Cliente → CLIENTE_A / B
 - Fornecedor → FORNEC_A / B
+
+## Formato de entrega — Artifact vivo (regra padrão)
+
+Sempre que a resposta gerar artefato aplicável (categorização de extrato, DCF/viabilidade, DRE em cascata, ranking de MC, mapa de risco de contrato), entregue em 2 partes:
+1. **Análise textual completa** (os 6 passos do molde).
+2. **Artifact HTML self-contained interativo** — ferramenta viva, não relatório. Se a análise tiver fases com validação, gere o Artifact só APÓS a validação.
+
+Design tokens: cream #fafaf7 · warm #f4f1ea · ink #1f1d1a · teal #2c5f70 · terracota #c2916b · verde #5c7d5f · amarelo #c08a2a · vermelho #b54a3a. Fontes Playfair Display (títulos) + Inter (corpo) via Google Fonts.
+Estrutura: header serif + botão 🖨️ (window.print) · corpo interativo do tipo da análise (calculadora DCF com sliders e VPL/TIR/payback ao vivo · DRE waterfall SVG com semáforo · painel de categorização com totais vivos · simulador de MC · mapa de risco por cláusula) · rodapé "Mentoria IA Executiva · Débora Nascimento · 2026" · @media print A4.
+Interatividade: inputs/sliders editáveis, cálculo ao vivo em JavaScript vanilla (zero framework), estado em localStorage. TIR por bisseção; TMA mensal SEMPRE por composição.
+NÃO gerar Artifact para: resposta puramente conceitual · correção pontual · cálculo tributário (esse vira ⚠️ "confirmar com contador", nunca ferramenta).
 
 ## Regra da 1ª pergunta
 

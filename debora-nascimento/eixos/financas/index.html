@@ -516,6 +516,72 @@
     .biblio-list li .biblio-tag { display: inline-block; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-warm-dark); margin-left: 6px; }
 
     .callout.danger { background: #fdf3ec; border-left-color: var(--accent-warm); }
+
+    /* === Padrão rico — Fundamentos · Quando aplicar · Artifact · Anti-padrões === */
+    .origem-bloco {
+      background: var(--bg-warm); border: 1px solid var(--border);
+      border-radius: 8px; padding: 18px 22px; margin: 0;
+      border-top: 1px solid var(--border);
+    }
+    .origem-bloco .origem-eyebrow {
+      font-family: 'Inter', sans-serif; font-size: 10px;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--accent-warm-dark); font-weight: 700; margin: 0 0 6px;
+    }
+    .origem-bloco h4 {
+      font-family: 'Playfair Display', serif; font-size: 17px;
+      color: var(--ink); margin: 0 0 6px; font-weight: 600; line-height: 1.3;
+    }
+    .origem-bloco p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 10px; }
+    .origem-bloco p strong { color: var(--ink); font-weight: 600; }
+    .biblio-inline {
+      margin-top: 12px; padding: 12px 14px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 6px; font-size: 12px; color: var(--ink-soft); line-height: 1.55;
+    }
+    .biblio-inline strong { display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-warm-dark); margin: 0 0 6px; font-weight: 700; }
+    .biblio-inline ul { margin: 0; padding-left: 16px; font-size: 12px; }
+    .biblio-inline ul li { font-size: 12px; line-height: 1.5; margin-bottom: 2px; }
+    .biblio-inline em { color: var(--ink); font-style: normal; font-weight: 500; }
+    .biblio-inline strong.regra-inline { display: inline; font-size: inherit; letter-spacing: 0; text-transform: none; color: var(--ink); font-weight: 600; }
+    .quando-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      padding: 14px 22px; background: #fafaf7; border-top: 1px solid var(--border);
+    }
+    @media (max-width: 600px) { .quando-grid { grid-template-columns: 1fr; } }
+    .quando-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 6px; padding: 12px 14px;
+    }
+    .quando-card.sim { border-left: 3px solid #5c7d5f; }
+    .quando-card.nao { border-left: 3px solid var(--accent-warm); }
+    .quando-card strong {
+      display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+      margin: 0 0 6px; font-weight: 700;
+    }
+    .quando-card.sim strong { color: #5c7d5f; }
+    .quando-card.nao strong { color: var(--accent-warm-dark); }
+    .quando-card ul { margin: 0; padding-left: 16px; font-size: 12.5px; color: var(--ink); line-height: 1.55; }
+    .artifact-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: linear-gradient(90deg, var(--accent-warm) 0%, #d4a67c 100%);
+      color: white; padding: 4px 12px 4px 10px;
+      border-radius: 14px; font-size: 11px; font-weight: 600;
+      letter-spacing: .04em; margin-left: 8px;
+      vertical-align: middle;
+    }
+    .artifact-tag::before { content: '✨'; font-size: 12px; }
+    .anti-padroes {
+      margin: 0; padding: 16px 22px;
+      background: #fdf3ec; border-top: 1px solid #e6c9a8;
+    }
+    .anti-padroes strong.ap-label {
+      display: block; font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent-warm-dark); font-weight: 700; margin: 0 0 8px;
+    }
+    .anti-padroes ul { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink); line-height: 1.6; }
+    .anti-padroes ul li { margin-bottom: 4px; }
+    .anti-padroes ul li strong { color: var(--accent-warm-dark); font-weight: 600; }
   </style>
 </head>
 <body>
@@ -970,7 +1036,7 @@
       <div class="timeline-s3" aria-label="Os 6 momentos da sessão">
         <a href="#momento-1" class="timeline-bar t1" style="text-decoration:none;">
           <div class="timeline-bar-step">Momento 1 · Hab. 1</div>
-          <div class="timeline-bar-name">Contexto em arquivo</div>
+          <div class="timeline-bar-name">Central + 1ª análise</div>
           <div class="timeline-bar-min">Colaboração · L1 → L2</div>
         </a>
         <a href="#momento-2" class="timeline-bar t2" style="text-decoration:none;">
@@ -1004,7 +1070,7 @@
       <div class="resumao-momentos">
         <h3>Como a sessão flui — em uma frase por bloco</h3>
         <p>
-          A S3 tem espinha dorsal — cada momento <strong>destrava UMA das 10 habilidades</strong> (as 5 primeiras) e abre o próximo. <strong>Primeiro você estrutura contexto em arquivo</strong> (Momento 1) — sem isso, IA acha o que quer. <strong>Aí vai pro cenário-estrela: o DCF da sociedade</strong> (Momento 2 ★) — a decisão real na sua mesa. <strong>Em seguida, ler o resultado mensal</strong> (Momento 3) e <strong>identificar qual produto sustenta a casa</strong> (Momento 4). <strong>Auditoria de contrato com NotebookLM</strong> (Momento 5) — pra você não cair em cláusula de saída ruim. <strong>Fechamento com vislumbre do AI Finance Team</strong> (Momento 6).
+          A S3 tem espinha dorsal — cada momento <strong>destrava UMA das 10 habilidades</strong> (as 5 primeiras) e abre o próximo. <strong>Primeiro você monta a central financeira com arquivos prontos e já vê a primeira análise sair</strong> (Momento 1) — painel de categorização interativo em minutos. <strong>Aí vai pro cenário-estrela: o DCF da sociedade</strong> (Momento 2 ★) — a decisão real na sua mesa, com calculadora viva. <strong>Em seguida, ler o resultado mensal</strong> (Momento 3, cascata visual) e <strong>identificar qual produto sustenta a casa</strong> (Momento 4, simulador de cardápio). <strong>Auditoria de contrato com NotebookLM</strong> (Momento 5) — que fecha em Mapa de Risco pro advogado. <strong>Fechamento com vislumbre do AI Finance Team</strong> (Momento 6).
         </p>
         <div class="resumao-fluxo">
           <div class="resumao-bloco">
@@ -1019,7 +1085,7 @@
           <span class="resumao-seta">→</span>
           <div class="resumao-bloco">
             <strong>Você sai com</strong>
-            <span>Project estruturado · 1 DCF · 1 DRE · 1 ranking de produtos · 1 auditoria de contrato</span>
+            <span>Project estruturado · calculadora DCF viva · DRE waterfall · simulador de cardápio · mapa de risco do contrato</span>
           </div>
         </div>
       </div>
@@ -1031,8 +1097,8 @@
           <div class="roteiro-head">
             <div class="roteiro-numero">1<small>Hab. 1/10</small></div>
             <div class="roteiro-conteudo">
-              <h4>Habilidade: tirar contexto da cabeça e estruturar em arquivo</h4>
-              <p>Criamos o Project "Restaurante" no Claude.ai. Você dita, a IA estrutura, salvamos <code>meu_contexto.md</code> e <code>plano_de_contas.md</code>. <strong>Sem isso, todo prompt depois sai fraco.</strong></p>
+              <h4>Habilidade: montar a central financeira — e ver a primeira análise sair na hora</h4>
+              <p>Você baixa 2 arquivos prontos, personaliza em 10 minutos, sobe no Project — e roda a primeira mágica: <strong>fluxo de caixa bruto vira painel interativo categorizado, com anomalias flagradas.</strong></p>
             </div>
             <div class="roteiro-meta">
               <span class="modo-badge colab">Colaboração</span>
@@ -1041,19 +1107,19 @@
           </div>
 
           <div class="momento-didatico">
-            <p class="md-aprende"><strong>O que você vai aprender aqui</strong>Estruturar o conhecimento do seu negócio em arquivos legíveis pela IA — pra que toda análise futura (DRE, MC, DCF, contrato) parta de uma base sólida, sem você precisar reexplicar contexto a cada conversa.</p>
+            <p class="md-aprende"><strong>O que você vai aprender aqui</strong>Montar a base que toda análise futura usa (Project + contexto + plano de contas) SEM gastar a sessão nisso — os arquivos vêm prontos da mentoria, você só personaliza. O tempo vai pro que importa: a primeira categorização real, com painel visual e caça às anomalias.</p>
             <div class="momento-didatico-grid">
               <div class="md-bloco">
                 <strong>Resultados esperados</strong>
                 <ul>
-                  <li>1 Project "Restaurante — Sociedade" criado no Claude.ai</li>
-                  <li><code>meu_contexto.md</code> com perfil dos 3 negócios + decisão imediata</li>
-                  <li><code>plano_de_contas.md</code> em cascata G4 com 12 grupos</li>
+                  <li>Project "Restaurante — Sociedade" no ar em ~15 min com <code>meu_contexto.md</code> + <code>plano_de_contas.md</code></li>
+                  <li>90 dias de fluxo de caixa categorizados no plano de contas</li>
+                  <li>Painel interativo (Artifact) com totais por grupo + anomalias destacadas</li>
                 </ul>
               </div>
               <div class="md-bloco">
                 <strong>Por que importa pro seu papel</strong>
-                <p>Gestora que cobra o contador precisa falar a língua dele — e o plano de contas é o "alfabeto" da contabilidade. Sem ele, toda análise depois é chute. <strong>Quem domina o contexto, manda na conversa</strong>.</p>
+                <p>Gestora que cobra o contador precisa falar a língua dele — e o plano de contas é o "alfabeto" da contabilidade. Mas alfabeto não é a aula: <strong>a aula é ver dado bruto virar decisão</strong>. Regra de ouro do dado: lixo entra, lixo sai — este momento é onde você garante que entra dado limpo.</p>
               </div>
             </div>
           </div>
@@ -1061,9 +1127,9 @@
           <div class="momento-resumo">
             <h5>Resumo deste momento</h5>
             <div class="momento-resumo-grid">
-              <div class="mr-bloco"><strong>Você entra com</strong><span>Cabeça cheia de contexto sobre os 3 negócios</span></div>
-              <div class="mr-bloco"><strong>O que acontece</strong><span>Entrevista guiada pela IA → você responde → IA estrutura em arquivo</span></div>
-              <div class="mr-bloco"><strong>Você sai com</strong><span>2 arquivos no Project: contexto + plano de contas</span></div>
+              <div class="mr-bloco"><strong>Você entra com</strong><span>2 arquivos baixados + fluxo de caixa (real ou Arquivo 1)</span></div>
+              <div class="mr-bloco"><strong>O que acontece</strong><span>Personaliza os arquivos → sobe no Project → cola o fluxo → IA categoriza e flagra → Artifact painel</span></div>
+              <div class="mr-bloco"><strong>Você sai com</strong><span>Central pronta + 1º painel de categorização interativo</span></div>
             </div>
 
             <div class="conhecimentos-bloco">
@@ -1077,96 +1143,161 @@
             </div>
           </div>
 
-          <details class="roteiro-prompt">
-            <summary>Ver prompts pra copiar (1A: contexto · 1B: plano de contas)</summary>
-            <div class="roteiro-prompt-body">
-              <h5>Antes de colar</h5>
+          <div class="origem-bloco">
+            <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
+            <h4>Por que contexto em arquivo vem antes de qualquer análise</h4>
+            <p>A contabilidade organiza dinheiro em categorias desde as <strong>partidas dobradas de Luca Pacioli (1494)</strong> — o plano de contas moderno é herdeiro direto disso. E a computação tem a regra equivalente desde os anos 60: <strong>"garbage in, garbage out"</strong> — dado ruim na entrada, decisão ruim na saída, não importa quão boa é a ferramenta. IA generativa obedece à mesma lei: <strong>sem contexto estruturado, ela acha que sabe</strong> — e preenche as lacunas com suposição plausível. O Project com contexto fixo é o antídoto: a IA para de adivinhar quem você é.</p>
+            <div class="biblio-inline">
+              <strong>O que você precisa dominar deste momento</strong>
               <ul>
-                <li>Claude.ai Pro ativo (USD 20/mês)</li>
-                <li>Criar Project novo chamado "Restaurante — Sociedade"</li>
-                <li>Baixar o <a href="exemplos/05-plano-contas-restaurante.xlsx" download>Arquivo 5 (plano de contas)</a> como referência</li>
+                <li>A hierarquia <strong class="regra-inline">grupo → subconta</strong> do plano de contas — todo lançamento tem UM lugar. Dois lugares possíveis = plano mal desenhado.</li>
+                <li>Diferença <strong class="regra-inline">CAPEX × despesa</strong> — comprar freezer não é despesa do mês, é investimento que deprecia. Classificar errado distorce o resultado.</li>
+                <li><strong class="regra-inline">Consistência entre meses</strong> — a mesma coisa cai sempre na mesma conta. É isso que torna os meses comparáveis.</li>
+                <li>A regra da amostragem: <strong class="regra-inline">confira 5 linhas aleatórias</strong> de toda categorização feita por IA antes de confiar no total.</li>
+                <li>Lacuna visível &gt; chute invisível — <strong class="regra-inline">[A_CLASSIFICAR] é resposta válida</strong>; categoria inventada não é.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="quando-grid">
+            <div class="quando-card sim">
+              <strong>Quando aplicar</strong>
+              <ul>
+                <li>Início de todo mês — categorizar o mês fechado antes da DRE (M3)</li>
+                <li>Novo negócio entrando na sua vida (é replicar os 2 arquivos e trocar exemplos)</li>
+                <li>Antes de qualquer análise grande (DCF, DRE, MC) — base primeiro</li>
+                <li>Troca de contador — o plano de contas é sua língua comum</li>
+              </ul>
+            </div>
+            <div class="quando-card nao">
+              <strong>Quando NÃO aplicar</strong>
+              <ul>
+                <li>Extrato de meia dúzia de linhas — categoriza na mão, mais rápido</li>
+                <li>Dado que já vem categorizado do ERP — não recategorize, só audite amostra</li>
+                <li>Documento com CPF/nome de cliente sem anonimizar — LGPD primeiro, upload depois</li>
+              </ul>
+            </div>
+          </div>
+
+          <details class="roteiro-prompt">
+            <summary>Ver setup + prompts (Prompt 0: personalizar · Âncora: categorizar + painel · Refino: auditar)</summary>
+            <div class="roteiro-prompt-body">
+              <h5>Setup em 3 passos (~15 min, uma vez só)</h5>
+              <ul>
+                <li>Claude.ai Pro ativo → criar Project novo: <strong>"Restaurante — Sociedade"</strong></li>
+                <li>Baixar e personalizar o <a href="exemplos/08-meu-contexto-template.md" download>modelo pronto de <code>meu_contexto.md</code></a> — preencha os [PREENCHER] em ~10 min e suba no Project. <strong>Não precisa entrevista: o arquivo já vem estruturado.</strong></li>
+                <li>Baixar o <a href="exemplos/05-plano-contas-restaurante.md" download>plano de contas pronto (<code>plano_de_contas.md</code>)</a> e subir no Project como está — ajusta depois, quando a realidade pedir. (Versão planilha: <a href="exemplos/05-plano-contas-restaurante.xlsx" download>Arquivo 5 .xlsx</a>)</li>
               </ul>
 
               <details class="sub-prompt">
-                <summary>Prompt 1A — Entrevista pra montar <code>meu_contexto.md</code></summary>
+                <summary><strong>Prompt 0 · Opcional</strong> — Preencher o contexto com ajuda do Claude (se travar no template)</summary>
                 <div class="pctfl-wrap">
-                  <button class="pctfl-copy" data-target="p1a">Copiar</button>
-                  <pre id="p1a"><b># PAPEL</b>
-Você é uma controller financeira sênior de PME brasileira, com 15 anos de experiência ajudando gestores não-técnicos a estruturar contexto de negócio antes de qualquer análise. Sua especialidade é fazer as perguntas certas, na ordem certa, para tirar contexto da cabeça do gestor e botar em arquivo reutilizável.
+                  <button class="pctfl-copy" data-target="p1-zero">Copiar</button>
+                  <pre id="p1-zero"><b># PAPEL</b>
+Você é controller financeira sênior de PME brasileira, especialista em tirar contexto da cabeça de gestor não-técnico com o mínimo de perguntas.
 
 <b># CONTEXTO</b>
-Estou montando um Project no Claude.ai para usar como minha "central de inteligência financeira" pessoal. Tenho 3 frentes simultâneas: (1) vou virar sócia de um restaurante em Fortaleza nos próximos meses — é a decisão mais pesada do momento; (2) gerencio financeiramente a banda de forró da minha família; (3) sou assessora comercial em uma corretora de seguros. Sou gestora não-técnica — uso Excel/Google Sheets — não sou contadora.
+Colei abaixo meu arquivo meu_contexto.md parcialmente preenchido. Os campos [PREENCHER] são o que eu não soube responder sozinha.
 
 <b># TAREFA</b>
-Conduza uma entrevista em 4 blocos. Faça uma pergunta por vez, espere minha resposta, só vá pra próxima. Se eu responder vago, peça pra detalhar. No fim, monte o meu_contexto.md em 6 seções (quem sou, os 3 negócios, pessoas envolvidas, decisão imediata, restrições, glossário do meu vocabulário).
-
-Bloco 1 — Quem sou eu
-Bloco 2 — Os 3 negócios (3-4 perguntas por negócio: o que é + tamanho, modelo de receita, principais custos, sazonalidade, risco principal)
-Bloco 3 — Decisão imediata (qual decisão + prazo)
-Bloco 4 — Restrições (LGPD, capital, conhecimento, tempo) + 3-5 termos do meu vocabulário
-
-<b># FORMATO</b>
-Markdown estruturado, pronto pra eu salvar como arquivo de conhecimento do Project.
+1. Liste os [PREENCHER] que sobraram, do mais crítico pro menos (crítico = trava análise futura).
+2. Pra cada um, me faça UMA pergunta dirigida por vez — com exemplo de resposta entre parênteses pra eu calibrar.
+3. No fim, me devolva o meu_contexto.md completo, pronto pra substituir no Project.
 
 <b># LIMITE</b>
-- NÃO invente dados que eu não te dei. Se eu não souber, marque [PREENCHER].
-- NÃO pule perguntas. Se eu responder vago, peça pra detalhar.
-- NÃO faça mais de 15 perguntas no total.
+- NÃO invente resposta pra campo que eu não souber — mantenha [PREENCHER] e diga onde conseguir a informação.
+- NÃO faça mais de 8 perguntas. Se sobrar campo, priorize os críticos.
 
-Comece pelo Bloco 1, pergunta 1.</pre>
+<b>MEU ARQUIVO:</b>
+[cole o meu_contexto.md preenchido até onde conseguiu]</pre>
                 </div>
               </details>
 
-              <details class="sub-prompt">
-                <summary>Prompt 1B — Montar <code>plano_de_contas.md</code></summary>
-                <div class="pctfl-wrap">
-                  <button class="pctfl-copy" data-target="p1b">Copiar</button>
-                  <pre id="p1b"><b># PAPEL</b>
-Você continua como controller financeira sênior. Agora vai me ajudar a montar o plano_de_contas.md do restaurante usando a DRE em cascata padrão G4 (Julian Tonioli, Fundamentos em Finanças) adaptada à realidade de um restaurante de bairro brasileiro.
+              <h5 style="margin-top: 18px;">Prompt-âncora — Categorizar + caçar anomalias <span class="artifact-tag">gera Artifact interativo</span></h5>
+              <p>Com o Project pronto, abra uma conversa nova dentro dele e cole. Use seu extrato real ou o <a href="exemplos/01-fluxo-caixa-restaurante-3meses.xlsx" download>Arquivo 1 (90 dias fictícios)</a>.</p>
+              <div class="pctfl-wrap">
+                <button class="pctfl-copy" data-target="p1-ancora">Copiar</button>
+                <pre id="p1-ancora"><b># PAPEL</b>
+Você é controller financeira sênior de PME brasileira, rigorosa com qualidade de dado. Especialidade: categorizar movimentação bruta em plano de contas e flagrar inconsistência antes que vire erro de decisão.
 
 <b># CONTEXTO</b>
-Já temos o meu_contexto.md do Project. Agora preciso da estrutura de contas que vai sustentar TODA análise financeira do restaurante — DRE mensal, MC por prato, DCF da sociedade, fluxo de caixa. Quero que seja em cascata, adaptável (vai reutilizar com pequenas trocas pra banda e corretora) e didática.
+Project com meu_contexto.md e plano_de_contas.md salvos. Vou colar/anexar a movimentação de caixa de [período — ex.: 90 dias] do restaurante. Quero o extrato categorizado + a qualidade do dado auditada.
 
 <b># TAREFA</b>
-Monte o plano_de_contas.md com a estrutura DRE em cascata G4 em 12 grupos:
-1. Receita Bruta (salão, delivery, eventos)
-2. Deduções
-3. Receita Líquida
-4. CMV / Custos Diretos
-5. Margem de Contribuição
-6. Custos Fixos
-7. EBITDA
-8. Depreciação e Amortização
-9. EBIT
-10. Resultado Financeiro
-11. Impostos sobre Lucro
-12. Resultado Líquido
-
-Pra cada categoria: nome em negrito + o que é (1 frase) + exemplos típicos restaurante (3-4) + adaptação banda (1 linha) + adaptação corretora (1 linha) + ⚠️ alerta tributário quando aplicável.
+Execute em 3 fases, PARANDO em cada uma pra minha validação:
+1. <b>Leitura e diagnóstico</b> — quantas linhas, período coberto, colunas encontradas. Aponte lacunas (linha sem data, valor zerado, descrição vaga) ANTES de categorizar.
+2. <b>Categorização</b> — cada lançamento recebe grupo + subconta do plano de contas. Linha que não couber → [A_CLASSIFICAR]. Linha ambígua → categoria mais provável + ⚠️ revisar. Feche com resumo por grupo (R$ e % do total).
+3. <b>Caça às anomalias</b> — liste todo lançamento suspeito: duplicado (mesmo valor + data + descrição) · CAPEX classificado como despesa · valor fora do padrão da categoria · lançamento sem contrapartida óbvia. Pra cada um: por que é suspeito + o que verificar.
 
 <b># FORMATO</b>
-Markdown único, organizado em "Estrutura em cascata" + "Detalhamento" + "Convenção de nomenclatura" + "⚠️ Alertas tributários".
+Fase 1 em texto curto. Fase 2 em tabela + resumo por grupo. Fase 3 em tabela de anomalias.
 
 <b># LIMITE</b>
-- NÃO invente alíquotas. Marque ⚠️ confira na fonte oficial.
-- NÃO use jargão sem explicação.
-- NÃO crie mais de 12 grupos principais.
+- NÃO invente categoria fora do plano_de_contas.md.
+- NÃO "conserte" lançamento por conta própria — sinalize e pergunte.
+- NÃO esconda incerteza: ⚠️ em toda classificação de confiança baixa.
 
-Pode começar.</pre>
+FORMATO DE ENTREGA (2 partes — ORDEM OBRIGATÓRIA)
+Só gere o Artifact APÓS eu validar as 3 fases. Não antecipe.
+1. Análise textual completa das 3 fases.
+2. <b>Artifact HTML self-contained interativo — Painel de Categorização</b>:
+   · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   · Header serif "Central Financeira · [negócio] · [período]" + botão 🖨️ imprimir.
+   · Resumo por grupo no topo: barras horizontais (SVG inline) com R$ e % por grupo.
+   · Tabela de lançamentos com filtro por grupo (dropdown) e busca por texto. Coluna "grupo" editável via select — ao trocar, totais e barras recalculam ao vivo.
+   · Anomalias com fundo âmbar + checkbox "verificada" que remove o destaque.
+   · Contador vivo: "X lançamentos · Y a revisar ⚠️ · Z anomalias abertas".
+   · @media print A4 paisagem. Estado em localStorage. JavaScript vanilla, zero framework.
+
+<b>MOVIMENTAÇÃO:</b>
+[cole aqui ou anexe o arquivo]</pre>
+              </div>
+
+              <details class="sub-prompt">
+                <summary><strong>Prompt 2 · Refino</strong> — Auditar a categorização antes de confiar</summary>
+                <div class="pctfl-wrap">
+                  <button class="pctfl-copy" data-target="p1-refino">Copiar</button>
+                  <pre id="p1-refino"><b># PAPEL</b>
+Você é auditora externa cética — contratada pra achar erro na categorização antes que ele vire erro de DRE.
+
+<b># CONTEXTO</b>
+Cole abaixo a categorização que acabamos de fazer (ou rode nesta mesma conversa).
+
+<b># TAREFA</b>
+1. <b>Amostragem</b> — sorteie 5 linhas categorizadas e reexamine cada uma contra a descrição original. A categoria para de pé? Justifique linha a linha.
+2. <b>Pendências</b> — reexamine TODOS os [A_CLASSIFICAR] e ⚠️. Pra cada um: proponha resolução OU a pergunta exata pra quem vive o negócio responder.
+3. <b>Teste de completude</b> — a soma por grupo bate com o total do extrato? Se houver diferença, localize onde.
+
+<b># LIMITE</b>
+- Se tudo passar, diga que passou — não crie problema pra parecer útil.
+
+<b>CATEGORIZAÇÃO:</b>
+[cole aqui]</pre>
                 </div>
               </details>
             </div>
           </details>
 
+          <div class="anti-padroes">
+            <strong class="ap-label">Anti-padrões — o que evitar</strong>
+            <ul>
+              <li><strong>Subir extrato com nome de cliente ou CPF.</strong> Anonimiza antes (CLIENTE_A, FORNEC_B) — LGPD não é detalhe.</li>
+              <li><strong>Aceitar categorização sem conferir amostra.</strong> 5 linhas aleatórias, 2 minutos. É o seguro mais barato de finanças com IA.</li>
+              <li><strong>Deixar [A_CLASSIFICAR] acumular.</strong> 3 meses depois vira arqueologia. Resolve no fechamento de cada mês.</li>
+              <li><strong>Misturar pessoal e negócio na mesma planilha.</strong> A IA vai categorizar tudo — inclusive o que não devia estar ali.</li>
+              <li><strong>Renomear categoria a cada mês.</strong> "Insumos" virou "Compras cozinha"? Você acabou de quebrar a comparação entre meses.</li>
+            </ul>
+          </div>
+
           <div class="exercicio-casa">
             <strong>Exercício de casa</strong>
-            <p><strong>Camada 1 (básico):</strong> baixar o <a href="exemplos/01-fluxo-caixa-restaurante-3meses.xlsx" download>fluxo de caixa de 90 dias</a> e perguntar ao Claude (com o Project rodando): "categorize estes lançamentos no meu plano de contas". <strong>Confira amostra de 5 linhas</strong>.</p>
-            <p><strong>Camada 2 (desafio):</strong> achar as 2 anomalias plantadas no fluxo (1 lançamento duplicado + 1 CAPEX classificado errado como despesa). Sinalizar pra IA o que ela errou.</p>
+            <p><strong>Camada 1 (básico):</strong> rodar o prompt-âncora com o <a href="exemplos/01-fluxo-caixa-restaurante-3meses.xlsx" download>Arquivo 1 (90 dias)</a>. Tem <strong>2 anomalias plantadas</strong> (1 duplicado + 1 CAPEX disfarçado de despesa) — o painel flagra as duas? Confira a amostra de 5 linhas.</p>
+            <p><strong>Camada 2 (desafio):</strong> rodar com extrato real de UM dos seus negócios (anonimizado). Salvar o painel e trazer pra próxima sessão com as anomalias reais marcadas.</p>
           </div>
 
           <div class="marco-progresso">
             <span class="marco-check">✓</span>
-            <strong>Marco de progresso:</strong> <span>Habilidade 1 de 10 destravada — Categorizar despesas + Plano de Contas</span>
+            <strong>Marco de progresso:</strong> <span>Habilidade 1 de 10 destravada — Central financeira + categorização auditada</span>
             <span class="marco-prox">Próxima: Habilidade 2 → DCF da sociedade ★</span>
           </div>
         </article>
@@ -1208,8 +1339,8 @@ Pode começar.</pre>
             <h5>Resumo deste momento</h5>
             <div class="momento-resumo-grid">
               <div class="mr-bloco"><strong>Você entra com</strong><span>Cota R$, lucro projetado, TMA, prazo de análise</span></div>
-              <div class="mr-bloco"><strong>O que acontece</strong><span>Captura de premissas (2A) → modelo DCF 3 cenários (2B) → parecer 1 página (2C)</span></div>
-              <div class="mr-bloco"><strong>Você sai com</strong><span>Planilha 3 cenários + parecer pra reunião com sócio</span></div>
+              <div class="mr-bloco"><strong>O que acontece</strong><span>Captura de premissas (Prompt 0) → modelo 3 cenários + sensibilidade + parecer → calculadora DCF viva (Artifact)</span></div>
+              <div class="mr-bloco"><strong>Você sai com</strong><span>Calculadora interativa + parecer imprimível pra reunião com sócio</span></div>
             </div>
 
             <div class="conhecimentos-bloco">
@@ -1225,8 +1356,44 @@ Pode começar.</pre>
             </div>
           </div>
 
+          <div class="origem-bloco">
+            <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
+            <h4>De onde vem o DCF — e por que a versão PME dispensa metade do jargão</h4>
+            <p>A ideia-mãe é o <strong>valor do dinheiro no tempo</strong>, formalizada por <strong>Irving Fisher em "The Theory of Interest" (1930)</strong>: R$ 100 hoje valem mais que R$ 100 amanhã, e a taxa de desconto mede exatamente quanto. Nas décadas seguintes o DCF vira o padrão da decisão de investimento corporativa — é o coração de qualquer manual clássico de finanças corporativas (Brealey &amp; Myers). O trio <strong>VPL · TIR · payback descontado</strong> é canônico: o primeiro decide, o segundo compara, o terceiro mede fôlego. Pra PME de capital fechado, a versão certa é a <strong>simplificada</strong>: TMA = CDB + prêmio de risco. CAPM, WACC e beta são ferramentas de bolsa — usar em restaurante de bairro é precisão falsa.</p>
+            <div class="biblio-inline">
+              <strong>O que você precisa dominar deste momento</strong>
+              <ul>
+                <li>A leitura do <strong class="regra-inline">VPL</strong>: &gt; 0 vale a pena · = 0 indiferente · &lt; 0 deixa no CDB. É o número que decide.</li>
+                <li><strong class="regra-inline">TIR compara com a TMA</strong> — TIR 56% contra TMA 19% é folga; TIR 21% contra TMA 19% é margem fina demais pra premissa frouxa.</li>
+                <li><strong class="regra-inline">Payback descontado ≠ payback simples</strong> — o descontado usa fluxos trazidos a valor presente; é sempre mais longo e mais honesto.</li>
+                <li>A conversão que quase todo mundo erra: <strong class="regra-inline">TMA mensal = (1+TMA_anual)^(1/12) − 1</strong>. Dividir por 12 infla o VPL em 5-8%.</li>
+                <li><strong class="regra-inline">Sensibilidade antes da decisão</strong> — saber QUAL premissa quebra o modelo vale mais que o número redondo do cenário base.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="quando-grid">
+            <div class="quando-card sim">
+              <strong>Quando aplicar</strong>
+              <ul>
+                <li>Aporte relevante: entrar em sociedade, 2ª unidade, equipamento caro</li>
+                <li>Comparar 2 destinos pro mesmo dinheiro (restaurante × CDB × outro negócio)</li>
+                <li>Renegociar termos com sócio — número na mesa muda a conversa</li>
+                <li>Reavaliar sociedade existente quando o cenário mudou</li>
+              </ul>
+            </div>
+            <div class="quando-card nao">
+              <strong>Quando NÃO aplicar</strong>
+              <ul>
+                <li>Decisão pequena — se o custo de errar é menor que 1 dia de análise, decide e segue</li>
+                <li>Fluxo imprevisível demais sem NENHUMA referência — trabalhe com faixas e valide premissas antes</li>
+                <li>Decisão já tomada por motivo não-financeiro — aí o DCF serve pra negociar termos, não pra fingir que decide</li>
+              </ul>
+            </div>
+          </div>
+
           <details class="roteiro-prompt">
-            <summary>Ver prompts pra copiar (2A: premissas · 2B: modelo · 2C: parecer)</summary>
+            <summary>Ver prompts (Prompt 0: premissas · Âncora: modelo + calculadora viva · Refino: advogado do diabo)</summary>
             <div class="roteiro-prompt-body">
               <h5>Antes de colar</h5>
               <ul>
@@ -1236,11 +1403,11 @@ Pode começar.</pre>
               </ul>
 
               <details class="sub-prompt">
-                <summary>Prompt 2A — Capturar premissas (6 famílias)</summary>
+                <summary><strong>Prompt 0 · Pré-preparo</strong> — Capturar premissas (6 famílias) e salvar <code>premissas_dcf.md</code></summary>
                 <div class="pctfl-wrap">
-                  <button class="pctfl-copy" data-target="p2a">Copiar</button>
-                  <pre id="p2a"><b># PAPEL</b>
-Você é analista de M&amp;A júnior especializado em PME brasileira, treinado pelo framework do André Borges (DCF simplificado pra negócio fechado, sem CAPM nem WACC). Vai capturar premissas pra eu rodar análise de viabilidade da minha entrada como sócia de um restaurante em Fortaleza.
+                  <button class="pctfl-copy" data-target="p2-zero">Copiar</button>
+                  <pre id="p2-zero"><b># PAPEL</b>
+Você é analista de viabilidade especializado em PME brasileira de capital fechado — DCF simplificado, sem CAPM nem WACC. Vai capturar premissas pra eu rodar análise de viabilidade da minha entrada como sócia de um restaurante em Fortaleza.
 
 Decisão de sociedade não tolera premissa frouxa. Premissa errada = decisão errada. Você vai me forçar a clareza onde eu tentar passar batido.
 
@@ -1261,7 +1428,7 @@ Conduza captura em 6 blocos (um por família). Pra cada bloco:
 4. No fim de cada bloco, recapitule em 3-4 linhas
 
 <b># FORMATO</b>
-No fim, gere o premissas_dcf.md pronto pra salvar.
+No fim, gere o premissas_dcf.md pronto pra salvar no Project.
 
 <b># LIMITE</b>
 - NÃO assuma valores. Se eu não souber, marque [PREENCHER após confirmar com sócio/contrato].
@@ -1273,84 +1440,90 @@ Comece pela Família 1.</pre>
                 </div>
               </details>
 
-              <details class="sub-prompt">
-                <summary>Prompt 2B — Montar modelo VPL + TIR + payback em 3 cenários</summary>
-                <div class="pctfl-wrap">
-                  <button class="pctfl-copy" data-target="p2b">Copiar</button>
-                  <pre id="p2b"><b># PAPEL</b>
-Você agora é analista de modelagem financeira. Vai pegar as premissas do premissas_dcf.md e construir o modelo DCF em 3 cenários, com VPL, TIR e payback descontado pra cada um.
+              <h5 style="margin-top: 18px;">Prompt-âncora — Modelo 3 cenários + sensibilidade + parecer <span class="artifact-tag">gera Artifact interativo</span></h5>
+              <p>Com o <code>premissas_dcf.md</code> salvo no Project (ou os números do Arquivo 4 na mão), abra conversa nova e cole.</p>
+              <div class="pctfl-wrap">
+                <button class="pctfl-copy" data-target="p2-ancora">Copiar</button>
+                <pre id="p2-ancora"><b># PAPEL</b>
+Você é analista sênior de modelagem financeira pra PME de capital fechado. Vai construir o modelo DCF completo da minha entrada como sócia — didático, com todo cálculo aberto.
 
 <b># CONTEXTO</b>
-Project "Restaurante — Sociedade". premissas_dcf.md nos arquivos do Project. Modelar a entrada como sócia: aporte único hoje (mês 0, negativo) e fluxos mensais distribuíveis (positivos).
+Project "Restaurante — Sociedade". premissas_dcf.md nos arquivos do Project (se não estiver, pare e peça). Modelar: aporte único hoje (mês 0, negativo) e fluxos mensais distribuíveis (positivos).
 
 <b># TAREFA</b>
-Construa o modelo em 3 cenários (pessimista / base / otimista):
-1. Linha do tempo do fluxo (mês a mês): mês 0 = aporte (negativo); meses 1 a N = lucro distribuível mensal (positivo, ajustado pelo cenário)
-2. VPL pra cada cenário: VPL = Σ (Fluxo_t / (1+TMA_mensal)^t) − Aporte
-   ⚠️ **Converter TMA anual → mensal por composição:** TMA_mensal = (1+TMA_anual)^(1/12) − 1. NÃO usar TMA_anual / 12 (essa aproximação infla VPL em ~5-8%).
-3. TIR pra cada cenário: taxa que zera VPL. Reportar mensal E anual.
-4. Payback descontado: mês em que VPL acumulado vira positivo. Se não virar, reportar "payback > horizonte".
-5. Tabela comparativa final (3 cenários × 4 métricas + decisão preliminar).
+Execute em 4 fases, PARANDO em cada uma pra minha validação:
+1. <b>Conferência de premissas</b> — leia o premissas_dcf.md, liste as premissas que vai usar e aponte lacunas ou incoerências (ex.: horizonte menor que lock-up do contrato). Máx 3 perguntas.
+2. <b>Modelo BASE mês a mês</b> — linha do tempo do fluxo; VPL = Σ (Fluxo_t / (1+TMA_mensal)^t) − Aporte.
+   ⚠️ Converter TMA anual → mensal POR COMPOSIÇÃO: TMA_mensal = (1+TMA_anual)^(1/12) − 1. NUNCA TMA_anual/12 (infla VPL em ~5-8%).
+   TIR (reportar mensal E anual) + payback descontado (mês em que o VPL acumulado vira positivo; se não virar, "payback &gt; horizonte"). Cálculo passo a passo visível.
+3. <b>3 cenários</b> — pessimista / base / otimista com a variação definida nas premissas. Tabela comparativa: cenário × VPL × TIR × payback × leitura preliminar.
+4. <b>Sensibilidade + parecer executivo de 1 página</b> — varie UMA premissa por vez (lucro, TMA, horizonte) em ±10/20/30% e aponte a variável mais sensível. Depois o parecer: cabeçalho (aporte · % · horizonte · TMA) · resumo em 3 linhas · tabela por cenário · onde o modelo é frágil · 5 perguntas críticas pro sócio antes de assinar · seção "confirmar antes de fechar" · recomendação preliminar condicional.
 
 <b># FORMATO</b>
-3 partes: tabela mensal · cálculos passo a passo do BASE · tabela comparativa final.
-Se eu pedir, gere CSV pra colar no Sheets/Excel.
+Fase 1 em texto. Fase 2 em tabela mensal + cálculo aberto. Fase 3 em tabela comparativa. Fase 4 em tabela de sensibilidade + parecer em markdown de 1 página.
 
 <b># LIMITE</b>
-- NÃO chute premissa. Use o premissas_dcf.md. Falta dado, pare e pergunte.
-- NÃO recomende decisão final. Apresente números + decisão preliminar por cenário.
+- NÃO chute premissa. Falta dado → pare e pergunte.
 - NÃO use CAPM, WACC, valor terminal.
+- NÃO recomendação categórica — linguagem condicional por cenário.
+- ⚠️ Anti-alucinação: alíquota de IR sobre lucro distribuído OU Simples Nacional embutido → marcar ⚠️ "confirmar com contador".
 
-⚠️ Anti-alucinação: alíquota IR sobre lucro distribuído OU Simples Nacional embutido → marcar ⚠️ e "confirmar com contador".
-
-Comece pelo BASE.</pre>
-                </div>
-              </details>
+FORMATO DE ENTREGA (2 partes — ORDEM OBRIGATÓRIA)
+Só gere o Artifact APÓS eu validar as 4 fases. Não antecipe.
+1. Análise textual completa das 4 fases.
+2. <b>Artifact HTML self-contained interativo — Calculadora DCF viva</b>:
+   · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   · Header serif "Viabilidade da Sociedade · [negócio]" + botão 🖨️ imprimir.
+   · <b>4 sliders</b>: aporte (R$) · lucro mensal distribuível (R$) · TMA anual (%) · horizonte (meses) — valores iniciais = cenário base validado.
+   · <b>3 cards grandes</b>: VPL · TIR anual · payback descontado — recalculam AO VIVO a cada slider (TIR por bisseção em JS; TMA mensal por composição). Card VPL muda de cor: verde &gt;0 · vermelho &lt;0.
+   · <b>Chips dos 3 cenários</b> (pessimista/base/otimista) que presetam os sliders com 1 clique.
+   · <b>Gráfico SVG do VPL acumulado mês a mês</b> com linha do zero marcada — o cruzamento é o payback, visível.
+   · <b>Bloco parecer</b> (contenteditable) + 5 perguntas críticas com checkbox "respondida".
+   · @media print A4 retrato (esconde sliders, mostra valores fixados). Estado em localStorage. JavaScript vanilla, zero framework.</pre>
+              </div>
 
               <details class="sub-prompt">
-                <summary>Prompt 2C — Sensibilidade + parecer executivo de 1 página</summary>
+                <summary><strong>Prompt 2 · Refino</strong> — Advogado do diabo nas premissas antes de assinar</summary>
                 <div class="pctfl-wrap">
-                  <button class="pctfl-copy" data-target="p2c">Copiar</button>
-                  <pre id="p2c"><b># PAPEL</b>
-Você agora é advisor financeiro PME sênior, com voz clara e direta. Vai (1) estressar o modelo e (2) escrever um parecer executivo de 1 página que eu levo pra reunião com sócio (e mostro pro contador).
+                  <button class="pctfl-copy" data-target="p2-refino">Copiar</button>
+                  <pre id="p2-refino"><b># PAPEL</b>
+Você é sócia sênior de assessoria de investimento — o "advogado do diabo" chamado no dia anterior à assinatura.
 
 <b># CONTEXTO</b>
-Modelo DCF dos 3 cenários pronto (output do 2B). Premissas em premissas_dcf.md.
+Cole abaixo o modelo DCF + parecer que rodamos (ou rode nesta mesma conversa do Project).
 
 <b># TAREFA</b>
-Parte 1 — Análise de sensibilidade no cenário BASE:
-- Variar UMA premissa por vez em ±10%, ±20%, ±30% e reportar mudança no VPL
-- Variáveis: lucro distribuível mensal, TMA, horizonte
-- Apontar qual variável o modelo é MAIS sensível
-
-Parte 2 — Parecer executivo de 1 página:
-- Cabeçalho: aporte, %, horizonte, TMA
-- Resumo executivo (3 linhas)
-- Tabela de resultados por cenário (VPL, TIR, payback)
-- Onde o modelo é mais frágil
-- 5 perguntas críticas pra fazer ao sócio antes de assinar
-- Seção "anti-alucinação / o que confirmar antes de fechar"
-- Recomendação preliminar (1 parágrafo curto)
-
-<b># FORMATO</b>
-Markdown pronto pra colar em parecer_executivo.md. Cabe em 1 página A4.
+1. <b>Ranking de risco das premissas</b> — tabela: premissa · de onde veio (contrato / promessa do sócio / estimativa minha) · risco se estiver errada (ALTO/MÉDIO/BAIXO) · como validar em 1 semana.
+2. <b>Teste do atraso</b> — recalcule o cenário base assumindo que a distribuição de lucro só começa no mês 7 (obra atrasa, maturação demora). O VPL sobrevive?
+3. <b>Cruzamento com contrato</b> — que cláusula do contrato precisa existir pra proteger cada premissa frágil (lock-up × horizonte, % × diluição, distribuição × periodicidade)? Amarra com a auditoria do Momento 5.
+4. <b>Veredito em 3 linhas</b> — "assine se X · renegocie se Y · não assine enquanto Z".
 
 <b># LIMITE</b>
-- NÃO mais de 1 página.
-- NÃO use jargão (DCF, VPL, TIR, payback) sem tradução na 1ª ocorrência.
-- NÃO recomendação categórica. Linguagem condicional baseada em cenário.
-- NÃO tire as 5 perguntas. É o ativo mais valioso do parecer.
+- Se o modelo sobreviver a tudo, diga isso — não crie medo pra parecer rigorosa.
 
-Comece pela sensibilidade.</pre>
+<b>MODELO + PARECER:</b>
+[cole aqui]</pre>
                 </div>
               </details>
             </div>
           </details>
 
+          <div class="anti-padroes">
+            <strong class="ap-label">Anti-padrões — o que evitar</strong>
+            <ul>
+              <li><strong>TMA anual ÷ 12.</strong> A conversão certa é por composição — dividir infla o VPL e embeleza decisão ruim.</li>
+              <li><strong>Decidir só pela TIR.</strong> TIR alta com VPL pequeno = retorno bonito em valor irrelevante. O VPL decide, a TIR compara.</li>
+              <li><strong>Cenário único otimista.</strong> Se você só modelou o mundo onde dá certo, você não modelou — torceu.</li>
+              <li><strong>Valor terminal / perpetuidade em PME.</strong> Restaurante de bairro não é empresa listada. Horizonte finito, fluxos explícitos.</li>
+              <li><strong>Horizonte menor que o lock-up.</strong> Se o contrato te prende 5 anos, análise de 3 anos é autoengano — você não consegue sair no ano 3.</li>
+              <li><strong>Tratar o lucro projetado do sócio como fato.</strong> É hipótese até você ver balancete. Marca como premissa a validar e pede o dado.</li>
+            </ul>
+          </div>
+
           <div class="exercicio-casa">
             <strong>Exercício de casa</strong>
-            <p><strong>Camada 1 (básico):</strong> abrir o <a href="exemplos/04-premissas-dcf-sociedade.xlsx" download>Arquivo 4 (DCF)</a> no Excel/Sheets e mudar a TMA de 19% para 22%. Ver o que acontece com VPL e TIR. Anotar a leitura.</p>
-            <p><strong>Camada 2 (desafio):</strong> trazer dado real do restaurante (cota e lucro mensal projetado) e refazer o DCF. Comparar VPL real × VPL do exemplo fictício. Levar o parecer impresso pra reunião com sócio.</p>
+            <p><strong>Camada 1 (básico):</strong> na calculadora viva (Artifact), arrastar a TMA de 19% pra 22% e o lucro mensal −20%. Ver VPL, TIR e payback reagirem. Anotar a leitura: qual mexeu mais?</p>
+            <p><strong>Camada 2 (desafio):</strong> trazer dado real do restaurante (cota e lucro mensal projetado), refazer o modelo e rodar o Prompt 2 (advogado do diabo). Levar o parecer impresso pra reunião com sócio.</p>
           </div>
 
           <div class="marco-progresso">
@@ -1396,8 +1569,8 @@ Comece pela sensibilidade.</pre>
             <h5>Resumo deste momento</h5>
             <div class="momento-resumo-grid">
               <div class="mr-bloco"><strong>Você entra com</strong><span>Movimentação de 1 mês (arquivo 1 ou dado real)</span></div>
-              <div class="mr-bloco"><strong>O que acontece</strong><span>IA categoriza no plano de contas → monta DRE em cascata G4 → escreve narrativa OIA</span></div>
-              <div class="mr-bloco"><strong>Você sai com</strong><span>DRE + narrativa executiva pra mandar pro sócio</span></div>
+              <div class="mr-bloco"><strong>O que acontece</strong><span>IA categoriza → monta DRE em cascata → narrativa OIA → cascata visual interativa (Artifact)</span></div>
+              <div class="mr-bloco"><strong>Você sai com</strong><span>DRE waterfall interativa + narrativa executiva pro sócio</span></div>
             </div>
 
             <div class="conhecimentos-bloco">
@@ -1413,102 +1586,163 @@ Comece pela sensibilidade.</pre>
             </div>
           </div>
 
+          <div class="origem-bloco">
+            <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
+            <h4>De onde vem a DRE em cascata — e por que ela é leitura, não relatório</h4>
+            <p>A DRE formal existe por lei no Brasil desde a <strong>Lei das S.A. (6.404/1976)</strong> — toda empresa fecha uma. A versão <strong>gerencial em cascata</strong> é a tradução dela pra decisão: em vez de uma tabela contábil, uma escada onde cada degrau desconta um tipo de custo e revela uma margem. O <strong>EBITDA</strong> popularizou nos anos 80 nos EUA como medida de operação pura (antes de juros, impostos e depreciação). E o fecho é o <strong>OIA — Observação → Insight → Ação</strong>: número sem narrativa não muda comportamento de sócio. A regra da casa: <em>quem lê a cascata em 2 minutos identifica a inconsistência antes do contador entregar</em>.</p>
+            <div class="biblio-inline">
+              <strong>O que você precisa dominar deste momento</strong>
+              <ul>
+                <li>As <strong class="regra-inline">4 margens da cascata</strong> — Bruta · Contribuição · EBITDA · Líquida — e o que cada degrau denuncia: Bruta ruim = CMV; MC ruim = variáveis; EBITDA ruim = fixos; Líquida ruim = impostos/dívida.</li>
+                <li>Diferença <strong class="regra-inline">DRE contábil × gerencial</strong> — a do contador cumpre lei; a sua cascata orienta decisão. As duas devem contar a mesma história.</li>
+                <li><strong class="regra-inline">Caixa × competência</strong> em 1 frase: caixa é quando o dinheiro entra; competência é quando a venda acontece. Não misture os dois no mesmo mês.</li>
+                <li>O <strong class="regra-inline">OIA</strong> — Observação (fato) → Insight (hipótese) → Ação (concreta, com prazo). Toda narrativa de resultado segue os 3 passos, nessa ordem.</li>
+                <li>A regra do benchmark: <strong class="regra-inline">faixa com ⚠️, nunca número exato inventado</strong> — benchmark setorial da IA sem fonte é opinião com gravata.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="quando-grid">
+            <div class="quando-card sim">
+              <strong>Quando aplicar</strong>
+              <ul>
+                <li>Fechamento mensal — todo dia 5, ritual fixo</li>
+                <li>Preparar conversa com contador ou sócio (chega com a leitura pronta)</li>
+                <li>Comparar meses e achar tendência (margem deteriorando aos poucos)</li>
+                <li>Due diligence leve: ler o resultado de um negócio que você avalia entrar</li>
+              </ul>
+            </div>
+            <div class="quando-card nao">
+              <strong>Quando NÃO aplicar</strong>
+              <ul>
+                <li>Negócio sem 1 mês completo de dado — categoriza primeiro (M1)</li>
+                <li>Quando a pergunta é sobre o FUTURO (caixa dos próximos 90 dias) — DRE olha pra trás; projeção é outra ferramenta</li>
+                <li>Decidir preço ou corte de produto individual — isso é MC (M4), não DRE</li>
+              </ul>
+            </div>
+          </div>
+
           <details class="roteiro-prompt">
-            <summary>Ver prompts pra copiar (3A: DRE · 3B: narrativa OIA)</summary>
+            <summary>Ver prompts (Prompt 0: preparar o mês · Âncora: DRE + OIA + cascata visual · Refino: 3 meses)</summary>
             <div class="roteiro-prompt-body">
               <h5>Antes de colar</h5>
               <ul>
                 <li>Project "Restaurante" pronto (Momento 1)</li>
                 <li>Baixar <a href="exemplos/01-fluxo-caixa-restaurante-3meses.xlsx" download>fluxo de caixa</a> e <a href="exemplos/02-dre-cascata-g4-restaurante.xlsx" download>DRE de referência</a></li>
-                <li><strong>Como usar o arquivo de exemplo:</strong> cole UM mês isolado da aba "Fluxo Diário" (ex: só março de 2026 — filtra na coluna Data). Pra DRE comparativa de 3 meses lado a lado, abra a aba "Resumo Mensal" do Arquivo 2 — já está pronta.</li>
+                <li><strong>Como usar o arquivo de exemplo:</strong> cole UM mês isolado da aba "Fluxo Diário" (ex: só março de 2026 — filtra na coluna Data). Pra comparativo de 3 meses, a aba "Resumo Mensal" do Arquivo 2 já está pronta.</li>
                 <li><strong>LGPD:</strong> anonimizar nome de cliente/fornecedor (<code>CLIENTE_A</code>, <code>FORNEC_B</code>)</li>
               </ul>
 
               <details class="sub-prompt">
-                <summary>Prompt 3A — Estruturar DRE em cascata G4</summary>
+                <summary><strong>Prompt 0 · Pré-preparo</strong> — Conferir se o mês está pronto pra virar DRE</summary>
                 <div class="pctfl-wrap">
-                  <button class="pctfl-copy" data-target="p3a">Copiar</button>
-                  <pre id="p3a"><b># PAPEL</b>
-Você é controller financeira sênior, especializada em DRE em cascata padrão G4 (Julian Tonioli). Sua função é pegar movimentação bruta de 1 mês de restaurante e transformar em DRE estruturada em cascata, didática, replicável.
+                  <button class="pctfl-copy" data-target="p3-zero">Copiar</button>
+                  <pre id="p3-zero"><b># PAPEL</b>
+Você é assistente de fechamento mensal, rigorosa com completude de dado.
 
 <b># CONTEXTO</b>
-Project "Restaurante — Sociedade". meu_contexto.md e plano_de_contas.md já no Project. Vou colar 1 mês de movimentação. Quero a DRE no modelo G4 em cascata, com TODAS as margens em %, formato replicável.
+Vou colar a movimentação de 1 mês antes de montar a DRE. Quero saber se o mês está completo e limpo.
 
 <b># TAREFA</b>
-1. Categorize cada linha da movimentação nas contas do plano. Linha que não couber → [A_CLASSIFICAR]. Linha ambígua → escolha a mais provável + ⚠️ revisar.
-
-2. Monte a DRE em cascata G4:
-- Faturamento Bruto
-- (−) Deduções
-- = Receita Líquida
-- (−) CMV / Custos Diretos
-- = Lucro Bruto + Margem Bruta %
-- (−) Despesas Variáveis
-- = Margem de Contribuição + MC %
-- (−) Custos Fixos
-- = EBITDA + Margem EBITDA %
-- (−) Depreciação
-- = EBIT
-- (−) Resultado Financeiro
-- (−) Impostos sobre Lucro
-- = Resultado Líquido + Margem Líquida %
-
-3. Apresente em 3 partes: A. Tabela da DRE · B. Tabela de margens em % com benchmark setorial sugerido ⚠️ · C. 3 linhas que merecem investigação.
-
-<b># FORMATO</b>
-Markdown com cabeçalho + 3 partes (A, B, C) + seção ⚠️ Anti-alucinação.
+Checklist em 5 pontos, tabela com ✅/❌/⚠️:
+1. O período cobre o mês inteiro (primeira e última data)?
+2. Tem receita registrada em todos os dias de operação esperados? Liste buracos.
+3. As despesas fixas conhecidas do mês estão todas (aluguel, folha, energia, internet)? Liste as ausentes.
+4. Tem nome próprio de cliente/fornecedor/funcionário pra anonimizar? Liste as linhas.
+5. Tem lançamento pessoal misturado com o negócio? Liste suspeitos.
 
 <b># LIMITE</b>
-- NÃO invente benchmark setorial específico. Use faixas + ⚠️.
-- NÃO calcule alíquota Simples Nacional sem ⚠️.
-- NÃO crie linha que não existe na movimentação.
+- NÃO monte a DRE ainda. Só o diagnóstico de prontidão.
+- Se estiver tudo ok, diga "mês pronto pra DRE" e pare.
 
-Aqui está a movimentação:
-[COLAR AQUI — CSV, planilha, lista de lançamentos]</pre>
+<b>MOVIMENTAÇÃO:</b>
+[cole aqui]</pre>
                 </div>
               </details>
 
-              <details class="sub-prompt">
-                <summary>Prompt 3B — Narrativa executiva (framework OIA)</summary>
-                <div class="pctfl-wrap">
-                  <button class="pctfl-copy" data-target="p3b">Copiar</button>
-                  <pre id="p3b"><b># PAPEL</b>
-Você é controller comunicadora — sabe traduzir DRE em narrativa que sócio e família entendem em 2 minutos. Você usa o framework OIA: Observação → Insight → Ação.
+              <h5 style="margin-top: 18px;">Prompt-âncora — DRE em cascata + narrativa OIA <span class="artifact-tag">gera Artifact interativo</span></h5>
+              <p>Com o mês validado pelo Prompt 0, cole na mesma conversa (ou em conversa nova do Project).</p>
+              <div class="pctfl-wrap">
+                <button class="pctfl-copy" data-target="p3-ancora">Copiar</button>
+                <pre id="p3-ancora"><b># PAPEL</b>
+Você é controller financeira sênior, especialista em DRE gerencial em cascata pra PME. Pega movimentação bruta de 1 mês e devolve leitura executiva completa — número + narrativa.
 
 <b># CONTEXTO</b>
-DRE em cascata G4 do mês está pronta (output do Prompt 3A). Quero transformar em narrativa executiva de 1 página pra mandar pro sócio operador todo dia 5 do mês seguinte. O sócio NÃO é financeiro.
+Project "Restaurante — Sociedade". meu_contexto.md e plano_de_contas.md já no Project. Vou colar 1 mês de movimentação (já conferido). Se houver mês anterior disponível, colo também pra comparativo.
 
 <b># TAREFA</b>
-Gere 3 blocos aplicando OIA:
+Execute em 4 fases, PARANDO em cada uma pra minha validação:
+1. <b>Categorização</b> — cada linha nas contas do plano. Não couber → [A_CLASSIFICAR]. Ambígua → mais provável + ⚠️ revisar.
+2. <b>DRE em cascata completa</b> — Faturamento Bruto → (−) Deduções → Receita Líquida → (−) CMV → Lucro Bruto + Margem Bruta % → (−) Despesas Variáveis → MC + MC % → (−) Custos Fixos → EBITDA + Margem EBITDA % → (−) Depreciação → EBIT → (−) Resultado Financeiro → (−) Impostos → Resultado Líquido + Margem Líquida %.
+3. <b>Leitura das margens</b> — tabela das 4 margens com faixa de referência setorial (faixa + ⚠️, sem número inventado) + as 3 linhas que merecem investigação e por quê.
+4. <b>Narrativa OIA de 1 página</b> — pro sócio NÃO-financeiro: o mês em 3 linhas · os 3 alertas em formato Observação → Insight → Ação · comparativo com mês anterior se houver (↑/↓ por margem).
 
-Bloco 1 — O mês em 3 linhas
-- Faturamento + crescimento vs mês anterior
-- Lucro líquido + margem líquida
-- Destaque positivo OU alerta principal
-
-Bloco 2 — Os 3 alertas (das 3 linhas pra investigar do 3A) transformados em OIA:
-> Alerta 1 — [nome curto]
-> Observação: o que os números mostram (1 frase factual)
-> Insight: o que provavelmente significa (1-2 frases, hipótese)
-> Ação sugerida: o que fazer no próximo mês (1 frase concreta)
-
-Bloco 3 — Comparativo rápido: este mês × mês anterior × meta × status (↑/↓)
+<b># FORMATO</b>
+Fase 1 tabela resumida. Fase 2 tabela cascata. Fase 3 tabela + bullets. Fase 4 markdown de 1 página, jargão traduzido na 1ª ocorrência.
 
 <b># LIMITE</b>
-- NÃO use "EBITDA", "DRE", "CMV" sem tradução na 1ª ocorrência.
-- NÃO mais de 1 página A4.
-- NÃO transforme alerta em recomendação categórica.
+- NÃO invente benchmark exato. Faixa + ⚠️ sempre.
+- NÃO calcule Simples Nacional sem ⚠️ "confirmar com contador".
+- NÃO crie linha que não existe na movimentação.
+- NÃO transforme alerta em recomendação categórica — OIA termina em ação sugerida, não em ordem.
 
-Pode começar.</pre>
+FORMATO DE ENTREGA (2 partes — ORDEM OBRIGATÓRIA)
+Só gere o Artifact APÓS eu validar as 4 fases. Não antecipe.
+1. Análise textual completa das 4 fases.
+2. <b>Artifact HTML self-contained interativo — DRE Cascata Visual</b>:
+   · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   · Header serif "Resultado do Mês · [negócio] · [mês/ano]" + botão 🖨️ imprimir.
+   · <b>Gráfico waterfall SVG</b> da cascata: barras descendo de Faturamento até Resultado Líquido, verde pra entrada, terracota pra saída, com R$ e % em cada degrau.
+   · <b>Semáforo das 4 margens</b>: cards Bruta · MC · EBITDA · Líquida com faixa editável (inputs verde/amarelo) — cor do card reage ao vivo.
+   · <b>Painel lateral "3 alertas OIA"</b> — cada alerta com os 3 campos (Observação/Insight/Ação) editáveis + checkbox "tratado".
+   · <b>Comparativo</b>: inputs pro mês anterior → setas ↑↓ por margem calculadas ao vivo.
+   · @media print A4 retrato. Estado em localStorage. JavaScript vanilla, zero framework.
+
+<b>MOVIMENTAÇÃO DO MÊS:</b>
+[cole aqui — e o mês anterior, se tiver]</pre>
+              </div>
+
+              <details class="sub-prompt">
+                <summary><strong>Prompt 2 · Refino</strong> — Tendência de 3 meses + bullshit detector da narrativa</summary>
+                <div class="pctfl-wrap">
+                  <button class="pctfl-copy" data-target="p3-refino">Copiar</button>
+                  <pre id="p3-refino"><b># PAPEL</b>
+Você é diretora financeira convidada pra revisão trimestral — enxerga tendência onde os outros veem 3 fotos separadas.
+
+<b># CONTEXTO</b>
+Cole abaixo as DREs de 3 meses (ou a aba "Resumo Mensal" do arquivo de referência).
+
+<b># TAREFA</b>
+1. <b>Tendência por margem</b> — tabela: margem × mês 1 × mês 2 × mês 3 × direção (↑↓→) × leitura em 1 linha.
+2. <b>A linha que mais deteriorou</b> — qual conta piorou mais no trimestre + as 2 perguntas exatas pra fazer ao contador sobre ela.
+3. <b>Bullshit detector da narrativa</b> — releia a narrativa OIA do mês: marque toda frase que NÃO nasce de um número da DRE. Reescreva ou corte.
+4. <b>1 recomendação executiva</b> — em 3 linhas, com prazo.
+
+<b># LIMITE</b>
+- Tendência exige 3 pontos. Com 2 meses, diga que é cedo e aponte o que observar no 3º.
+
+<b>3 DREs:</b>
+[cole aqui]</pre>
                 </div>
               </details>
             </div>
           </details>
 
+          <div class="anti-padroes">
+            <strong class="ap-label">Anti-padrões — o que evitar</strong>
+            <ul>
+              <li><strong>Benchmark inventado.</strong> "Margem EBITDA ideal é 17,3%" sem fonte é alucinação com cara de precisão. Faixa + ⚠️ sempre.</li>
+              <li><strong>Misturar caixa e competência.</strong> Venda de março recebida em abril entra UMA vez, num critério só. Decida o critério e mantenha.</li>
+              <li><strong>Narrativa com jargão pro sócio.</strong> Se o sócio precisa de dicionário, a narrativa falhou. EBITDA vira "lucro da operação antes de imposto e depreciação" na 1ª vez.</li>
+              <li><strong>DRE de 40 linhas.</strong> Detalhe demais esconde em vez de mostrar. Cascata em 14 linhas; o detalhe fica no drill-down.</li>
+              <li><strong>Pular o mês ruim.</strong> O mês ruim é o que mais ensina — é nele que a cascata mostra qual degrau quebrou.</li>
+            </ul>
+          </div>
+
           <div class="exercicio-casa">
             <strong>Exercício de casa</strong>
-            <p><strong>Camada 1 (básico):</strong> abrir a <a href="exemplos/02-dre-cascata-g4-restaurante.xlsx" download>DRE de exemplo</a>, ler a aba "Indicadores" e identificar: qual é a margem EBITDA? Está saudável pra restaurante? Pergunta pra IA depois.</p>
-            <p><strong>Camada 2 (desafio):</strong> rodar a DRE de UM mês de outro negócio (banda OU corretora) — usar o mesmo método, só trocando o plano de contas. Confirma que a habilidade pegou.</p>
+            <p><strong>Camada 1 (básico):</strong> abrir a <a href="exemplos/02-dre-cascata-g4-restaurante.xlsx" download>DRE de exemplo</a>, ler a aba "Indicadores" e identificar: qual é a margem EBITDA? Está saudável pra restaurante? Depois confira sua leitura com a IA.</p>
+            <p><strong>Camada 2 (desafio):</strong> rodar a DRE de UM mês de outro negócio (banda OU corretora) — mesmo método, só trocando o plano de contas. Confirma que a habilidade pegou.</p>
           </div>
 
           <div class="marco-progresso">
@@ -1554,8 +1788,8 @@ Pode começar.</pre>
             <h5>Resumo deste momento</h5>
             <div class="momento-resumo-grid">
               <div class="mr-bloco"><strong>Você entra com</strong><span>5 pratos com preço, custo direto, volume mensal</span></div>
-              <div class="mr-bloco"><strong>O que acontece</strong><span>IA calcula MC unit + MC % + MC total · ranqueia · sugere 3 ações</span></div>
-              <div class="mr-bloco"><strong>Você sai com</strong><span>Ranking + 3 ações (push / cut / manter) pra próxima reunião</span></div>
+              <div class="mr-bloco"><strong>O que acontece</strong><span>IA calcula MC unit + MC % + MC total · ranqueia · simulador interativo de preço e volume (Artifact)</span></div>
+              <div class="mr-bloco"><strong>Você sai com</strong><span>Ranking vivo + 3 ações (push / cut / manter) pra próxima reunião</span></div>
             </div>
 
             <div class="conhecimentos-bloco">
@@ -1569,29 +1803,95 @@ Pode começar.</pre>
             </div>
           </div>
 
+          <div class="origem-bloco">
+            <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
+            <h4>De onde vem a Margem de Contribuição — e por que virou engenharia de cardápio</h4>
+            <p>A MC nasce do <strong>custeio variável (direct costing)</strong>, formalizado pela contabilidade gerencial americana nos anos 1930 dentro da análise <strong>custo-volume-lucro (CVP)</strong>: separar o custo que acompanha a venda do custo que existe de qualquer jeito. No food service, a aplicação clássica é a <strong>engenharia de cardápio de Kasavana &amp; Smith (1982)</strong> — cruzar margem × popularidade pra decidir o que empurrar, reprecificar ou cortar. A pegadinha que derruba iniciante: <strong>MC unitária, MC % e MC total contam 3 histórias diferentes</strong> — o prato "campeão" numa métrica pode ser o vilão na outra. Por isso o ranking usa as três juntas.</p>
+            <div class="biblio-inline">
+              <strong>O que você precisa dominar deste momento</strong>
+              <ul>
+                <li><strong class="regra-inline">MC unitária = preço − custos variáveis da venda</strong> (insumo + comissão + cartão + embalagem). Nada de fixo aqui.</li>
+                <li><strong class="regra-inline">As 3 métricas juntas</strong> — MC % alta com volume baixo = pouco caixa; MC % baixa com volume alto = pode sustentar a casa. Quem decide é a MC TOTAL.</li>
+                <li><strong class="regra-inline">Variável × fixo</strong> — o teste: se a venda não acontecer, o custo some? Some = variável. Fica = fixo (entra no EBITDA, não na MC).</li>
+                <li>O <strong class="regra-inline">ponto de equilíbrio</strong> — soma das MCs precisa cobrir os fixos. É a ponte entre este momento e a DRE (M3).</li>
+                <li>A regra antes de cortar: <strong class="regra-inline">todo prato tem papel</strong> — âncora de menu, isca de tráfego, margem pura. Corte por MC sem olhar o papel mata venda de outros pratos.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="quando-grid">
+            <div class="quando-card sim">
+              <strong>Quando aplicar</strong>
+              <ul>
+                <li>Revisão de cardápio / mix de produto (trimestral funciona bem)</li>
+                <li>Antes de promoção — saber quanto de margem você tem pra dar</li>
+                <li>Negociação com fornecedor — o teto do insumo sai da MC alvo</li>
+                <li>Precificar item novo antes de lançar</li>
+              </ul>
+            </div>
+            <div class="quando-card nao">
+              <strong>Quando NÃO aplicar</strong>
+              <ul>
+                <li>Sem ficha técnica honesta — estima primeiro (Prompt 0), depois pesa na cozinha</li>
+                <li>Item estratégico de tráfego avaliado só por MC — a isca existe pra trazer gente, não margem</li>
+                <li>Comparar produtos de negócios diferentes na mesma tabela (show da banda × prato) — estruturas de custo incomparáveis</li>
+              </ul>
+            </div>
+          </div>
+
           <details class="roteiro-prompt">
-            <summary>Ver prompt pra copiar</summary>
+            <summary>Ver prompts (Prompt 0: ficha técnica · Âncora: ranking + simulador · Refino: advogado do cardápio)</summary>
             <div class="roteiro-prompt-body">
               <h5>Antes de colar</h5>
               <ul>
                 <li>Project "Restaurante" pronto</li>
                 <li>Baixar o <a href="exemplos/03-cinco-pratos-mc.xlsx" download>Arquivo 3 (5 pratos MC)</a> como referência ou trazer dados reais de 5 pratos</li>
-                <li>Faltou ficha técnica? Estima + marca <code>[PREENCHER após confirmar com cozinha]</code></li>
+                <li>Faltou ficha técnica? Roda o Prompt 0 — estima com critério + marca <code>[PREENCHER após pesar na cozinha]</code></li>
               </ul>
 
+              <details class="sub-prompt">
+                <summary><strong>Prompt 0 · Pré-preparo</strong> — Montar ficha técnica honesta dos 5 pratos</summary>
+                <div class="pctfl-wrap">
+                  <button class="pctfl-copy" data-target="p4-zero">Copiar</button>
+                  <pre id="p4-zero"><b># PAPEL</b>
+Você é consultora de custos de cozinha — especialista em levantar custo variável real de prato sem depender de sistema.
+
+<b># CONTEXTO</b>
+Preciso da ficha técnica de custo variável de 5 pratos pra calcular MC. Não tenho tudo pesado — vamos estimar com critério e marcar o que precisa de confirmação.
+
+<b># TAREFA</b>
+Pra cada prato que eu descrever:
+1. Liste os componentes de custo variável: insumos (item a item), comissão do garçom (%), taxa de cartão (%), embalagem se delivery.
+2. Pra insumo sem peso exato: estime por porção típica (ex.: 180g de filé × preço/kg) e marque [PESAR NA COZINHA].
+3. Feche o custo variável unitário total por prato, separando: estimado firme × estimado frouxo.
+
+<b># FORMATO</b>
+Uma tabela por prato + linha de total. No fim, resumo: prato × custo variável unitário × % do custo que é estimativa frouxa.
+
+<b># LIMITE</b>
+- NÃO chute preço de insumo sem dizer a referência (preço médio de mercado + ⚠️ conferir com fornecedor).
+- NÃO inclua custo fixo (aluguel, salário) — só o que varia com a venda.
+
+<b>MEUS 5 PRATOS:</b>
+[descreva cada um: nome · preço de venda · ingredientes principais e porção aproximada · comissão % · cartão % · volume mensal estimado]</pre>
+                </div>
+              </details>
+
+              <h5 style="margin-top: 18px;">Prompt-âncora — Ranking MC + simulador de cardápio <span class="artifact-tag">gera Artifact interativo</span></h5>
+              <p>Modo Autopiloto: análise e Artifact saem na mesma resposta — confira o ranking contra o Arquivo 3 depois.</p>
               <div class="pctfl-wrap">
-                <button class="pctfl-copy" data-target="p4">Copiar</button>
-                <pre id="p4"><b># PAPEL</b>
+                <button class="pctfl-copy" data-target="p4-ancora">Copiar</button>
+                <pre id="p4-ancora"><b># PAPEL</b>
 Você é analista de custos especializado em food service brasileiro. Vai calcular Margem de Contribuição (MC) por prato e gerar ranking + recomendação prática.
 
-Framework: MC do G4 + André Borges:
+Framework clássico de MC:
 - MC unitária = Preço de venda − Custos variáveis unitários
 - MC % = MC unitária / Preço de venda
 - MC total mensal = MC unitária × volume
 - Pratos vencem por TRÊS critérios juntos: MC unitária, MC %, MC total
 
 <b># CONTEXTO</b>
-Project "Restaurante — Sociedade". Vou colar 5 pratos âncora.
+Project "Restaurante — Sociedade". Vou colar 5 pratos âncora (da ficha técnica do Prompt 0 ou do Arquivo 3).
 
 Importante:
 - Comissão garçom é custo VARIÁVEL (entra em MC).
@@ -1616,19 +1916,66 @@ Markdown com inputs + ranking + diagnóstico por prato + 3 ações + ⚠️ Anti
 - NÃO chute taxa cartão / comissão sem ⚠️.
 - NÃO mais que 3 ações.
 
+FORMATO DE ENTREGA (2 partes, na mesma resposta)
+1. Análise textual completa (itens 1-4).
+2. <b>Artifact HTML self-contained interativo — Simulador de Cardápio</b>:
+   · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   · Header serif "Margem de Contribuição · [negócio]" + botão 🖨️ imprimir.
+   · <b>Tabela dos 5 pratos com inputs editáveis</b> (preço · custo variável · volume) — MC unit, MC % e MC total recalculam AO VIVO.
+   · <b>Badge automático por prato</b>: 🟢 Push · 🔴 Cut · 🟡 Manter, com a regra de corte visível e reagindo aos inputs.
+   · <b>Simulador "e se"</b>: slider de preço (−20% a +20%) e volume (−30% a +30%) por prato, mostrando o novo MC total.
+   · <b>Barra de ponto de equilíbrio</b>: input de custos fixos mensais → barra mostra soma das MCs × fixos, com marcador de equilíbrio.
+   · @media print A4 paisagem. Estado em localStorage. JavaScript vanilla, zero framework.
+
 Aqui estão os 5 pratos:
 
 [COLAR AQUI — exemplo:
 1. Filé à parmegiana — preço R$ 58 · insumo R$ 18 · comissão 10% · cartão 3% · volume 240/mês
 2. ...]</pre>
               </div>
+
+              <details class="sub-prompt">
+                <summary><strong>Prompt 2 · Refino</strong> — Advogado do cardápio: antes de cortar qualquer prato</summary>
+                <div class="pctfl-wrap">
+                  <button class="pctfl-copy" data-target="p4-refino">Copiar</button>
+                  <pre id="p4-refino"><b># PAPEL</b>
+Você é consultora sênior de cardápio — famosa por impedir cortes que derrubam o faturamento 3 meses depois.
+
+<b># CONTEXTO</b>
+Cole abaixo o ranking MC + as 3 ações sugeridas.
+
+<b># TAREFA</b>
+1. <b>Teste da elasticidade</b> — pra cada sugestão de aumento de preço: quanto o volume pode cair antes da MC total ficar PIOR que hoje? Calcule o volume de indiferença.
+2. <b>Teste da canibalização</b> — pra cada prato marcado 🔴 Cut: se sair do cardápio, pra onde migra a venda? Migra ou some? O que observar nas 2 primeiras semanas.
+3. <b>Teste do papel</b> — classifique cada prato: âncora de menu (traz gente) · margem pura (paga a casa) · complemento. Algum 🔴 é âncora disfarçada?
+4. <b>Plano de teste 2-4 semanas</b> — pra 1 mudança de cada vez: o que muda · o que medir · critério de sucesso · plano B.
+
+<b># LIMITE</b>
+- NÃO aprove mexer em mais de 2 preços ao mesmo tempo — sem isolamento, você não sabe o que causou o quê.
+- Se as 3 ações sobreviverem aos testes, diga que sobreviveram.
+
+<b>RANKING + AÇÕES:</b>
+[cole aqui]</pre>
+                </div>
+              </details>
             </div>
           </details>
 
+          <div class="anti-padroes">
+            <strong class="ap-label">Anti-padrões — o que evitar</strong>
+            <ul>
+              <li><strong>Incluir custo fixo na MC.</strong> Aluguel no cálculo do prato distorce tudo — fixo entra depois, no EBITDA.</li>
+              <li><strong>Decidir por MC % ignorando volume.</strong> O prato de 70% de margem que vende 8 unidades não paga a conta de ninguém.</li>
+              <li><strong>Cortar o prato-isca.</strong> Se ele traz a família que pede 3 outros pratos, a MC dele está subestimada. Papel antes de corte.</li>
+              <li><strong>Ficha técnica de cabeça.</strong> "Acho que uns R$ 15 de insumo" vira decisão errada de preço. Pesa na cozinha uma vez, atualiza por trimestre.</li>
+              <li><strong>Mexer em 5 preços de uma vez.</strong> Sem isolar o efeito, você não aprende nada com o resultado. 1-2 mudanças por ciclo de teste.</li>
+            </ul>
+          </div>
+
           <div class="exercicio-casa">
             <strong>Exercício de casa</strong>
-            <p><strong>Camada 1 (básico):</strong> rodar o prompt com os 5 pratos do <a href="exemplos/03-cinco-pratos-mc.xlsx" download>Arquivo 3</a>. Comparar ranking que a IA dá com o ranking já calculado no XLSX. Bate?</p>
-            <p><strong>Camada 2 (desafio):</strong> trazer dados reais de 5 pratos do seu restaurante (com cozinha) e ranquear. Discutir com o sócio: qual prato sai do cardápio em fevereiro?</p>
+            <p><strong>Camada 1 (básico):</strong> rodar o prompt-âncora com os 5 pratos do <a href="exemplos/03-cinco-pratos-mc.xlsx" download>Arquivo 3</a>. O ranking do Artifact bate com o já calculado no XLSX? Depois arraste o slider de preço do prato 🔴 e veja o ponto de virada.</p>
+            <p><strong>Camada 2 (desafio):</strong> trazer dados reais de 5 pratos do seu restaurante (com a cozinha) e ranquear. Rodar o Prompt 2 antes de discutir com o sócio qual prato sai do cardápio.</p>
           </div>
 
           <div class="marco-progresso">
@@ -1674,8 +2021,8 @@ Aqui estão os 5 pratos:
             <h5>Resumo deste momento</h5>
             <div class="momento-resumo-grid">
               <div class="mr-bloco"><strong>Você entra com</strong><span>Contrato de sociedade em PDF (anonimizado se tiver CPF)</span></div>
-              <div class="mr-bloco"><strong>O que acontece</strong><span>Sobe no NotebookLM → faz 10 perguntas-chave → IA responde com citação literal + nº página</span></div>
-              <div class="mr-bloco"><strong>Você sai com</strong><span>Auditoria do contrato com 🟢🟡🔴 + pontos críticos pro advogado</span></div>
+              <div class="mr-bloco"><strong>O que acontece</strong><span>Sobe no NotebookLM → 10 perguntas-chave com citação + página → respostas viram Mapa de Risco no Claude (Artifact)</span></div>
+              <div class="mr-bloco"><strong>Você sai com</strong><span>Mapa de risco 🟢🟡🔴 interativo + pontos críticos pro advogado</span></div>
             </div>
 
             <div class="conhecimentos-bloco">
@@ -1689,8 +2036,44 @@ Aqui estão os 5 pratos:
             </div>
           </div>
 
+          <div class="origem-bloco">
+            <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
+            <h4>Por que citação obrigatória muda o jogo — e o que auditar num contrato de sociedade</h4>
+            <p>IA generativa comum responde de memória — e memória de IA inventa com confiança. A técnica que resolve chama-se <strong>grounding com citação</strong>: a resposta só vale se apontar o trecho exato da fonte. O NotebookLM implementa isso <strong>por design</strong> — toda resposta vem com <code>[N]</code> clicável levando à página. É a regra de ouro anti-alucinação aplicada a documento: <strong>resposta sem citação não é resposta</strong>. E o alvo aqui é o documento mais perigoso da sua mesa: contratos de sociedade quebram nas mesmas 4 famílias de cláusula — <em>saída/lock-up · quórum · distribuição · sucessão</em> — e são exatamente elas que as 10 perguntas cobrem.</p>
+            <div class="biblio-inline">
+              <strong>O que você precisa dominar deste momento</strong>
+              <ul>
+                <li>A regra dura: <strong class="regra-inline">resposta sem [N] não conta</strong>. Refaça pedindo cláusula e página — sem exceção.</li>
+                <li><strong class="regra-inline">1 pergunta por vez</strong> — pergunta múltipla dilui a citação e esconde lacuna do contrato.</li>
+                <li>As <strong class="regra-inline">4 famílias que quebram sociedades</strong>: saída/lock-up · quórum por tipo de decisão · distribuição de lucros · sucessão. Se o contrato silencia numa delas, o silêncio É o achado.</li>
+                <li>Classificação <strong class="regra-inline">🟢 clara · 🟡 negociar · 🔴 ambígua/ausente</strong> — o que vira pauta do advogado é o 🟡 e o 🔴.</li>
+                <li><strong class="regra-inline">NotebookLM ≠ advogado</strong> — a auditoria prepara a consulta (você paga menos hora e pergunta melhor), não substitui.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="quando-grid">
+            <div class="quando-card sim">
+              <strong>Quando aplicar</strong>
+              <ul>
+                <li>Contrato de sociedade, aluguel, prestação de serviço, apólice — antes de assinar</li>
+                <li>Documento com 10+ páginas que você precisa dominar rápido</li>
+                <li>Preparar reunião com advogado — chegar com os pontos mapeados</li>
+                <li>Legislação/norma do setor que impacta decisão (com fonte oficial ao lado)</li>
+              </ul>
+            </div>
+            <div class="quando-card nao">
+              <strong>Quando NÃO aplicar</strong>
+              <ul>
+                <li>Documento de 2 páginas — lê inteiro, é mais rápido e mais seguro</li>
+                <li>Como parecer jurídico final — cláusula ambígua vai pro advogado, sempre</li>
+                <li>Documento com CPF/dados sensíveis sem anonimizar antes do upload</li>
+              </ul>
+            </div>
+          </div>
+
           <details class="roteiro-prompt">
-            <summary>Ver 10 perguntas-chave de auditoria de contrato</summary>
+            <summary>Ver prompts (Âncora: 10 perguntas no NotebookLM · Refino: Mapa de Risco no Claude)</summary>
             <div class="roteiro-prompt-body">
               <h5>Antes de colar</h5>
               <ul>
@@ -1701,6 +2084,7 @@ Aqui estão os 5 pratos:
                 <li><strong>Como usar:</strong> cole UMA pergunta por vez. Sempre clique no <code>[N]</code> da citação pra ver o trecho original.</li>
               </ul>
 
+              <h5 style="margin-top: 18px;">Prompt-âncora — as 10 perguntas (uma por vez, no NotebookLM)</h5>
               <div class="pctfl-wrap">
                 <button class="pctfl-copy" data-target="p5">Copiar as 10 perguntas</button>
                 <pre id="p5"><b># 10 perguntas pra colar UMA POR VEZ no NotebookLM</b>
@@ -1739,13 +2123,59 @@ Como conflitos entre sócios são resolvidos? Mediação, arbitragem, foro judic
 
 ⚠️ NotebookLM ≠ advogado. Toda cláusula ambígua → consulta jurídica antes da assinatura.</pre>
               </div>
+
+              <details class="sub-prompt">
+                <summary><strong>Prompt 2 · Efeito uau</strong> — Virar as respostas em Mapa de Risco interativo (no Claude) <span class="artifact-tag">gera Artifact interativo</span></summary>
+                <div class="pctfl-wrap">
+                  <button class="pctfl-copy" data-target="p5-refino">Copiar</button>
+                  <pre id="p5-refino"><b># PAPEL</b>
+Você é analista de risco contratual pra sócia minoritária de PME — organiza auditoria de contrato em mapa de decisão pro advogado.
+
+<b># CONTEXTO</b>
+Rodei 10 perguntas de auditoria no contrato da sociedade usando NotebookLM (respostas com citação de cláusula e página). Colo tudo abaixo. Quero o mapa de risco consolidado pra levar impresso à reunião com o advogado.
+
+<b># TAREFA</b>
+1. <b>Classifique cada uma das 10 respostas</b>: 🟢 clara e razoável · 🟡 existe mas merece negociar · 🔴 ambígua, ausente ou perigosa pra minoritária. Justifique em 1 linha, mantendo a referência de cláusula/página.
+2. <b>Priorize os pontos pro advogado</b> — os 🔴 e 🟡 ranqueados por dano potencial. Pra cada um: o risco em 1 frase leiga · a pergunta exata pra fazer ao advogado · o que seria uma redação aceitável.
+3. <b>Cruze com o DCF</b> — quais achados mudam premissa do modelo de viabilidade (distribuição, lock-up × horizonte, pró-labore)? Liste o ajuste.
+
+<b># LIMITE</b>
+- NÃO reinterprete o contrato além do que as respostas citadas dizem — sua fonte são as respostas, não sua opinião jurídica.
+- NÃO classifique 🟢 sem citação de cláusula — sem fonte, é no máximo 🟡.
+
+FORMATO DE ENTREGA (2 partes — ORDEM OBRIGATÓRIA)
+Só gere o Artifact APÓS eu validar a classificação. Não antecipe.
+1. Análise textual (itens 1-3).
+2. <b>Artifact HTML self-contained interativo — Mapa de Risco do Contrato</b>:
+   · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
+   · Header serif "Mapa de Risco · Contrato de Sociedade" + botão 🖨️ imprimir.
+   · <b>Grade das 10 cláusulas</b>: card por pergunta com título · resumo da resposta · cláusula/página · semáforo 🟢🟡🔴 editável (radio) — contadores no topo atualizam ao vivo.
+   · <b>Painel "Pauta do advogado"</b>: os 🔴/🟡 em ordem de prioridade, cada um com a pergunta pronta + checkbox "discutido" + campo de anotação da resposta.
+   · <b>Checklist pré-assinatura</b>: lista dos itens que precisam virar 🟢 antes de assinar — barra de progresso.
+   · @media print A4 retrato (versão limpa pra levar à reunião). Estado em localStorage. JavaScript vanilla, zero framework.
+
+<b>AS 10 RESPOSTAS DO NOTEBOOKLM:</b>
+[cole aqui, com as citações]</pre>
+                </div>
+              </details>
             </div>
           </details>
+
+          <div class="anti-padroes">
+            <strong class="ap-label">Anti-padrões — o que evitar</strong>
+            <ul>
+              <li><strong>Aceitar resposta sem [N].</strong> Sem citação clicável, é opinião da IA — refaça pedindo cláusula e página exata.</li>
+              <li><strong>Subir contrato com CPF.</strong> Anonimiza antes (000.000.000-00). No contrato real, sem exceção.</li>
+              <li><strong>Colar as 10 perguntas de uma vez.</strong> Resposta em bloco dilui citação e mascara silêncio do contrato. Uma por vez.</li>
+              <li><strong>Tratar o mapa como parecer jurídico.</strong> O mapa prepara a reunião com o advogado — a palavra final é dele.</li>
+              <li><strong>Não cruzar com o DCF.</strong> Distribuição, lock-up e pró-labore (perguntas 3, 4 e 9) são premissas do modelo do M2 — achado no contrato = ajuste no modelo.</li>
+            </ul>
+          </div>
 
           <div class="exercicio-casa">
             <strong>Exercício de casa</strong>
             <p><strong>Camada 1 (básico):</strong> usar o <a href="exemplos/06-contrato-sociedade-restaurante-chr.pdf" download>Arquivo 6 (contrato fictício do Restaurante CHR)</a> e rodar as 10 perguntas no NotebookLM. <strong>Tem 3 pegadinhas plantadas</strong> — você consegue identificar as 3 antes de seguir pro Camada 2?</p>
-            <p><strong>Camada 2 (desafio real):</strong> quando o contrato real do restaurante chegar, rodar as 10 perguntas. Compilar em auditoria_contrato_AAAA-MM-DD.md. Aplicar respostas das perguntas 3, 4 e 9 direto no DCF do Momento 2.</p>
+            <p><strong>Camada 2 (desafio real):</strong> quando o contrato real do restaurante chegar, rodar as 10 perguntas + o Prompt 2 no Claude. Levar o Mapa de Risco impresso pro advogado. Aplicar respostas das perguntas 3, 4 e 9 direto no DCF do Momento 2.</p>
           </div>
 
           <div class="marco-progresso">
@@ -2235,7 +2665,7 @@ Como conflitos entre sócios são resolvidos? Mediação, arbitragem, foro judic
       'oia': {
         eyebrow: 'Framework de leitura',
         titulo: 'OIA — Observação → Insight → Ação',
-        corpo: '<p><strong>Framework do IEL pra transformar dado em decisão executiva.</strong></p><p><strong>O — Observação:</strong> o que os números mostram (factual, sem interpretar).<br><strong>I — Insight:</strong> o que isso provavelmente significa (hipótese).<br><strong>A — Ação:</strong> o que fazer no próximo mês (concreto).</p><div class="modal-exemplo"><strong>Exemplo aplicado</strong>O: CMV subiu de 32% pra 38% em maio. · I: provavelmente é o aumento da carne em abril que ainda não foi repassado pro preço. · A: revisar preço da picanha em junho ou trocar fornecedor de cárneas — testar 2 cotações.</div>'
+        corpo: '<p><strong>Framework da mentoria pra transformar dado em decisão executiva.</strong></p><p><strong>O — Observação:</strong> o que os números mostram (factual, sem interpretar).<br><strong>I — Insight:</strong> o que isso provavelmente significa (hipótese).<br><strong>A — Ação:</strong> o que fazer no próximo mês (concreto).</p><div class="modal-exemplo"><strong>Exemplo aplicado</strong>O: CMV subiu de 32% pra 38% em maio. · I: provavelmente é o aumento da carne em abril que ainda não foi repassado pro preço. · A: revisar preço da picanha em junho ou trocar fornecedor de cárneas — testar 2 cotações.</div>'
       },
       'notebooklm': {
         eyebrow: 'Ferramenta',
