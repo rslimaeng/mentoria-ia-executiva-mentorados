@@ -123,8 +123,8 @@
       border-top: 1px solid var(--border); padding: 22px 22px 18px;
     }
     .momento-didatico .md-aprende {
-      font-family: 'Playfair Display', serif; font-size: 16px;
-      color: var(--ink); line-height: 1.4; margin: 0 0 14px;
+      font-size: 13.5px;
+      color: var(--ink-soft); line-height: 1.65; margin: 0 0 14px;
       padding: 12px 14px; background: var(--bg-card);
       border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
     }
@@ -265,13 +265,15 @@
     .exemplo-card .exemplo-tag { position: absolute; top: -10px; left: 24px; background: var(--accent-warm); color: white; font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: .12em; text-transform: uppercase; }
     .exemplo-card h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--ink); margin: 8px 0 6px; }
     .exemplo-card .exemplo-sub { font-size: 13px; color: var(--accent-warm-dark); letter-spacing: .08em; text-transform: uppercase; margin: 0 0 16px; }
-    .exemplo-card p { font-size: 15px; line-height: 1.7; color: var(--ink-soft); margin: 0 0 14px; }
+    .exemplo-card p { font-size: 14px; line-height: 1.7; color: var(--ink-soft); margin: 0 0 14px; }
     .exemplo-card .exemplo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 18px; }
     .exemplo-card .exemplo-grid-item { background: rgba(255,255,255,0.7); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
     .exemplo-card .exemplo-grid-item .lbl { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-warm-dark); margin: 0 0 4px; }
-    .exemplo-card .exemplo-grid-item .val { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--ink); line-height: 1.3; margin: 0; }
-    .exemplo-card .exemplo-aplica { margin-top: 22px; padding-top: 18px; border-top: 1px dashed #e6c9a8; font-size: 14px; color: var(--ink-soft); }
+    .exemplo-card .exemplo-grid-item .val { font-size: 13px; color: var(--ink); line-height: 1.5; margin: 0; }
+    .exemplo-card .exemplo-aplica { margin-top: 22px; padding-top: 18px; border-top: 1px dashed #e6c9a8; font-size: 13.5px; color: var(--ink-soft); }
     .exemplo-card .exemplo-aplica strong { color: var(--ink); display: block; margin-bottom: 6px; }
+    .exemplo-card .exemplo-aplica ul { margin: 0 0 12px; padding-left: 18px; line-height: 1.6; }
+    .exemplo-card .exemplo-aplica ul li { margin-bottom: 4px; }
 
     /* === Arquivos pra praticar === */
     .arquivos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 22px; }
@@ -348,6 +350,9 @@
     }
     .resumao-momentos h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--ink); margin: 0 0 10px; }
     .resumao-momentos p { font-size: 14px; color: var(--ink-soft); line-height: 1.65; margin: 0 0 12px; }
+    .resumao-momentos ol { margin: 0 0 16px; padding-left: 22px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; }
+    .resumao-momentos ol li { margin-bottom: 6px; }
+    .resumao-momentos ol li strong { color: var(--ink); font-weight: 600; }
     .resumao-fluxo {
       display: grid; grid-template-columns: 1fr auto 1fr auto 1fr;
       gap: 10px; align-items: stretch; margin-top: 14px;
@@ -534,6 +539,20 @@
     }
     .origem-bloco p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 10px; }
     .origem-bloco p strong { color: var(--ink); font-weight: 600; }
+    .origem-bloco > ul { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 12px; padding-left: 18px; }
+    .origem-bloco > ul li { margin-bottom: 6px; }
+    .origem-bloco > ul li strong { color: var(--ink); font-weight: 600; }
+
+    /* === Monte sua central — passo a passo === */
+    .passos-bloco { margin-top: 22px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; }
+    .passo-item { display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 16px 22px; border-bottom: 1px solid var(--border); }
+    .passo-item:last-child { border-bottom: 0; }
+    .passo-num { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--accent); line-height: 1.1; text-align: center; }
+    .passo-item h4 { font-size: 14px; font-weight: 600; color: var(--ink); margin: 3px 0 4px; }
+    .passo-item p { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+    .passo-item p strong { color: var(--ink); }
+    .passo-regra { margin-top: 14px; background: #fdf3ec; border: 1px solid #e6c9a8; border-radius: 10px; padding: 14px 18px; font-size: 13.5px; color: var(--ink); line-height: 1.6; }
+    .passo-regra strong { color: var(--accent-warm-dark); }
     .biblio-inline {
       margin-top: 12px; padding: 12px 14px;
       background: var(--bg-card); border: 1px solid var(--border);
@@ -854,7 +873,7 @@
           <div class="matriz-ponte-tag">Q2<small>Sei que não sei</small></div>
           <div class="matriz-ponte-arrow">→</div>
           <div class="matriz-ponte-msg">
-            <strong>A ponte que esta S3 constrói.</strong> Nesta sessão você não vai virar a pessoa do Q4 — mas vai sair com 5 habilidades financeiras saindo do <em>"sei que não sei"</em> e entrando no <em>"sei que sei"</em>. A prática repetida nas semanas seguintes (casa + S4) leva você naturalmente pro Q4.
+            <strong>A ponte que esta S3 constrói.</strong> Você sai daqui com 5 habilidades no <em>"sei que sei"</em> — não no Q4. A prática das semanas seguintes (casa + S4) leva você lá naturalmente.
           </div>
           <div class="matriz-ponte-tag" style="color:var(--accent-dark);">Q3<small>Sei que sei</small></div>
         </div>
@@ -924,8 +943,13 @@
 
         <div class="exemplo-aplica">
           <strong>Onde mais essa habilidade serve:</strong>
-          comprar equipamento financiado pra restaurante ou banda · avaliar virar sócia de outro negócio · decidir abertura de 2ª unidade · simular aceitar/recusar proposta de aquisição · analisar viabilidade de CDB vs negócio próprio.
-          <br><br>
+          <ul>
+            <li>Comprar equipamento financiado pra restaurante ou banda</li>
+            <li>Avaliar virar sócia de outro negócio</li>
+            <li>Decidir abertura de 2ª unidade</li>
+            <li>Simular aceitar/recusar proposta de aquisição</li>
+            <li>Analisar viabilidade de CDB vs negócio próprio</li>
+          </ul>
           <em>Mesmo método. Muda só o input.</em>
         </div>
       </div>
@@ -1026,6 +1050,66 @@
     </div>
   </section>
 
+  <!-- Monte sua central — passo a passo antes de começar -->
+  <section class="section content-section reveal" id="monte-sua-central">
+    <div class="site-container">
+      <p class="eyebrow">Faça isso uma vez — antes do Momento 1</p>
+      <h2>Monte sua central: o passo a passo completo</h2>
+      <p>
+        Tudo que os momentos pedem depende de uma coisa: <strong>os arquivos precisam estar dentro do seu Project no Claude.ai</strong>. Siga a ordem abaixo sem pular etapa — leva ~20 minutos e você só faz uma vez.
+      </p>
+
+      <div class="passos-bloco">
+        <div class="passo-item">
+          <div class="passo-num">1</div>
+          <div>
+            <h4>Ative o Claude.ai Pro</h4>
+            <p>Sem o plano Pro não existe Project — e toda a S3 vive dentro de um. Em <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>: Configurações → Upgrade (US$ 20/mês ≈ R$ 110).</p>
+          </div>
+        </div>
+        <div class="passo-item">
+          <div class="passo-num">2</div>
+          <div>
+            <h4>Crie o Project "Restaurante — Sociedade"</h4>
+            <p>No menu lateral do Claude.ai: <strong>Projects → New Project</strong>. Pense no Project como uma pasta inteligente: tudo que você subir nele a IA lembra em <strong>toda conversa nova aberta lá dentro</strong>.</p>
+          </div>
+        </div>
+        <div class="passo-item">
+          <div class="passo-num">3</div>
+          <div>
+            <h4>Cole as instruções do Professor de Finanças</h4>
+            <p>Dentro do Project, campo <strong>Instructions</strong> ("Set project instructions"). O texto pronto pra copiar está na página do <a href="../../banco-de-prompts/assistente-financas.html">Professor de Finanças →</a></p>
+          </div>
+        </div>
+        <div class="passo-item">
+          <div class="passo-num">4</div>
+          <div>
+            <h4>Baixe TODOS os 6 arquivos acima — e suba 5 deles no Project</h4>
+            <p>Dentro do Project, área <strong>"Project knowledge" → adicionar arquivo</strong>: suba os Arquivos 1, 2, 3, 4 e 5. <strong>Exceção: o Arquivo 6 (contrato em PDF) NÃO vai no Project</strong> — ele é do NotebookLM e só entra em cena no Momento 5.</p>
+          </div>
+        </div>
+        <div class="passo-item">
+          <div class="passo-num">5</div>
+          <div>
+            <h4>Preencha o seu contexto e suba também</h4>
+            <p>Baixe o <a href="exemplos/08-meu-contexto-template.md" download>modelo de <code>meu_contexto.md</code></a>, preencha os campos [PREENCHER] (~10 min) e suba no mesmo Project knowledge. Travou em algum campo? O Prompt 0 do Momento 1 ajuda a completar.</p>
+          </div>
+        </div>
+        <div class="passo-item">
+          <div class="passo-num">6</div>
+          <div>
+            <h4>Confira antes de começar</h4>
+            <p>O Project knowledge deve listar <strong>6 arquivos</strong>: fluxo de caixa · DRE · MC dos pratos · premissas DCF · plano de contas · meu_contexto. Está tudo lá? Abra uma <strong>conversa nova DENTRO do Project</strong>, vá pro <a href="#momento-1">Momento 1</a> e cole o Prompt-âncora.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="passo-regra">
+        <strong>Regra de bolso:</strong> se um prompt desta página cita um arquivo, ele já deve estar no Project — a IA só enxerga o que você subiu. Resposta veio genérica ou a IA pediu o arquivo? Confere o Project knowledge primeiro. Na dúvida, sobe de novo: aqui, pecar pelo excesso é grátis.
+      </div>
+    </div>
+  </section>
+
   <!-- Os 6 momentos da S3 (sem tempo, com marcadores didáticos por momento) -->
   <section class="section content-section reveal">
     <div class="site-container">
@@ -1070,8 +1154,16 @@
       <div class="resumao-momentos">
         <h3>Como a sessão flui — em uma frase por bloco</h3>
         <p>
-          A S3 tem espinha dorsal — cada momento <strong>destrava UMA das 10 habilidades</strong> (as 5 primeiras) e abre o próximo. <strong>Primeiro você monta a central financeira com arquivos prontos e já vê a primeira análise sair</strong> (Momento 1) — painel de categorização interativo em minutos. <strong>Aí vai pro cenário-estrela: o DCF da sociedade</strong> (Momento 2 ★) — a decisão real na sua mesa, com calculadora viva. <strong>Em seguida, ler o resultado mensal</strong> (Momento 3, cascata visual) e <strong>identificar qual produto sustenta a casa</strong> (Momento 4, simulador de cardápio). <strong>Auditoria de contrato com NotebookLM</strong> (Momento 5) — que fecha em Mapa de Risco pro advogado. <strong>Fechamento com vislumbre do AI Finance Team</strong> (Momento 6).
+          A S3 tem espinha dorsal — cada momento <strong>destrava UMA das 10 habilidades</strong> (as 5 primeiras) e abre o próximo:
         </p>
+        <ol>
+          <li><strong>Momento 1</strong> — monta a central financeira com arquivos prontos e já vê a primeira análise sair: painel de categorização interativo em minutos.</li>
+          <li><strong>Momento 2 ★</strong> — o cenário-estrela: DCF da sociedade, a decisão real na sua mesa, com calculadora viva.</li>
+          <li><strong>Momento 3</strong> — ler o resultado mensal na cascata visual da DRE.</li>
+          <li><strong>Momento 4</strong> — identificar qual produto sustenta a casa, com simulador de cardápio.</li>
+          <li><strong>Momento 5</strong> — auditoria de contrato com NotebookLM, fechando em Mapa de Risco pro advogado.</li>
+          <li><strong>Momento 6</strong> — fechamento com vislumbre do AI Finance Team.</li>
+        </ol>
         <div class="resumao-fluxo">
           <div class="resumao-bloco">
             <strong>Você entra com</strong>
@@ -1146,7 +1238,12 @@
           <div class="origem-bloco">
             <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
             <h4>Por que contexto em arquivo vem antes de qualquer análise</h4>
-            <p>A contabilidade organiza dinheiro em categorias desde as <strong>partidas dobradas de Luca Pacioli (1494)</strong> — o plano de contas moderno é herdeiro direto disso. E a computação tem a regra equivalente desde os anos 60: <strong>"garbage in, garbage out"</strong> — dado ruim na entrada, decisão ruim na saída, não importa quão boa é a ferramenta. IA generativa obedece à mesma lei: <strong>sem contexto estruturado, ela acha que sabe</strong> — e preenche as lacunas com suposição plausível. O Project com contexto fixo é o antídoto: a IA para de adivinhar quem você é.</p>
+            <p>A contabilidade organiza dinheiro em categorias desde as <strong>partidas dobradas de Luca Pacioli (1494)</strong> — o plano de contas moderno é herdeiro direto disso.</p>
+            <ul>
+              <li>A computação tem a regra equivalente desde os anos 60: <strong>"garbage in, garbage out"</strong> — dado ruim na entrada, decisão ruim na saída, não importa quão boa é a ferramenta.</li>
+              <li>IA generativa obedece à mesma lei: <strong>sem contexto estruturado, ela acha que sabe</strong> — e preenche as lacunas com suposição plausível.</li>
+              <li>O Project com contexto fixo é o antídoto: a IA para de adivinhar quem você é.</li>
+            </ul>
             <div class="biblio-inline">
               <strong>O que você precisa dominar deste momento</strong>
               <ul>
@@ -1183,6 +1280,7 @@
             <summary>Ver setup + prompts (Prompt 0: personalizar · Âncora: categorizar + painel · Refino: auditar)</summary>
             <div class="roteiro-prompt-body">
               <h5>Setup em 3 passos (~15 min, uma vez só)</h5>
+              <p>Já fez o <a href="#monte-sua-central">passo a passo "Monte sua central"</a> lá em cima? Então isso aqui já está pronto — pule direto pro Prompt-âncora.</p>
               <ul>
                 <li>Claude.ai Pro ativo → criar Project novo: <strong>"Restaurante — Sociedade"</strong></li>
                 <li>Baixar e personalizar o <a href="exemplos/08-meu-contexto-template.md" download>modelo pronto de <code>meu_contexto.md</code></a> — preencha os [PREENCHER] em ~10 min e suba no Project. <strong>Não precisa entrevista: o arquivo já vem estruturado.</strong></li>
@@ -1359,7 +1457,12 @@ Cole abaixo a categorização que acabamos de fazer (ou rode nesta mesma convers
           <div class="origem-bloco">
             <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
             <h4>De onde vem o DCF — e por que a versão PME dispensa metade do jargão</h4>
-            <p>A ideia-mãe é o <strong>valor do dinheiro no tempo</strong>, formalizada por <strong>Irving Fisher em "The Theory of Interest" (1930)</strong>: R$ 100 hoje valem mais que R$ 100 amanhã, e a taxa de desconto mede exatamente quanto. Nas décadas seguintes o DCF vira o padrão da decisão de investimento corporativa — é o coração de qualquer manual clássico de finanças corporativas (Brealey &amp; Myers). O trio <strong>VPL · TIR · payback descontado</strong> é canônico: o primeiro decide, o segundo compara, o terceiro mede fôlego. Pra PME de capital fechado, a versão certa é a <strong>simplificada</strong>: TMA = CDB + prêmio de risco. CAPM, WACC e beta são ferramentas de bolsa — usar em restaurante de bairro é precisão falsa.</p>
+            <p>A ideia-mãe é o <strong>valor do dinheiro no tempo</strong>, formalizada por <strong>Irving Fisher em "The Theory of Interest" (1930)</strong>: R$ 100 hoje valem mais que R$ 100 amanhã — e a taxa de desconto mede exatamente quanto.</p>
+            <ul>
+              <li>Nas décadas seguintes o DCF vira o padrão da decisão de investimento — coração de qualquer manual clássico de finanças corporativas (Brealey &amp; Myers).</li>
+              <li>O trio <strong>VPL · TIR · payback descontado</strong> é canônico: o primeiro decide, o segundo compara, o terceiro mede fôlego.</li>
+              <li>Pra PME de capital fechado, a versão certa é a <strong>simplificada</strong>: TMA = CDB + prêmio de risco. CAPM, WACC e beta são ferramentas de bolsa — usar em restaurante de bairro é precisão falsa.</li>
+            </ul>
             <div class="biblio-inline">
               <strong>O que você precisa dominar deste momento</strong>
               <ul>
@@ -1589,7 +1692,12 @@ Cole abaixo o modelo DCF + parecer que rodamos (ou rode nesta mesma conversa do 
           <div class="origem-bloco">
             <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
             <h4>De onde vem a DRE em cascata — e por que ela é leitura, não relatório</h4>
-            <p>A DRE formal existe por lei no Brasil desde a <strong>Lei das S.A. (6.404/1976)</strong> — toda empresa fecha uma. A versão <strong>gerencial em cascata</strong> é a tradução dela pra decisão: em vez de uma tabela contábil, uma escada onde cada degrau desconta um tipo de custo e revela uma margem. O <strong>EBITDA</strong> popularizou nos anos 80 nos EUA como medida de operação pura (antes de juros, impostos e depreciação). E o fecho é o <strong>OIA — Observação → Insight → Ação</strong>: número sem narrativa não muda comportamento de sócio. A regra da casa: <em>quem lê a cascata em 2 minutos identifica a inconsistência antes do contador entregar</em>.</p>
+            <p>A DRE formal existe por lei no Brasil desde a <strong>Lei das S.A. (6.404/1976)</strong> — toda empresa fecha uma. A versão <strong>gerencial em cascata</strong> é a tradução dela pra decisão: uma escada onde cada degrau desconta um tipo de custo e revela uma margem.</p>
+            <ul>
+              <li>O <strong>EBITDA</strong> popularizou nos anos 80 nos EUA como medida da operação pura — antes de juros, impostos e depreciação.</li>
+              <li>O fecho é o <strong>OIA — Observação → Insight → Ação</strong>: número sem narrativa não muda comportamento de sócio.</li>
+              <li>A regra da casa: <em>quem lê a cascata em 2 minutos identifica a inconsistência antes do contador entregar</em>.</li>
+            </ul>
             <div class="biblio-inline">
               <strong>O que você precisa dominar deste momento</strong>
               <ul>
@@ -1806,7 +1914,12 @@ Cole abaixo as DREs de 3 meses (ou a aba "Resumo Mensal" do arquivo de referênc
           <div class="origem-bloco">
             <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
             <h4>De onde vem a Margem de Contribuição — e por que virou engenharia de cardápio</h4>
-            <p>A MC nasce do <strong>custeio variável (direct costing)</strong>, formalizado pela contabilidade gerencial americana nos anos 1930 dentro da análise <strong>custo-volume-lucro (CVP)</strong>: separar o custo que acompanha a venda do custo que existe de qualquer jeito. No food service, a aplicação clássica é a <strong>engenharia de cardápio de Kasavana &amp; Smith (1982)</strong> — cruzar margem × popularidade pra decidir o que empurrar, reprecificar ou cortar. A pegadinha que derruba iniciante: <strong>MC unitária, MC % e MC total contam 3 histórias diferentes</strong> — o prato "campeão" numa métrica pode ser o vilão na outra. Por isso o ranking usa as três juntas.</p>
+            <p>A MC nasce do <strong>custeio variável (direct costing)</strong>, formalizado pela contabilidade gerencial americana nos anos 1930 dentro da análise <strong>custo-volume-lucro (CVP)</strong>: separar o custo que acompanha a venda do custo que existe de qualquer jeito.</p>
+            <ul>
+              <li>No food service, a aplicação clássica é a <strong>engenharia de cardápio de Kasavana &amp; Smith (1982)</strong> — cruzar margem × popularidade pra decidir o que empurrar, reprecificar ou cortar.</li>
+              <li>A pegadinha que derruba iniciante: <strong>MC unitária, MC % e MC total contam 3 histórias diferentes</strong> — o prato "campeão" numa métrica pode ser o vilão na outra.</li>
+              <li>Por isso o ranking usa as três juntas.</li>
+            </ul>
             <div class="biblio-inline">
               <strong>O que você precisa dominar deste momento</strong>
               <ul>
@@ -1878,7 +1991,7 @@ Uma tabela por prato + linha de total. No fim, resumo: prato × custo variável 
               </details>
 
               <h5 style="margin-top: 18px;">Prompt-âncora — Ranking MC + simulador de cardápio <span class="artifact-tag">gera Artifact interativo</span></h5>
-              <p>Modo Autopiloto: análise e Artifact saem na mesma resposta — confira o ranking contra o Arquivo 3 depois.</p>
+              <p>Modo Autopiloto: análise e Artifact saem na mesma resposta — confira o ranking contra o Arquivo 3 depois (ele já deve estar no Project, passo 4 do <a href="#monte-sua-central">Monte sua central</a>).</p>
               <div class="pctfl-wrap">
                 <button class="pctfl-copy" data-target="p4-ancora">Copiar</button>
                 <pre id="p4-ancora"><b># PAPEL</b>
@@ -2039,7 +2152,12 @@ Cole abaixo o ranking MC + as 3 ações sugeridas.
           <div class="origem-bloco">
             <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
             <h4>Por que citação obrigatória muda o jogo — e o que auditar num contrato de sociedade</h4>
-            <p>IA generativa comum responde de memória — e memória de IA inventa com confiança. A técnica que resolve chama-se <strong>grounding com citação</strong>: a resposta só vale se apontar o trecho exato da fonte. O NotebookLM implementa isso <strong>por design</strong> — toda resposta vem com <code>[N]</code> clicável levando à página. É a regra de ouro anti-alucinação aplicada a documento: <strong>resposta sem citação não é resposta</strong>. E o alvo aqui é o documento mais perigoso da sua mesa: contratos de sociedade quebram nas mesmas 4 famílias de cláusula — <em>saída/lock-up · quórum · distribuição · sucessão</em> — e são exatamente elas que as 10 perguntas cobrem.</p>
+            <p>IA generativa comum responde de memória — e memória de IA inventa com confiança. A técnica que resolve chama-se <strong>grounding com citação</strong>: a resposta só vale se apontar o trecho exato da fonte.</p>
+            <ul>
+              <li>O NotebookLM implementa isso <strong>por design</strong> — toda resposta vem com <code>[N]</code> clicável levando à página. A regra de ouro: <strong>resposta sem citação não é resposta</strong>.</li>
+              <li>O alvo é o documento mais perigoso da sua mesa: contratos de sociedade quebram nas mesmas 4 famílias de cláusula — <em>saída/lock-up · quórum · distribuição · sucessão</em>.</li>
+              <li>São exatamente essas 4 famílias que as 10 perguntas cobrem.</li>
+            </ul>
             <div class="biblio-inline">
               <strong>O que você precisa dominar deste momento</strong>
               <ul>

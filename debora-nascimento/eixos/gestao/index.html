@@ -119,8 +119,8 @@
       border-top: 1px solid var(--border); padding: 22px 22px 18px;
     }
     .momento-didatico .md-aprende {
-      font-family: 'Playfair Display', serif; font-size: 16px;
-      color: var(--ink); line-height: 1.4; margin: 0 0 14px;
+      font-size: 13.5px;
+      color: var(--ink-soft); line-height: 1.65; margin: 0 0 14px;
       padding: 12px 14px; background: var(--bg-card);
       border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
     }
@@ -304,6 +304,9 @@
     }
     .origem-bloco p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 10px; }
     .origem-bloco p strong { color: var(--ink); font-weight: 600; }
+    .origem-bloco > ul { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin: 0 0 12px; padding-left: 18px; }
+    .origem-bloco > ul li { margin-bottom: 6px; }
+    .origem-bloco > ul li strong { color: var(--ink); font-weight: 600; }
     .quando-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px;
     }
@@ -624,6 +627,10 @@
         Cada momento é uma prática que fica com você. Não são "temas de aula" — são <strong>ciclos de aplicação com IA como copilota</strong>: você chega com um problema real (de qualquer negócio), sai com um artefato pronto e a habilidade destravada.
       </p>
 
+      <div class="callout" style="margin: 18px 0 6px;">
+        <strong>Antes do Momento 1:</strong> faça o <a href="#setup">Setup em 3 passos</a> — o Professor de Gestão precisa estar configurado no seu Project do Claude.ai, e <strong>todos os prompts desta página rodam em conversa nova DENTRO desse Project</strong>. Se a IA responder genérico, confere primeiro se você está dentro do Project certo.
+      </div>
+
       <div class="timeline-6">
         <div class="timeline-item">
           <div class="ti-num">1</div>
@@ -704,7 +711,12 @@
           <div class="origem-bloco">
             <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
             <h4>De onde vem — e por que ainda vale em 2026</h4>
-            <p><strong>SWOT</strong> nasce em 1965 na Harvard Business School (Learned, Christensen, Andrews). Sobrevive porque força a dupla lente <em>interno × externo</em> e obriga a nomear o que está no controle e o que não está. <strong>5 Forças de Porter</strong> vem de 1979 (HBR "How Competitive Forces Shape Strategy"). Sobrevive porque tira o holofote dos concorrentes diretos e obriga a olhar entrantes, substitutos, fornecedores e clientes. Juntos, dão diagnóstico redondo.</p>
+            <p><strong>SWOT</strong> nasce em 1965 na Harvard Business School (Learned, Christensen, Andrews). <strong>5 Forças de Porter</strong> vem de 1979 (HBR, "How Competitive Forces Shape Strategy").</p>
+            <ul>
+              <li>O SWOT sobrevive porque força a dupla lente <em>interno × externo</em> — obriga a nomear o que está no seu controle e o que não está.</li>
+              <li>Porter sobrevive porque tira o holofote dos concorrentes diretos e obriga a olhar entrantes, substitutos, fornecedores e clientes.</li>
+              <li>Juntos, dão o diagnóstico redondo: um olha pra dentro, o outro pro campo de jogo.</li>
+            </ul>
             <div class="biblio-inline">
               <strong>O que você precisa dominar deste momento</strong>
               <ul>
@@ -884,7 +896,12 @@ Só gere o Artifact APÓS eu validar todas as fases da Tarefa. Não antecipe.
           <div class="origem-bloco">
             <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
             <h4>De onde vem o mapeamento de processo — e o que muda com IA</h4>
-            <p>O rigor de descrever processo em hierarquia (macro → sub → atividade → tarefa) vem da <strong>engenharia de processos industrial</strong> (Taylor, Ford) e ganha forma moderna no <strong>Sistema Toyota de Produção</strong> (Taiichi Ohno) — que introduz o "gemba walk": ir ver o processo acontecer antes de opinar. Nos anos 90, a <strong>notação BPMN</strong> universaliza a forma. No Brasil, <strong>Falconi</strong> ancora essa lógica no PDCA: você só melhora o que consegue desenhar. Ohno resume: <em>"mapear é modo de ver o processo — sem ver, não há kaizen"</em>.</p>
+            <p>O rigor de descrever processo em hierarquia (macro → sub → atividade → tarefa) vem da <strong>engenharia de processos industrial</strong> (Taylor, Ford) — e ganha forma moderna no <strong>Sistema Toyota de Produção</strong> (Taiichi Ohno).</p>
+            <ul>
+              <li>A Toyota introduz o <strong>"gemba walk"</strong>: ir ver o processo acontecer antes de opinar.</li>
+              <li>Nos anos 90, a notação <strong>BPMN</strong> universaliza a forma de desenhar processo.</li>
+              <li>No Brasil, <strong>Falconi</strong> ancora essa lógica no PDCA: você só melhora o que consegue desenhar. Ohno resume: <em>"mapear é modo de ver o processo — sem ver, não há kaizen"</em>.</li>
+            </ul>
             <div class="biblio-inline">
               <strong>O que você precisa dominar deste momento</strong>
               <ul>
@@ -963,7 +980,7 @@ Só gere o Artifact APÓS eu validar todas as fases da Tarefa. Não antecipe.
    · Paleta cream #fafaf7, teal #2c5f70, terracota #c2916b. Fontes Playfair Display + Inter via Google Fonts.
    · Header serif "AS-IS · [nome do processo]" + botão 🖨️ imprimir.
    · <b>Fluxo visual em cards verticais</b>: cada atividade em um card com nº · nome · entrada · saída · badge de gargalo (letra E/R/M/H em círculo colorido) quando aplicável. Setas SVG entre cards.
-   · Card <contenteditable> pra editar direto no HTML.
+   · Card &lt;contenteditable&gt; pra editar direto no HTML.
    · <b>Painel lateral "Gargalos suspeitos"</b>: 5 cards com sinal (E/R/M/H), descrição, impacto (radio verde/amarelo/vermelho ao vivo) e textarea "próxima verificação".
    · Botão "Adicionar etapa" e "Adicionar gargalo" que injeta card novo.
    · @media print A4 paisagem. Rodapé: "Mentoria IA Executiva · Débora Nascimento · 2026".
@@ -1056,7 +1073,12 @@ Só gere o Artifact APÓS eu validar todas as fases da Tarefa. Não antecipe.
           <div class="origem-bloco">
             <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
             <h4>De onde vem o POP moderno — e por que 7 blocos são inegociáveis</h4>
-            <p>O POP nasce no <strong>TWI (Training Within Industry)</strong>, programa do governo americano na 2ª Guerra pra padronizar treino industrial em massa. A Toyota adota nos anos 50 no seu programa <strong>Job Instruction</strong> — vira base do padrão japonês de qualidade. A <strong>norma ISO 9001</strong> (revisada em 2015) codifica a exigência de procedimento documentado pra ganhar certificação. No Brasil, <strong>Falconi</strong> (Gestão da Rotina, 1994) traduz a lógica pra PME: "sem POP, não há PDCA — porque não há padrão pra comparar". A regra Toyota fica: <em>"sem padrão, não há melhoria"</em>.</p>
+            <p>O POP nasce no <strong>TWI (Training Within Industry)</strong> — programa do governo americano na 2ª Guerra pra padronizar treino industrial em massa.</p>
+            <ul>
+              <li>A Toyota adota nos anos 50 no programa <strong>Job Instruction</strong> — vira base do padrão japonês de qualidade. A regra que fica: <em>"sem padrão, não há melhoria"</em>.</li>
+              <li>A <strong>norma ISO 9001</strong> (revisada em 2015) codifica a exigência de procedimento documentado pra ganhar certificação.</li>
+              <li>No Brasil, <strong>Falconi</strong> (Gestão da Rotina, 1994) traduz a lógica pra PME: "sem POP, não há PDCA — porque não há padrão pra comparar".</li>
+            </ul>
             <div class="biblio-inline">
               <strong>O que você precisa dominar deste momento</strong>
               <ul>
@@ -1149,7 +1171,7 @@ Só gere o Artifact APÓS eu validar as 3 fases da Tarefa. Não antecipe.
    · Rodapé com aprovações: "Elaborado por · Revisado por · Aprovado por" com linha pra assinatura.
    · Aba lateral colapsável com Anexo exceções + 5W2H de implantação.
    · Botão 🖨️ imprime só o POP (esconde a aba lateral).
-   · Todos os campos <contenteditable> pra ajuste ao vivo. Estado em localStorage.
+   · Todos os campos &lt;contenteditable&gt; pra ajuste ao vivo. Estado em localStorage.
    · JavaScript vanilla, zero framework.
 
 <b>AS-IS:</b>
@@ -1239,7 +1261,12 @@ Só gere o Artifact APÓS eu validar as 3 fases da Tarefa. Não antecipe.
           <div class="origem-bloco">
             <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
             <h4>De onde vem a lógica dos KPIs em semáforo — e por que 5 é o teto</h4>
-            <p>O conceito de <strong>KPI (Key Performance Indicator)</strong> ganha forma nos anos 80 e 90 com o <strong>Balanced Scorecard</strong> (Kaplan &amp; Norton, Harvard, 1992) — que separa dado em 4 perspectivas: financeira · cliente · processo · aprendizado. A distinção <strong>Lagging × Leading</strong> vem do mesmo repertório: Lagging olha o resultado (o passado), Leading olha o comportamento que <em>causa</em> o resultado (o futuro). <strong>Bernard Marr</strong>, no clássico "Key Performance Indicators: 75 that Every Manager Needs to Know" (2012), formaliza o critério <em>SMART</em> aplicado a KPI e a regra do teto: 5 KPIs por área. Acima disso, ninguém decide — todos viram planilha. Kaplan &amp; Norton (2008) fecham: <em>60% dos planos estratégicos fracassam por execução, não por má estratégia</em> — e execução mora no dashboard.</p>
+            <p>O conceito de <strong>KPI (Key Performance Indicator)</strong> ganha forma nos anos 80 e 90 com o <strong>Balanced Scorecard</strong> (Kaplan &amp; Norton, Harvard, 1992) — dado separado em 4 perspectivas: financeira · cliente · processo · aprendizado.</p>
+            <ul>
+              <li>A distinção <strong>Lagging × Leading</strong> vem do mesmo repertório: Lagging olha o resultado (o passado), Leading olha o comportamento que <em>causa</em> o resultado (o futuro).</li>
+              <li><strong>Bernard Marr</strong> ("Key Performance Indicators: 75 that Every Manager Needs to Know", 2012) formaliza o critério <em>SMART</em> aplicado a KPI e a regra do teto: <strong>5 KPIs por área</strong>. Acima disso, ninguém decide — todos viram planilha.</li>
+              <li>Kaplan &amp; Norton (2008) fecham: <em>60% dos planos estratégicos fracassam por execução, não por má estratégia</em> — e execução mora no dashboard.</li>
+            </ul>
             <div class="biblio-inline">
               <strong>O que você precisa dominar deste momento</strong>
               <ul>
@@ -1428,7 +1455,12 @@ Objetivo 90d: [ ]
           <div class="origem-bloco">
             <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
             <h4>De onde vem a espinha-de-peixe — e por que 5 Porquês evita 90% do erro</h4>
-            <p>O <strong>diagrama de Ishikawa</strong> (espinha-de-peixe) nasce nos anos 60 no Japão, criado por <strong>Kaoru Ishikawa</strong> como ferramenta central do controle de qualidade total. Nos anos 90, <strong>Hosotani</strong> refina o método pra 6 categorias industriais universais — <em>matéria-prima · equipamentos · pessoas · ambiente · procedimentos · informações</em> — que funcionam em qualquer setor. Em paralelo, os <strong>5 Porquês</strong> vêm da Toyota (Sakichi Toyoda) — regra prática: pergunte "por quê?" 5 vezes seguidas em cima da resposta anterior, e você chega ao sistema (não à pessoa). No Brasil, <strong>Falconi</strong> integra os dois no ciclo PDCA e fecha com a distinção clássica <em>anomalia × problema × contramedida</em>. A regra Toyoda resume: <em>"a causa raiz nunca é uma pessoa — é sempre um sistema que permite o erro"</em>.</p>
+            <p>O <strong>diagrama de Ishikawa</strong> (espinha-de-peixe) nasce nos anos 60 no Japão, criado por <strong>Kaoru Ishikawa</strong> como ferramenta central do controle de qualidade total.</p>
+            <ul>
+              <li>Nos anos 90, <strong>Hosotani</strong> refina o método pra 6 categorias universais — <em>matéria-prima · equipamentos · pessoas · ambiente · procedimentos · informações</em> — que funcionam em qualquer setor.</li>
+              <li>Os <strong>5 Porquês</strong> vêm da Toyota (Sakichi Toyoda): pergunte "por quê?" 5 vezes seguidas em cima da resposta anterior — você chega ao sistema, não à pessoa.</li>
+              <li>No Brasil, <strong>Falconi</strong> integra os dois no PDCA com a distinção <em>anomalia × problema × contramedida</em>. A regra Toyoda: <em>"a causa raiz nunca é uma pessoa — é sempre um sistema que permite o erro"</em>.</li>
+            </ul>
             <div class="biblio-inline">
               <strong>O que você precisa dominar deste momento</strong>
               <ul>
@@ -1609,7 +1641,12 @@ Só gere o Artifact APÓS eu validar todas as fases da Tarefa. Não antecipe.
           <div class="origem-bloco">
             <p class="origem-eyebrow">Fundamentos &amp; pontos-chave</p>
             <h4>De onde vem a matriz Impacto × Esforço — e por que 5W2H completa</h4>
-            <p>A <strong>matriz 2×2 de priorização</strong> nasce como derivação da <strong>Matriz de Eisenhower</strong> (Urgente × Importante, 1954) e amadurece nos anos 90/2000 nas escolas de gestão de projeto como <em>Impacto × Esforço</em> — versão mais operacional pra times pequenos. Empresas de produto (Intercom, Airbnb) formalizam variações como <strong>RICE (Reach · Impact · Confidence · Effort)</strong> pra times de tecnologia. O <strong>5W2H</strong> vem do <em>Kaizen</em> japonês (Toyota, anos 50) — evolução do 5W1H clássico com "How much" adicionado pra amarrar custo/prazo em número. No Brasil, <strong>Falconi</strong> integra o par no PDCA: matriz define <em>o que fazer</em>, 5W2H define <em>como fazer</em>. E Kaplan &amp; Norton fecham: <em>plano sem cadência de revisão é intenção; plano com cadência é execução</em>.</p>
+            <p>A <strong>matriz 2×2 de priorização</strong> deriva da <strong>Matriz de Eisenhower</strong> (Urgente × Importante, 1954) e amadurece nas escolas de gestão de projeto como <em>Impacto × Esforço</em> — a versão operacional pra times pequenos.</p>
+            <ul>
+              <li>Empresas de produto (Intercom, Airbnb) formalizam variações como <strong>RICE (Reach · Impact · Confidence · Effort)</strong> pra times de tecnologia.</li>
+              <li>O <strong>5W2H</strong> vem do <em>Kaizen</em> japonês (Toyota, anos 50) — o 5W1H clássico com "How much" adicionado pra amarrar custo e prazo em número.</li>
+              <li>No Brasil, <strong>Falconi</strong> integra o par no PDCA: a matriz define <em>o que fazer</em>, o 5W2H define <em>como fazer</em>. Kaplan &amp; Norton fecham: <em>plano sem cadência de revisão é intenção; com cadência é execução</em>.</li>
+            </ul>
             <div class="biblio-inline">
               <strong>O que você precisa dominar deste momento</strong>
               <ul>
@@ -1702,7 +1739,7 @@ Só gere o Artifact APÓS eu validar todas as fases da Tarefa. Não antecipe.
    · Header serif "Priorização &amp; Plano · [meu negócio] · ciclo [mês/2026]" + botão 🖨️.
    · <b>Matriz 2×2 drag-and-drop</b> — 4 quadrantes (Quick Win verde · Projeto Estratégico azul · Preencher espaço cinza · Repensar vermelho). Cards de iniciativa arrastáveis, posição salva em localStorage. Contagem por quadrante ao vivo.
    · <b>Painel lateral "Dependências"</b> — grafo em SVG com setas.
-   · <b>Bloco 5W2H expansível</b> — 3 cards por iniciativa quick win. Cada campo <contenteditable>. Checkbox "concluído" que risca o item.
+   · <b>Bloco 5W2H expansível</b> — 3 cards por iniciativa quick win. Cada campo &lt;contenteditable&gt;. Checkbox "concluído" que risca o item.
    · <b>Barra de progresso do ciclo</b> — % de tarefas concluídas × total do plano. Atualiza ao vivo.
    · <b>Marco intermediário</b> — data dia 7 e dia 15 destacadas com alerta se atrasado.
    · @media print A4 paisagem. JavaScript vanilla, zero framework.
@@ -1811,7 +1848,7 @@ Só gere o Artifact APÓS eu validar todas as fases da Tarefa. Não antecipe.
   </section>
 
   <!-- Como preparar -->
-  <section class="section content-section">
+  <section class="section content-section" id="setup">
     <div class="site-container">
       <p class="eyebrow">Antes da sessão</p>
       <h2>Setup em 3 passos</h2>
