@@ -1,6 +1,7 @@
 # Meu contexto — central de inteligência financeira
 
-> **Como usar:** preencha os campos `[PREENCHER]` (10 minutos, direto no editor de texto ou no Notion) e suba este arquivo no seu Project do Claude.ai. Ele vira a memória permanente — toda análise futura parte daqui, sem você reexplicar contexto a cada conversa.
+> **Este arquivo é um plus opcional** — a S3 funciona sem ele. Com ele, a IA responde mais no seu contexto, sem você reexplicar nada a cada conversa.
+> **Como usar:** preencha os campos `[PREENCHER]` que souber (10 minutos) e suba este arquivo no seu Project do Claude.ai.
 > Não sabe alguma resposta agora? Deixe o `[PREENCHER]` marcado — vale mais lacuna visível que chute invisível.
 
 ---
