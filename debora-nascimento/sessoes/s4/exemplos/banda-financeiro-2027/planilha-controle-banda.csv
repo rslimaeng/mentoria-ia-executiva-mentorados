@@ -1,0 +1,15 @@
+Data,Categoria,Subcategoria,Descrição,Valor,Responsável,Observação
+2027-01-05,Entrada,Show contratado,Show casa fictícia A,3500,[NOME],Cachê fechado antes
+2027-01-05,Saída variável,Transporte,Combustível ida+volta,180,[NOME],
+2027-01-05,Saída variável,Cachê convidado,Percussionista extra,400,[NOME],Só neste show
+2027-01-07,Saída fixa,Equipamento,Aluguel PA,600,[NOME],Contrato mensal
+2027-01-12,Entrada,Show contratado,Aniversário particular,2800,[NOME],
+2027-01-15,Reserva,Fundo mensal,10% do faturamento janeiro,,,Depositar dia 15
+2027-01-20,Entrada,Show contratado,Casamento,4200,[NOME],Metade adiantado
+2027-01-25,Saída variável,Alimentação equipe,Jantar após show,220,[NOME],
+2027-01-28,Saída fixa,Ensaio,Aluguel estúdio,300,[NOME],
+2027-01-31,Fechamento,Indicadores,Ticket médio: fat/nº shows,,[NOME],Cálculo mensal
+2027-01-31,Fechamento,Indicadores,Custo por show: gastos/nº shows,,[NOME],
+2027-01-31,Fechamento,Indicadores,Margem líquida: (fat-custo)/fat,,[NOME],
+2027-01-31,Fechamento,Indicadores,% convidado: cachê/fat,,[NOME],Alerta se > 15%
+2027-01-31,Fechamento,Indicadores,Reserva mês: saldo - meta,,[NOME],Meta = 10% fat

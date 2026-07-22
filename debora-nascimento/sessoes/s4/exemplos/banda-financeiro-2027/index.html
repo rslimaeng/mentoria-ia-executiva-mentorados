@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Caso · Financeiro Banda 2027 · S4 · Débora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../../_shared/assets/style.css">
+  <style>
+    /* Padrão "caso" — S4 exemplos */
+    .breadcrumb-page { padding: 22px 0 14px; background: var(--bg); border-bottom: 1px solid var(--border); }
+    .breadcrumb-page .site-container { max-width: 1080px; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--ink-muted); }
+    .breadcrumb a { color: var(--ink-soft); }
+    .breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+    .breadcrumb .sep { color: var(--ink-muted); }
+    .breadcrumb .current { color: var(--ink); font-weight: 500; }
+
+    .caso-hero { padding: 44px 0 40px; border-bottom: 1px solid var(--border); }
+    .caso-hero .site-container { max-width: 1080px; }
+    .caso-hero-grid { display: grid; grid-template-columns: 1fr 320px; gap: 48px; }
+    @media (max-width: 900px) { .caso-hero-grid { grid-template-columns: 1fr; gap: 24px; } }
+    .caso-h1 { font-family: var(--serif); font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: 18px; max-width: 620px; }
+    .caso-descricao { font-family: var(--sans); font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); margin-bottom: 26px; max-width: 560px; }
+    .caso-cta { display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; background: var(--accent); color: #fff; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; text-decoration: none; transition: background .18s; }
+    .caso-cta:hover { background: var(--accent-dark); text-decoration: none; color: #fff; }
+    .caso-cta::after { content: "↗"; font-size: 15px; }
+
+    .caso-hero-sidebar { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; align-self: start; }
+    .caso-hero-sidebar__bloco { padding: 12px 0; border-top: 1px solid var(--border); }
+    .caso-hero-sidebar__bloco:first-of-type { border-top: none; padding-top: 0; }
+    .caso-hero-sidebar__label { display: flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: var(--ink-muted); margin-bottom: 6px; }
+    .caso-hero-sidebar__valor { font-family: 'Inter', sans-serif; font-size: 14.5px; color: var(--ink); font-weight: 500; }
+    .caso-features { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .feat-chip { display: inline-block; padding: 3px 10px; background: #fdf3ec; color: var(--accent-warm-dark); border: 1px solid var(--accent-warm); border-radius: 999px; font-size: 11.5px; font-weight: 600; letter-spacing: .02em; }
+
+    .passos-wrap { padding: 40px 0; }
+    .passos-wrap .site-container { max-width: 1080px; }
+    .passo { display: grid; grid-template-columns: 60px 1fr; gap: 24px; padding: 40px 0; border-bottom: 1px solid var(--border); }
+    .passo:last-child { border-bottom: none; }
+    @media (max-width: 700px) { .passo { grid-template-columns: 40px 1fr; gap: 16px; padding: 30px 0; } }
+    .passo__num { width: 44px; height: 44px; border-radius: 50%; background: var(--bg-warm); color: var(--accent); border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; flex-shrink: 0; }
+    @media (max-width: 700px) { .passo__num { width: 34px; height: 34px; font-size: 14px; } }
+    .passo__body { display: grid; grid-template-columns: 1fr 320px; gap: 40px; align-items: start; }
+    @media (max-width: 900px) { .passo__body { grid-template-columns: 1fr; gap: 24px; } }
+    .passo__conteudo h3 { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--ink); margin-bottom: 16px; }
+    .passo__conteudo p { font-family: var(--sans); font-size: 15.5px; line-height: 1.65; color: var(--ink); margin-bottom: 14px; }
+    .passo__conteudo p.muted { color: var(--ink-soft); }
+    .passo__conteudo strong { color: var(--ink); }
+    .passo__conteudo em { color: var(--accent); font-style: italic; }
+    .passo__conteudo code { background: var(--bg-warm); padding: 2px 7px; border-radius: 4px; font-family: var(--mono); font-size: 13px; color: var(--accent-warm-dark); }
+    .passo__conteudo ul, .passo__conteudo ol { padding-left: 22px; margin: 8px 0 14px 0; }
+    .passo__conteudo li { font-size: 15px; line-height: 1.6; color: var(--ink); padding: 4px 0; }
+
+    .prompt-box { background: #fdfaf3; border: 1px solid var(--border-strong); border-radius: 8px; padding: 18px 20px; font-family: var(--mono); font-size: 13.5px; line-height: 1.65; color: var(--ink); position: relative; white-space: pre-wrap; margin: 14px 0; }
+    .prompt-box .highlight { background: rgba(44,95,112,.08); color: var(--accent); padding: 1px 6px; border-radius: 3px; font-weight: 500; }
+    .prompt-copy-btn { position: absolute; top: 10px; right: 10px; padding: 6px 12px; background: var(--accent); color: #fff; border: none; border-radius: 5px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; transition: background .18s; }
+    .prompt-copy-btn:hover { background: var(--accent-dark); }
+    .prompt-copy-btn.copied { background: var(--accent-warm-dark); }
+
+    .passo__sidebar { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; }
+    .passo__sidebar-cabecalho { display: flex; align-items: center; gap: 10px; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .passo__sidebar-icon { width: 32px; height: 32px; background: var(--bg-warm); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .passo__sidebar-title { font-family: 'Inter', sans-serif; font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; color: var(--ink-soft); }
+    .passo__sidebar-conteudo { font-family: var(--sans); font-size: 13.5px; line-height: 1.55; color: var(--ink); }
+    .passo__sidebar-conteudo strong { color: var(--ink); font-weight: 600; }
+    .passo__sidebar-conteudo p { margin-bottom: 8px; font-size: 13.5px; }
+    .passo__sidebar-conteudo ul { padding-left: 18px; margin-top: 6px; }
+    .passo__sidebar-conteudo li { font-size: 13px; line-height: 1.5; padding: 3px 0; }
+    .sidebar-card--claude { background: #fdf3ec; border-color: var(--accent-warm); }
+    .sidebar-card--claude .passo__sidebar-title { color: var(--accent-warm-dark); }
+
+    .refinamentos { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
+    .refinamento { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; }
+    .refinamento__titulo { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: var(--accent-warm-dark); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .1em; }
+    .refinamento__prompt { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--ink); line-height: 1.5; }
+
+    .truques-lista { display: flex; flex-direction: column; gap: 14px; margin-top: 12px; }
+    .truque { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent-warm); border-radius: 0 8px 8px 0; padding: 16px 20px; }
+    .truque h4 { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .truque p { font-size: 14px; line-height: 1.55; color: var(--ink); }
+
+    .frente-pratica { background: var(--bg-warm); border: 1px solid var(--border-strong); border-radius: 10px; padding: 24px 28px; margin-top: 16px; }
+    .frente-pratica__lead { font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--ink); margin-bottom: 18px; }
+    .arquivo-download { background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 8px; padding: 14px 18px; display: grid; grid-template-columns: 40px 1fr auto; gap: 14px; align-items: center; margin-bottom: 10px; }
+    .arquivo-download__icon { width: 40px; height: 40px; background: var(--accent); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+    .arquivo-download__nome { font-family: var(--mono); font-size: 14px; font-weight: 600; color: var(--ink); }
+    .arquivo-download__desc { font-family: var(--sans); font-size: 12.5px; color: var(--ink-muted); margin-top: 2px; }
+    .arquivo-download__btn { padding: 8px 14px; background: none; border: 1px solid var(--accent); color: var(--accent); border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 12.5px; font-weight: 600; cursor: pointer; text-decoration: none; }
+    .arquivo-download__btn:hover { background: var(--accent); color: #fff; text-decoration: none; }
+
+    .passo-a-passo { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px 24px; margin-top: 16px; }
+    .passo-a-passo h5 { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 12px; }
+    .passo-a-passo ol { padding-left: 22px; }
+    .passo-a-passo li { font-size: 14.5px; line-height: 1.6; color: var(--ink); padding: 5px 0; }
+
+    .voltar-nav { background: var(--bg-warm); border-top: 1px solid var(--border); padding: 30px 0 36px; }
+    .voltar-nav .site-container { max-width: 1080px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .voltar-nav a { color: var(--accent); font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; }
+    .voltar-nav .assinatura { font-size: 12.5px; color: var(--ink-muted); font-family: 'Inter', sans-serif; }
+    .voltar-nav .assinatura a { color: var(--accent); }
+
+    /* Bloco DRE preview no sidebar (específico deste caso) */
+    .dre-preview {
+      background: #fdfaf3;
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-top: 8px;
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+    .dre-preview .dre-linha { display: flex; justify-content: space-between; padding: 2px 0; }
+    .dre-preview .dre-titulo { font-weight: 700; color: var(--accent); border-top: 1px solid var(--border); padding-top: 4px; margin-top: 4px; }
+
+    @media print {
+      body { background: #fff; color: #000; }
+      .topbar, .voltar-nav, .prompt-copy-btn, .arquivo-download__btn, .caso-cta { display: none; }
+      .caso-hero-grid, .passo__body { display: block; }
+      .caso-hero-sidebar, .passo__sidebar { border: 1px solid #888 !important; background: #f5f5f5 !important; margin-top: 12px; break-inside: avoid; }
+      .prompt-box { background: #f5f5f5 !important; border: 1px solid #888; }
+      .passo { break-inside: avoid; page-break-inside: avoid; }
+      a { color: #000; text-decoration: underline; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../../../../" class="topbar-logo">Débora</a>
+      <div class="topbar-nav">
+        <a href="../../../../">Home</a>
+        <a href="../../">Voltar pra S4</a>
+        <a href="../../../../banco-de-prompts/">Banco de prompts</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="breadcrumb-page">
+    <div class="site-container">
+      <div class="breadcrumb">
+        <a href="../../../../">Débora</a>
+        <span class="sep">/</span>
+        <a href="../../">S4 · Chat + Cowork</a>
+        <span class="sep">/</span>
+        <span>Casos práticos</span>
+        <span class="sep">/</span>
+        <span class="current">Financeiro Banda · 2027</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="caso-hero">
+    <div class="site-container">
+      <div class="caso-hero-grid">
+        <div>
+          <h1 class="caso-h1">Organizar o financeiro da banda de forró — 2027</h1>
+          <p class="caso-descricao">A banda da família fatura ~R$ 15k/mês em ~4 shows. Hoje o financeiro mora informal na cabeça de 1 dos irmãos. Sai desta prática com <strong>uma estrutura de controle em 4 blocos</strong> — categorias, ritmo, responsabilidades, indicadores — num documento que você mostra pra família e começa a rodar em janeiro.</p>
+          <a class="caso-cta" href="https://claude.ai/new" target="_blank" rel="noopener">Abrir Claude Chat</a>
+        </div>
+
+        <aside class="caso-hero-sidebar">
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Autoria</div>
+            <div class="caso-hero-sidebar__valor">Mentoria IA Executiva</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Categoria</div>
+            <div class="caso-hero-sidebar__valor">Gestão financeira informal · Rotina familiar</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Modelo sugerido</div>
+            <div class="caso-hero-sidebar__valor">Claude Sonnet 4.5</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Ferramentas</div>
+            <div class="caso-features">
+              <span class="feat-chip">Chat</span>
+              <span class="feat-chip">Cowork</span>
+            </div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Tempo estimado</div>
+            <div class="caso-hero-sidebar__valor">20-30 min · 4-5 turnos</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="passos-wrap">
+    <div class="site-container">
+
+      <!-- PASSO 1 -->
+      <div class="passo">
+        <div class="passo__num">1</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Descreva a tarefa</h3>
+            <p>Abrir <code>claude.ai</code>, conversa nova. Prompt PCTFL com <em>o contexto da banda</em> — quanto mais nítido você põe (nº de integrantes, faturamento, custos variáveis), menos genérica volta.</p>
+            <p class="muted">Não precisa de dado exato. "~R$ 15k/mês", "6 integrantes", "~4 shows" é o suficiente. Ordem de grandeza &gt; precisão contábil aqui.</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-1">Copiar</button><span id="prompt-1"><span class="highlight">Papel:</span> Você é um sócio financeiro sênior que já organizou o caixa de 5 bandas independentes e 2 pequenos negócios de eventos.
+
+<span class="highlight">Contexto:</span> Sou parte de uma banda de forró familiar com 6 integrantes. Hoje o financeiro mora informal na cabeça de 1 irmão. Faturamento médio ~R$ 15.000/mês, ~4 shows por mês, custos variáveis (transporte, som, cachê de músicos convidados) que variam muito.
+
+<span class="highlight">Tarefa:</span> Proponha uma estrutura de controle financeiro pra 2027 em 4 blocos: (1) categorias de entrada e saída, (2) ritmo de conferência (diário, semanal, mensal), (3) responsabilidades por membro, (4) indicadores mínimos que a família olha junto no fim do mês.
+
+<span class="highlight">Formato:</span> Blocos com título + 3-5 bullets curtos por bloco.
+
+<span class="highlight">Limite:</span> Nada de ERP nem software pago no primeiro ano. Nada de figura jurídica formal ainda (a banda ainda não tem CNPJ).</span></div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">📊</div>
+              <div class="passo__sidebar-title">Por que Chat aqui</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Você tá <strong>desenhando</strong> a estrutura, não editando um documento existente. Ideal pra Chat: pensar em voz alta, iterar sobre categorias, discutir se "cachê convidado" é variável ou terceirização.</p>
+              <p style="margin-top:8px;">O Cowork entra depois, no passo 5, quando a estrutura já existe e você quer polir pra família ler.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 2 -->
+      <div class="passo">
+        <div class="passo__num">2</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Traga o irmão pra dentro do prompt</h3>
+            <p>A 1ª resposta vai vir competente mas <em>impessoal</em> — categorias de manual, sem cara. O truque é adicionar 1 turno de humanização: nomear o irmão que cuida hoje, explicar como ele faz, e pedir a estrutura ancorada nele.</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-2">Copiar</button><span id="prompt-2">Boa base. Agora ajusta: quem cuida do dinheiro hoje é o meu irmão [nome] — ele guarda os recibos numa pasta física, anota faturamento numa caderneta, e faz o "fechamento" na cabeça no fim do mês. Ele é bom em números mas alérgico a planilha complexa.
+
+Reescreve a proposta assumindo que ele vai ser o responsável 1 pela estrutura. Nada que exija fórmula. Nada que exija login em conta paga. Preferência por caderno + 1 planilha simples.</span></div>
+
+            <p>Se surgir sugestão de app ou ferramenta que você acha que a família não vai adotar, discorda direto — 1 frase:</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-3">Copiar</button><span id="prompt-3">Corta a sugestão de [nome do app]. O irmão não vai baixar. Assume só caderno + Google Sheets.</span></div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">👥</div>
+              <div class="passo__sidebar-title">Regra da adoção</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>A melhor estrutura é <strong>a que a pessoa vai adotar</strong>, não a mais correta.</p>
+              <p style="margin-top:8px;">Quando o Claude sugere ferramenta que você <em>sabe</em> que a pessoa não vai usar, corta antes de refinar em cima.</p>
+              <p style="margin-top:8px; color:var(--ink-muted);">Isso vale muito além dessa banda — vale pra qualquer processo que envolve outras pessoas.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 3 -->
+      <div class="passo">
+        <div class="passo__num">3</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Peça os 5 indicadores mínimos</h3>
+            <p>Estrutura de categoria + ritmo + responsabilidade tá pronta. Falta a última camada: <strong>o que a família olha junto no fim do mês</strong>. Sem indicadores, a estrutura vira ritual burocrático.</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-4">Copiar</button><span id="prompt-4">Última coisa: liste os 5 indicadores mínimos que a família olha junto no fim do mês. Regra:
+- Cada um em 1 linha curta
+- Cada um com fórmula simples que o irmão consiga calcular no caderno (ex.: "faturamento total ÷ nº de shows = ticket médio")
+- Pelo menos 1 indicador de risco (ex.: "% do faturamento comprometido com cachê de convidado")
+- Nenhum que dependa de dado que a banda não tem</span></div>
+          </div>
+
+          <aside class="passo__sidebar sidebar-card--claude">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">✎</div>
+              <div class="passo__sidebar-title">Do Claude · exemplo</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p><strong>5 indicadores mínimos · Banda</strong></p>
+              <div class="dre-preview">
+                <div class="dre-linha"><span>Ticket médio:</span><span>fat / nº shows</span></div>
+                <div class="dre-linha"><span>Custo por show:</span><span>gastos / nº shows</span></div>
+                <div class="dre-linha"><span>Margem líquida:</span><span>(fat - custo) / fat</span></div>
+                <div class="dre-linha"><span>% convidado:</span><span>cachê / fat</span></div>
+                <div class="dre-linha"><span>Reserva mês:</span><span>saldo - meta</span></div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 4 -->
+      <div class="passo">
+        <div class="passo__num">4</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Passe pro Cowork · deixa pronto pra família ler</h3>
+            <p>O Chat entregou 4 blocos + 5 indicadores. Agora o documento tem que virar algo que o irmão lê num café e entende. Copie o output final e cole num Cowork novo. Ali, o refinamento é <em>de tom</em>, não de conteúdo.</p>
+
+            <div class="refinamentos">
+              <div class="refinamento">
+                <div class="refinamento__titulo">Reescrever pra ele</div>
+                <div class="refinamento__prompt">"Reescreve o texto inteiro em tom mais próximo, sem jargão de sócio. Como se eu fosse explicar pro meu irmão num café. Preserva a estrutura de 4 blocos + 5 indicadores."</div>
+              </div>
+              <div class="refinamento">
+                <div class="refinamento__titulo">Adicionar exemplo concreto</div>
+                <div class="refinamento__prompt">"Em cada um dos 5 indicadores, adiciona um exemplo com número simulado de 1 mês típico (ex.: faturamento R$ 14k, 4 shows). Assim ele visualiza."</div>
+              </div>
+              <div class="refinamento">
+                <div class="refinamento__titulo">Fecho de conversa</div>
+                <div class="refinamento__prompt">"Adiciona no fim: 1 parágrafo curto de 'como começar em janeiro' — 3 ações que ele faz na primeira semana pra destravar o resto."</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">💬</div>
+              <div class="passo__sidebar-title">Teste de adoção</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Antes de dar pra família, você mesma lê em voz alta a versão final.</p>
+              <p style="margin-top:8px;"><strong>Se você trava em alguma frase</strong> — troca de palavra ou pede reescrita. Se você trava, ele trava.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 5 -->
+      <div class="passo">
+        <div class="passo__num">5</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Truques, dicas e ciladas</h3>
+            <div class="truques-lista">
+              <div class="truque">
+                <h4>Ordem de grandeza &gt; precisão contábil</h4>
+                <p>Não perca 20 min tentando saber o faturamento exato dos últimos 3 meses. "~R$ 15k/mês" é suficiente pra desenhar estrutura. O ajuste fino vem depois, quando a estrutura já está rodando.</p>
+              </div>
+              <div class="truque">
+                <h4>A estrutura tem que caber num caderno</h4>
+                <p>Se o Claude sugere planilha com fórmula ou app pago, corte. Ano 1 de banda familiar = caderno + Sheets simples. Se você complexificar demais, a família não adota.</p>
+              </div>
+              <div class="truque">
+                <h4>Nomeie 1 responsável por bloco</h4>
+                <p>"Todo mundo cuida" = ninguém cuida. Cada bloco (categorias / ritmo / indicadores) tem 1 nome. Rotação anual, tudo bem — mas 1 nome por vez.</p>
+              </div>
+              <div class="truque">
+                <h4>Reserva antes de faturamento</h4>
+                <p>Uma das regras que o Claude pode não sugerir sozinho: pedir uma linha de reserva mensal (5-10% do faturamento vai pra fundo antes de qualquer distribuição). Sem isso, a banda vira ganho variável só.</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">🎯</div>
+              <div class="passo__sidebar-title">Como saber que deu certo</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <ul>
+                <li>O irmão lê a versão final e diz "isso é o que eu já faço mas melhor organizado" — deu certo</li>
+                <li>Ele lê e diz "isso é muito trabalho, complicou" — refina no Cowork, corta 30% do texto</li>
+                <li>Ele lê e diz "faz sentido" mas não começa em janeiro — problema NÃO é a estrutura, é o combinado familiar</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 6 -->
+      <div class="passo">
+        <div class="passo__num">6</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Frente prática · faça agora</h3>
+            <div class="frente-pratica">
+              <p class="frente-pratica__lead">Baixe o prompt-base + um exemplo de planilha simples. 20-30 min do começo ao fim. Você sai com o documento que vai mostrar pra família no próximo encontro.</p>
+
+              <div class="arquivo-download">
+                <div class="arquivo-download__icon">MD</div>
+                <div>
+                  <div class="arquivo-download__nome">prompt-banda-financeiro.md</div>
+                  <div class="arquivo-download__desc">Prompt PCTFL completo · 5 turnos comentados</div>
+                </div>
+                <a class="arquivo-download__btn" href="prompt-banda-financeiro.md" download>baixar ↓</a>
+              </div>
+
+              <div class="arquivo-download">
+                <div class="arquivo-download__icon">CSV</div>
+                <div>
+                  <div class="arquivo-download__nome">planilha-controle-banda.csv</div>
+                  <div class="arquivo-download__desc">Template de partida · categorias + colunas mínimas</div>
+                </div>
+                <a class="arquivo-download__btn" href="planilha-controle-banda.csv" download>baixar ↓</a>
+              </div>
+
+              <div class="passo-a-passo">
+                <h5>Passo a passo em 5 minutos</h5>
+                <ol>
+                  <li>Baixe os 2 arquivos acima</li>
+                  <li>Abra <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai/new</a> — conversa nova</li>
+                  <li>Cole o prompt · ajuste faturamento, nº de integrantes, nome do irmão que cuida</li>
+                  <li>Rode. Adicione o turno 2 pra trazer o irmão pra dentro da estrutura</li>
+                  <li>Peça os 5 indicadores (turno 3)</li>
+                  <li>Transfira pro Cowork · reescreva em tom conversa · adicione exemplos numéricos</li>
+                  <li>Leia em voz alta 1 vez · edite frase que trava</li>
+                  <li>Abra a planilha CSV · copie categorias que saíram do bloco 1 pra dentro dela</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">✓</div>
+              <div class="passo__sidebar-title">Ao chegar aqui</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Você tem 1 documento em tom de conversa + 1 planilha inicial de categorias. Pronto pra mostrar pra família.</p>
+              <p style="margin-top:10px;">Reporta na S5:</p>
+              <ul>
+                <li>O irmão topou começar em janeiro?</li>
+                <li>Precisou refazer o tom? Quantas vezes?</li>
+                <li>Cowork ajudou ou você fez tudo no Chat?</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="voltar-nav">
+    <div class="site-container">
+      <a href="../../">← Voltar pra S4 · Chat + Cowork</a>
+      <div class="assinatura">Curadoria: Rafael Lima · <a href="https://www.instagram.com/iacomrafael/" target="_blank" rel="noopener">@iacomrafael</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.prompt-copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const t = document.getElementById(btn.dataset.copyTarget);
+        if (!t) return;
+        navigator.clipboard.writeText(t.textContent).then(() => {
+          const orig = btn.textContent;
+          btn.textContent = 'Copiado ✓';
+          btn.classList.add('copied');
+          setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

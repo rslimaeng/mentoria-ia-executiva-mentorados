@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Caso · Preparar entrevista Corretora · S4 · Débora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../../_shared/assets/style.css">
+  <style>
+    /* ── Padrão "caso" — reutilizado nas 3 páginas exemplo da S4 ── */
+
+    /* Breadcrumb */
+    .breadcrumb-page {
+      padding: 22px 0 14px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .breadcrumb-page .site-container { max-width: 1080px; }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      flex-wrap: wrap;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+    .breadcrumb a { color: var(--ink-soft); }
+    .breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+    .breadcrumb .sep { color: var(--ink-muted); }
+    .breadcrumb .current { color: var(--ink); font-weight: 500; }
+
+    /* Hero do caso */
+    .caso-hero {
+      padding: 44px 0 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .caso-hero .site-container { max-width: 1080px; }
+    .caso-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 48px;
+    }
+    @media (max-width: 900px) {
+      .caso-hero-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .caso-h1 {
+      font-family: var(--serif);
+      font-size: 44px; font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 18px;
+      max-width: 620px;
+    }
+    .caso-descricao {
+      font-family: var(--sans);
+      font-size: 16.5px; line-height: 1.6;
+      color: var(--ink-soft);
+      margin-bottom: 26px;
+      max-width: 560px;
+    }
+    .caso-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 13px 22px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none;
+      transition: background .18s;
+    }
+    .caso-cta:hover { background: var(--accent-dark); text-decoration: none; color: #fff; }
+    .caso-cta::after { content: "↗"; font-size: 15px; }
+
+    /* Sidebar do hero */
+    .caso-hero-sidebar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 24px;
+      align-self: start;
+    }
+    .caso-hero-sidebar__bloco {
+      padding: 12px 0;
+      border-top: 1px solid var(--border);
+    }
+    .caso-hero-sidebar__bloco:first-of-type { border-top: none; padding-top: 0; }
+    .caso-hero-sidebar__label {
+      display: flex; align-items: center; gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5px; font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--ink-muted);
+      margin-bottom: 6px;
+    }
+    .caso-hero-sidebar__valor {
+      font-family: 'Inter', sans-serif;
+      font-size: 14.5px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .caso-features { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .feat-chip {
+      display: inline-block;
+      padding: 3px 10px;
+      background: #fdf3ec;
+      color: var(--accent-warm-dark);
+      border: 1px solid var(--accent-warm);
+      border-radius: 999px;
+      font-size: 11.5px; font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    /* Passos */
+    .passos-wrap { padding: 40px 0; }
+    .passos-wrap .site-container { max-width: 1080px; }
+
+    .passo {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 24px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .passo:last-child { border-bottom: none; }
+    @media (max-width: 700px) {
+      .passo { grid-template-columns: 40px 1fr; gap: 16px; padding: 30px 0; }
+    }
+    .passo__num {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--bg-warm);
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 17px; font-weight: 700;
+      flex-shrink: 0;
+    }
+    @media (max-width: 700px) {
+      .passo__num { width: 34px; height: 34px; font-size: 14px; }
+    }
+    .passo__body {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .passo__body { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .passo__conteudo h3 {
+      font-family: var(--serif);
+      font-size: 26px; font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .passo__conteudo p {
+      font-family: var(--sans);
+      font-size: 15.5px; line-height: 1.65;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .passo__conteudo p.muted { color: var(--ink-soft); }
+    .passo__conteudo strong { color: var(--ink); }
+    .passo__conteudo em { color: var(--accent); font-style: italic; }
+    .passo__conteudo code {
+      background: var(--bg-warm);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent-warm-dark);
+    }
+    .passo__conteudo ul, .passo__conteudo ol { padding-left: 22px; margin: 8px 0 14px 0; }
+    .passo__conteudo li { font-size: 15px; line-height: 1.6; color: var(--ink); padding: 4px 0; }
+
+    /* Prompt box */
+    .prompt-box {
+      background: #fdfaf3;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      padding: 18px 20px 18px 20px;
+      font-family: var(--mono);
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--ink);
+      position: relative;
+      white-space: pre-wrap;
+      margin: 14px 0;
+    }
+    .prompt-box .highlight {
+      background: rgba(44,95,112,.08);
+      color: var(--accent);
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+    .prompt-copy-btn {
+      position: absolute;
+      top: 10px; right: 10px;
+      padding: 6px 12px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 600;
+      cursor: pointer;
+      transition: background .18s;
+    }
+    .prompt-copy-btn:hover { background: var(--accent-dark); }
+    .prompt-copy-btn.copied { background: var(--accent-warm-dark); }
+
+    /* Sidebar do passo */
+    .passo__sidebar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+    }
+    .passo__sidebar-cabecalho {
+      display: flex; align-items: center; gap: 10px;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .passo__sidebar-icon {
+      width: 32px; height: 32px;
+      background: var(--bg-warm);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .passo__sidebar-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 11.5px; font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--ink-soft);
+    }
+    .passo__sidebar-conteudo {
+      font-family: var(--sans);
+      font-size: 13.5px; line-height: 1.55;
+      color: var(--ink);
+    }
+    .passo__sidebar-conteudo strong { color: var(--ink); font-weight: 600; }
+    .passo__sidebar-conteudo p { margin-bottom: 8px; font-size: 13.5px; }
+    .passo__sidebar-conteudo ul { padding-left: 18px; margin-top: 6px; }
+    .passo__sidebar-conteudo li { font-size: 13px; line-height: 1.5; padding: 3px 0; }
+
+    .sidebar-card--claude {
+      background: #fdf3ec;
+      border-color: var(--accent-warm);
+    }
+    .sidebar-card--claude .passo__sidebar-title { color: var(--accent-warm-dark); }
+
+    /* Continuar conversa — 3 mini blocos */
+    .refinamentos { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
+    .refinamento {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+    }
+    .refinamento__titulo {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 700;
+      color: var(--accent-warm-dark);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+    .refinamento__prompt {
+      font-family: var(--serif);
+      font-size: 15px; font-style: italic;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    /* Truques cards */
+    .truques-lista { display: flex; flex-direction: column; gap: 14px; margin-top: 12px; }
+    .truque {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-warm);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+    }
+    .truque h4 {
+      font-family: var(--serif);
+      font-size: 17px; font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .truque p { font-size: 14px; line-height: 1.55; color: var(--ink); }
+
+    /* Frente prática */
+    .frente-pratica {
+      background: var(--bg-warm);
+      border: 1px solid var(--border-strong);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-top: 16px;
+    }
+    .frente-pratica__lead {
+      font-family: var(--sans);
+      font-size: 15px; line-height: 1.6;
+      color: var(--ink);
+      margin-bottom: 18px;
+    }
+    .arquivo-download {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: grid;
+      grid-template-columns: 40px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .arquivo-download__icon {
+      width: 40px; height: 40px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .04em;
+    }
+    .arquivo-download__nome {
+      font-family: var(--mono);
+      font-size: 14px; font-weight: 600;
+      color: var(--ink);
+    }
+    .arquivo-download__desc {
+      font-family: var(--sans);
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      margin-top: 2px;
+    }
+    .arquivo-download__btn {
+      padding: 8px 14px;
+      background: none;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px; font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .arquivo-download__btn:hover { background: var(--accent); color: #fff; text-decoration: none; }
+
+    .passo-a-passo {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 24px;
+      margin-top: 16px;
+    }
+    .passo-a-passo h5 {
+      font-family: var(--serif);
+      font-size: 18px; font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .passo-a-passo ol { padding-left: 22px; }
+    .passo-a-passo li { font-size: 14.5px; line-height: 1.6; color: var(--ink); padding: 5px 0; }
+
+    /* Voltar */
+    .voltar-nav {
+      background: var(--bg-warm);
+      border-top: 1px solid var(--border);
+      padding: 30px 0 36px;
+    }
+    .voltar-nav .site-container {
+      max-width: 1080px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .voltar-nav a { color: var(--accent); font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; }
+    .voltar-nav .assinatura {
+      font-size: 12.5px; color: var(--ink-muted);
+      font-family: 'Inter', sans-serif;
+    }
+    .voltar-nav .assinatura a { color: var(--accent); }
+
+    /* Print */
+    @media print {
+      body { background: #fff; color: #000; }
+      .topbar, .voltar-nav, .prompt-copy-btn, .arquivo-download__btn, .caso-cta { display: none; }
+      .caso-hero-grid, .passo__body { display: block; }
+      .caso-hero-sidebar, .passo__sidebar { border: 1px solid #888 !important; background: #f5f5f5 !important; margin-top: 12px; break-inside: avoid; }
+      .prompt-box { background: #f5f5f5 !important; border: 1px solid #888; }
+      .passo { break-inside: avoid; page-break-inside: avoid; }
+      a { color: #000; text-decoration: underline; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../../../../" class="topbar-logo">Débora</a>
+      <div class="topbar-nav">
+        <a href="../../../../">Home</a>
+        <a href="../../">Voltar pra S4</a>
+        <a href="../../../../banco-de-prompts/">Banco de prompts</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <section class="breadcrumb-page">
+    <div class="site-container">
+      <div class="breadcrumb">
+        <a href="../../../../">Débora</a>
+        <span class="sep">/</span>
+        <a href="../../">S4 · Chat + Cowork</a>
+        <span class="sep">/</span>
+        <span>Casos práticos</span>
+        <span class="sep">/</span>
+        <span class="current">Preparar entrevista — Corretora</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero -->
+  <section class="caso-hero">
+    <div class="site-container">
+      <div class="caso-hero-grid">
+        <div>
+          <h1 class="caso-h1">Preparar entrevista de gerente comercial — Corretora</h1>
+          <p class="caso-descricao">Você vai fazer uma entrevista pra vaga de gerente comercial numa corretora de médio porte. Nunca trabalhou em corretora. Sai desta prática com <strong>3 perguntas prováveis + 3 esboços de resposta em STAR</strong> num documento pronto pra imprimir e levar.</p>
+          <a class="caso-cta" href="https://claude.ai/new" target="_blank" rel="noopener">Abrir Claude Chat</a>
+        </div>
+
+        <aside class="caso-hero-sidebar">
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Autoria</div>
+            <div class="caso-hero-sidebar__valor">Mentoria IA Executiva</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Categoria</div>
+            <div class="caso-hero-sidebar__valor">Transição de carreira · Rotina executiva</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Modelo sugerido</div>
+            <div class="caso-hero-sidebar__valor">Claude Sonnet 4.5</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Ferramentas</div>
+            <div class="caso-features">
+              <span class="feat-chip">Chat</span>
+              <span class="feat-chip">Cowork</span>
+            </div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Tempo estimado</div>
+            <div class="caso-hero-sidebar__valor">25-35 min · 5-6 turnos</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Passos -->
+  <section class="passos-wrap">
+    <div class="site-container">
+
+      <!-- PASSO 1 -->
+      <div class="passo">
+        <div class="passo__num">1</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Descreva a tarefa</h3>
+            <p>Abrir <code>claude.ai</code>, começar uma conversa nova. A primeira mensagem define quase todo o resto — se ela vier vaga, todas as respostas seguintes vão pagar o preço. Use o <strong>PCTFL</strong> (visto no M4): <em>Papel · Contexto · Tarefa · Formato · Limite</em>.</p>
+            <p class="muted">O prompt abaixo é a versão testada. Você adapta os trechos <span style="background:rgba(44,95,112,.08); padding:1px 6px; border-radius:3px; color:var(--accent); font-weight:500;">destacados</span> pra sua realidade antes de rodar.</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-1">Copiar</button><span id="prompt-1"><span class="highlight">Papel:</span> Você é uma head de RH de corretora de seguros de médio porte com 15 anos de experiência conduzindo entrevistas de gerente comercial.
+
+<span class="highlight">Contexto:</span> Vou entrevistar candidata pra gerente comercial. O perfil dela é: gestora administrativa (chefe de gabinete de câmara municipal por 8 anos), pré-1 em IA mas em ascensão. Nunca trabalhou em corretora. Tem visão de gestão de pessoas e processos, mas pouco vocabulário técnico de seguros.
+
+<span class="highlight">Tarefa:</span> Liste as 3 perguntas mais prováveis que vão cair nessa entrevista e a intenção real por trás de cada uma — o que a entrevistadora quer descobrir (não o que ela literalmente pergunta).
+
+<span class="highlight">Formato:</span> Tabela markdown 3 linhas. Colunas: Pergunta · Intenção real · O que uma resposta ruim revela sobre a candidata.
+
+<span class="highlight">Limite:</span> Nada de perguntas óbvias de "me fale sobre você". Vá pras que separam finalistas.</span></div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">🧭</div>
+              <div class="passo__sidebar-title">Regra dos 5 campos</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p><strong>P</strong>apel — quem é o Claude nessa conversa</p>
+              <p><strong>C</strong>ontexto — quem é você, situação real</p>
+              <p><strong>T</strong>arefa — o que você quer que ele produza</p>
+              <p><strong>F</strong>ormato — como o output vem estruturado</p>
+              <p><strong>L</strong>imite — o que ele NÃO deve fazer</p>
+              <p style="margin-top:10px; font-size:12.5px; color:var(--ink-muted);">Sem Limite claro, ele vira genérico. Sem Formato, vira parágrafo indigesto.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 2 -->
+      <div class="passo">
+        <div class="passo__num">2</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Corrija a premissa cedo</h3>
+            <p>A 1ª resposta vai vir boa mas com premissa possivelmente errada — porque você não deu <em>todo</em> o contexto ainda. O erro clássico é aceitar essa 1ª entrega e seguir refinando o texto. <strong>Custa caro:</strong> os 3 turnos seguintes vão trabalhar em cima da premissa errada.</p>
+            <p>Discorda cedo, específico:</p>
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-2">Copiar</button><span id="prompt-2">Refaz. As 3 perguntas assumiram corretora grande com estrutura comercial madura. A corretora dessa vaga tem 50 funcionários e o gerente comercial responde direto ao dono. Ajusta.</span></div>
+            <p>Se surgir outra pressuposição errada (ex.: alguma pergunta pede que ela conheça o CRM deles), discorda de novo — sem drama, uma frase:</p>
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-3">Copiar</button><span id="prompt-3">Uma das perguntas assume que ela sabe qual CRM eles usam. Reescreve pressupondo que ela vai pra entrevista sem saber o stack técnico deles.</span></div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">⚠️</div>
+              <div class="passo__sidebar-title">Anti-padrão comum</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Aceitar a 1ª entrega e ir refinando <em>o texto</em> em vez da <em>premissa</em>.</p>
+              <p style="margin-top:8px;">Se você percebe que ele assumiu algo errado sobre o contexto, <strong>volta pra premissa antes</strong> de mexer no output. Refazer sai mais barato que remendar.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 3 -->
+      <div class="passo">
+        <div class="passo__num">3</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Puxe o rascunho de resposta em STAR</h3>
+            <p>Com as perguntas travadas, agora sim vale gerar os esboços. Peça em <strong>STAR</strong> (Situação · Tarefa · Ação · Resultado) — ancorados na experiência real da chefia de gabinete. Onde faltar dado que só você sabe, o Claude marca <code>[VOCÊ PREENCHE]</code> — não inventa.</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-4">Copiar</button><span id="prompt-4">Boa. Agora, pra cada pergunta, esboça 1 resposta em ~4 linhas usando a lente STAR (Situação · Tarefa · Ação · Resultado) — mas ancorada na experiência dela de chefe de gabinete. Se faltar dado que só ela sabe, marca [DÉBORA PREENCHE].</span></div>
+          </div>
+
+          <aside class="passo__sidebar sidebar-card--claude">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">✎</div>
+              <div class="passo__sidebar-title">Do Claude · exemplo</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p><strong>P2 · Como você lida com equipe que resiste a processo novo?</strong></p>
+              <p style="font-size:12.5px; color:var(--ink-soft); margin-top:4px;"><strong>S:</strong> Na Câmara, precisei implementar controle de ponto digital em <code>[DÉBORA PREENCHE nº de assessores]</code> pessoas que sempre trabalharam sem registro.</p>
+              <p style="font-size:12.5px; color:var(--ink-soft);"><strong>T:</strong> Tornar o registro rotina sem gerar reação sindical.</p>
+              <p style="font-size:12.5px; color:var(--ink-soft);"><strong>A:</strong> <code>[DÉBORA PREENCHE ação real]</code></p>
+              <p style="font-size:12.5px; color:var(--ink-soft);"><strong>R:</strong> Adesão em <code>[DÉBORA PREENCHE prazo]</code> sem processo formal.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 4 -->
+      <div class="passo">
+        <div class="passo__num">4</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Passe pro Cowork · edite lado a lado</h3>
+            <p>O Chat entregou. Agora você tem <em>matéria-prima</em>. Aqui muda de ferramenta: copie o output final (tabela + 3 esboços STAR) e cole num Cowork novo. Ali, o Claude edita <strong>naquele parágrafo</strong> — você vê a mudança na hora, discorda de uma frase, edita você mesma.</p>
+            <p>3 refinamentos típicos que fazem diferença no Cowork:</p>
+
+            <div class="refinamentos">
+              <div class="refinamento">
+                <div class="refinamento__titulo">Refinar tom</div>
+                <div class="refinamento__prompt">"Reescreve o esboço da pergunta 2 em tom mais executivo e menos operacional. Preserva STAR mas troca 'consegui organizar' por verbos de decisão."</div>
+              </div>
+              <div class="refinamento">
+                <div class="refinamento__titulo">Adicionar linha final</div>
+                <div class="refinamento__prompt">"Em cada esboço, adiciona 1 linha final de 'aprendizado que levo pra corretora' — conectando com o novo contexto."</div>
+              </div>
+              <div class="refinamento">
+                <div class="refinamento__titulo">Enxugar</div>
+                <div class="refinamento__prompt">"Cada resposta tá com ~5 linhas. Corta pra 3 linhas de núcleo + 1 fecho. Sem perder o dado concreto."</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">💡</div>
+              <div class="passo__sidebar-title">Padrão de uso</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Chat gera <strong>o insumo</strong>. Cowork transforma em <strong>entregável</strong>.</p>
+              <p style="margin-top:8px;">É o par mais comum na rotina executiva: Chat pra pensar/coletar → Cowork pra polir.</p>
+              <p style="margin-top:8px; color:var(--ink-muted);">Você pode fazer tudo só no Chat, mas cada refinamento vai ser uma cópia&cola. Cowork elimina isso.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 5 -->
+      <div class="passo">
+        <div class="passo__num">5</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Truques, dicas e ciladas</h3>
+
+            <div class="truques-lista">
+              <div class="truque">
+                <h4>Corrigir premissa cedo economiza 3 turnos</h4>
+                <p>Se a 1ª resposta trouxer suposição errada sobre a corretora (tamanho, estrutura, stack), corrija <em>antes</em> de refinar o texto. Refinar o texto em cima de premissa errada só produz um erro polido.</p>
+              </div>
+              <div class="truque">
+                <h4>Deixe o Claude marcar as lacunas</h4>
+                <p>Peça <code>[VOCÊ PREENCHE]</code> onde faltar dado — números do gabinete, prazos reais, projetos que você conduziu. Se ele inventar, você chega na entrevista com dado falso na cabeça.</p>
+              </div>
+              <div class="truque">
+                <h4>STAR não pode virar mentira</h4>
+                <p>A tentação é ampliar a Ação e o Resultado ("consegui organizar 400 pessoas em 30 dias"). Se você não fez exatamente isso, não escreve — quem entrevista pergunta detalhe, e detalhe inventado desaba.</p>
+              </div>
+              <div class="truque">
+                <h4>Imprima 1 versão em papel</h4>
+                <p>O documento saído do Cowork vai virar impressão pra você levar. Leia em voz alta 1 vez antes. Frase que trava lendo em voz alta trava também na entrevista.</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">🎯</div>
+              <div class="passo__sidebar-title">Como saber que deu certo</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <ul>
+                <li>Você lê os 3 esboços em voz alta sem travar</li>
+                <li>Cada resposta tem 1 dado concreto (número, projeto, período) que é real e seu</li>
+                <li>Nenhum <code>[VOCÊ PREENCHE]</code> sobrou na versão final</li>
+                <li>Você consegue explicar em 30s por que cada pergunta foi escolhida</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 6 -->
+      <div class="passo">
+        <div class="passo__num">6</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Frente prática · faça agora</h3>
+            <div class="frente-pratica">
+              <p class="frente-pratica__lead">Baixe o prompt-base abaixo e cole numa conversa nova no Claude Chat. 25-35 min do começo ao fim. Não precisa fazer perfeito — precisa fazer.</p>
+
+              <div class="arquivo-download">
+                <div class="arquivo-download__icon">MD</div>
+                <div>
+                  <div class="arquivo-download__nome">prompt-corretora-entrevista.md</div>
+                  <div class="arquivo-download__desc">Prompt PCTFL completo · adaptar contexto antes de rodar</div>
+                </div>
+                <a class="arquivo-download__btn" href="prompt-corretora-entrevista.md" download>baixar ↓</a>
+              </div>
+
+              <div class="passo-a-passo">
+                <h5>Passo a passo em 5 minutos</h5>
+                <ol>
+                  <li>Baixe <code>prompt-corretora-entrevista.md</code> acima</li>
+                  <li>Abra <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai/new</a> — conversa nova</li>
+                  <li>Cole o prompt · adapte o <strong>Contexto</strong> ao perfil real da vaga que você vai</li>
+                  <li>Rode. Se a 1ª resposta pressupor algo errado, corrija cedo (passo 2 acima)</li>
+                  <li>Puxe os esboços STAR (passo 3) · marque <code>[VOCÊ PREENCHE]</code></li>
+                  <li>Transfira pro Cowork · refine tom, enxugue, adicione fecho</li>
+                  <li>Complete os <code>[VOCÊ PREENCHE]</code> com seus dados reais</li>
+                  <li>Imprima em papel · leia em voz alta 1 vez</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">✓</div>
+              <div class="passo__sidebar-title">Ao chegar aqui</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Você tem 1 documento de 1 página com 3 perguntas + 3 esboços STAR ancorados na sua experiência real, prontos pra entrevista.</p>
+              <p style="margin-top:10px;">Reporta na S5:</p>
+              <ul>
+                <li>Foi útil ou parou no meio?</li>
+                <li>O Cowork ajudou ou você fez tudo no Chat?</li>
+                <li>Onde travou?</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Nav voltar -->
+  <footer class="voltar-nav">
+    <div class="site-container">
+      <a href="../../">← Voltar pra S4 · Chat + Cowork</a>
+      <div class="assinatura">Curadoria: Rafael Lima · <a href="https://www.instagram.com/iacomrafael/" target="_blank" rel="noopener">@iacomrafael</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Copiar prompt
+    document.querySelectorAll('.prompt-copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const t = document.getElementById(btn.dataset.copyTarget);
+        if (!t) return;
+        navigator.clipboard.writeText(t.textContent).then(() => {
+          const orig = btn.textContent;
+          btn.textContent = 'Copiado ✓';
+          btn.classList.add('copied');
+          setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Caso · Decisões de reunião · Gabinete · S4 · Débora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../../_shared/assets/style.css">
+  <style>
+    /* Padrão "caso" — S4 exemplos */
+    .breadcrumb-page { padding: 22px 0 14px; background: var(--bg); border-bottom: 1px solid var(--border); }
+    .breadcrumb-page .site-container { max-width: 1080px; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--ink-muted); }
+    .breadcrumb a { color: var(--ink-soft); }
+    .breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+    .breadcrumb .sep { color: var(--ink-muted); }
+    .breadcrumb .current { color: var(--ink); font-weight: 500; }
+
+    .caso-hero { padding: 44px 0 40px; border-bottom: 1px solid var(--border); }
+    .caso-hero .site-container { max-width: 1080px; }
+    .caso-hero-grid { display: grid; grid-template-columns: 1fr 320px; gap: 48px; }
+    @media (max-width: 900px) { .caso-hero-grid { grid-template-columns: 1fr; gap: 24px; } }
+    .caso-h1 { font-family: var(--serif); font-size: 44px; font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: 18px; max-width: 620px; }
+    .caso-descricao { font-family: var(--sans); font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); margin-bottom: 26px; max-width: 560px; }
+    .caso-cta { display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; background: var(--accent); color: #fff; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; text-decoration: none; transition: background .18s; }
+    .caso-cta:hover { background: var(--accent-dark); text-decoration: none; color: #fff; }
+    .caso-cta::after { content: "↗"; font-size: 15px; }
+
+    .caso-hero-sidebar { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; align-self: start; }
+    .caso-hero-sidebar__bloco { padding: 12px 0; border-top: 1px solid var(--border); }
+    .caso-hero-sidebar__bloco:first-of-type { border-top: none; padding-top: 0; }
+    .caso-hero-sidebar__label { display: flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: var(--ink-muted); margin-bottom: 6px; }
+    .caso-hero-sidebar__valor { font-family: 'Inter', sans-serif; font-size: 14.5px; color: var(--ink); font-weight: 500; }
+    .caso-features { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .feat-chip { display: inline-block; padding: 3px 10px; background: #fdf3ec; color: var(--accent-warm-dark); border: 1px solid var(--accent-warm); border-radius: 999px; font-size: 11.5px; font-weight: 600; letter-spacing: .02em; }
+    .feat-chip--danger { background: #fbe6e0; color: #8a3a2a; border-color: #c86851; }
+
+    /* Alerta LGPD no topo */
+    .alerta-lgpd {
+      background: #fbe6e0;
+      border: 1.5px solid #c86851;
+      border-radius: 10px;
+      padding: 18px 24px;
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+    .alerta-lgpd__icon {
+      width: 40px; height: 40px;
+      background: #c86851;
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 700;
+    }
+    .alerta-lgpd__texto {
+      font-family: var(--sans);
+      font-size: 14.5px; line-height: 1.55;
+      color: #6a2b1e;
+    }
+    .alerta-lgpd__texto strong { color: #4a1d13; }
+
+    .passos-wrap { padding: 40px 0; }
+    .passos-wrap .site-container { max-width: 1080px; }
+    .passo { display: grid; grid-template-columns: 60px 1fr; gap: 24px; padding: 40px 0; border-bottom: 1px solid var(--border); }
+    .passo:last-child { border-bottom: none; }
+    @media (max-width: 700px) { .passo { grid-template-columns: 40px 1fr; gap: 16px; padding: 30px 0; } }
+    .passo__num { width: 44px; height: 44px; border-radius: 50%; background: var(--bg-warm); color: var(--accent); border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; flex-shrink: 0; }
+    .passo__num--critico { background: #fbe6e0; color: #8a3a2a; border-color: #c86851; }
+    @media (max-width: 700px) { .passo__num { width: 34px; height: 34px; font-size: 14px; } }
+    .passo__body { display: grid; grid-template-columns: 1fr 320px; gap: 40px; align-items: start; }
+    @media (max-width: 900px) { .passo__body { grid-template-columns: 1fr; gap: 24px; } }
+    .passo__conteudo h3 { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--ink); margin-bottom: 16px; }
+    .passo__conteudo p { font-family: var(--sans); font-size: 15.5px; line-height: 1.65; color: var(--ink); margin-bottom: 14px; }
+    .passo__conteudo p.muted { color: var(--ink-soft); }
+    .passo__conteudo strong { color: var(--ink); }
+    .passo__conteudo em { color: var(--accent); font-style: italic; }
+    .passo__conteudo code { background: var(--bg-warm); padding: 2px 7px; border-radius: 4px; font-family: var(--mono); font-size: 13px; color: var(--accent-warm-dark); }
+    .passo__conteudo ul, .passo__conteudo ol { padding-left: 22px; margin: 8px 0 14px 0; }
+    .passo__conteudo li { font-size: 15px; line-height: 1.6; color: var(--ink); padding: 4px 0; }
+
+    /* Checklist LGPD específico */
+    .checklist-anonimizacao {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 16px 0;
+    }
+    .checklist-anonimizacao h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--accent-warm-dark);
+      margin-bottom: 14px;
+    }
+    .checklist-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      padding: 10px 0;
+      border-top: 1px solid var(--border);
+      font-size: 14px; line-height: 1.55;
+    }
+    .checklist-item:first-child { border-top: none; padding-top: 0; }
+    .checklist-item__original {
+      background: #fbe6e0;
+      border: 1px solid #c86851;
+      color: #6a2b1e;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      font-weight: 500;
+    }
+    .checklist-item__arrow {
+      color: var(--accent);
+      font-weight: 700;
+      align-self: center;
+    }
+    .checklist-item__substituto {
+      background: #e6f0f2;
+      border: 1px solid var(--accent);
+      color: var(--accent-dark);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      font-weight: 500;
+    }
+    .checklist-item__linha {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .checklist-item__nota {
+      font-size: 13px; color: var(--ink-soft);
+      grid-column: 1 / -1;
+      margin-top: 2px;
+    }
+
+    .prompt-box { background: #fdfaf3; border: 1px solid var(--border-strong); border-radius: 8px; padding: 18px 20px; font-family: var(--mono); font-size: 13.5px; line-height: 1.65; color: var(--ink); position: relative; white-space: pre-wrap; margin: 14px 0; }
+    .prompt-box .highlight { background: rgba(44,95,112,.08); color: var(--accent); padding: 1px 6px; border-radius: 3px; font-weight: 500; }
+    .prompt-box .anon { background: rgba(200,104,81,.12); color: #8a3a2a; padding: 1px 6px; border-radius: 3px; font-weight: 500; }
+    .prompt-copy-btn { position: absolute; top: 10px; right: 10px; padding: 6px 12px; background: var(--accent); color: #fff; border: none; border-radius: 5px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; transition: background .18s; }
+    .prompt-copy-btn:hover { background: var(--accent-dark); }
+    .prompt-copy-btn.copied { background: var(--accent-warm-dark); }
+
+    .passo__sidebar { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; }
+    .passo__sidebar-cabecalho { display: flex; align-items: center; gap: 10px; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .passo__sidebar-icon { width: 32px; height: 32px; background: var(--bg-warm); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .passo__sidebar-title { font-family: 'Inter', sans-serif; font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; color: var(--ink-soft); }
+    .passo__sidebar-conteudo { font-family: var(--sans); font-size: 13.5px; line-height: 1.55; color: var(--ink); }
+    .passo__sidebar-conteudo strong { color: var(--ink); font-weight: 600; }
+    .passo__sidebar-conteudo p { margin-bottom: 8px; font-size: 13.5px; }
+    .passo__sidebar-conteudo ul { padding-left: 18px; margin-top: 6px; }
+    .passo__sidebar-conteudo li { font-size: 13px; line-height: 1.5; padding: 3px 0; }
+    .sidebar-card--claude { background: #fdf3ec; border-color: var(--accent-warm); }
+    .sidebar-card--claude .passo__sidebar-title { color: var(--accent-warm-dark); }
+    .sidebar-card--lgpd { background: #fbe6e0; border-color: #c86851; }
+    .sidebar-card--lgpd .passo__sidebar-title { color: #8a3a2a; }
+    .sidebar-card--lgpd .passo__sidebar-icon { background: #fdd8ce; }
+
+    /* Ata preview (do Claude, no sidebar do passo 3) */
+    .ata-preview {
+      background: #fdfaf3;
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-top: 8px;
+      font-family: var(--sans);
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+    .ata-preview__linha {
+      padding: 5px 0;
+      border-top: 1px dashed var(--border);
+    }
+    .ata-preview__linha:first-child { border-top: none; padding-top: 0; }
+    .ata-preview__decisao { font-weight: 600; color: var(--ink); }
+    .ata-preview__meta { color: var(--ink-soft); font-size: 11.5px; }
+
+    .refinamentos { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
+    .refinamento { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; }
+    .refinamento__titulo { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: var(--accent-warm-dark); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .1em; }
+    .refinamento__prompt { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--ink); line-height: 1.5; }
+
+    .truques-lista { display: flex; flex-direction: column; gap: 14px; margin-top: 12px; }
+    .truque { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent-warm); border-radius: 0 8px 8px 0; padding: 16px 20px; }
+    .truque--lgpd { border-left-color: #c86851; }
+    .truque h4 { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .truque p { font-size: 14px; line-height: 1.55; color: var(--ink); }
+
+    .frente-pratica { background: var(--bg-warm); border: 1px solid var(--border-strong); border-radius: 10px; padding: 24px 28px; margin-top: 16px; }
+    .frente-pratica__lead { font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--ink); margin-bottom: 18px; }
+    .arquivo-download { background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 8px; padding: 14px 18px; display: grid; grid-template-columns: 40px 1fr auto; gap: 14px; align-items: center; margin-bottom: 10px; }
+    .arquivo-download__icon { width: 40px; height: 40px; background: var(--accent); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+    .arquivo-download__icon--lgpd { background: #c86851; }
+    .arquivo-download__nome { font-family: var(--mono); font-size: 14px; font-weight: 600; color: var(--ink); }
+    .arquivo-download__desc { font-family: var(--sans); font-size: 12.5px; color: var(--ink-muted); margin-top: 2px; }
+    .arquivo-download__btn { padding: 8px 14px; background: none; border: 1px solid var(--accent); color: var(--accent); border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 12.5px; font-weight: 600; cursor: pointer; text-decoration: none; }
+    .arquivo-download__btn:hover { background: var(--accent); color: #fff; text-decoration: none; }
+
+    .passo-a-passo { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px 24px; margin-top: 16px; }
+    .passo-a-passo h5 { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 12px; }
+    .passo-a-passo ol { padding-left: 22px; }
+    .passo-a-passo li { font-size: 14.5px; line-height: 1.6; color: var(--ink); padding: 5px 0; }
+
+    .voltar-nav { background: var(--bg-warm); border-top: 1px solid var(--border); padding: 30px 0 36px; }
+    .voltar-nav .site-container { max-width: 1080px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .voltar-nav a { color: var(--accent); font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; }
+    .voltar-nav .assinatura { font-size: 12.5px; color: var(--ink-muted); font-family: 'Inter', sans-serif; }
+    .voltar-nav .assinatura a { color: var(--accent); }
+
+    @media print {
+      body { background: #fff; color: #000; }
+      .topbar, .voltar-nav, .prompt-copy-btn, .arquivo-download__btn, .caso-cta { display: none; }
+      .caso-hero-grid, .passo__body { display: block; }
+      .caso-hero-sidebar, .passo__sidebar { border: 1px solid #888 !important; background: #f5f5f5 !important; margin-top: 12px; break-inside: avoid; }
+      .prompt-box { background: #f5f5f5 !important; border: 1px solid #888; }
+      .passo { break-inside: avoid; page-break-inside: avoid; }
+      a { color: #000; text-decoration: underline; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../../../../" class="topbar-logo">Débora</a>
+      <div class="topbar-nav">
+        <a href="../../../../">Home</a>
+        <a href="../../">Voltar pra S4</a>
+        <a href="../../../../banco-de-prompts/">Banco de prompts</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="breadcrumb-page">
+    <div class="site-container">
+      <div class="breadcrumb">
+        <a href="../../../../">Débora</a>
+        <span class="sep">/</span>
+        <a href="../../">S4 · Chat + Cowork</a>
+        <span class="sep">/</span>
+        <span>Casos práticos</span>
+        <span class="sep">/</span>
+        <span class="current">Decisões de reunião · Gabinete (LGPD)</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="caso-hero">
+    <div class="site-container">
+      <div class="caso-hero-grid">
+        <div>
+          <h1 class="caso-h1">Extrair decisões de reunião do gabinete — anonimizado</h1>
+          <p class="caso-descricao">3 reuniões chatas na semana, decisões pendentes que ninguém escreveu. Você sai desta prática com <strong>ata executiva de 5 decisões + responsáveis + prazos + 3 riscos implícitos</strong> — sem colar dado sensível do gabinete no Claude, cumprindo LGPD.</p>
+          <a class="caso-cta" href="https://claude.ai/new" target="_blank" rel="noopener">Abrir Claude Chat</a>
+
+          <div class="alerta-lgpd">
+            <div class="alerta-lgpd__icon">!</div>
+            <div class="alerta-lgpd__texto">
+              <strong>Este caso lida com dado real do serviço público.</strong> O passo 1 é <em>obrigatório</em>: anonimizar <strong>antes</strong> de colar. A responsabilidade LGPD é sua, não do Claude. Nunca colar sem fazer o checklist.
+            </div>
+          </div>
+        </div>
+
+        <aside class="caso-hero-sidebar">
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Autoria</div>
+            <div class="caso-hero-sidebar__valor">Mentoria IA Executiva</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Categoria</div>
+            <div class="caso-hero-sidebar__valor">Ata executiva · Rotina de gabinete · LGPD</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Modelo sugerido</div>
+            <div class="caso-hero-sidebar__valor">Claude Sonnet 4.5</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Ferramentas</div>
+            <div class="caso-features">
+              <span class="feat-chip">Chat</span>
+              <span class="feat-chip">Cowork</span>
+              <span class="feat-chip feat-chip--danger">LGPD</span>
+            </div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Tempo estimado</div>
+            <div class="caso-hero-sidebar__valor">30-40 min · anonimização + 4-5 turnos</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="passos-wrap">
+    <div class="site-container">
+
+      <!-- PASSO 1 · CRÍTICO LGPD -->
+      <div class="passo">
+        <div class="passo__num passo__num--critico">1</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Anonimize antes · o passo obrigatório</h3>
+            <p><strong>Nada entra no Claude com nome real, matrícula, CPF ou identificador único.</strong> A LGPD não pede que você criptografe — pede que você substitua identificadores por pseudônimos consistentes <em>antes</em> de qualquer análise externa.</p>
+            <p class="muted">Faça a substituição num editor de texto simples (Notas · Sublime · Word) usando <strong>Localizar e Substituir</strong>. Guarde a chave de mapeamento (nome real → pseudônimo) num arquivo <em>fora do Claude</em>, na sua máquina.</p>
+
+            <div class="checklist-anonimizacao">
+              <h4>Checklist de substituições · faça todas antes de colar</h4>
+
+              <div class="checklist-item">
+                <div class="checklist-item__linha">
+                  <span class="checklist-item__original">Débora (você)</span>
+                  <span class="checklist-item__arrow">→</span>
+                  <span class="checklist-item__substituto">[GESTORA]</span>
+                </div>
+                <div class="checklist-item__nota">Você também some. É o padrão.</div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="checklist-item__linha">
+                  <span class="checklist-item__original">Nomes de colegas</span>
+                  <span class="checklist-item__arrow">→</span>
+                  <span class="checklist-item__substituto">COLABORADOR_A, _B, _C…</span>
+                </div>
+                <div class="checklist-item__nota">Ordem pela primeira aparição no texto. Mantenha consistente do começo ao fim.</div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="checklist-item__linha">
+                  <span class="checklist-item__original">Nome da Câmara / prefeitura</span>
+                  <span class="checklist-item__arrow">→</span>
+                  <span class="checklist-item__substituto">[ORGÃO]</span>
+                </div>
+                <div class="checklist-item__nota">Também o secretário, secretaria, vereador → [FIGURA_1], [FIGURA_2].</div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="checklist-item__linha">
+                  <span class="checklist-item__original">Cidade / endereço</span>
+                  <span class="checklist-item__arrow">→</span>
+                  <span class="checklist-item__substituto">[CIDADE]</span>
+                </div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="checklist-item__linha">
+                  <span class="checklist-item__original">Valores em R$, nº processos, matrículas</span>
+                  <span class="checklist-item__arrow">→</span>
+                  <span class="checklist-item__substituto">[VALOR_1], [Nº_PROC]…</span>
+                </div>
+                <div class="checklist-item__nota">Só anonimiza se identificar. Números genéricos ("3 mesas de reunião") podem ficar.</div>
+              </div>
+
+              <div class="checklist-item">
+                <div class="checklist-item__linha">
+                  <span class="checklist-item__original">Datas específicas de eventos</span>
+                  <span class="checklist-item__arrow">→</span>
+                  <span class="checklist-item__substituto">[DATA_1], "semana passada"…</span>
+                </div>
+                <div class="checklist-item__nota">"12/03/2027 às 14h" → "semana X, período tarde". "Reunião de 20/03" → "próxima reunião".</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar sidebar-card--lgpd">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">🔒</div>
+              <div class="passo__sidebar-title">LGPD · princípio simples</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Depois de anonimizar, <strong>leia o texto</strong> sem contexto — se você identificaria a pessoa/órgão só lendo, ainda tá identificado. Anonimize mais.</p>
+              <p style="margin-top:8px;">Salve o mapeamento (nome real → pseudônimo) <strong>fora</strong> do Claude, no seu drive local. Só você tem acesso.</p>
+              <p style="margin-top:8px; color:#6a2b1e;"><strong>A responsabilidade é sua.</strong> A IA não te protege.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 2 -->
+      <div class="passo">
+        <div class="passo__num">2</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Descreva a tarefa de extração</h3>
+            <p>Com o texto anonimizado, abra <code>claude.ai</code>. O prompt é bem estruturado — extrai <strong>o que</strong> ficou decidido, <strong>quem</strong> vai executar, <strong>quando</strong>, e <strong>o que ninguém falou explicitamente</strong> (os riscos implícitos).</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-1">Copiar</button><span id="prompt-1"><span class="highlight">Papel:</span> Você é uma chefe de gabinete sênior com 15 anos de experiência transformando reuniões operacionais em atas executivas.
+
+<span class="highlight">Contexto:</span> Vou colar uma transcrição anonimizada de uma reunião de 45 min de um órgão público. Nomes e dados sensíveis já foram substituídos por pseudônimos (<span class="anon">COLABORADOR_A</span>, <span class="anon">[ORGÃO]</span>, <span class="anon">[DADO_SENSÍVEL]</span>).
+
+<span class="highlight">Tarefa:</span> Extraia:
+(1) as 5 decisões mais concretas tomadas
+(2) responsável por cada uma (use os pseudônimos exatamente como aparecem)
+(3) prazo explícito ou marcador ⚠️ PRAZO NÃO DEFINIDO
+(4) 3 riscos que ficaram implícitos e ninguém verbalizou.
+
+<span class="highlight">Formato:</span> 4 blocos em ordem. Bloco decisões em tabela markdown.
+
+<span class="highlight">Limite:</span> NÃO invente decisão que não está na transcrição. Se ficou meia-boca, escreve "decisão parcial: [texto]" — não completa. Nunca sugira dado que a transcrição não trouxer.
+
+Transcrição:
+[COLAR AQUI TEXTO ANONIMIZADO]</span></div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">🎯</div>
+              <div class="passo__sidebar-title">Por que os 4 blocos</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p><strong>Decisões</strong> — o registro público do que foi combinado</p>
+              <p><strong>Responsáveis</strong> — sem nome, decisão não anda</p>
+              <p><strong>Prazos</strong> — o que não tem prazo é vontade, não decisão</p>
+              <p><strong>Riscos implícitos</strong> — o que fica "meio dito" em reunião de gabinete e vira problema depois</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 3 -->
+      <div class="passo">
+        <div class="passo__num">3</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>O que o Claude entrega</h3>
+            <p>A saída volta estruturada. Você lê linha a linha — <strong>desconfia de qualquer decisão sem responsável ou sem verbo de ação</strong>. Se algo parece decisão mas não tem esses 2, ele extraiu com má vontade — refina.</p>
+            <p>Se uma decisão que você lembra que rolou <em>não apareceu</em> na saída, é sinal de que ficou <em>não-dita</em> na transcrição. Isso é dado — provavelmente virou risco implícito ou "acordo tácito" que precisa ser explicitado numa próxima reunião.</p>
+          </div>
+
+          <aside class="passo__sidebar sidebar-card--claude">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">✎</div>
+              <div class="passo__sidebar-title">Do Claude · exemplo</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p><strong>Decisões</strong></p>
+              <div class="ata-preview">
+                <div class="ata-preview__linha">
+                  <div class="ata-preview__decisao">Realocar COLABORADOR_A</div>
+                  <div class="ata-preview__meta">Resp: [GESTORA] · Prazo: até próxima reunião</div>
+                </div>
+                <div class="ata-preview__linha">
+                  <div class="ata-preview__decisao">Reformular fluxo de atendimento setor B</div>
+                  <div class="ata-preview__meta">Resp: COLABORADOR_B · ⚠️ PRAZO NÃO DEFINIDO</div>
+                </div>
+                <div class="ata-preview__linha">
+                  <div class="ata-preview__decisao">Decisão parcial: revisar contrato X</div>
+                  <div class="ata-preview__meta">"vamos ver" — sem resp definido</div>
+                </div>
+              </div>
+              <p style="margin-top:10px;"><strong>Riscos implícitos (não-ditos)</strong></p>
+              <ul>
+                <li>Redistribuição pode gerar reclamação sindical</li>
+                <li>Contrato X vence antes da decisão</li>
+                <li>Falta de resp em 2 decisões = ninguém executa</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 4 -->
+      <div class="passo">
+        <div class="passo__num">4</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Passe pro Cowork · vira ata executiva</h3>
+            <p>A tabela do Chat é o insumo. Agora você quer <em>1 documento executivo</em> que você possa ler daqui a 3 dias e ainda saber o porquê de cada decisão. Copie a saída, cole no Cowork.</p>
+
+            <div class="refinamentos">
+              <div class="refinamento">
+                <div class="refinamento__titulo">Explicar por que</div>
+                <div class="refinamento__prompt">"Pra cada decisão, adiciona 1 linha curta de contexto — 'por que essa decisão saiu agora', baseado no que estava na transcrição. Não invente, use só o que apareceu."</div>
+              </div>
+              <div class="refinamento">
+                <div class="refinamento__titulo">Sugerir prazos ausentes</div>
+                <div class="refinamento__prompt">"Onde tá ⚠️ PRAZO NÃO DEFINIDO, sugira 1 prazo razoável baseado na urgência aparente. Marca como [SUGERIDO — VOCÊ CONFIRMA]."</div>
+              </div>
+              <div class="refinamento">
+                <div class="refinamento__titulo">Separar decisão × encaminhamento</div>
+                <div class="refinamento__prompt">"Marca as que são decisão fechada vs as que são 'encaminhamento' (foi discutido, alguém vai analisar, volta depois). São coisas diferentes que costumam ser tratadas iguais."</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">📋</div>
+              <div class="passo__sidebar-title">Ata × Encaminhamento</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p><strong>Decisão</strong> = combinado com resp + prazo. Executável.</p>
+              <p><strong>Encaminhamento</strong> = "vou levantar / analisar / conversar com". Volta depois.</p>
+              <p style="margin-top:8px;">Chefia de gabinete que confunde os dois vira gargalo — porque acha que decidiu e ninguém executou (porque não era decisão).</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 5 -->
+      <div class="passo">
+        <div class="passo__num">5</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Truques, dicas e ciladas</h3>
+            <div class="truques-lista">
+              <div class="truque truque--lgpd">
+                <h4>Anonimização é sua, não da IA</h4>
+                <p>Nunca peça pro Claude anonimizar dado real antes de colar. O momento em que ele lê o dado, o dado já saiu do seu controle. Anonimize <em>antes</em>, você mesma, no seu editor local.</p>
+              </div>
+              <div class="truque">
+                <h4>Reverta a anonimização só no final</h4>
+                <p>A ata final vai voltar pro mundo real. Guarde a chave de mapeamento (COLABORADOR_A → nome real) num arquivo local. Depois da versão executiva pronta, faça a substituição de volta no seu editor, offline. Nunca dentro do Claude.</p>
+              </div>
+              <div class="truque">
+                <h4>"Decisão parcial" não vira ata</h4>
+                <p>O Claude vai identificar 2-3 momentos de "vamos ver", "depois a gente discute". Isso <em>não</em> entra na ata como decisão. Vira lista separada — "pendências pra próxima reunião" — e ganha prazo pra ser resolvido.</p>
+              </div>
+              <div class="truque">
+                <h4>3 riscos implícitos = ouro</h4>
+                <p>Essa é a parte que ninguém faz. Ata comum lista decisões. Ata executiva boa lista <em>também</em> o que ficou não-dito e vai virar problema. Se o Claude só trouxer 1-2 riscos, peça pra pensar mais — reunião de gabinete sempre tem 3+.</p>
+              </div>
+              <div class="truque truque--lgpd">
+                <h4>Não guarde a transcrição raw</h4>
+                <p>Depois de gerar a ata, apague a transcrição bruta original (com nomes reais) da sua máquina. Mantenha só: (a) ata final revertida e (b) a chave de mapeamento. Menos superfície de risco.</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">🎯</div>
+              <div class="passo__sidebar-title">Como saber que deu certo</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <ul>
+                <li>Você abre a ata 3 dias depois e entende cada decisão sem precisar lembrar da reunião</li>
+                <li>Cada decisão tem responsável + prazo (ou prazo sugerido pra você confirmar)</li>
+                <li>Os 3 riscos implícitos viraram tópicos pra próxima reunião</li>
+                <li>Nenhuma linha do Claude tem dado que não estava na transcrição original</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 6 -->
+      <div class="passo">
+        <div class="passo__num">6</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Frente prática · faça agora</h3>
+            <div class="frente-pratica">
+              <p class="frente-pratica__lead">Baixe o checklist de anonimização e o prompt-base. Faça primeiro com uma reunião <em>menor</em> — 30 min, 3 pessoas — pra testar o fluxo. Depois escale pras reuniões grandes.</p>
+
+              <div class="arquivo-download">
+                <div class="arquivo-download__icon arquivo-download__icon--lgpd">LGPD</div>
+                <div>
+                  <div class="arquivo-download__nome">checklist-anonimizacao.md</div>
+                  <div class="arquivo-download__desc">Passo-a-passo de substituição antes de colar no Claude</div>
+                </div>
+                <a class="arquivo-download__btn" href="checklist-anonimizacao.md" download>baixar ↓</a>
+              </div>
+
+              <div class="arquivo-download">
+                <div class="arquivo-download__icon">MD</div>
+                <div>
+                  <div class="arquivo-download__nome">prompt-gabinete-decisoes.md</div>
+                  <div class="arquivo-download__desc">Prompt de extração + 3 refinamentos no Cowork</div>
+                </div>
+                <a class="arquivo-download__btn" href="prompt-gabinete-decisoes.md" download>baixar ↓</a>
+              </div>
+
+              <div class="passo-a-passo">
+                <h5>Passo a passo em 5 minutos</h5>
+                <ol>
+                  <li>Baixe os 2 arquivos acima</li>
+                  <li>Pegue notas ou transcrição de 1 reunião <em>menor</em> pra estrear</li>
+                  <li>Abra num editor local (Notas · Sublime · Word)</li>
+                  <li>Rode o checklist de anonimização · Localizar+Substituir cada item</li>
+                  <li>Salve a chave (nome real → pseudônimo) em arquivo local separado</li>
+                  <li>Abra <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai/new</a> · cole o prompt de extração</li>
+                  <li>Cole o texto anonimizado onde tem <code>[COLAR AQUI]</code></li>
+                  <li>Refine no Cowork (por quê / prazos sugeridos / separar decisão de encaminhamento)</li>
+                  <li>Reverta a anonimização offline, no seu editor, usando a chave</li>
+                  <li>Apague a transcrição bruta original</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar sidebar-card--lgpd">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">✓</div>
+              <div class="passo__sidebar-title">Ao chegar aqui</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Você tem 1 ata executiva de 1 reunião real, com 5 decisões + responsáveis + prazos + 3 riscos.</p>
+              <p style="margin-top:10px;">E rodou o fluxo LGPD do começo ao fim, sem dado real ter tocado o Claude.</p>
+              <p style="margin-top:10px;">Reporta na S5:</p>
+              <ul>
+                <li>Anonimização travou onde?</li>
+                <li>Ata ficou útil ou virou burocracia?</li>
+                <li>Os 3 riscos implícitos apareceram de verdade?</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="voltar-nav">
+    <div class="site-container">
+      <a href="../../">← Voltar pra S4 · Chat + Cowork</a>
+      <div class="assinatura">Curadoria: Rafael Lima · <a href="https://www.instagram.com/iacomrafael/" target="_blank" rel="noopener">@iacomrafael</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.prompt-copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const t = document.getElementById(btn.dataset.copyTarget);
+        if (!t) return;
+        navigator.clipboard.writeText(t.textContent).then(() => {
+          const orig = btn.textContent;
+          btn.textContent = 'Copiado ✓';
+          btn.classList.add('copied');
+          setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

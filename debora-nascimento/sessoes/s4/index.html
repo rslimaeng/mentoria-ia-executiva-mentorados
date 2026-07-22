@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>S4 · Chat + Cowork · Débora · Mentoria IA Executiva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../_shared/assets/style.css">
+  <style>
+    /*
+      Sessão S4 · Chat + Cowork
+      Padrão UX/UI baseado no M5 Mallory (adaptado à paleta Débora).
+      Estrutura para replicar em S5-S8:
+        - S5 adiciona tab "Artifacts" (Chat/Cowork ficam como referência acessível)
+        - S6 adiciona "Scheduled Tasks"
+        - S7 adiciona "Projects"
+        - S8 adiciona "Personalização"
+      Cada painel de tab é self-contained — copiar+adaptar entre sessões.
+    */
+
+    /* ── Hero da sessão ───────────────────────────────────── */
+    .sessao-hero {
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sessao-hero .site-container { max-width: 960px; }
+    .sessao-hero-topline {
+      display: flex; align-items: baseline; gap: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+    }
+    .sessao-hero-topline .marca {
+      font-weight: 700; color: var(--accent);
+    }
+    .sessao-hero-topline .sep { color: var(--ink-muted); }
+    .sessao-h1 {
+      font-family: var(--serif);
+      font-size: 44px; font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 12px;
+      max-width: 720px;
+    }
+    .sessao-subtitle {
+      font-family: var(--sans);
+      font-size: 17px; line-height: 1.55;
+      color: var(--ink-soft);
+      max-width: 640px;
+    }
+
+    /* ── Wrapper de bloco grande ─────────────────────────── */
+    .bloco-modulo { padding: 56px 0; }
+    .bloco-modulo + .bloco-modulo { border-top: 1px solid var(--border); }
+    .bloco-modulo .site-container { max-width: 960px; }
+    .bloco-linha {
+      font-family: 'Inter', sans-serif;
+      font-size: 11.5px; font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      color: var(--accent-warm-dark);
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .bloco-linha::after {
+      content: "";
+      flex: 1; height: 1px;
+      background: var(--border);
+    }
+    .bloco-h2 {
+      font-family: var(--serif);
+      font-size: 32px; font-weight: 600;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 14px;
+      max-width: 720px;
+    }
+    .bloco-lead {
+      font-family: var(--sans);
+      font-size: 16px; line-height: 1.6;
+      color: var(--ink-soft);
+      max-width: 640px;
+      margin-bottom: 28px;
+    }
+
+    /* ── Fluxo linear (mapa das estações) ─────────────────── */
+    .fluxo-linear {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px; letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .fluxo-linear .estacao-name {
+      font-weight: 600;
+    }
+    .fluxo-linear .estacao-name.ativa {
+      color: var(--accent);
+    }
+    .fluxo-linear .estacao-name.futura {
+      color: var(--ink-muted);
+      opacity: .55;
+    }
+    .fluxo-linear .arrow {
+      color: var(--accent-warm);
+      font-family: var(--sans);
+      letter-spacing: 0;
+    }
+    @media (max-width: 720px) {
+      .fluxo-linear { flex-wrap: wrap; justify-content: center; font-size: 11px; }
+    }
+
+    /* ── Tabs de estações ────────────────────────────────── */
+    .tabs-nav {
+      display: flex; gap: 4px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      display: flex; align-items: center; gap: 10px;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      padding: 14px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px; font-weight: 500;
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: color .18s, border-color .18s;
+      white-space: nowrap;
+    }
+    .tab-btn:hover { color: var(--ink); }
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      font-weight: 600;
+    }
+    .tab-btn .tab-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--bg-warm);
+      color: var(--ink-soft);
+      font-size: 12px; font-weight: 600;
+      transition: background .18s, color .18s;
+    }
+    .tab-btn.active .tab-num {
+      background: var(--accent);
+      color: #fff;
+    }
+    .tab-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .tab-badge--new {
+      background: #fdf3ec;
+      color: var(--accent-warm-dark);
+      border: 1px solid var(--accent-warm);
+    }
+    /*
+      Quando for pra S5+: adicionar essa classe pras tabs Chat/Cowork
+      .tab-badge--visto { background: transparent; color: var(--ink-muted); border: 1px dashed var(--border-strong); }
+      Conteúdo: "Visto na S4"
+    */
+
+    /* ── Painel de estação ───────────────────────────────── */
+    .tab-panel[hidden] { display: none; }
+
+    .estacao-header {
+      display: flex; align-items: flex-start; gap: 20px;
+      margin-bottom: 28px;
+    }
+    .estacao-icon {
+      width: 56px; height: 56px;
+      background: var(--bg-warm);
+      border: 1px solid var(--border-strong);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .estacao-h3 {
+      font-family: var(--serif);
+      font-size: 28px; font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .estacao-tagline {
+      font-family: var(--sans);
+      font-size: 15px;
+      color: var(--ink-soft);
+    }
+
+    .estacao-oque {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 26px;
+      margin-bottom: 24px;
+    }
+    .estacao-oque p {
+      font-size: 15.5px; line-height: 1.65;
+      color: var(--ink);
+    }
+    .estacao-oque strong { color: var(--ink); }
+    .estacao-oque code {
+      background: var(--bg-warm);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 13.5px;
+      color: var(--accent);
+    }
+
+    .estacao-mental {
+      background: #fdf3ec;
+      border-left: 4px solid var(--accent-warm);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .estacao-mental .mini-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5px; font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      color: var(--accent-warm-dark);
+      margin-bottom: 6px;
+    }
+    .estacao-mental p {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+    .estacao-mental strong { color: var(--accent-warm-dark); }
+
+    .estacao-secao { margin-bottom: 30px; }
+    .estacao-secao__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      color: var(--accent-warm-dark);
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .estacao-como ul {
+      list-style: none;
+      padding: 0;
+    }
+    .estacao-como li {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 8px;
+      font-size: 14.5px; line-height: 1.55;
+      color: var(--ink);
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .estacao-como li::before {
+      content: "▸";
+      color: var(--accent-warm);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .estacao-como li strong { color: var(--ink); }
+
+    /* ── Use / Não use grid ──────────────────────────────── */
+    .quando-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .quando-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 22px;
+    }
+    .quando-box--use { border-left: 4px solid var(--accent); }
+    .quando-box--nao { border-left: 4px solid var(--accent-warm-dark); }
+    .quando-box__titulo {
+      font-family: 'Inter', sans-serif;
+      font-size: 11.5px; font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      margin-bottom: 12px;
+    }
+    .quando-box--use .quando-box__titulo { color: var(--accent); }
+    .quando-box--nao .quando-box__titulo { color: var(--accent-warm-dark); }
+    .quando-box ul { list-style: none; padding: 0; }
+    .quando-box li {
+      padding: 6px 0;
+      border-top: 1px solid var(--border);
+      font-size: 14px; line-height: 1.5;
+      color: var(--ink);
+    }
+    .quando-box li:first-child { border-top: none; padding-top: 0; }
+    .quando-box li strong { color: var(--ink); font-weight: 600; }
+    @media (max-width: 720px) {
+      .quando-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Exemplos numerados ──────────────────────────────── */
+    .exemplos-lista { display: flex; flex-direction: column; gap: 14px; }
+    .exemplo-num {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 22px 22px 22px;
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 18px;
+    }
+    .ex-numero {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--bg-warm);
+      color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1.5px solid var(--accent);
+      flex-shrink: 0;
+    }
+    .ex-fala {
+      font-family: var(--serif);
+      font-size: 17px; font-style: italic;
+      color: var(--ink);
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+    .ex-linha {
+      display: flex; align-items: baseline; gap: 12px;
+      padding: 6px 0;
+      font-size: 14px; line-height: 1.5;
+      border-top: 1px solid var(--border);
+      color: var(--ink-soft);
+    }
+    .ex-linha:first-of-type { border-top: none; padding-top: 8px; }
+    .ex-linha__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5px; font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--accent-warm-dark);
+      min-width: 110px;
+    }
+    .ex-linha__label--entrega { color: var(--accent); }
+    .ex-linha__body { color: var(--ink); flex: 1; }
+    @media (max-width: 640px) {
+      .exemplo-num { grid-template-columns: 30px 1fr; gap: 12px; }
+      .ex-numero { width: 28px; height: 28px; font-size: 12px; }
+      .ex-linha { flex-direction: column; gap: 2px; }
+      .ex-linha__label { min-width: auto; }
+    }
+
+    /* ── Armadilhas ──────────────────────────────────────── */
+    .armadilhas-lista { display: flex; flex-direction: column; gap: 12px; }
+    .armadilha {
+      background: var(--bg-warm);
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid var(--accent-warm);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+    .armadilha__tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--accent-warm-dark);
+    }
+    .armadilha__body {
+      font-size: 14px; line-height: 1.55;
+      color: var(--ink);
+    }
+    .armadilha__body strong { color: var(--ink); }
+    @media (max-width: 640px) {
+      .armadilha { grid-template-columns: 1fr; gap: 6px; }
+    }
+
+    /* ── Citação canônica ────────────────────────────────── */
+    .citacao {
+      margin-top: 32px;
+      padding: 20px 24px;
+      background: var(--bg-warm);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .citacao blockquote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 17px;
+      line-height: 1.5;
+      color: var(--ink);
+      margin: 0 0 8px 0;
+    }
+    .citacao cite {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-style: normal;
+      letter-spacing: .04em;
+    }
+
+    /* ── Grid de casos práticos ──────────────────────────── */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .case-card-link {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 22px 20px 22px;
+      text-decoration: none;
+      color: inherit;
+      display: flex; flex-direction: column;
+      transition: transform .18s, border-color .18s, box-shadow .18s;
+    }
+    .case-card-link:hover {
+      text-decoration: none;
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+      box-shadow: 0 6px 20px rgba(31,29,26,.06);
+    }
+    .case-tag {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 4px 10px;
+      background: #fdf3ec;
+      color: var(--accent-warm-dark);
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5px; font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      margin-bottom: 14px;
+    }
+    .case-titulo {
+      font-family: var(--serif);
+      font-size: 20px; font-weight: 600;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+    .case-linhas {
+      list-style: none; padding: 0;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .case-linhas li {
+      font-size: 13.5px; line-height: 1.5;
+      color: var(--ink-soft);
+      padding: 5px 0;
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    .case-linhas li::before {
+      content: "▸";
+      color: var(--accent-warm);
+      flex-shrink: 0;
+    }
+    .case-features {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin: 12px 0 16px 0;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .feat {
+      display: inline-block;
+      padding: 3px 10px;
+      background: var(--bg-warm);
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 500;
+      color: var(--ink-soft);
+    }
+    .case-cta {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; font-weight: 600;
+      color: var(--accent);
+      letter-spacing: .04em;
+    }
+    .case-card-link:hover .case-cta { color: var(--accent-dark); }
+    @media (max-width: 900px) {
+      .cases-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Casa em 2 camadas (enxuto) ──────────────────────── */
+    .casa-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .casa-card {
+      border-radius: 8px;
+      padding: 22px 24px;
+    }
+    .casa-card--minimo {
+      background: var(--bg-warm);
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid var(--accent);
+    }
+    .casa-card--desafio {
+      background: #fdf3ec;
+      border: 1px solid var(--border-strong);
+      border-left: 4px solid var(--accent-warm);
+    }
+    .casa-card__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5px; font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--ink-soft);
+      margin-bottom: 10px;
+    }
+    .casa-card h5 {
+      font-family: var(--serif);
+      font-size: 18px; font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .casa-card p, .casa-card li {
+      font-size: 14px; line-height: 1.55;
+      color: var(--ink);
+    }
+    .casa-card ul { padding-left: 20px; margin-top: 6px; }
+    .casa-card li { padding: 3px 0; }
+    @media (max-width: 720px) {
+      .casa-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Fechamento reflexivo ────────────────────────────── */
+    .fecho-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 32px;
+      margin-top: 24px;
+    }
+    .fecho-card h3 {
+      font-family: var(--serif);
+      font-size: 22px; font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .fecho-card ol { padding-left: 22px; margin-bottom: 20px; }
+    .fecho-card li { font-size: 15px; line-height: 1.6; color: var(--ink); padding: 4px 0; }
+    .fecho-pontos { border-top: 1px solid var(--border); padding-top: 18px; margin-top: 18px; }
+    .fecho-pontos p { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); padding: 3px 0; }
+    .fecho-pontos p strong { color: var(--ink); }
+    .fecho-ponte {
+      background: var(--bg-warm);
+      border-left: 3px solid var(--accent-warm);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 18px;
+      margin-top: 20px;
+      font-size: 14.5px; line-height: 1.6;
+      color: var(--ink);
+    }
+    .fecho-ponte strong { color: var(--accent-warm-dark); }
+
+    /* ── Rodapé de sessão ────────────────────────────────── */
+    .sessao-footer {
+      background: var(--bg-warm);
+      border-top: 1px solid var(--border);
+      padding: 36px 0 44px;
+      margin-top: 40px;
+    }
+    .sessao-footer .site-container {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .sessao-footer-nav {
+      display: flex; gap: 22px; font-size: 14px;
+      font-family: 'Inter', sans-serif;
+    }
+    .sessao-footer-nav a { color: var(--accent); font-weight: 500; }
+    .sessao-footer-nav .disabled { color: var(--ink-muted); }
+    .sessao-footer-assinatura {
+      font-size: 13px; color: var(--ink-muted);
+      font-family: 'Inter', sans-serif;
+    }
+    .sessao-footer-assinatura strong { color: var(--ink-soft); }
+    .sessao-footer-assinatura a { color: var(--accent); }
+
+    /* ── Print CSS ───────────────────────────────────────── */
+    @media print {
+      body { background: #fff; color: #000; }
+      .topbar, .sessao-footer { display: none; }
+      .tab-btn { display: none; }
+      .tab-panel { display: block !important; }
+      .tab-panel[hidden] { display: block !important; }
+      .tab-panel { break-before: page; }
+      .tab-panel:first-of-type { break-before: auto; }
+      .bloco-modulo { padding: 20px 0; }
+      .cases-grid, .quando-grid, .casa-grid { display: block !important; }
+      .case-card-link, .quando-box, .casa-card { break-inside: avoid; margin-bottom: 12px; border: 1px solid #888 !important; }
+      a { color: #000; text-decoration: underline; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../../" class="topbar-logo">Débora</a>
+      <div class="topbar-nav">
+        <a href="../../">Home</a>
+        <a href="../../banco-de-prompts/">Banco de prompts</a>
+        <a href="../../eixos/financas/">Eixo Finanças</a>
+        <a href="../../eixos/gestao/">Eixo Gestão</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero de sessão -->
+  <header class="sessao-hero">
+    <div class="site-container">
+      <div class="sessao-hero-topline">
+        <span class="marca">Mentoria IA Executiva · Débora</span>
+        <span class="sep">·</span>
+        <span>Nova rota Claude · S4 · Módulo 1 de 5</span>
+      </div>
+      <h1 class="sessao-h1">Chat + Cowork — a base de uso</h1>
+      <p class="sessao-subtitle">Progride de conversar com o Claude (Chat) pra editar junto com ele (Cowork). São as duas ferramentas que sustentam tudo que vem depois — Artifacts, Scheduled Tasks, Projects, Personalização.</p>
+    </div>
+  </header>
+
+  <!-- BLOCO 1 · PRIMEIRO · A BASE DE USO -->
+  <section class="bloco-modulo">
+    <div class="site-container">
+      <div class="bloco-linha">Primeiro · A base de uso</div>
+      <h2 class="bloco-h2">Onde tudo começa — 2 ferramentas complementares</h2>
+      <p class="bloco-lead">Chat pra pensar com o Claude. Cowork pra editar junto com ele. As duas dominadas destravam tudo que vem depois. Clique na estação pra abrir.</p>
+
+      <!-- Fluxo linear das estações (mostra o mapa da nova rota inteira) -->
+      <div class="fluxo-linear">
+        <span class="estacao-name ativa">Chat</span>
+        <span class="arrow">→</span>
+        <span class="estacao-name ativa">Cowork</span>
+        <span class="arrow">→</span>
+        <span class="estacao-name futura">Artifacts</span>
+        <span class="arrow">→</span>
+        <span class="estacao-name futura">Scheduled Tasks</span>
+        <span class="arrow">→</span>
+        <span class="estacao-name futura">Projects</span>
+        <span class="arrow">→</span>
+        <span class="estacao-name futura">Personalização</span>
+      </div>
+
+      <!-- Tabs de estações -->
+      <div class="tabs-nav" role="tablist">
+        <button class="tab-btn active" data-tab="chat" role="tab" aria-selected="true">
+          <span class="tab-num">1</span>
+          <span>Chat</span>
+          <span class="tab-badge tab-badge--new">Nova · S4</span>
+        </button>
+        <button class="tab-btn" data-tab="cowork" role="tab" aria-selected="false">
+          <span class="tab-num">2</span>
+          <span>Cowork</span>
+          <span class="tab-badge tab-badge--new">Nova · S4</span>
+        </button>
+      </div>
+
+      <!-- PAINEL · CHAT -->
+      <div class="tab-panel" id="tab-chat" role="tabpanel">
+        <div class="estacao-header">
+          <div class="estacao-icon">💬</div>
+          <div>
+            <div class="estacao-h3">Chat — Claude.ai no navegador</div>
+            <div class="estacao-tagline">O ponto de partida. Turno a turno, você conduz.</div>
+          </div>
+        </div>
+
+        <div class="estacao-oque">
+          <p><strong>O que é:</strong> a interface conversacional que roda em <code>claude.ai</code> e no app desktop. Uma pergunta, uma resposta, você refina no próximo turno. Desenhado pra trocas curtas e pensamento rápido.</p>
+        </div>
+
+        <div class="estacao-mental">
+          <div class="mini-eyebrow">Mental model</div>
+          <p>Chat é onde você pensa <strong>com</strong> o Claude. Não é onde você delega.</p>
+        </div>
+
+        <div class="estacao-secao estacao-como">
+          <div class="estacao-secao__label">Como funciona</div>
+          <ul>
+            <li><strong>Turno a turno:</strong> você faz a próxima pergunta, o Claude não decide o próximo passo sozinho.</li>
+            <li><strong>Contexto vive só naquela conversa</strong> (a menos que esteja dentro de um Project — ver S7).</li>
+            <li><strong>Lê o que você anexa</strong>, mas <strong>não salva arquivo</strong> de volta na sua máquina.</li>
+            <li><strong>Puxa de conector um por vez.</strong> Você quem costura os passos.</li>
+            <li><strong>Zero permissão de escrita</strong> fora da própria janela do chat.</li>
+          </ul>
+        </div>
+
+        <div class="estacao-secao">
+          <div class="estacao-secao__label">Quando reconhecer que é Chat</div>
+          <div class="quando-grid">
+            <div class="quando-box quando-box--use">
+              <div class="quando-box__titulo">✓ Use quando</div>
+              <ul>
+                <li>Precisa de <strong>resposta rápida</strong> (1-3 turnos)</li>
+                <li>Está pensando em voz alta, iterando</li>
+                <li>Tarefa <strong>termina na resposta</strong> ("me ajuda a entender X")</li>
+                <li>Vai copiar o output pra outro lugar depois</li>
+              </ul>
+            </div>
+            <div class="quando-box quando-box--nao">
+              <div class="quando-box__titulo">✗ Não use quando</div>
+              <ul>
+                <li>Precisa que o Claude <strong>modifique arquivos</strong> na sua máquina</li>
+                <li>Envolve mais de 20 arquivos ou &gt;30MB</li>
+                <li>Você quer entregável salvo em pasta</li>
+                <li>Fluxo tem múltiplos passos automáticos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="estacao-secao">
+          <div class="estacao-secao__label">3 exemplos aplicados na rotina executiva</div>
+          <div class="exemplos-lista">
+            <div class="exemplo-num">
+              <div class="ex-numero">1</div>
+              <div>
+                <div class="ex-fala">"Me ajuda a redigir os 3 pontos que quero comunicar na reunião de segunda com o secretário."</div>
+                <div class="ex-linha">
+                  <div class="ex-linha__label ex-linha__label--entrega">Claude entrega</div>
+                  <div class="ex-linha__body">3 pontos redigidos + 1 abertura sugerida pra abrir bem</div>
+                </div>
+                <div class="ex-linha">
+                  <div class="ex-linha__label">Por que Chat</div>
+                  <div class="ex-linha__body">Pensamento único, sem arquivo, sem sistema externo — termina na resposta.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="exemplo-num">
+              <div class="ex-numero">2</div>
+              <div>
+                <div class="ex-fala">Cola um edital: "Explica em linguagem de reunião de gestor quais são os 5 pontos que mudam a operação da câmara."</div>
+                <div class="ex-linha">
+                  <div class="ex-linha__label ex-linha__label--entrega">Claude entrega</div>
+                  <div class="ex-linha__body">5 pontos + 2 perguntas pra levar pra reunião</div>
+                </div>
+                <div class="ex-linha">
+                  <div class="ex-linha__label">Por que Chat</div>
+                  <div class="ex-linha__body">Análise pontual sobre input colado. Não vai virar arquivo, só entendimento.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="exemplo-num">
+              <div class="ex-numero">3</div>
+              <div>
+                <div class="ex-fala">"Reformula essa pauta pra caber em 30 min sem cortar o que é decisão."</div>
+                <div class="ex-linha">
+                  <div class="ex-linha__label ex-linha__label--entrega">Claude entrega</div>
+                  <div class="ex-linha__body">Pauta enxugada + sugestão do que virou "encaminhamento", não decisão</div>
+                </div>
+                <div class="ex-linha">
+                  <div class="ex-linha__label">Por que Chat</div>
+                  <div class="ex-linha__body">Iteração rápida sobre texto curto. Melhor no chat que abrindo Cowork.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="estacao-secao">
+          <div class="estacao-secao__label">Armadilhas comuns</div>
+          <div class="armadilhas-lista">
+            <div class="armadilha">
+              <div class="armadilha__tag">Atenção</div>
+              <div class="armadilha__body">Tratar Chat como executor autônomo: pedir <em>"organiza minha pasta de contratos"</em> no Chat só devolve descrição do que faria — Chat não escreve no seu disco. Se precisa mexer em arquivo, é Cowork.</div>
+            </div>
+            <div class="armadilha">
+              <div class="armadilha__tag">Atenção</div>
+              <div class="armadilha__body">Aceitar a 1ª resposta genérica sem refinar. Se a resposta veio genérica, é porque a <strong>sua pergunta</strong> veio genérica. Refina antes de reclamar do Claude.</div>
+            </div>
+            <div class="armadilha">
+              <div class="armadilha__tag">Atenção</div>
+              <div class="armadilha__body">Repetir toda semana o mesmo prompt copiado. Isso é sinal claro que virou candidato a Scheduled Task (S6) ou Project (S7), não a Chat.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="citacao">
+          <blockquote>"Chat é onde você pensa com o Claude. Cowork é onde você delega ao Claude."</blockquote>
+          <cite>What is Claude Cowork · Anthropic Academy</cite>
+        </div>
+      </div>
+
+      <!-- PAINEL · COWORK -->
+      <div class="tab-panel" id="tab-cowork" role="tabpanel" hidden>
+        <div class="estacao-header">
+          <div class="estacao-icon">⚙️</div>
+          <div>
+            <div class="estacao-h3">Cowork — Claude que edita junto</div>
+            <div class="estacao-tagline">Documento na mesa. Você e ele editam lado a lado.</div>
+          </div>
+        </div>
+
+        <div class="estacao-oque">
+          <p><strong>O que é:</strong> um modo de trabalho em que Claude e você editam um documento (relatório, POP, JD, ata) lado a lado, no mesmo painel. Você não faz <em>pergunta e resposta</em> — trabalha <em>dentro</em> do artefato.</p>
+        </div>
+
+        <div class="estacao-mental">
+          <div class="mini-eyebrow">Mental model</div>
+          <p>Cowork é onde você <strong>edita junto</strong> com o Claude. Não é sobre conversar melhor.</p>
+        </div>
+
+        <div class="estacao-secao estacao-como">
+          <div class="estacao-secao__label">Como funciona</div>
+          <ul>
+            <li><strong>Abre com documento em branco</strong> ou colando texto que você já tinha.</li>
+            <li><strong>Peça edição pontual:</strong> "reescreve este parágrafo em tom executivo" — Claude edita <em>ali</em>, você vê a mudança na hora.</li>
+            <li><strong>Discorda? Edita você mesma no painel.</strong> Ele lê e continua dali.</li>
+            <li><strong>Peça várias transformações no mesmo doc:</strong> corta, adiciona, muda ordem — sem abrir 3 chats.</li>
+            <li><strong>Ao fim, doc pronto pra copiar/exportar</strong> — não é resposta pra você reformatar.</li>
+          </ul>
+        </div>
+
+        <div class="estacao-secao">
+          <div class="estacao-secao__label">Quando reconhecer que é Cowork</div>
+          <div class="quando-grid">
+            <div class="quando-box quando-box--use">
+              <div class="quando-box__titulo">✓ Use quando</div>
+              <ul>
+                <li>Já tem <strong>versão base</strong> (email longo, POP, relatório) pra iterar</li>
+                <li>Precisa de <strong>várias transformações</strong> no mesmo texto por 20-30 min</li>
+                <li>Quer <strong>ver a edição acontecendo</strong>, não descrita</li>
+                <li>Documento final vai virar entregável (imprimir, mandar, arquivar)</li>
+              </ul>
+            </div>
+            <div class="quando-box quando-box--nao">
+              <div class="quando-box__titulo">✗ Não use quando</div>
+              <ul>
+                <li>Só quer <strong>pensar/discutir</strong> sem documento na mesa (→ Chat)</li>
+                <li>Vai gerar entregável de uma vez em formato estruturado (→ Artifacts, S5)</li>
+                <li>Quer análise de arquivo anexado sem editar (→ Chat)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="estacao-secao">
+          <div class="estacao-secao__label">3 exemplos aplicados na rotina executiva</div>
+          <div class="exemplos-lista">
+            <div class="exemplo-num">
+              <div class="ex-numero">1</div>
+              <div>
+                <div class="ex-fala">Cola um rascunho de comunicado interno: "Deixa em tom mais direto, tira jargão. Máx 3 parágrafos."</div>
+                <div class="ex-linha">
+                  <div class="ex-linha__label ex-linha__label--entrega">Claude entrega</div>
+                  <div class="ex-linha__body">Comunicado reescrito no painel, você edita as frases que quiser preservar</div>
+                </div>
+                <div class="ex-linha">
+                  <div class="ex-linha__label">Por que Cowork</div>
+                  <div class="ex-linha__body">Há uma versão base. A tarefa é editar, não pensar. Você quer o entregável no fim, não texto pra copiar.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="exemplo-num">
+              <div class="ex-numero">2</div>
+              <div>
+                <div class="ex-fala">"Pega essa descrição de vaga de gerente comercial e transforma numa versão pra Corretora de médio porte. Preserva o STAR."</div>
+                <div class="ex-linha">
+                  <div class="ex-linha__label ex-linha__label--entrega">Claude entrega</div>
+                  <div class="ex-linha__body">JD reescrita adaptada, com bloco marcado <code>[VOCÊ PREENCHE]</code> onde faltar dado</div>
+                </div>
+                <div class="ex-linha">
+                  <div class="ex-linha__label">Por que Cowork</div>
+                  <div class="ex-linha__body">Adaptação estrutural. Você vai iterar 3-4 vezes até chegar na versão certa pra mostrar em entrevista.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="exemplo-num">
+              <div class="ex-numero">3</div>
+              <div>
+                <div class="ex-fala">Transfere uma conversa do Chat pro Cowork: "Isso aqui virou uma ata de reunião. Estrutura em Decisão / Responsável / Prazo."</div>
+                <div class="ex-linha">
+                  <div class="ex-linha__label ex-linha__label--entrega">Claude entrega</div>
+                  <div class="ex-linha__body">Tabela estruturada + espaço pra você preencher os prazos ausentes</div>
+                </div>
+                <div class="ex-linha">
+                  <div class="ex-linha__label">Por que Cowork</div>
+                  <div class="ex-linha__body">O Chat gerou insumo. O Cowork transforma em entregável. É o par natural.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="estacao-secao">
+          <div class="estacao-secao__label">Armadilhas comuns</div>
+          <div class="armadilhas-lista">
+            <div class="armadilha">
+              <div class="armadilha__tag">Atenção</div>
+              <div class="armadilha__body">Começar direto no Cowork sem base ou direção clara. Cowork brilha <strong>com matéria-prima</strong>. Sem matéria-prima, vira Chat mais lento.</div>
+            </div>
+            <div class="armadilha">
+              <div class="armadilha__tag">Atenção</div>
+              <div class="armadilha__body">Usar Cowork pra pedir uma coisa só ("me faz um email de 3 linhas"). Isso é 1 turno de Chat. Cowork brilha em 5+ transformações.</div>
+            </div>
+            <div class="armadilha">
+              <div class="armadilha__tag">Atenção</div>
+              <div class="armadilha__body">Deixar de ler linha a linha. Cowork <strong>não te dispensa</strong> de revisar. O Claude pode reescrever certo e mudar o sentido — se você não bate os olhos, passa.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="citacao">
+          <blockquote>"Cowork é sobre delegar arco de trabalho inteiro — não é conversar de forma mais esperta."</blockquote>
+          <cite>What is Claude Cowork · Anthropic Academy</cite>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BLOCO 2 · AGORA · MÃO NA MASSA -->
+  <section class="bloco-modulo">
+    <div class="site-container">
+      <div class="bloco-linha">Agora · Mão na massa</div>
+      <h2 class="bloco-h2">Escolha um caso para praticar</h2>
+      <p class="bloco-lead">Cada caso termina com você abrindo o Claude e vendo o resultado ao vivo. Comece pelo que mais parece com uma coisa sua desta semana. Os três casos combinam Chat + Cowork em ordens diferentes.</p>
+
+      <div class="cases-grid">
+        <a class="case-card-link" href="exemplos/corretora-preparo-entrevista/">
+          <div class="case-tag">Do Claude</div>
+          <div class="case-titulo">Preparar entrevista · Corretora</div>
+          <ul class="case-linhas">
+            <li>3 perguntas prováveis + intenção real</li>
+            <li>3 esboços STAR ancorados na sua experiência</li>
+            <li>Doc final refinado no Cowork</li>
+          </ul>
+          <div class="case-features">
+            <span class="feat">Chat</span>
+            <span class="feat">Cowork</span>
+          </div>
+          <div class="case-cta">abrir caso →</div>
+        </a>
+
+        <a class="case-card-link" href="exemplos/banda-financeiro-2027/">
+          <div class="case-tag">Workbook</div>
+          <div class="case-titulo">Financeiro Banda · 2027</div>
+          <ul class="case-linhas">
+            <li>Estrutura de controle em 4 blocos</li>
+            <li>Categorias + ritmo + responsabilidades</li>
+            <li>Doc pra mostrar pro irmão que cuida hoje</li>
+          </ul>
+          <div class="case-features">
+            <span class="feat">Chat</span>
+            <span class="feat">Cowork</span>
+          </div>
+          <div class="case-cta">abrir caso →</div>
+        </a>
+
+        <a class="case-card-link" href="exemplos/gabinete-decisoes-anonimo/">
+          <div class="case-tag">Ata executiva</div>
+          <div class="case-titulo">Decisões de reunião · Gabinete</div>
+          <ul class="case-linhas">
+            <li>Checklist LGPD antes de colar</li>
+            <li>Extração de 5 decisões + responsáveis + prazos</li>
+            <li>3 riscos implícitos que ninguém falou</li>
+          </ul>
+          <div class="case-features">
+            <span class="feat">Chat</span>
+            <span class="feat">Cowork</span>
+            <span class="feat">LGPD</span>
+          </div>
+          <div class="case-cta">abrir caso →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Casa · 2 camadas -->
+  <section class="bloco-modulo">
+    <div class="site-container">
+      <div class="bloco-linha">Casa · O que ficou combinado</div>
+      <h2 class="bloco-h2">Compromisso de semana em 2 camadas</h2>
+      <p class="bloco-lead">Sem essa prática, S5 (Artifacts) vai frustrar — parte do princípio de que você já sabe conduzir conversa. É rápido e cabe na semana.</p>
+      <div class="casa-grid">
+        <div class="casa-card casa-card--minimo">
+          <div class="casa-card__label">Mínimo</div>
+          <h5>3 conversas em Chat · 1 por cenário</h5>
+          <ul>
+            <li>Banda de forró</li>
+            <li>Corretora / entrevista</li>
+            <li>Gabinete anonimizado</li>
+          </ul>
+          <p style="margin-top:10px;">Salvar os 3 links. Anotar em 1 linha por conversa: <em>o que fluiu / o que travou</em>.</p>
+        </div>
+        <div class="casa-card casa-card--desafio">
+          <div class="casa-card__label">Desafio</div>
+          <h5>1 dessas termina em Cowork</h5>
+          <p>Salvar o documento final. Reportar na S5: em qual dos 3 o Cowork ajudou de verdade e em qual atrapalhou? Por quê?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fechamento reflexivo -->
+  <section class="bloco-modulo">
+    <div class="site-container">
+      <div class="bloco-linha">Antes de sair</div>
+      <h2 class="bloco-h2">Reflita 3 minutos</h2>
+      <div class="fecho-card">
+        <h3>3 perguntas pra si</h3>
+        <ol>
+          <li>Das 3 conversas que você planeja, qual é a que você tem <strong>mais</strong> medo de começar? Por quê?</li>
+          <li>Em qual das 3 é mais importante você usar Cowork depois do Chat? Por quê?</li>
+          <li>Se algo trouxer dado sensível (nome, número, algo do gabinete), qual seu <strong>ritual de anonimização</strong> antes de continuar? Se não tem, esse é o momento de criar.</li>
+        </ol>
+        <div class="fecho-pontos">
+          <p><strong>Chat</strong> = pensar junto. <strong>Cowork</strong> = editar junto.</p>
+          <p><strong>PCTFL</strong> não é ritual chato — é o que separa resposta útil de resposta genérica.</p>
+          <p><strong>Discordar</strong> do Claude quando ele generaliza é parte do trabalho, não falha da IA.</p>
+          <p><strong>Anonimizar</strong> antes de colar. Sempre.</p>
+        </div>
+        <div class="fecho-ponte">
+          <strong>Ponte pra S5.</strong> Nesta semana você vai perceber que muita coisa boa da conversa sai como <em>texto solto</em> — bom pra ler, ruim pra reusar. Na S5 você aprende a pedir <strong>Artifacts</strong> (documentos, planilhas, HTMLs) que saem prontos pra usar, em vez de texto pra você reformatar depois.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="sessao-footer">
+    <div class="site-container">
+      <div class="sessao-footer-nav">
+        <a href="../../">← Home Débora</a>
+        <a href="./index.md">Versão texto (.md)</a>
+        <span class="disabled">Próxima: S5 Artifacts · em breve</span>
+      </div>
+      <div class="sessao-footer-assinatura">
+        Mentoria IA Executiva · <strong>Débora Nascimento</strong> · S4 · Nova rota Claude<br>
+        Curadoria: Rafael Lima · <a href="https://www.instagram.com/iacomrafael/" target="_blank" rel="noopener">@iacomrafael</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tabs de estações — 1 handler simples
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.toggle('active', b === btn);
+          b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+        });
+        document.querySelectorAll('.tab-panel').forEach(p => {
+          const show = p.id === 'tab-' + target;
+          p.hidden = !show;
+        });
+        // Salva última estação vista no localStorage
+        localStorage.setItem('debora-s4-tab', target);
+      });
+    });
+
+    // Restaurar última tab
+    const savedTab = localStorage.getItem('debora-s4-tab');
+    if (savedTab && ['chat', 'cowork'].includes(savedTab)) {
+      const btn = document.querySelector(`.tab-btn[data-tab="${savedTab}"]`);
+      if (btn) btn.click();
+    }
+
+    // Marcador de leitura ao chegar no fechamento
+    const readKey = 'debora-s4-lida';
+    if (!localStorage.getItem(readKey)) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            localStorage.setItem(readKey, new Date().toISOString());
+            obs.disconnect();
+          }
+        });
+      }, { threshold: 0.5 });
+      const fecho = document.querySelector('.fecho-card');
+      if (fecho) obs.observe(fecho);
+    }
+  </script>
+
+</body>
+</html>
