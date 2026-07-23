@@ -106,7 +106,11 @@
       border-radius: 8px 8px 0 0;
     }
     .eixo-card--active:hover { transform: translateY(-2px); }
-    .eixo-card--future { opacity: .62; cursor: not-allowed; }
+    .eixo-card--future {
+      opacity: .5; cursor: not-allowed;
+      background: transparent;
+      border-style: dashed;
+    }
     .eixo-card-eyebrow {
       font-family: 'Inter', sans-serif;
       font-size: 10.5px; font-weight: 600;
@@ -138,9 +142,10 @@
       <a href="./" class="topbar-logo">Mentoria IA Executiva · Débora</a>
       <nav class="topbar-nav">
         <a href="#fundamentos">Fundamentos</a>
-        <a href="#eixos">Eixos</a>
-        <a href="#biblioteca">Biblioteca</a>
         <a href="#sessoes">Sessões</a>
+        <a href="#eixos">Material de apoio</a>
+        <a href="#biblioteca">Biblioteca</a>
+        <a href="#historico">Histórico</a>
       </nav>
     </div>
   </header>
@@ -176,16 +181,6 @@
         </div>
       </div>
       <div class="trilha-row">
-        <span class="trilha-label">Eixos</span>
-        <div class="trilha-dots">
-          <span class="trilha-dot doing">Finanças</span>
-          <span class="trilha-dot todo">Gestão</span>
-          <span class="trilha-dot future">RH</span>
-          <span class="trilha-dot future">Marketing</span>
-          <span class="trilha-dot future">n8n &amp; Atendimento</span>
-        </div>
-      </div>
-      <div class="trilha-row">
         <span class="trilha-label">Sessões</span>
         <div class="trilha-dots">
           <span class="trilha-dot done">S1</span>
@@ -196,6 +191,16 @@
           <span class="trilha-dot future">S6 · Sch. Tasks</span>
           <span class="trilha-dot future">S7 · Projects</span>
           <span class="trilha-dot future">S8 · Personalização</span>
+        </div>
+      </div>
+      <div class="trilha-row">
+        <span class="trilha-label">Material de apoio</span>
+        <div class="trilha-dots">
+          <span class="trilha-dot done">Finanças</span>
+          <span class="trilha-dot done">Gestão</span>
+          <span class="trilha-dot future">RH</span>
+          <span class="trilha-dot future">Marketing</span>
+          <span class="trilha-dot future">n8n &amp; Atendimento</span>
         </div>
       </div>
     </div>
@@ -249,15 +254,54 @@
       </div>
     </section>
 
-    <section id="eixos" class="section-mentoria" style="background:var(--bg-warm);">
+    <section id="sessoes" class="section-mentoria" style="background:var(--bg-warm);">
       <div class="site-container" style="max-width:960px; margin:0 auto; padding: 0 24px;">
-        <p class="eyebrow">Aplicação por setor</p>
+        <p class="eyebrow">Rota Claude · S4-S8</p>
+        <h2>Sessões</h2>
+        <p>Cada sessão da nova rota explora uma ferramenta do ecossistema Claude aplicada à sua rotina executiva. O tema da <strong>aula atual</strong> abre direto; os próximos vão sendo destravados ao longo da mentoria.</p>
+      </div>
+      <div class="eixos-grid">
+        <a href="sessoes/s4/" class="eixo-card eixo-card--active">
+          <p class="eixo-card-eyebrow">S4 · Aula atual</p>
+          <h3>Chat + Cowork</h3>
+          <p class="eixo-card-desc">Base de uso do Claude: como pedir com PCTFL, quando puxar pro Cowork, como refinar sem regressão. 3 casos executivos: corretora, banda familiar e gabinete (LGPD).</p>
+          <div class="eixo-card-footer">
+            <span class="eixo-card-meta">2 estações · 3 casos práticos</span>
+            <span class="eixo-card-link">Abrir →</span>
+          </div>
+        </a>
+        <div class="eixo-card eixo-card--future">
+          <p class="eixo-card-eyebrow">S5 · Em breve</p>
+          <h3>Artifacts</h3>
+          <p class="eixo-card-desc">O que é, quando pedir, como usar pra transformar conversa em entregável reutilizável.</p>
+        </div>
+        <div class="eixo-card eixo-card--future">
+          <p class="eixo-card-eyebrow">S6 · Em breve</p>
+          <h3>Scheduled Tasks</h3>
+          <p class="eixo-card-desc">Rotinas programadas — o Claude trabalhando pra você sem você precisar abrir.</p>
+        </div>
+        <div class="eixo-card eixo-card--future">
+          <p class="eixo-card-eyebrow">S7 · Em breve</p>
+          <h3>Projects</h3>
+          <p class="eixo-card-desc">Assistentes com contexto persistente. Combina com Cowork pra criar seu próprio time interno.</p>
+        </div>
+        <div class="eixo-card eixo-card--future">
+          <p class="eixo-card-eyebrow">S8 · Em breve</p>
+          <h3>Personalização</h3>
+          <p class="eixo-card-desc">Skills · Connectors · Plugins. Como fazer o Claude falar a sua língua e conectar às suas ferramentas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="eixos" class="section-mentoria">
+      <div class="site-container" style="max-width:960px; margin:0 auto; padding: 0 24px;">
+        <p class="eyebrow">Material de apoio por vertical</p>
         <h2>Eixos</h2>
-        <p>Cada eixo é uma vertical do negócio. Você aprende as habilidades que a IA destrava ali, com casos reais e arquivos pra praticar. Começa com <strong>Finanças</strong>. Outros eixos chegam ao longo da mentoria.</p>
+        <p>Referências por vertical do negócio pra praticar entre uma sessão e outra. <strong>Finanças</strong> e <strong>Gestão</strong> já estão publicados como material vivo; os demais entram na medida que a mentoria avança.</p>
       </div>
       <div class="eixos-grid">
         <a href="eixos/financas/" class="eixo-card eixo-card--active">
-          <p class="eixo-card-eyebrow">S3 · Em andamento</p>
+          <p class="eixo-card-eyebrow">Disponível</p>
           <h3>Finanças</h3>
           <p class="eixo-card-desc">DCF da sociedade, DRE em cascata, margem de contribuição por prato, auditoria de contrato. 5 habilidades destravadas com IA + 6 arquivos pra praticar.</p>
           <div class="eixo-card-footer">
@@ -266,7 +310,7 @@
           </div>
         </a>
         <a href="eixos/gestao/" class="eixo-card eixo-card--active">
-          <p class="eixo-card-eyebrow">S4 · Disponível</p>
+          <p class="eixo-card-eyebrow">Disponível</p>
           <h3>Gestão</h3>
           <p class="eixo-card-desc">SWOT + 5 Forças, mapa AS-IS, POP com 5W2H, dashboard de KPIs semafórico, causa-raiz com Espinha-de-peixe, priorização Impacto × Esforço. 6 práticas canônicas com IA como copilota.</p>
           <div class="eixo-card-footer">
@@ -275,17 +319,17 @@
           </div>
         </a>
         <div class="eixo-card eixo-card--future">
-          <p class="eixo-card-eyebrow">S6 · Em breve</p>
+          <p class="eixo-card-eyebrow">Em breve</p>
           <h3>RH</h3>
           <p class="eixo-card-desc">Recrutamento, treinamento, plano de carreira — chega até o L3 (assistente próprio).</p>
         </div>
         <div class="eixo-card eixo-card--future">
-          <p class="eixo-card-eyebrow">S7 · Em breve</p>
+          <p class="eixo-card-eyebrow">Em breve</p>
           <h3>Marketing</h3>
           <p class="eixo-card-desc">Posicionamento, anúncios, campanha de inauguração com IA.</p>
         </div>
         <div class="eixo-card eixo-card--future">
-          <p class="eixo-card-eyebrow">S8 · Em breve</p>
+          <p class="eixo-card-eyebrow">Em breve</p>
           <h3>n8n &amp; Atendimento</h3>
           <p class="eixo-card-desc">Mapa IA Generativa × Automação + 1 fluxo n8n rodando ao final.</p>
         </div>
@@ -304,11 +348,11 @@
       </div>
     </section>
 
-    <section id="sessoes" class="section-mentoria">
+    <section id="historico" class="section-mentoria">
       <div class="site-container" style="max-width:960px; margin:0 auto; padding: 0 24px;">
-        <p class="eyebrow">Histórico</p>
-        <h2>Sessões</h2>
-        <p>Resumo de cada encontro, decisões tomadas, casos práticos rodados ao vivo. Cresce ao longo da mentoria.</p>
+        <p class="eyebrow">Diagnóstico + entrevista</p>
+        <h2>Histórico</h2>
+        <p>Sessões de calibração que abriram a mentoria. Ficam aqui como referência de onde partimos.</p>
         <div class="sessoes-card">
           <div class="sessao-row">
             <span class="sessao-num">S1</span>
@@ -322,33 +366,8 @@
           </div>
           <div class="sessao-row">
             <span class="sessao-num">S3</span>
-            <span class="sessao-title"><a href="eixos/financas/">Eixo Finanças</a> · <a href="eixos/financas/" style="color:var(--accent); font-weight:600;">disponível →</a></span>
-            <span class="sessao-meta">a agendar</span>
-          </div>
-          <div class="sessao-row">
-            <span class="sessao-num">S4</span>
-            <span class="sessao-title"><a href="sessoes/s4/">Chat + Cowork · nova rota Claude</a> · <a href="sessoes/s4/" style="color:var(--accent); font-weight:600;">disponível →</a></span>
-            <span class="sessao-meta">a agendar</span>
-          </div>
-          <div class="sessao-row">
-            <span class="sessao-num">S5</span>
-            <span class="sessao-title">Artifacts</span>
-            <span class="sessao-meta">em breve</span>
-          </div>
-          <div class="sessao-row">
-            <span class="sessao-num">S6</span>
-            <span class="sessao-title">Scheduled Tasks</span>
-            <span class="sessao-meta">em breve</span>
-          </div>
-          <div class="sessao-row">
-            <span class="sessao-num">S7</span>
-            <span class="sessao-title">Projects</span>
-            <span class="sessao-meta">em breve</span>
-          </div>
-          <div class="sessao-row">
-            <span class="sessao-num">S8</span>
-            <span class="sessao-title">Personalização · Skills · Connectors · Plugins</span>
-            <span class="sessao-meta">em breve</span>
+            <span class="sessao-title">Finanças · virou <a href="eixos/financas/">material de apoio</a></span>
+            <span class="sessao-meta">consolidada como eixo</span>
           </div>
         </div>
       </div>
