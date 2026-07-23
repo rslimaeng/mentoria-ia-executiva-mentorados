@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Caso · Desenhe sua teoria de mudança · S4 · Débora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../../_shared/assets/style.css">
+  <link rel="stylesheet" href="../_shared/caso-styles.css">
+  <style>
+    .cadeia {
+      display: flex; flex-wrap: wrap;
+      gap: 6px; align-items: center;
+      margin: 14px 0 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+    }
+    .cadeia__box {
+      padding: 6px 12px;
+      background: #fdf3ec;
+      border: 1px solid var(--accent-warm);
+      border-radius: 6px;
+      color: var(--accent-warm-dark);
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+    .cadeia__seta { color: var(--accent-warm-dark); font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../../../../" class="topbar-logo">Débora</a>
+      <div class="topbar-nav">
+        <a href="../../../../">Home</a>
+        <a href="../../">Voltar pra S4</a>
+        <a href="../../../../banco-de-prompts/">Banco de prompts</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="breadcrumb-page">
+    <div class="site-container">
+      <div class="breadcrumb">
+        <a href="../../../../">Débora</a>
+        <span class="sep">/</span>
+        <a href="../../">S4 · Chat + Cowork</a>
+        <span class="sep">/</span>
+        <span>Padrões</span>
+        <span class="sep">/</span>
+        <span class="current">Desenhe sua teoria de mudança</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="caso-hero">
+    <div class="site-container">
+      <div class="caso-hero-grid">
+        <div>
+          <h1 class="caso-h1">Desenhe sua teoria de mudança</h1>
+          <p class="caso-descricao">Você tem um programa, política, iniciativa. Sabe o que ela <em>faz</em>. O que raramente está escrito é o <strong>PORQUÊ ela funcionaria</strong> — as suposições invisíveis entre "o que a gente entrega" e "o resultado que a gente quer". Este exercício deixa essas suposições visíveis. Boa parte delas você não tinha percebido.</p>
+          <a class="caso-cta" href="https://claude.ai/new" target="_blank" rel="noopener">Abrir Claude Chat</a>
+        </div>
+
+        <aside class="caso-hero-sidebar">
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Autoria</div>
+            <div class="caso-hero-sidebar__valor">Anthropic · adaptação Rafael</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Categoria</div>
+            <div class="caso-hero-sidebar__valor">Estratégia · Defesa de projeto</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Modelo sugerido</div>
+            <div class="caso-hero-sidebar__valor">Claude Sonnet 4.5 · Extended Thinking</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Ferramentas</div>
+            <div class="caso-features">
+              <span class="feat-chip">Chat</span>
+            </div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Tempo estimado</div>
+            <div class="caso-hero-sidebar__valor">20-30 min · 4-5 turnos</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="passos-wrap">
+    <div class="site-container">
+
+      <!-- PASSO 1 -->
+      <div class="passo">
+        <div class="passo__num">1</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Descreva seu programa · peça o mapa em 5 caixas</h3>
+            <p>Não precisa de arquivo. 3-5 linhas descrevendo o programa e o resultado desejado bastam pro Claude puxar o modelo lógico padrão de <em>teoria de mudança</em>:</p>
+
+            <div class="cadeia">
+              <span class="cadeia__box">Insumos</span>
+              <span class="cadeia__seta">→</span>
+              <span class="cadeia__box">Atividades</span>
+              <span class="cadeia__seta">→</span>
+              <span class="cadeia__box">Produtos</span>
+              <span class="cadeia__seta">→</span>
+              <span class="cadeia__box">Resultados intermediários</span>
+              <span class="cadeia__seta">→</span>
+              <span class="cadeia__box">Resultado final</span>
+            </div>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-1">Copiar</button><span id="prompt-1"><span class="highlight">Papel:</span> Você é uma consultora de avaliação de programas com 15 anos de experiência em desenho de teoria de mudança pra iniciativas públicas.
+
+<span class="highlight">Contexto:</span> Coordeno [PROGRAMA — ex.: digitalização de atendimento no gabinete]. Ele funciona assim: [DESCREVA EM 3-5 LINHAS — o que faz, quem serve, entrega concreta]. O resultado desejado é [RESULTADO FINAL — ex.: reduzir tempo médio de resposta a demandas do cidadão].
+
+<span class="highlight">Tarefa:</span> Desenhe a teoria de mudança em 5 caixas ligadas (Insumos → Atividades → Produtos → Resultados intermediários → Resultado final). Pra CADA seta:
+- Qual suposição precisa ser verdadeira
+- Se ela é forte ou frágil
+- Se frágil, qual seria o sinal precoce de falha
+
+<span class="highlight">Formato:</span> Texto estruturado. Cada caixa em bloco. Cada seta com as 3 infos. Ao final, resume os "elos fracos" — as 2-3 suposições que mais preocupam.
+
+<span class="highlight">Limite:</span> Não me dê teoria bonita. Onde a lógica não fecha, diga. É pra descobrir o que está mal defendido, não pra convencer alguém de que está tudo certo.</span></div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">🧭</div>
+              <div class="passo__sidebar-title">A parte importante é a seta</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Todo mundo lista <em>o que a iniciativa faz</em> (as caixas). Ninguém escreve <em>por que uma coisa levaria à outra</em> (as setas).</p>
+              <p style="margin-top:8px;">É nas setas que os programas caem. Elos fracos invisíveis viram fracasso "inexplicável".</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 2 -->
+      <div class="passo">
+        <div class="passo__num">2</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Aprofunde num elo fraco</h3>
+            <p>O Claude marcou 2-3 suposições como frágeis. Escolha a mais crítica — aquela que se cair, derruba o resultado final — e vá fundo.</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-2">Copiar</button><span id="prompt-2">Da seta [entre CAIXA X e CAIXA Y], vamos fundo. Se essa suposição estiver errada, qual é a consequência prática pro programa? Que dados eu poderia coletar HOJE, com o que já tenho na mão, pra saber se ela está se sustentando ou não?</span></div>
+          </div>
+
+          <aside class="passo__sidebar sidebar-card--claude">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">✎</div>
+              <div class="passo__sidebar-title">Do Claude · exemplo</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p><strong>Seta Produtos → Resultados intermediários</strong></p>
+              <p style="font-size:12.5px; color:var(--ink-soft); margin-top:4px;"><strong>Suposição frágil:</strong> "Os cidadãos vão preferir o canal digital ao presencial."</p>
+              <p style="font-size:12.5px; color:var(--ink-soft); margin-top:4px;"><strong>Se falhar:</strong> volume digital baixo → assessores dobrados atendendo dois canais → tempo médio de resposta piora.</p>
+              <p style="font-size:12.5px; color:var(--ink-soft); margin-top:4px;"><strong>Medir hoje:</strong> comparar % de agendamentos digitais vs presenciais nos primeiros 30 dias, por faixa etária.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 3 -->
+      <div class="passo">
+        <div class="passo__num">3</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Peça um plano de medição enxuto</h3>
+            <p>Agora consolida: transforma as suposições frágeis em <strong>indicadores concretos</strong> que você pode acompanhar sem sistema novo, sem contratar externo.</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-3">Copiar</button><span id="prompt-3">Das 2-3 suposições que você chamou de "elos fracos", monta um plano de medição em 3 linhas cada:
+- O que medir (indicador concreto)
+- Como medir (fonte de dado)
+- Com que frequência
+
+Tem que caber numa página. Tem que ser algo que 1 pessoa consegue fazer sem depender de sistema novo.</span></div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">⚠️</div>
+              <div class="passo__sidebar-title">Anti-padrão comum</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Aceitar plano de medição que exija BI novo, sistema integrado, dashboard mensal.</p>
+              <p style="margin-top:8px;">Se o plano depende de tecnologia que você não tem, ele não vai acontecer. Peça o "mínimo que 1 pessoa faz numa manhã por mês".</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 4 -->
+      <div class="passo">
+        <div class="passo__num">4</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Teste um "e se" · adicione um componente novo</h3>
+            <p>Aqui você usa o Claude pra <em>simular</em> uma mudança no programa antes de implementar. Se você adicionar um componente novo, o mapa muda — novas suposições entram, algumas velhas mudam de peso.</p>
+
+            <div class="refinamentos">
+              <div class="refinamento">
+                <div class="refinamento__titulo">Adicionar componente</div>
+                <div class="refinamento__prompt">"E se eu adicionar [COMPONENTE NOVO — ex.: treinamento dos assessores] às Atividades? Como muda o mapa? Que suposições novas entram?"</div>
+              </div>
+              <div class="refinamento">
+                <div class="refinamento__titulo">Trocar público</div>
+                <div class="refinamento__prompt">"Se o programa fosse pra [OUTRO PÚBLICO — ex.: idosos em vez de todos], quais suposições ficam mais frágeis?"</div>
+              </div>
+              <div class="refinamento">
+                <div class="refinamento__titulo">Reduzir escopo</div>
+                <div class="refinamento__prompt">"Se eu tivesse metade do orçamento, qual parte da cadeia ficaria mais em risco? Onde cortaria?"</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">💡</div>
+              <div class="passo__sidebar-title">Padrão de uso</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Teoria de mudança é <strong>artefato vivo</strong>. A cada 6 meses, revise. As suposições mudam com o contexto.</p>
+              <p style="margin-top:8px;">Salve o link da conversa. Volte no mesmo lugar quando quiser rever.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 5 -->
+      <div class="passo">
+        <div class="passo__num">5</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Truques, dicas e ciladas</h3>
+
+            <div class="truques-lista">
+              <div class="truque">
+                <h4>Suposição frágil não é ruim — invisível é ruim</h4>
+                <p>Programas caem quando ninguém percebeu que uma suposição frágil estava sustentando o edifício. Ver a fragilidade te coloca em posição melhor.</p>
+              </div>
+              <div class="truque">
+                <h4>Peça sinal precoce, não KPI final</h4>
+                <p>O KPI final chega tarde demais. O sinal precoce é o que aparece nos primeiros 30 dias e te avisa "tá dando errado". Esse é o que vale a pena medir toda semana.</p>
+              </div>
+              <div class="truque">
+                <h4>A "frase-guarda" é ouro</h4>
+                <p>Termine com "se em [PRAZO] eu vir [SINAL], preciso repensar [PARTE]". Sem ela, você fica defendendo o programa mesmo quando ele está falhando.</p>
+              </div>
+              <div class="truque">
+                <h4>Não vire ativista da teoria — teste-a</h4>
+                <p>A tentação é usar o mapa pra <em>convencer</em>. O uso valioso é o oposto: usar pra <em>descobrir</em> onde a lógica não fecha. Você e o Claude do mesmo lado — contra a teoria bonita mal defendida.</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">🎯</div>
+              <div class="passo__sidebar-title">Como saber que deu certo</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <ul>
+                <li>Você identificou pelo menos 1 suposição frágil que não tinha percebido</li>
+                <li>Tem 1 indicador concreto que você começa a medir esta semana</li>
+                <li>Tem uma "frase-guarda" — quando você para de defender e reformula</li>
+                <li>Você consegue explicar o mapa em 1 minuto sem olhar</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 6 -->
+      <div class="passo">
+        <div class="passo__num">6</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Frente prática · faça agora</h3>
+            <div class="frente-pratica">
+              <p class="frente-pratica__lead">Escolha uma iniciativa sua real (do gabinete, de um projeto pessoal, da banda). Baixe o prompt-base e rode. 20-30 min do começo ao fim.</p>
+
+              <div class="arquivo-download">
+                <div class="arquivo-download__icon">MD</div>
+                <div>
+                  <div class="arquivo-download__nome">prompt-teoria-mudanca.md</div>
+                  <div class="arquivo-download__desc">Sequência completa · mapa → elo fraco → medição → e-se</div>
+                </div>
+                <a class="arquivo-download__btn" href="prompt-teoria-mudanca.md" download>baixar ↓</a>
+              </div>
+
+              <div class="passo-a-passo">
+                <h5>Passo a passo em 5 minutos</h5>
+                <ol>
+                  <li>Baixe <code>prompt-teoria-mudanca.md</code></li>
+                  <li>Abra <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai/new</a></li>
+                  <li>Cole o prompt · substitua trechos <code>[PROGRAMA]</code>, <code>[RESULTADO FINAL]</code></li>
+                  <li>Rode. Vem mapa com suposições e elos fracos.</li>
+                  <li>Escolha 1 elo fraco · peça pra ir fundo</li>
+                  <li>Peça o plano de medição enxuto</li>
+                  <li>Teste 1 "e se" · veja como muda o mapa</li>
+                  <li>Encerre com a "frase-guarda" — salve num arquivo</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">✓</div>
+              <div class="passo__sidebar-title">Ao chegar aqui</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Você tem o mapa da sua iniciativa + 2-3 elos fracos identificados + plano de medição enxuto + frase-guarda.</p>
+              <p style="margin-top:10px;">Reporta na S5:</p>
+              <ul>
+                <li>Qual suposição frágil te surpreendeu?</li>
+                <li>Você conseguiu simplificar o plano de medição pra 1 pessoa por manhã?</li>
+                <li>O "e se" mudou algo na sua cabeça?</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="voltar-nav">
+    <div class="site-container">
+      <a href="../../">← Voltar pra S4 · Chat + Cowork</a>
+      <div class="assinatura">Curadoria: Rafael Lima · <a href="https://www.instagram.com/iacomrafael/" target="_blank" rel="noopener">@iacomrafael</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.prompt-copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const t = document.getElementById(btn.dataset.copyTarget);
+        if (!t) return;
+        navigator.clipboard.writeText(t.textContent).then(() => {
+          const orig = btn.textContent;
+          btn.textContent = 'Copiado ✓';
+          btn.classList.add('copied');
+          setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

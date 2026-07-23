@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Caso · Converse com sua planilha · S4 · Débora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../../_shared/assets/style.css">
+  <link rel="stylesheet" href="../_shared/caso-styles.css">
+  <style>
+    .grafico-preview {
+      background: #fdf3ec;
+      border: 1px solid var(--accent-warm);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-top: 10px;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--accent-warm-dark);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../../../../" class="topbar-logo">Débora</a>
+      <div class="topbar-nav">
+        <a href="../../../../">Home</a>
+        <a href="../../">Voltar pra S4</a>
+        <a href="../../../../banco-de-prompts/">Banco de prompts</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="breadcrumb-page">
+    <div class="site-container">
+      <div class="breadcrumb">
+        <a href="../../../../">Débora</a>
+        <span class="sep">/</span>
+        <a href="../../">S4 · Chat + Cowork</a>
+        <span class="sep">/</span>
+        <span>Padrões</span>
+        <span class="sep">/</span>
+        <span class="current">Converse com sua planilha</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="caso-hero">
+    <div class="site-container">
+      <div class="caso-hero-grid">
+        <div>
+          <h1 class="caso-h1">Converse com sua planilha antes de decidir</h1>
+          <p class="caso-descricao">Você tem uma planilha. Antes de fazer o gráfico bonito e apresentar pra chefia, você conversa com ela junto do Claude — <strong>ele te mostra o que salta aos olhos, o que é armadilha, o que você não devia dizer sem checar</strong>. É o exercício que separa análise de bajulação.</p>
+          <a class="caso-cta" href="https://claude.ai/new" target="_blank" rel="noopener">Abrir Claude Chat</a>
+        </div>
+
+        <aside class="caso-hero-sidebar">
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Autoria</div>
+            <div class="caso-hero-sidebar__valor">Anthropic · adaptação Rafael</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Categoria</div>
+            <div class="caso-hero-sidebar__valor">Leitura de dados · Preparo de apresentação</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Modelo sugerido</div>
+            <div class="caso-hero-sidebar__valor">Claude Sonnet 4.5</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Ferramentas</div>
+            <div class="caso-features">
+              <span class="feat-chip">Chat</span>
+              <span class="feat-chip">Upload XLSX</span>
+              <span class="feat-chip">Cowork</span>
+            </div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Tempo estimado</div>
+            <div class="caso-hero-sidebar__valor">25-35 min · 5-6 turnos</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="passos-wrap">
+    <div class="site-container">
+
+      <!-- PASSO 1 -->
+      <div class="passo">
+        <div class="passo__num">1</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Suba a planilha e peça leitura estruturada</h3>
+            <p>Antes de rodar o prompt: baixe <code>planilha-produtividade-mock.xlsx</code> (no passo 6), abra <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai/new</a>, e anexe (clip ou arrasta). Aguarde o Claude confirmar que leu antes de mandar o prompt.</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-1">Copiar</button><span id="prompt-1"><span class="highlight">Papel:</span> Você é um analista de gestão sênior que ajuda executivas a lerem planilhas antes de apresentar.
+
+<span class="highlight">Contexto:</span> Anexei planilha com dados de 30 colaboradores fictícios ao longo de 6 meses — horas trabalhadas, entregas concluídas, satisfação autorreportada e faltas. Vou apresentar isso pra minha chefia.
+
+<span class="highlight">Tarefa:</span> Me mostra o que essa planilha está me dizendo. Especificamente:
+1. As 3 relações mais fortes entre variáveis (com o número)
+2. Anomalias — pessoas ou meses que fogem do padrão
+3. Leitura honesta: o que dá pra afirmar / o que precisaria de mais análise
+
+<span class="highlight">Formato:</span> 3 seções (Relações · Anomalias · Leitura honesta). Cada relação com correlação numérica. Cada anomalia com o dado bruto.
+
+<span class="highlight">Limite:</span> Nada de "os dados sugerem que talvez possa haver". Se não dá pra afirmar, diga. Não invente narrativa causal — correlação, não causa.</span></div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">🧭</div>
+              <div class="passo__sidebar-title">Regra do "peça o número"</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>"Correlação forte" não te ajuda em reunião. <strong>"Correlação 0.72"</strong> te ajuda.</p>
+              <p style="margin-top:8px;">Sempre exija o número. Se ele hedgear, peça o intervalo. Chefia gosta de precisão, não de adjetivo.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 2 -->
+      <div class="passo">
+        <div class="passo__num">2</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Peça o gráfico da relação mais interessante</h3>
+            <p>Escolha 1 das 3 relações que o Claude apontou. A mais estranha, mais nova ou mais impactante pra decisão que você vai apoiar.</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-2">Copiar</button><span id="prompt-2">Da relação [X × Y], me monta um gráfico de dispersão. Marca em cor diferente os pontos que estão >2 desvios padrão da média. Legenda simples — vou botar num slide.</span></div>
+          </div>
+
+          <aside class="passo__sidebar sidebar-card--claude">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">✎</div>
+              <div class="passo__sidebar-title">Do Claude · exemplo</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <div class="grafico-preview">HORAS × ENTREGAS<br>▪ ▪ ▪ ▪ ▪ ▪ ● ●<br>▪ ▪ ▪ ● ▪ ▪ ▪ ▪<br>▪ ● ▪ ▪ ▪ ▪ ▪ ▪<br>&nbsp;<br>correlação: 0.71<br>3 pontos fora da curva</div>
+              <p style="margin-top:8px; font-size:12.5px;">Pontos em ● são colaboradores fora do padrão. Cliente com 90h/mês entregando pouco = provável burnout. Cliente com 40h entregando muito = alto rendimento.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 3 -->
+      <div class="passo">
+        <div class="passo__num">3</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Force o "e se eu estivesse errada?"</h3>
+            <p>Este é o passo que separa análise de <em>bajulação da narrativa</em>. Toda planilha permite mais de uma leitura. O Claude te dá a mais óbvia primeiro. Aqui você provoca a contra-hipótese.</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-3">Copiar</button><span id="prompt-3">Se alguém da chefia me perguntar "isso que você tá mostrando não seria explicado por [FATOR ALTERNATIVO — ex.: mês de férias, mudança de escritório, projeto específico]?", como eu respondo? O que os dados dessa planilha permitem afirmar contra essa objeção?</span></div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">⚠️</div>
+              <div class="passo__sidebar-title">Anti-padrão comum</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Aceitar a 1ª leitura porque ela confirma o que você já achava.</p>
+              <p style="margin-top:8px;">O reflexo do Claude é entregar a narrativa mais limpa possível. Isso é ótimo pra escrita, é <strong>perigoso pra análise</strong>. Sempre force a contra-hipótese.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 4 -->
+      <div class="passo">
+        <div class="passo__num">4</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Transfira pro Cowork · polir o parágrafo</h3>
+            <p>Você tem os números, o gráfico e a contra-hipótese defendida. Agora precisa transformar em texto que vai no slide. Pegue o output final e cole num Cowork novo. 3 refinamentos típicos:</p>
+
+            <div class="refinamentos">
+              <div class="refinamento">
+                <div class="refinamento__titulo">Reduzir pra slide</div>
+                <div class="refinamento__prompt">"Reescreve esse parágrafo pra caber num slide de deck executivo. Máximo 3 linhas. Verbo forte no início. Sem 'os dados sugerem'."</div>
+              </div>
+              <div class="refinamento">
+                <div class="refinamento__titulo">Marcar hedge</div>
+                <div class="refinamento__prompt">"Onde eu deveria hedgear (pra não afirmar demais), marca com colchete: [HEDGE aqui]. Prefiro decidir na hora se coloco no slide."</div>
+              </div>
+              <div class="refinamento">
+                <div class="refinamento__titulo">Preparar a resposta</div>
+                <div class="refinamento__prompt">"Anexa 1 linha logo abaixo do parágrafo com a resposta pré-preparada pra objeção mais provável (a que a gente discutiu no passo 3)."</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">💡</div>
+              <div class="passo__sidebar-title">Padrão de uso</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Chat = <strong>lê os dados</strong>. Cowork = <strong>polir o texto pra apresentar</strong>.</p>
+              <p style="margin-top:8px;">Se você tentar polir texto direto no Chat, cada refinamento vira cópia&cola. Cowork elimina isso.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 5 -->
+      <div class="passo">
+        <div class="passo__num">5</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Truques, dicas e ciladas</h3>
+
+            <div class="truques-lista">
+              <div class="truque">
+                <h4>Correlação ≠ causa</h4>
+                <p>Se o Claude escrever "X causa Y", corrija: "reformula pra dizer 'X e Y andam juntos' — não posso afirmar causa com esses dados". Nunca leve causa pra chefia sem experimento controlado.</p>
+              </div>
+              <div class="truque">
+                <h4>Anomalia primeiro, média depois</h4>
+                <p>Média esconde. Anomalia revela. Sempre pergunte "quem está fora do padrão?" antes de "qual é a média?". O caso individual é o que vira decisão.</p>
+              </div>
+              <div class="truque">
+                <h4>Peça 3 relações, não 10</h4>
+                <p>Se você pedir "todas as relações", vem lista longa e confusa. 3 é o número que cabe na sua cabeça e num slide. Priorize.</p>
+              </div>
+              <div class="truque">
+                <h4>Se o Claude for cauteloso demais, force posição</h4>
+                <p>Prompts como "não posso afirmar sem mais dados" às vezes indicam limite real. Outras vezes é reflexo defensivo. Force: "com esses dados, qual é sua melhor aposta?". Você quer opinião calibrada, não silêncio.</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">🎯</div>
+              <div class="passo__sidebar-title">Como saber que deu certo</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <ul>
+                <li>Você sabe explicar 1 relação em 30s com o número na mão</li>
+                <li>Você tem 1 resposta pronta pra objeção mais provável</li>
+                <li>Nenhum "os dados sugerem" sobrou na versão final</li>
+                <li>Você identificou 1 ponto que ainda precisa de checagem</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 6 -->
+      <div class="passo">
+        <div class="passo__num">6</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Frente prática · faça agora</h3>
+            <div class="frente-pratica">
+              <p class="frente-pratica__lead">Baixe a planilha fictícia e o prompt-base. Rode uma vez com esses dados de treino — depois você vai fazer o mesmo com uma planilha real sua na semana.</p>
+
+              <div class="arquivo-download">
+                <div class="arquivo-download__icon">XLSX</div>
+                <div>
+                  <div class="arquivo-download__nome">planilha-produtividade-mock.xlsx</div>
+                  <div class="arquivo-download__desc">30 colaboradores × 6 meses · horas, entregas, satisfação, faltas · dados fictícios</div>
+                </div>
+                <a class="arquivo-download__btn" href="planilha-produtividade-mock.xlsx" download>baixar ↓</a>
+              </div>
+
+              <div class="arquivo-download">
+                <div class="arquivo-download__icon">MD</div>
+                <div>
+                  <div class="arquivo-download__nome">prompt-converse-planilha.md</div>
+                  <div class="arquivo-download__desc">Sequência de 5 prompts · leitura → gráfico → contra-hipótese → refino</div>
+                </div>
+                <a class="arquivo-download__btn" href="prompt-converse-planilha.md" download>baixar ↓</a>
+              </div>
+
+              <div class="passo-a-passo">
+                <h5>Passo a passo em 5 minutos</h5>
+                <ol>
+                  <li>Baixe os 2 arquivos acima</li>
+                  <li>Abra <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai/new</a></li>
+                  <li>Anexe <code>planilha-produtividade-mock.xlsx</code> (clip ou arrasta)</li>
+                  <li>Aguarde confirmação de leitura</li>
+                  <li>Cole o prompt PCTFL do <code>prompt-converse-planilha.md</code></li>
+                  <li>Peça o gráfico da relação mais interessante</li>
+                  <li>Force o "e se eu estivesse errada?"</li>
+                  <li>Refine no Cowork (opcional)</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">✓</div>
+              <div class="passo__sidebar-title">Ao chegar aqui</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Você tem 1 leitura fundamentada da planilha + 1 gráfico + 1 resposta pré-preparada pra objeção.</p>
+              <p style="margin-top:10px;">Reporta na S5:</p>
+              <ul>
+                <li>Qual foi a relação mais surpreendente?</li>
+                <li>O Claude tentou afirmar causa em algum momento?</li>
+                <li>Você já sabe que planilha real vai fazer isso semana que vem?</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="voltar-nav">
+    <div class="site-container">
+      <a href="../../">← Voltar pra S4 · Chat + Cowork</a>
+      <div class="assinatura">Curadoria: Rafael Lima · <a href="https://www.instagram.com/iacomrafael/" target="_blank" rel="noopener">@iacomrafael</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.prompt-copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const t = document.getElementById(btn.dataset.copyTarget);
+        if (!t) return;
+        navigator.clipboard.writeText(t.textContent).then(() => {
+          const orig = btn.textContent;
+          btn.textContent = 'Copiado ✓';
+          btn.classList.add('copied');
+          setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Caso · Herdei essa planilha, o que ela faz? · S4 · Débora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../../_shared/assets/style.css">
+  <link rel="stylesheet" href="../_shared/caso-styles.css">
+  <style>
+    .aba-map {
+      background: var(--bg-warm);
+      border: 1px dashed var(--accent-warm);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 10px 0;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+    .aba-map strong { color: var(--accent-warm-dark); }
+    .quiz-box {
+      background: #fdf3ec;
+      border-left: 3px solid var(--accent-warm);
+      padding: 12px 16px;
+      margin: 10px 0;
+      font-family: var(--sans);
+      font-size: 13.5px;
+      color: var(--ink);
+    }
+    .quiz-box strong { color: var(--accent-warm-dark); }
+  </style>
+</head>
+<body>
+
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../../../../" class="topbar-logo">Débora</a>
+      <div class="topbar-nav">
+        <a href="../../../../">Home</a>
+        <a href="../../">Voltar pra S4</a>
+        <a href="../../../../banco-de-prompts/">Banco de prompts</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="breadcrumb-page">
+    <div class="site-container">
+      <div class="breadcrumb">
+        <a href="../../../../">Débora</a>
+        <span class="sep">/</span>
+        <a href="../../">S4 · Chat + Cowork</a>
+        <span class="sep">/</span>
+        <span>Padrões</span>
+        <span class="sep">/</span>
+        <span class="current">Herdei essa planilha, o que ela faz?</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="caso-hero">
+    <div class="site-container">
+      <div class="caso-hero-grid">
+        <div>
+          <h1 class="caso-h1">Herdei essa planilha, o que ela faz?</h1>
+          <p class="caso-descricao">Alguém saiu da equipe e deixou uma planilha viva que "todo mundo usa". Fórmulas em cima de fórmulas, abas conectadas sem documentação, valores que mudam sozinhos. Agora você precisa <strong>entender + estender sem quebrar</strong>. Um dos usos mais valiosos do Claude no dia executivo.</p>
+          <a class="caso-cta" href="https://claude.ai/new" target="_blank" rel="noopener">Abrir Claude Chat</a>
+        </div>
+
+        <aside class="caso-hero-sidebar">
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Autoria</div>
+            <div class="caso-hero-sidebar__valor">Anthropic · adaptação Rafael</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Categoria</div>
+            <div class="caso-hero-sidebar__valor">Análise técnica · Herança de sistema</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Modelo sugerido</div>
+            <div class="caso-hero-sidebar__valor">Claude Sonnet 4.5 · Extended Thinking</div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Ferramentas</div>
+            <div class="caso-features">
+              <span class="feat-chip">Chat</span>
+              <span class="feat-chip">Upload XLSX</span>
+              <span class="feat-chip">File Creation</span>
+            </div>
+          </div>
+          <div class="caso-hero-sidebar__bloco">
+            <div class="caso-hero-sidebar__label">▪ Tempo estimado</div>
+            <div class="caso-hero-sidebar__valor">35-45 min · 6-7 turnos</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="passos-wrap">
+    <div class="site-container">
+
+      <!-- PASSO 1 -->
+      <div class="passo">
+        <div class="passo__num">1</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Suba a planilha · peça 3 coisas na ordem</h3>
+            <p>Baixe <code>planilha-legado-mock.xlsx</code> (passo 6). É uma planilha propositalmente complexa: 4 abas conectadas, fórmulas encadeadas, aba Legend com notas, alguns cell comments. Simula o que você vai herdar de verdade.</p>
+            <p><strong>Ligue File Creation nas configurações da conversa antes de rodar</strong> — assim o Claude pode te devolver uma versão nova do arquivo, não só texto explicando.</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-1">Copiar</button><span id="prompt-1"><span class="highlight">Papel:</span> Você é uma analista financeira sênior especializada em auditar e estender modelos herdados. Já viu de tudo — de planilhas com 40 abas até modelos que quebram se você mexer numa célula errada.
+
+<span class="highlight">Contexto:</span> Herdei essa planilha de acompanhamento trimestral. A pessoa que criou saiu. Preciso entender ANTES de mexer, porque semana que vem adiciono Q3 e Q4 desse ano. Tem aba "Legend" com notas e cell comments espalhados — não é suficiente.
+
+<span class="highlight">Tarefa:</span> Faz 3 coisas, nessa ordem:
+1. Explica como as abas se conectam — o que puxa de onde, o que é hardcoded, o que é fórmula
+2. Explica as fórmulas complexas (as que têm cell comment E as que não têm)
+3. Marca o que NÃO está documentado mas eu deveria saber pra estender sem quebrar
+
+<span class="highlight">Formato:</span> Seção 1 (mapa das abas em texto) · Seção 2 (fórmulas numeradas, célula + o que faz + por quê) · Seção 3 (armadilhas — cada uma com o que quebra se eu ignorar).
+
+<span class="highlight">Limite:</span> Se algo não é claro, marca "🚩 não consegui entender". Prefiro saber que você não sabe do que ler suposição. Nada de "essa fórmula parece calcular X" — se não tem certeza, marca a incerteza.</span></div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">🧭</div>
+              <div class="passo__sidebar-title">Por que "3 coisas nessa ordem"</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Se você perguntar "explica essa planilha", vem texto longo e confuso.</p>
+              <p style="margin-top:8px;">A ordem <strong>mapa → fórmulas → armadilhas</strong> é o caminho que um auditor experiente faz. Primeiro topografia, depois lugares perigosos.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 2 -->
+      <div class="passo">
+        <div class="passo__num">2</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Peça pra ANOTAR a planilha (não só descrever)</h3>
+            <p>Aqui o Claude passa de "consultor que explica" pra "analista que entrega". Você quer <strong>a planilha estendida</strong>, não um texto sobre ela.</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-2">Copiar</button><span id="prompt-2">Boa. Agora me devolve a planilha com:
+1. Cell comments novos nas fórmulas complexas que ainda não tinham
+2. Uma aba nova "Mapa" com o resumo das conexões entre abas
+3. Formatação condicional (data bars) nas colunas de margem e crescimento — pra bater o olho e ver tendência
+
+Preserva TUDO que já está lá — só adiciona.</span></div>
+
+            <div class="aba-map">
+              <strong>Resultado esperado:</strong> mesmo arquivo, agora com<br>
+              → 5-8 cell comments novos em fórmulas complexas<br>
+              → 1 aba nova "Mapa" resumindo o modelo<br>
+              → data bars visíveis em colunas de margem<br>
+              → tudo o que já existia, intacto
+            </div>
+          </div>
+
+          <aside class="passo__sidebar sidebar-card--claude">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">✎</div>
+              <div class="passo__sidebar-title">Do Claude · exemplo de comment</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p><strong>Célula F14 (aba Trimestre)</strong></p>
+              <p style="font-size:12.5px; color:var(--ink-soft); margin-top:4px; font-family:var(--mono); background:var(--bg-warm); padding:6px 8px; border-radius:4px;">=E14*1.1*'Sazonal'!B$3/'Sazonal'!B$2</p>
+              <p style="font-size:12.5px; color:var(--ink-soft); margin-top:6px;"><strong>Comment adicionado:</strong> "Normaliza sazonalidade do trimestre anterior antes de aplicar crescimento. Divisão evita double-count na virada Q4→Q1."</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 3 -->
+      <div class="passo">
+        <div class="passo__num">3</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Antes de estender — passe no quiz</h3>
+            <p>Este passo separa <em>usar IA como calculadora</em> de <em>usar IA pra aprender</em>. Você pede pro Claude te dar um quiz sobre a planilha e RESPONDE antes de continuar.</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-3">Copiar</button><span id="prompt-3">Antes de eu estender pra Q3 e Q4, me faz um quiz de 3 perguntas sobre essa planilha. Perguntas que testam se eu entendi mesmo — não decoreba. Do tipo "se eu mudar a célula X, o que acontece na aba Y?".
+
+Espera minha resposta antes de continuar.</span></div>
+
+            <div class="quiz-box">
+              <strong>Se errar, é ouro.</strong> É onde você aprende antes de quebrar o arquivo real. Se acertar tudo, você ganhou 3 pontos de confiança pra mexer.
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">⚠️</div>
+              <div class="passo__sidebar-title">Anti-padrão comum</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Pular o quiz porque "eu já entendi".</p>
+              <p style="margin-top:8px;">Você acha que entendeu. O quiz revela o que você achou que entendeu e não entendeu. É o melhor uso de 3 min do fluxo inteiro.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 4 -->
+      <div class="passo">
+        <div class="passo__num">4</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Estenda com padrão preservado</h3>
+            <p>Agora sim. Você entendeu, passou no quiz. Peça a extensão explicitando 4 regras.</p>
+
+            <div class="prompt-box"><button class="prompt-copy-btn" data-copy-target="prompt-4">Copiar</button><span id="prompt-4">Estende a planilha adicionando Q3 e Q4 de 2026. Regras:
+1. Segue exatamente o padrão que já está lá — mesmas fórmulas, mesmas conexões, mesmo estilo de nome
+2. Mantém a lógica de sazonalidade que existe entre trimestres
+3. Nas células novas com fórmula complexa, adiciona comment explicando (mesmo padrão dos comments que já existem)
+4. Se tiver que tomar decisão de forecast, me pergunta antes — não assume
+
+Me devolve a planilha estendida.</span></div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">💡</div>
+              <div class="passo__sidebar-title">Padrão de uso</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>"Preserva TUDO — só adiciona" é frase-chave.</p>
+              <p style="margin-top:8px;">Sem ela, o Claude tende a "melhorar" partes existentes. Boa intenção, resultado imprevisível.</p>
+              <p style="margin-top:8px; color:var(--ink-muted);">Sempre salve o original antes. Nunca sobrescreva.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 5 -->
+      <div class="passo">
+        <div class="passo__num">5</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Truques, dicas e ciladas</h3>
+
+            <div class="truques-lista">
+              <div class="truque">
+                <h4>Nunca sobrescreva o original</h4>
+                <p>Salve como <code>planilha-Q3-Q4-v1.xlsx</code>. Se algo quebrar, você volta. Herança é sagrada — se você perder, ninguém repõe.</p>
+              </div>
+              <div class="truque">
+                <h4>Peça pra IA marcar o que ela NÃO entendeu</h4>
+                <p>É o oposto do reflexo dela. Ela quer entregar. Você quer saber onde ela chutou. "Marque 🚩 onde não tem certeza" é o filtro que separa análise de teatro.</p>
+              </div>
+              <div class="truque">
+                <h4>Faça o quiz — mesmo achando bobo</h4>
+                <p>É o momento em que você aprende a planilha, não só a lê. 3 min de quiz = 30 min de retrabalho evitado semana que vem.</p>
+              </div>
+              <div class="truque">
+                <h4>Cell comments valem ouro</h4>
+                <p>Quem herdar depois vai agradecer — inclusive você daqui a 6 meses quando esquecer. Cada fórmula complexa deve ter uma linha explicando o "porquê".</p>
+              </div>
+              <div class="truque">
+                <h4>Discorde de "melhoria" não pedida</h4>
+                <p>Se o Claude "melhorar" uma fórmula existente sem você pedir, reverta. Mantenha o padrão original. Melhoria a você adianta zero. Consistência adianta tudo.</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">🎯</div>
+              <div class="passo__sidebar-title">Como saber que deu certo</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <ul>
+                <li>Você consegue desenhar num guardanapo como as abas se conectam</li>
+                <li>Sabe pelo menos 1 armadilha que não estava documentada</li>
+                <li>Acertou o quiz (se errou, entendeu por quê)</li>
+                <li>A versão estendida abre no Excel/Sheets sem erro</li>
+                <li>Guardou a versão original antes de sobrescrever</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- PASSO 6 -->
+      <div class="passo">
+        <div class="passo__num">6</div>
+        <div class="passo__body">
+          <div class="passo__conteudo">
+            <h3>Frente prática · faça agora</h3>
+            <div class="frente-pratica">
+              <p class="frente-pratica__lead">Baixe a planilha mock e o prompt-base. Rode com esses dados de treino primeiro — semana que vem você faz o mesmo com uma planilha herdada real (ou peça pra alguém te "passar" uma).</p>
+
+              <div class="arquivo-download">
+                <div class="arquivo-download__icon">XLSX</div>
+                <div>
+                  <div class="arquivo-download__nome">planilha-legado-mock.xlsx</div>
+                  <div class="arquivo-download__desc">4 abas conectadas · fórmulas encadeadas · aba Legend · cell comments · dados fictícios</div>
+                </div>
+                <a class="arquivo-download__btn" href="planilha-legado-mock.xlsx" download>baixar ↓</a>
+              </div>
+
+              <div class="arquivo-download">
+                <div class="arquivo-download__icon">MD</div>
+                <div>
+                  <div class="arquivo-download__nome">prompt-planilha-legado.md</div>
+                  <div class="arquivo-download__desc">Sequência de 5 prompts · entender → anotar → quiz → estender</div>
+                </div>
+                <a class="arquivo-download__btn" href="prompt-planilha-legado.md" download>baixar ↓</a>
+              </div>
+
+              <div class="passo-a-passo">
+                <h5>Passo a passo em 5 minutos</h5>
+                <ol>
+                  <li>Baixe os 2 arquivos</li>
+                  <li>Abra <a href="https://claude.ai/new" target="_blank" rel="noopener">claude.ai/new</a> · <strong>ative File Creation nas configurações</strong></li>
+                  <li>Anexe <code>planilha-legado-mock.xlsx</code></li>
+                  <li>Cole o prompt PCTFL do <code>prompt-planilha-legado.md</code></li>
+                  <li>Leia mapa + fórmulas + armadilhas</li>
+                  <li>Peça pra anotar a planilha (passo 2)</li>
+                  <li>Faça o quiz e responda</li>
+                  <li>Peça a extensão · baixe versão nova</li>
+                  <li>Abra no Excel/Sheets · confira que abre sem erro</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <aside class="passo__sidebar">
+            <div class="passo__sidebar-cabecalho">
+              <div class="passo__sidebar-icon">✓</div>
+              <div class="passo__sidebar-title">Ao chegar aqui</div>
+            </div>
+            <div class="passo__sidebar-conteudo">
+              <p>Você tem: mapa da planilha na cabeça + versão anotada + quiz respondido + versão estendida funcional.</p>
+              <p style="margin-top:10px;">Reporta na S5:</p>
+              <ul>
+                <li>Acertou o quiz de primeira?</li>
+                <li>O Claude marcou 🚩 em algum lugar?</li>
+                <li>A extensão abriu no Excel/Sheets?</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="voltar-nav">
+    <div class="site-container">
+      <a href="../../">← Voltar pra S4 · Chat + Cowork</a>
+      <div class="assinatura">Curadoria: Rafael Lima · <a href="https://www.instagram.com/iacomrafael/" target="_blank" rel="noopener">@iacomrafael</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.prompt-copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const t = document.getElementById(btn.dataset.copyTarget);
+        if (!t) return;
+        navigator.clipboard.writeText(t.textContent).then(() => {
+          const orig = btn.textContent;
+          btn.textContent = 'Copiado ✓';
+          btn.classList.add('copied');
+          setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
