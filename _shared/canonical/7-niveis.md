@@ -1,19 +1,20 @@
 # Os 7 Níveis de uso de IA
 
 > Espelho do vault. **Fonte canônica:** `produto-mentoria-ia-executiva/obsidian-mentoria-ia-executiva/01-metodo/modelo-7-niveis.md`
-> **Última sincronização:** 2026-06-25
+>
+> **Origem do modelo:** vídeo *7 Levels of AI User*, do canal **Futurepedia** (YouTube).
+> Os sete degraus batem um a um com os de lá. **Do Rafael** são os nomes em português, os
+> sinais comportamentais observáveis e a régua do **problema que destrava o próximo
+> nível** — que no original aparece solto e aqui virou critério.
+> **A escala é a do Futurepedia, sem acréscimo de degrau:** o Nível 0 (Pré-Explorador) foi
+> removido em 2026-08-30 por decisão do Rafael, para a régua não divergir da fonte.
+> **Última sincronização:** 2026-08-30
 
 ---
 
 A régua de evolução da Mentoria IA Executiva. Cada nível tem **sinais comportamentais observáveis** — é por eles que o diagnóstico posiciona a pessoa, não por auto-declaração.
 
 > **Princípio de progressão:** ninguém sobe de nível "estudando". Sobe quando bate num **problema** que o nível atual não resolve. O próximo nível é a solução desse problema. A mentoria provoca esses problemas de propósito.
-
----
-
-## Caso especial — Pré-Explorador (Nível 0)
-
-Antes do Nível 1 existe um caso ainda anterior: gestoras que **nunca usaram IA generativa** sequer uma vez. Caracteriza-se por desconhecer o gesto básico de "perguntar e receber". Não é menos — é apenas anterior. A primeira sessão se torna alfabetização guiada antes do diagnóstico padrão.
 
 ---
 
@@ -84,4 +85,4 @@ Antes do Nível 1 existe um caso ainda anterior: gestoras que **nunca usaram IA 
 
 A maioria das gestoras entra entre **N1 e N3** e sai entre **N3 e N5**. Subir 2 níveis com aplicação real na rotina é um resultado forte para 8 semanas. **N6–N7 são horizonte, não meta do programa.**
 
-Casos pré-1 (sem experiência prévia) saem geralmente em **N2**, com possibilidade de N3 se cumprirem todas as casas e o caso-âncora gerar tração.
+Quem chega sem nenhuma experiência prévia sai geralmente em **N2**, com possibilidade de N3 se cumprir todas as casas e o caso-âncora gerar tração. A primeira sessão vira alfabetização guiada antes do diagnóstico padrão, mas isso é ajuste de condução, não um degrau a mais na régua.
