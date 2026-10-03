@@ -12,6 +12,8 @@ Toda página de mentorado usa:
 
 Links são compartilhados **diretamente** com cada mentorado via WhatsApp/email. Não são publicados em redes sociais. URLs com slug previsível (`/debora-nascimento/`) — privacidade vem da soma de obscurecimento + noindex + casos reais ficarem ao vivo (não na página).
 
+Exemplos de mentorados com autorização; dados ilustrativos.
+
 ## Estrutura
 
 ```
